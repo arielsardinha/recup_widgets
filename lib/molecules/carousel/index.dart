@@ -4,7 +4,7 @@ part of 'package:recup_storybook/recup_storybook.dart';
 
 enum RecupCarouselSize {
   NORML(150),
-  LARGE(200);
+  LARGE(240);
 
   final double size;
   const RecupCarouselSize(this.size);
