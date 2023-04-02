@@ -17,8 +17,8 @@ class RecupCardVerticalAction extends StatelessWidget {
     this.icon,
     this.iconFromButtom,
     this.textButton = '',
-    required this.onPressedIconButton,
-    this.onPressed,
+    this.onPressedIconButton,
+    required this.onPressed,
     this.isPrimaryContainerColorButton = false,
   });
 
