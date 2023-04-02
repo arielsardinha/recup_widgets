@@ -38,8 +38,21 @@ abstract class _StorybookMolecules {
           WidgetbookUseCase(
             name: 'Default',
             builder: (context) {
-              return const RecupCarousel(
-                images: [
+              return RecupCarousel(
+                height: context.knobs.options(
+                  label: "height",
+                  options: const [
+                    Option(
+                      label: "NORMAL",
+                      value: RecupCarouselSize.NORML,
+                    ),
+                    Option(
+                      label: "LARGE",
+                      value: RecupCarouselSize.LARGE,
+                    )
+                  ],
+                ),
+                images: const [
                   'https://github.com/arielsardinha.png',
                   'https://github.com/treinaweb.png',
                 ],

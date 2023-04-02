@@ -1,13 +1,25 @@
-
+// ignore_for_file: constant_identifier_names
 
 part of 'package:recup_storybook/recup_storybook.dart';
 
+enum RecupCarouselSize {
+  NORML(150),
+  LARGE(200);
+
+  final double size;
+  const RecupCarouselSize(this.size);
+}
 
 class RecupCarousel extends StatefulWidget {
   final List<String> images;
+  final RecupCarouselSize height;
   final void Function(String image, int indice)? onChange;
-  const RecupCarousel({Key? key, required this.images, this.onChange})
-      : super(key: key);
+  const RecupCarousel({
+    Key? key,
+    required this.images,
+    this.onChange,
+    this.height = RecupCarouselSize.NORML,
+  }) : super(key: key);
 
   @override
   State<RecupCarousel> createState() => _RecupCarouselState();
@@ -42,7 +54,7 @@ class _RecupCarouselState extends State<RecupCarousel> {
                 .toList(),
             carouselController: _controller,
             options: CarouselOptions(
-              height: 150,
+              height: widget.height.size,
               autoPlay: widget.images.length > 1,
               viewportFraction: 1,
               autoPlayAnimationDuration: const Duration(milliseconds: 1000),
