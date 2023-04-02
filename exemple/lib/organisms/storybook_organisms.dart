@@ -115,8 +115,8 @@ abstract class _StorybookOrganismis {
                         label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      centerText: context.knobs.text(
-                        label: "centerText",
+                      textCenter: context.knobs.text(
+                        label: "textCenter",
                         initialValue: '+100',
                       ),
                       iconCenter: const Icon(Icons.clear),
@@ -163,8 +163,8 @@ abstract class _StorybookOrganismis {
                         label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      centerText: context.knobs.text(
-                        label: "centerText",
+                      textCenter: context.knobs.text(
+                        label: "textCenter",
                         initialValue: '+100',
                       ),
                       iconCenter: const Icon(Icons.clear),
@@ -214,8 +214,8 @@ abstract class _StorybookOrganismis {
                         label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      centerText: context.knobs.text(
-                        label: "centerText",
+                      textCenter: context.knobs.text(
+                        label: "textCenter",
                         initialValue: '3,54 €',
                       ),
                       iconCenter: Icon(
@@ -268,8 +268,8 @@ abstract class _StorybookOrganismis {
                         label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      centerText: context.knobs.text(
-                        label: "centerText",
+                      textCenter: context.knobs.text(
+                        label: "textCenter",
                         initialValue: '3,54 €',
                       ),
                       iconCenter: Icon(

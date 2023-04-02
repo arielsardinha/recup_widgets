@@ -1,7 +1,7 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalAction extends StatelessWidget {
-  final String photoAvatar, nameAvatar, title, subtitle, centerText, textButton;
+  final String photoAvatar, nameAvatar, title, subtitle, textCenter, textButton;
   final Widget? iconCenter, iconHeader;
   final void Function()? onPressedHeaderIconButton, onPressedButton;
   final bool isPrimaryContainerColorButton;
@@ -13,7 +13,7 @@ class RecupCardVerticalAction extends StatelessWidget {
     this.iconHeader,
     this.title = '',
     this.subtitle = '',
-    this.centerText = '',
+    this.textCenter = '',
     this.iconCenter,
     this.iconFromButtom,
     this.textButton = '',
@@ -72,7 +72,7 @@ class RecupCardVerticalAction extends StatelessWidget {
                       width: 4,
                     ),
                   Text(
-                    centerText,
+                    textCenter,
                     style: theme.textTheme.titleMedium?.copyWith(
                       color: theme.colorScheme.onSurface,
                     ),
