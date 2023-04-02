@@ -59,25 +59,31 @@ class RecupCardVerticalAction extends StatelessWidget {
                     ),
                 ],
               ),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(title),
-                subtitle: Text(subtitle),
+              Visibility(
+                visible: !(title.isEmpty && subtitle.isEmpty),
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: title.isNotEmpty ? Text(title) : null,
+                  subtitle: subtitle.isNotEmpty ? Text(subtitle) : null,
+                ),
               ),
-              Row(
-                children: [
-                  if (iconCenter != null) iconCenter!,
-                  if (iconCenter != null)
-                    const SizedBox(
-                      width: 4,
+              Visibility(
+                visible: !(iconCenter != null && textCenter.isEmpty),
+                child: Row(
+                  children: [
+                    if (iconCenter != null) iconCenter!,
+                    if (iconCenter != null)
+                      const SizedBox(
+                        width: 4,
+                      ),
+                    Text(
+                      textCenter,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: theme.colorScheme.onSurface,
+                      ),
                     ),
-                  Text(
-                    textCenter,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
