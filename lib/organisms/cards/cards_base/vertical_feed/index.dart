@@ -1,12 +1,12 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupVerticalFeedCard extends StatelessWidget {
+class RecupCardVerticalFeedCard extends StatelessWidget {
   final String nameAvatar, titleHeader, subtitleHeader, photoHeader;
   final List<String> backgroundImage, avatars;
 
   final Widget? children;
   final Widget? trailingHeader;
-  const RecupVerticalFeedCard({
+  const RecupCardVerticalFeedCard({
     super.key,
     this.nameAvatar = '',
     this.titleHeader = '',

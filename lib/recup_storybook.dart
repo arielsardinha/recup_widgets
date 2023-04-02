@@ -11,3 +11,4 @@ part 'molecules/carousel/index.dart';
 part 'molecules/text_form_field/text_form_field.dart';
 part 'organisms/cards/cards_base/vertical_feed/index.dart';
 part 'organisms/cards/cards_base/horizontal/horizontal_card_base.dart';
+part 'organisms/cards/cards_base/vertical_action/vertical_action.dart';

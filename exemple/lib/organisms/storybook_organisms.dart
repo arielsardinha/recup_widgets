@@ -8,12 +8,12 @@ abstract class _StorybookOrganismis {
         name: 'Cards',
         widgets: [
           WidgetbookComponent(
-            name: 'Horizontal Card Base',
+            name: 'Horizontal',
             useCases: [
               WidgetbookUseCase(
                 name: 'Default',
                 builder: (context) {
-                  return RecupHorizontalCardBase(
+                  return RecupCardHorizontalCardBase(
                     title: context.knobs.text(
                       label: 'title',
                       initialValue: 'Header',
@@ -52,7 +52,7 @@ abstract class _StorybookOrganismis {
               WidgetbookUseCase(
                 name: 'Default',
                 builder: (context) {
-                  return RecupVerticalFeedCard(
+                  return RecupCardVerticalFeedCard(
                     backgroundImage: const [
                       'https://github.com/arielsardinha.png',
                       'https://github.com/treinaweb.png',
@@ -78,6 +78,62 @@ abstract class _StorybookOrganismis {
                     subtitleHeader: context.knobs.text(
                       label: 'subtitleHeader',
                       initialValue: 'Subtitle Header',
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+          WidgetbookComponent(
+            name: 'vertical action',
+            useCases: [
+              WidgetbookUseCase(
+                name: 'Default',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalAction(
+                      onPressedIconButton: context.knobs.boolean(
+                        label: "onPressedIconButton",
+                        initialValue: true,
+                      )
+                          ? () {}
+                          : null,
+                      iconButton: const Icon(Icons.settings),
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: 'Header',
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: 'subtitle',
+                      ),
+                      photo: context.knobs.text(
+                        label: "photo",
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      name: context.knobs.text(
+                        label: "name",
+                        initialValue: 'Ariel Sardinha',
+                      ),
+                      text: context.knobs.text(
+                        label: "text",
+                        initialValue: '+100',
+                      ),
+                      icon: const Icon(Icons.clear),
+                      iconFromButtom: Icon(
+                        Icons.add,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                      textButton: context.knobs.text(
+                        label: "textButton",
+                        initialValue: 'Enabled',
+                      ),
+                      onPressed: context.knobs.boolean(
+                        label: "onPressed",
+                        initialValue: true,
+                      )
+                          ? () {}
+                          : null,
                     ),
                   );
                 },

@@ -1,9 +1,9 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupHorizontalCardBase extends StatelessWidget {
+class RecupCardHorizontalCardBase extends StatelessWidget {
   final String textButton, title, subtitle, text, photo;
   final void Function()? onPressedButton, onPressedIcon;
-  const RecupHorizontalCardBase({
+  const RecupCardHorizontalCardBase({
     super.key,
     this.textButton = '',
     this.title = '',
