@@ -92,13 +92,13 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedIconButton: context.knobs.boolean(
-                        label: "onPressedIconButton",
+                      onPressedHeaderIconButton: context.knobs.boolean(
+                        label: "onPressedHeaderIconButton",
                         initialValue: true,
                       )
                           ? () {}
                           : null,
-                      iconButton: const Icon(Icons.settings),
+                      iconHeader: const Icon(Icons.settings),
                       title: context.knobs.text(
                         label: "title",
                         initialValue: 'Header',
@@ -107,26 +107,26 @@ abstract class _StorybookOrganismis {
                         label: "subtitle",
                         initialValue: 'subtitle',
                       ),
-                      photo: context.knobs.text(
-                        label: "photo",
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
                         initialValue: 'https://github.com/arielsardinha.png',
                       ),
-                      name: context.knobs.text(
-                        label: "name",
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      text: context.knobs.text(
-                        label: "text",
+                      centerText: context.knobs.text(
+                        label: "centerText",
                         initialValue: '+100',
                       ),
-                      icon: const Icon(Icons.clear),
+                      iconCenter: const Icon(Icons.clear),
                       iconFromButtom: Icons.add,
                       textButton: context.knobs.text(
                         label: "textButton",
                         initialValue: 'Enabled',
                       ),
-                      onPressed: context.knobs.boolean(
-                        label: "onPressed",
+                      onPressedButton: context.knobs.boolean(
+                        label: "onPressedButton",
                         initialValue: true,
                       )
                           ? () {}
@@ -140,13 +140,13 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedIconButton: context.knobs.boolean(
-                        label: "onPressedIconButton",
+                      onPressedHeaderIconButton: context.knobs.boolean(
+                        label: "onPressedHeaderIconButton",
                         initialValue: false,
                       )
                           ? () {}
                           : null,
-                      iconButton: const Icon(Icons.delete_outline),
+                      iconHeader: const Icon(Icons.delete_outline),
                       title: context.knobs.text(
                         label: "title",
                         initialValue: 'Header',
@@ -155,26 +155,26 @@ abstract class _StorybookOrganismis {
                         label: "subtitle",
                         initialValue: 'subtitle',
                       ),
-                      photo: context.knobs.text(
-                        label: "photo",
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
                         initialValue: 'https://github.com/arielsardinha.png',
                       ),
-                      name: context.knobs.text(
-                        label: "name",
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      text: context.knobs.text(
-                        label: "text",
+                      centerText: context.knobs.text(
+                        label: "centerText",
                         initialValue: '+100',
                       ),
-                      icon: const Icon(Icons.clear),
+                      iconCenter: const Icon(Icons.clear),
                       iconFromButtom: Icons.sensors_outlined,
                       textButton: context.knobs.text(
                         label: "textButton",
                         initialValue: 'Depositar',
                       ),
-                      onPressed: context.knobs.boolean(
-                        label: "onPressed",
+                      onPressedButton: context.knobs.boolean(
+                        label: "onPressedButton",
                         initialValue: true,
                       )
                           ? () {}
@@ -188,13 +188,13 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedIconButton: context.knobs.boolean(
-                        label: "onPressedIconButton",
+                      onPressedHeaderIconButton: context.knobs.boolean(
+                        label: "onPressedHeaderIconButton",
                         initialValue: true,
                       )
                           ? () {}
                           : null,
-                      iconButton: Icon(
+                      iconHeader: Icon(
                         Icons.favorite,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -206,19 +206,19 @@ abstract class _StorybookOrganismis {
                         label: "subtitle",
                         initialValue: 'subtitle',
                       ),
-                      photo: context.knobs.text(
-                        label: "photo",
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
                         initialValue: 'https://github.com/arielsardinha.png',
                       ),
-                      name: context.knobs.text(
-                        label: "name",
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      text: context.knobs.text(
-                        label: "text",
+                      centerText: context.knobs.text(
+                        label: "centerText",
                         initialValue: '3,54 €',
                       ),
-                      icon: Icon(
+                      iconCenter: Icon(
                         Icons.volunteer_activism_outlined,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -227,8 +227,8 @@ abstract class _StorybookOrganismis {
                         label: "textButton",
                         initialValue: 'Ativar',
                       ),
-                      onPressed: context.knobs.boolean(
-                        label: "onPressed",
+                      onPressedButton: context.knobs.boolean(
+                        label: "onPressedButton",
                         initialValue: true,
                       )
                           ? () {}
@@ -242,13 +242,13 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedIconButton: context.knobs.boolean(
-                        label: "onPressedIconButton",
+                      onPressedHeaderIconButton: context.knobs.boolean(
+                        label: "onPressedHeaderIconButton",
                         initialValue: true,
                       )
                           ? () {}
                           : null,
-                      iconButton: Icon(
+                      iconHeader: Icon(
                         Icons.favorite,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -260,19 +260,19 @@ abstract class _StorybookOrganismis {
                         label: "subtitle",
                         initialValue: 'subtitle',
                       ),
-                      photo: context.knobs.text(
-                        label: "photo",
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
                         initialValue: 'https://github.com/arielsardinha.png',
                       ),
-                      name: context.knobs.text(
-                        label: "name",
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
                         initialValue: 'Ariel Sardinha',
                       ),
-                      text: context.knobs.text(
-                        label: "text",
+                      centerText: context.knobs.text(
+                        label: "centerText",
                         initialValue: '3,54 €',
                       ),
-                      icon: Icon(
+                      iconCenter: Icon(
                         Icons.volunteer_activism_outlined,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -285,8 +285,8 @@ abstract class _StorybookOrganismis {
                         label: 'isPrimaryContainerColorButton',
                         initialValue: true,
                       ),
-                      onPressed: context.knobs.boolean(
-                        label: "onPressed",
+                      onPressedButton: context.knobs.boolean(
+                        label: "onPressedButton",
                         initialValue: true,
                       )
                           ? () {}

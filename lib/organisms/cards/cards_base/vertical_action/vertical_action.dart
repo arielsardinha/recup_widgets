@@ -1,24 +1,24 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalAction extends StatelessWidget {
-  final String photo, name, title, subtitle, text, textButton;
-  final Widget? icon, iconButton;
-  final void Function()? onPressedIconButton, onPressed;
+  final String photoAvatar, nameAvatar, title, subtitle, centerText, textButton;
+  final Widget? iconCenter, iconHeader;
+  final void Function()? onPressedHeaderIconButton, onPressedButton;
   final bool isPrimaryContainerColorButton;
   final IconData? iconFromButtom;
   const RecupCardVerticalAction({
     super.key,
-    this.photo = '',
-    this.name = '',
-    this.iconButton,
+    this.photoAvatar = '',
+    this.nameAvatar = '',
+    this.iconHeader,
     this.title = '',
     this.subtitle = '',
-    this.text = '',
-    this.icon,
+    this.centerText = '',
+    this.iconCenter,
     this.iconFromButtom,
     this.textButton = '',
-    this.onPressedIconButton,
-    required this.onPressed,
+    this.onPressedHeaderIconButton,
+    required this.onPressedButton,
     this.isPrimaryContainerColorButton = false,
   });
 
@@ -47,15 +47,15 @@ class RecupCardVerticalAction extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   RecupCircleAvatar(
-                    photo: photo,
-                    name: name,
+                    photo: photoAvatar,
+                    name: nameAvatar,
                   ),
-                  if (iconButton != null)
+                  if (iconHeader != null)
                     IconButton(
                       alignment: Alignment.centerRight,
                       padding: EdgeInsets.zero,
-                      onPressed: onPressedIconButton,
-                      icon: iconButton!,
+                      onPressed: onPressedHeaderIconButton,
+                      icon: iconHeader!,
                     ),
                 ],
               ),
@@ -66,13 +66,13 @@ class RecupCardVerticalAction extends StatelessWidget {
               ),
               Row(
                 children: [
-                  if (icon != null) icon!,
-                  if (icon != null)
+                  if (iconCenter != null) iconCenter!,
+                  if (iconCenter != null)
                     const SizedBox(
                       width: 4,
                     ),
                   Text(
-                    text,
+                    centerText,
                     style: theme.textTheme.titleMedium?.copyWith(
                       color: theme.colorScheme.onSurface,
                     ),
@@ -82,7 +82,7 @@ class RecupCardVerticalAction extends StatelessWidget {
             ],
           ),
           ElevatedButton(
-            onPressed: onPressed,
+            onPressed: onPressedButton,
             style: ElevatedButton.styleFrom(
               backgroundColor: isPrimaryContainerColorButton
                   ? theme.colorScheme.primaryContainer
