@@ -119,7 +119,15 @@ abstract class _StorybookOrganismis {
                         label: "textCenter",
                         initialValue: '+100',
                       ),
-                      iconCenter: const Icon(Icons.clear),
+                      iconCenter: context.knobs.boolean(
+                        label: "iconCenter",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.clear,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       iconFromButtom: Icons.add,
                       textButton: context.knobs.text(
                         label: "textButton",
@@ -146,7 +154,15 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: const Icon(Icons.delete_outline),
+                      iconHeader: context.knobs.boolean(
+                        label: "iconHeader",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.delete_outline,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       title: context.knobs.text(
                         label: "title",
                         initialValue: 'Header',
@@ -167,7 +183,15 @@ abstract class _StorybookOrganismis {
                         label: "textCenter",
                         initialValue: '+100',
                       ),
-                      iconCenter: const Icon(Icons.clear),
+                      iconCenter: context.knobs.boolean(
+                        label: "iconCenter",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.clear,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       iconFromButtom: Icons.sensors_outlined,
                       textButton: context.knobs.text(
                         label: "textButton",
@@ -194,10 +218,15 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: Icon(
-                        Icons.favorite,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      iconHeader: context.knobs.boolean(
+                        label: "iconHeader",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.favorite,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       title: context.knobs.text(
                         label: "title",
                         initialValue: 'Header',
@@ -218,10 +247,15 @@ abstract class _StorybookOrganismis {
                         label: "textCenter",
                         initialValue: '3,54 €',
                       ),
-                      iconCenter: Icon(
-                        Icons.volunteer_activism_outlined,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      iconCenter: context.knobs.boolean(
+                        label: "iconCenter",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.volunteer_activism_outlined,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       iconFromButtom: Icons.circle_outlined,
                       textButton: context.knobs.text(
                         label: "textButton",
@@ -248,10 +282,15 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: Icon(
-                        Icons.favorite,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      iconHeader: context.knobs.boolean(
+                        label: "iconHeader",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.favorite,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       title: context.knobs.text(
                         label: "title",
                         initialValue: 'Header',
@@ -272,10 +311,15 @@ abstract class _StorybookOrganismis {
                         label: "textCenter",
                         initialValue: '3,54 €',
                       ),
-                      iconCenter: Icon(
-                        Icons.volunteer_activism_outlined,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      iconCenter: context.knobs.boolean(
+                        label: "iconCenter",
+                        initialValue: true,
+                      )
+                          ? Icon(
+                              Icons.volunteer_activism_outlined,
+                              color: Theme.of(context).colorScheme.primary,
+                            )
+                          : null,
                       iconFromButtom: Icons.check_circle_outline,
                       textButton: context.knobs.text(
                         label: "textButton",

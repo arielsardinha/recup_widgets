@@ -68,7 +68,7 @@ class RecupCardVerticalAction extends StatelessWidget {
                 ),
               ),
               Visibility(
-                visible: !(iconCenter != null && textCenter.isEmpty),
+                visible: iconCenter != null || textCenter.isNotEmpty,
                 child: Row(
                   children: [
                     if (iconCenter != null) iconCenter!,
