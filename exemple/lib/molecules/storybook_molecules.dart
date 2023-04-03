@@ -95,7 +95,8 @@ abstract class _StorybookMolecules {
             builder: (context) {
               return Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed:
+                      context.knobs.boolean(label: "onPressed") ? () {} : null,
                   child: const Text(
                     'Elevated Button',
                   ),

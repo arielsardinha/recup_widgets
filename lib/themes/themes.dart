@@ -9,6 +9,7 @@ abstract class Themes {
     textTheme: _textTheme,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        foregroundColor: _lightColorScheme.onPrimary,
         backgroundColor: _lightColorScheme.primary,
       ),
     ),
@@ -18,5 +19,11 @@ abstract class Themes {
     useMaterial3: true,
     colorScheme: _darkColorScheme,
     textTheme: _textTheme,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        foregroundColor: _darkColorScheme.onPrimary,
+        backgroundColor: _darkColorScheme.primary,
+      ),
+    ),
   );
 }
