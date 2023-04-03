@@ -90,6 +90,9 @@ class RecupCardVerticalAction extends StatelessWidget {
           ElevatedButton(
             onPressed: onPressedButton,
             style: ElevatedButton.styleFrom(
+              foregroundColor: isPrimaryContainerColorButton
+                  ? theme.colorScheme.onPrimaryContainer
+                  : null,
               backgroundColor: isPrimaryContainerColorButton
                   ? theme.colorScheme.primaryContainer
                   : null,
@@ -102,22 +105,12 @@ class RecupCardVerticalAction extends StatelessWidget {
                   Icon(
                     iconFromButtom!,
                     size: 16,
-                    color: isPrimaryContainerColorButton
-                        ? theme.colorScheme.primary
-                        : theme.colorScheme.onPrimary,
                   ),
                 if (iconFromButtom != null)
                   const SizedBox(
                     width: 8,
                   ),
-                Text(
-                  textButton,
-                  style: theme.textTheme.titleSmall?.copyWith(
-                    color: isPrimaryContainerColorButton
-                        ? theme.colorScheme.primary
-                        : theme.colorScheme.onPrimary,
-                  ),
-                ),
+                Text(textButton),
               ],
             ),
           )
