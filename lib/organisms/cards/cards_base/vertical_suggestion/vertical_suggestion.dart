@@ -9,6 +9,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
       textContent;
   final Widget? child;
   final void Function()? onTap;
+  final Color? backgroundColorAvatar;
 
   const RecupCardVerticalSuggestion({
     Key? key,
@@ -20,6 +21,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.photoAvatar = '',
     this.nameAvatar = '',
     this.textContent = '',
+    this.backgroundColorAvatar,
   }) : super(key: key);
 
   @override
@@ -65,6 +67,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                     child: RecupCircleAvatar(
                       photo: photoAvatar,
                       name: nameAvatar,
+                      backgroundColor: backgroundColorAvatar,
                     ),
                   )
                 ],
