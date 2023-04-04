@@ -341,6 +341,69 @@ abstract class _StorybookOrganismis {
               ),
             ],
           ),
+          WidgetbookComponent(
+            name: 'Vertical Suggestion',
+            useCases: [
+              WidgetbookUseCase(
+                name: 'Default',
+                builder: (context) {
+                  return Center(
+                    child: RecupVerticalSuggestion(
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
+                        initialValue: "Ariel",
+                      ),
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      titulo: context.knobs.text(
+                        label: "titulo",
+                        initialValue: "titulo",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      photoBackground: context.knobs.text(
+                        label: "photoBackground",
+                        initialValue: "https://github.com/recup.png",
+                      ),
+                      onTap:
+                          context.knobs.boolean(label: "onTap") ? () {} : null,
+                      textContent: context.knobs.text(
+                        label: "textContent",
+                        initialValue: "textContent",
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.light_mode_outlined,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              const Text('Label')
+                            ],
+                          ),
+                          Icon(
+                            Icons.settings,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          )
         ],
       )
     ],
