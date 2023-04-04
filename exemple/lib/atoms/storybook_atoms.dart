@@ -10,14 +10,16 @@ abstract class _StorybookAtoms {
           WidgetbookUseCase(
             name: 'Default',
             builder: (context) {
-              return RecupSliderPoints(
-                points: const ['', ''],
-                currentPoint: context.knobs.options(
-                  label: 'currentPoint',
-                  options: const [
-                    Option(label: '0', value: 0),
-                    Option(label: '1', value: 1),
-                  ],
+              return Center(
+                child: RecupSliderPoints(
+                  points: const ['', ''],
+                  currentPoint: context.knobs.options(
+                    label: 'currentPoint',
+                    options: const [
+                      Option(label: '0', value: 0),
+                      Option(label: '1', value: 1),
+                    ],
+                  ),
                 ),
               );
             },
@@ -30,14 +32,27 @@ abstract class _StorybookAtoms {
           WidgetbookUseCase(
             name: 'Default',
             builder: (context) {
-              return RecupCircleAvatar(
-                name: context.knobs.text(
-                  label: 'Ariel',
-                  initialValue: 'Ariel Sardinha',
-                ),
-                photo: context.knobs.text(
-                  label: 'photo',
-                  initialValue: 'https://github.com/arielsardinha.png',
+              return Center(
+                child: RecupCircleAvatar(
+                  name: context.knobs.text(
+                    label: 'Ariel',
+                    initialValue: 'Ariel Sardinha',
+                  ),
+                  photo: context.knobs.text(
+                    label: 'photo',
+                    initialValue: 'https://github.com/arielsardinha.png',
+                  ),
+                  backgroundColor: context.knobs.options(
+                    label: "backgroundColor",
+                    options: const [
+                      Option(label: "blue", value: Colors.blue),
+                      Option(label: "red", value: Colors.red),
+                      Option(
+                        label: "default",
+                        value: null,
+                      )
+                    ],
+                  ),
                 ),
               );
             },

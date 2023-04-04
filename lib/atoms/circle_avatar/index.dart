@@ -3,7 +3,9 @@ part of 'package:recup_storybook/recup_storybook.dart';
 class RecupCircleAvatar extends StatelessWidget {
   final String name;
   final String photo;
-  const RecupCircleAvatar({super.key, this.name = '', this.photo = ''});
+  final Color? backgroundColor;
+  const RecupCircleAvatar(
+      {super.key, this.name = '', this.photo = '', this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class RecupCircleAvatar extends StatelessWidget {
     }
 
     return CircleAvatar(
-      backgroundColor: theme.colorScheme.primaryContainer,
+      backgroundColor: backgroundColor ?? theme.colorScheme.primaryContainer,
       foregroundColor: theme.colorScheme.primary,
       backgroundImage: !isPhoto(photo) ? null : NetworkImage(photo),
       child: name.isEmpty || isPhoto(photo)
