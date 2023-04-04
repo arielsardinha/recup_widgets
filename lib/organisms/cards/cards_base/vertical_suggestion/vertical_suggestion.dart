@@ -1,6 +1,6 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupVerticalSuggestion extends StatelessWidget {
+class RecupCardVerticalSuggestion extends StatelessWidget {
   final String titulo,
       subtitle,
       photoBackground,
@@ -10,7 +10,7 @@ class RecupVerticalSuggestion extends StatelessWidget {
   final Widget? child;
   final void Function()? onTap;
 
-  const RecupVerticalSuggestion({
+  const RecupCardVerticalSuggestion({
     Key? key,
     this.onTap,
     this.titulo = '',

@@ -348,7 +348,7 @@ abstract class _StorybookOrganismis {
                 name: 'Default',
                 builder: (context) {
                   return Center(
-                    child: RecupVerticalSuggestion(
+                    child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.text(
                         label: "nameAvatar",
                         initialValue: "Ariel",
@@ -406,7 +406,7 @@ abstract class _StorybookOrganismis {
                 name: 'Product category',
                 builder: (context) {
                   return Center(
-                    child: RecupVerticalSuggestion(
+                    child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.text(
                         label: "nameAvatar",
                         initialValue: "Ariel",
@@ -464,7 +464,7 @@ abstract class _StorybookOrganismis {
                 name: 'Collection poing',
                 builder: (context) {
                   return Center(
-                    child: RecupVerticalSuggestion(
+                    child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.text(
                         label: "nameAvatar",
                         initialValue: "Ariel",
@@ -522,7 +522,7 @@ abstract class _StorybookOrganismis {
                 name: 'Donation',
                 builder: (context) {
                   return Center(
-                    child: RecupVerticalSuggestion(
+                    child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.text(
                         label: "nameAvatar",
                         initialValue: "Ariel",
@@ -580,7 +580,7 @@ abstract class _StorybookOrganismis {
                 name: 'Offer',
                 builder: (context) {
                   return Center(
-                    child: RecupVerticalSuggestion(
+                    child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.text(
                         label: "nameAvatar",
                         initialValue: "Ariel",
@@ -637,7 +637,7 @@ abstract class _StorybookOrganismis {
                 name: 'Offer actived',
                 builder: (context) {
                   return Center(
-                    child: RecupVerticalSuggestion(
+                    child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.text(
                         label: "nameAvatar",
                         initialValue: "Ariel",
