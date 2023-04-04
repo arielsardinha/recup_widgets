@@ -402,6 +402,298 @@ abstract class _StorybookOrganismis {
                   );
                 },
               ),
+              WidgetbookUseCase(
+                name: 'Product category',
+                builder: (context) {
+                  return Center(
+                    child: RecupVerticalSuggestion(
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
+                        initialValue: "Ariel",
+                      ),
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      titulo: context.knobs.text(
+                        label: "titulo",
+                        initialValue: "titulo",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      photoBackground: context.knobs.text(
+                        label: "photoBackground",
+                        initialValue: "https://github.com/recup.png",
+                      ),
+                      onTap:
+                          context.knobs.boolean(label: "onTap") ? () {} : null,
+                      textContent: context.knobs.text(
+                        label: "textContent",
+                        initialValue: "",
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              const Text('0,3 km')
+                            ],
+                          ),
+                          Icon(
+                            Icons.favorite_border_outlined,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Collection poing',
+                builder: (context) {
+                  return Center(
+                    child: RecupVerticalSuggestion(
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
+                        initialValue: "Ariel",
+                      ),
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      titulo: context.knobs.text(
+                        label: "titulo",
+                        initialValue: "titulo",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "",
+                      ),
+                      photoBackground: context.knobs.text(
+                        label: "photoBackground",
+                        initialValue: "https://github.com/recup.png",
+                      ),
+                      onTap:
+                          context.knobs.boolean(label: "onTap") ? () {} : null,
+                      textContent: context.knobs.text(
+                        label: "textContent",
+                        initialValue: "Rebox One • Disponivel",
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              const Text('0,3 km')
+                            ],
+                          ),
+                          Icon(
+                            Icons.favorite_border_outlined,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Donation',
+                builder: (context) {
+                  return Center(
+                    child: RecupVerticalSuggestion(
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
+                        initialValue: "Ariel",
+                      ),
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      titulo: context.knobs.text(
+                        label: "titulo",
+                        initialValue: "titulo",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      photoBackground: context.knobs.text(
+                        label: "photoBackground",
+                        initialValue: "https://github.com/recup.png",
+                      ),
+                      onTap:
+                          context.knobs.boolean(label: "onTap") ? () {} : null,
+                      textContent: context.knobs.text(
+                        label: "textContent",
+                        initialValue: "",
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.person,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              const Text('728')
+                            ],
+                          ),
+                          Icon(
+                            Icons.favorite_border_outlined,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Offer',
+                builder: (context) {
+                  return Center(
+                    child: RecupVerticalSuggestion(
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
+                        initialValue: "Ariel",
+                      ),
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      titulo: context.knobs.text(
+                        label: "titulo",
+                        initialValue: "titulo",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      photoBackground: context.knobs.text(
+                        label: "photoBackground",
+                        initialValue: "https://github.com/recup.png",
+                      ),
+                      onTap:
+                          context.knobs.boolean(label: "onTap") ? () {} : null,
+                      textContent: context.knobs.text(
+                        label: "textContent",
+                        initialValue: "",
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.highlight_remove_outlined,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              const Text('200')
+                            ],
+                          ),
+                          Icon(
+                            Icons.favorite,
+                            color: Theme.of(context).colorScheme.primary,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Offer actived',
+                builder: (context) {
+                  return Center(
+                    child: RecupVerticalSuggestion(
+                      nameAvatar: context.knobs.text(
+                        label: "nameAvatar",
+                        initialValue: "Ariel",
+                      ),
+                      photoAvatar: context.knobs.text(
+                        label: "photoAvatar",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      titulo: context.knobs.text(
+                        label: "titulo",
+                        initialValue: "titulo",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      photoBackground: context.knobs.text(
+                        label: "photoBackground",
+                        initialValue: "https://github.com/recup.png",
+                      ),
+                      onTap:
+                          context.knobs.boolean(label: "onTap") ? () {} : null,
+                      textContent: context.knobs.text(
+                        label: "textContent",
+                        initialValue: "",
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Icon(
+                                  Icons.local_activity_outlined,
+                                  size: 16,
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text('Cupom')
+                              ],
+                            ),
+                          ),
+                          Icon(
+                            Icons.login,
+                            color: Theme.of(context).colorScheme.primary,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
             ],
           )
         ],
