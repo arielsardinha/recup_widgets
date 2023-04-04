@@ -73,21 +73,25 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                 ],
               ),
               if (subtitle.isNotEmpty || titulo.isNotEmpty)
-                ListTile(
-                  title: titulo.isNotEmpty
-                      ? Text(
-                          titulo,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      : null,
-                  subtitle: subtitle.isNotEmpty
-                      ? Text(
-                          subtitle,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      : null,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: titulo.isNotEmpty
+                        ? Text(
+                            titulo,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        : null,
+                    subtitle: subtitle.isNotEmpty
+                        ? Text(
+                            subtitle,
+                            maxLines: textContent.isNotEmpty ? 1 : 2,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        : null,
+                  ),
                 ),
               if (textContent.isNotEmpty)
                 Container(
@@ -98,7 +102,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                       color: theme.colorScheme.surfaceVariant),
                   child: Text(
                     textContent,
-                    maxLines: 1,
+                    maxLines: subtitle.isNotEmpty ? 1 : 2,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.labelMedium?.copyWith(
                       color: theme.colorScheme.primary,
@@ -107,6 +111,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                 )
             ],
           ),
+          const Spacer(),
           if (child != null)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
