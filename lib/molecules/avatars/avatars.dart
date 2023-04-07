@@ -32,12 +32,16 @@ class _RecupAvatarsState extends State<RecupAvatars> {
   Widget build(BuildContext context) {
     const avatarWidth = 27.0;
 
-    return Stack(
-      children: List.generate(
-        avatars.length,
-        (index) => Positioned(
-          left: index * avatarWidth,
-          child: RecupCircleAvatar(photo: avatars[index]),
+    return SizedBox(
+      width: 94,
+      height: 40,
+      child: Stack(
+        children: List.generate(
+          avatars.length,
+          (index) => Positioned(
+            left: index * avatarWidth,
+            child: RecupCircleAvatar(photo: avatars[index]),
+          ),
         ),
       ),
     );
