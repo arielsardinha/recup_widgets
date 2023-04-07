@@ -45,7 +45,7 @@ abstract class _StorybookMolecules {
                     options: const [
                       Option(
                         label: "NORMAL",
-                        value: RecupCarouselSize.NORML,
+                        value: RecupCarouselSize.NORMAL,
                       ),
                       Option(
                         label: "LARGE",

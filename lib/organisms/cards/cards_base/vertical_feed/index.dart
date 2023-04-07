@@ -11,14 +11,15 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
   final List<String> backgroundImages;
   final void Function()? onPressedOutlinedButton;
   final void Function()? onPressedElevatedButton;
-  final bool isPrimaryContainerColorButton, noSliderPoints;
+  final bool isPrimaryContainerColorButton, noSliderPoints, recoinsDisabled;
   final Widget? children,
       recoinsIcon,
       trailingHeader,
       childOutlinedButton,
       childElevatedButton,
       childContent;
-  final bool recoinsDisabled;
+
+  final RecupCarouselSize carouselSize;
 
   const RecupCardVerticalFeedCard({
     super.key,
@@ -41,6 +42,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.recoinsDisabled = false,
     this.childContent,
     this.noSliderPoints = false,
+    this.carouselSize = RecupCarouselSize.LARGE,
   });
 
   @override
@@ -71,6 +73,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
           RecupCarousel(
             noSliderPoints: noSliderPoints,
             images: backgroundImages,
+            height: carouselSize,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

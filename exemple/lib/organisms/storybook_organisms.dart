@@ -59,6 +59,19 @@ abstract class _StorybookOrganismis {
                     child: RecupCardVerticalFeedCard(
                       noSliderPoints:
                           context.knobs.boolean(label: "noSliderPoints"),
+                      carouselSize: context.knobs.options(
+                        label: "carouselSize",
+                        options: const [
+                          Option(
+                            label: "NORMAL",
+                            value: RecupCarouselSize.NORMAL,
+                          ),
+                          Option(
+                            label: "LARGE",
+                            value: RecupCarouselSize.LARGE,
+                          )
+                        ],
+                      ),
                       backgroundImages: const [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',

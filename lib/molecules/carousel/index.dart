@@ -3,7 +3,7 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 enum RecupCarouselSize {
-  NORML(150),
+  NORMAL(150),
   LARGE(240);
 
   final double size;
@@ -19,7 +19,7 @@ class RecupCarousel extends StatefulWidget {
     Key? key,
     required this.images,
     this.onChange,
-    this.height = RecupCarouselSize.NORML,
+    this.height = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
   }) : super(key: key);
 
