@@ -58,6 +58,30 @@ abstract class _StorybookAtoms {
             },
           )
         ],
+      ),
+      WidgetbookComponent(
+        name: "Input Chip",
+        useCases: [
+          WidgetbookUseCase(
+            name: "Default",
+            builder: (context) {
+              return Center(
+                child: RecupInputChip(
+                  text: context.knobs.text(
+                    label: "text",
+                    initialValue: "123",
+                  ),
+                  widget: context.knobs.boolean(
+                    label: "widget",
+                    initialValue: true,
+                  )
+                      ? const Icon(Icons.clear)
+                      : null,
+                ),
+              );
+            },
+          )
+        ],
       )
     ],
   );

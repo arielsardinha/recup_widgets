@@ -1,7 +1,5 @@
 library recup_storybook;
 
-import 'dart:ffi';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,3 +13,4 @@ part 'organisms/cards/cards_base/vertical_feed/index.dart';
 part 'organisms/cards/cards_base/horizontal/horizontal_card_base.dart';
 part 'organisms/cards/cards_base/vertical_action/vertical_action.dart';
 part 'organisms/cards/cards_base/vertical_suggestion/vertical_suggestion.dart';
+part 'atoms/input_chip/input_chip.dart';
