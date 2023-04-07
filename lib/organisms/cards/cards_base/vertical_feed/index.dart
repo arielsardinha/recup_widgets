@@ -1,12 +1,20 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalFeedCard extends StatelessWidget {
-  final String nameAvatar, titleHeader, subtitleHeader, photoHeader;
+  final String nameAvatar,
+      titleHeader,
+      subtitleHeader,
+      photoHeader,
+      recoins,
+      titleContent,
+      subtitleContent,
+      textContent;
   final List<String> backgroundImages;
   final void Function()? onPressedOutlinedButton;
   final void Function()? onPressedElevatedButton;
   final bool isPrimaryContainerColorButton;
   final Widget? children,
+      recoinsIcon,
       trailingHeader,
       childOutlinedButton,
       childElevatedButton;
@@ -25,6 +33,11 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.childOutlinedButton,
     this.childElevatedButton,
     this.isPrimaryContainerColorButton = false,
+    this.recoins = '',
+    this.recoinsIcon,
+    this.titleContent = '',
+    this.subtitleContent = '',
+    this.textContent = '',
   });
 
   @override
@@ -56,35 +69,40 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
             images: backgroundImages,
           ),
           Row(
-            children: const [
+            children: [
               Expanded(
                 child: ListTile(
-                  title: Text('Header'),
-                  subtitle: Text('subtitle'),
+                  title: Text(titleContent),
+                  subtitle: Text(subtitleContent),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: Text('Recoins'),
-              )
+              if (recoins.isNotEmpty || recoinsIcon != null)
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: RecupInputChip(
+                    text: recoins,
+                    widget: recoinsIcon,
+                  ),
+                )
             ],
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: theme.colorScheme.error,
-            ),
-            child: Text(
-              'Text',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.labelMedium?.copyWith(
-                color: theme.colorScheme.onError,
+          if (textContent.isNotEmpty)
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: theme.colorScheme.error,
+              ),
+              child: Text(
+                textContent,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: theme.colorScheme.onError,
+                ),
               ),
             ),
-          ),
           const Spacer(),
           if (children != null)
             Padding(

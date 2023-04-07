@@ -65,6 +65,8 @@ abstract class _StorybookAtoms {
           WidgetbookUseCase(
             name: "Default",
             builder: (context) {
+              final disabled = context.knobs.boolean(label: "disabled");
+
               return Center(
                 child: RecupInputChip(
                   text: context.knobs.text(
@@ -75,8 +77,14 @@ abstract class _StorybookAtoms {
                     label: "widget",
                     initialValue: true,
                   )
-                      ? const Icon(Icons.clear)
+                      ? Icon(
+                          Icons.clear,
+                          color: disabled
+                              ? Theme.of(context).colorScheme.outlineVariant
+                              : null,
+                        )
                       : null,
+                  disabled: disabled,
                 ),
               );
             },

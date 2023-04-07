@@ -3,8 +3,13 @@ part of 'package:recup_storybook/recup_storybook.dart';
 class RecupInputChip extends StatefulWidget {
   final String text;
   final Widget? widget;
-  const RecupInputChip({Key? key, this.text = '', this.widget})
-      : super(key: key);
+  final bool disabled;
+  const RecupInputChip({
+    Key? key,
+    this.text = '',
+    this.widget,
+    this.disabled = false,
+  }) : super(key: key);
 
   @override
   State createState() => _RecupInputChipState();
@@ -57,7 +62,9 @@ class _RecupInputChipState extends State<RecupInputChip> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
-          color: theme.colorScheme.onSurfaceVariant,
+          color: widget.disabled
+              ? theme.colorScheme.outlineVariant
+              : theme.colorScheme.onSurfaceVariant,
         ),
       ),
       child: Row(
@@ -75,8 +82,10 @@ class _RecupInputChipState extends State<RecupInputChip> {
               widget.text,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.titleSmall
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+              style: theme.textTheme.titleSmall?.copyWith(
+                  color: widget.disabled
+                      ? theme.colorScheme.outlineVariant
+                      : theme.colorScheme.onSurfaceVariant),
             ),
           ),
         ],
