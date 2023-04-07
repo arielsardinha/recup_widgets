@@ -21,11 +21,11 @@ enum RecupStatusColor {
   Color? colorBackground(ColorScheme colorScheme) {
     switch (this) {
       case RecupStatusColor.UNVAILABLO:
-        return colorScheme.errorContainer;
+        return colorScheme.errorContainer.withOpacity(0.5);
       case RecupStatusColor.AVAILABLE:
-        return colorScheme.primaryContainer;
+        return colorScheme.primaryContainer.withOpacity(0.5);
       case RecupStatusColor.OPERATING:
-        return colorScheme.secondaryContainer;
+        return colorScheme.secondaryContainer.withOpacity(0.5);
     }
   }
 }
