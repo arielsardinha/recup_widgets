@@ -60,7 +60,7 @@ class RecupCardVerticalBignumber extends StatelessWidget {
                 if (subtitle.isNotEmpty)
                   Text(
                     subtitle,
-                    maxLines: 1,
+                    maxLines: child != null ? 2 : 3,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodySmall,
                   ),
