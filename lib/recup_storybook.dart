@@ -14,3 +14,5 @@ part 'organisms/cards/cards_base/horizontal/horizontal_card_base.dart';
 part 'organisms/cards/cards_base/vertical_action/vertical_action.dart';
 part 'organisms/cards/cards_base/vertical_suggestion/vertical_suggestion.dart';
 part 'atoms/input_chip/input_chip.dart';
+part 'atoms/badges/standard/standard.dart';
+part 'atoms/badges/status/status.dart';
