@@ -135,17 +135,6 @@ class _RecupStandardState extends State<RecupStandard> {
               }
             },
           ),
-          // SizedBox(
-          //   width: widget.width,
-          //   child: Text(
-          //     widget.text,
-          //     maxLines: 1,
-          //     overflow: TextOverflow.ellipsis,
-          //     style: theme.textTheme.labelMedium?.copyWith(
-          //       color: widget.color.colorText(theme.colorScheme),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
