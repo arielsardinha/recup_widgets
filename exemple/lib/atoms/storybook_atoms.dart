@@ -53,6 +53,8 @@ abstract class _StorybookAtoms {
                 builder: (context) {
                   return Center(
                     child: RecupStatus(
+                      width:
+                          double.tryParse(context.knobs.text(label: "width")),
                       text: context.knobs
                           .text(label: "text", initialValue: "text"),
                       color: context.knobs.options(

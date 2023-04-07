@@ -11,6 +11,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
   final void Function()? onTap;
   final Color? backgroundColorAvatar;
   final double? textContentMaxWidth;
+  final RecupStatusColor textContentColor;
 
   const RecupCardVerticalSuggestion({
     Key? key,
@@ -24,6 +25,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.textContent = '',
     this.backgroundColorAvatar,
     this.textContentMaxWidth,
+    this.textContentColor = RecupStatusColor.AVAILABLE,
   }) : super(key: key);
 
   @override
@@ -96,9 +98,13 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                   ),
                 ),
               if (textContent.isNotEmpty)
-                RecupStandard(
-                  text: textContent,
-                  width: textContentMaxWidth,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: RecupStatus(
+                    text: textContent,
+                    width: textContentMaxWidth,
+                    color: textContentColor,
+                  ),
                 ),
             ],
           ),
