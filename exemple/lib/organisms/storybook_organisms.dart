@@ -90,9 +90,11 @@ abstract class _StorybookOrganismis {
                         label: 'subtitleContent',
                         initialValue: 'subtitleContent',
                       ),
-                      textContent: context.knobs.text(
-                        label: 'textContent',
-                        initialValue: 'textContent',
+                      childContent: RecupStandard(
+                        text: context.knobs.text(
+                          label: 'childContent',
+                          initialValue: 'Text',
+                        ),
                       ),
                       recoins: context.knobs.text(
                         label: 'recoins',
@@ -200,10 +202,6 @@ abstract class _StorybookOrganismis {
                         label: 'subtitleContent',
                         initialValue: 'subtitleContent',
                       ),
-                      textContent: context.knobs.text(
-                        label: 'textContent',
-                        initialValue: 'textContent',
-                      ),
                       childElevatedButton: Row(
                         children: [
                           const Icon(
@@ -290,9 +288,118 @@ abstract class _StorybookOrganismis {
                           context.knobs.boolean(label: "trailingHeader")
                               ? const Icon(Icons.favorite_border_outlined)
                               : null,
-                      textContent: context.knobs.text(
-                        label: 'textContent',
-                        initialValue: 'textContent',
+                      childContent: RecupStatus(
+                        text: context.knobs.text(
+                          label: 'childContent',
+                          initialValue: 'Text',
+                        ),
+                      ),
+                      childElevatedButton: Row(
+                        children: [
+                          const Icon(
+                            Icons.next_plan_outlined,
+                            size: 16,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            context.knobs.text(
+                              label: 'childOutlinedButton',
+                              initialValue: 'Enabled',
+                            ),
+                          ),
+                        ],
+                      ),
+                      childOutlinedButton: Text(
+                        context.knobs.text(
+                          label: 'childElevatedButton',
+                          initialValue: 'Enabled',
+                        ),
+                      ),
+                      onPressedElevatedButton: context.knobs.boolean(
+                              label: "onPressedElevatedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      onPressedOutlinedButton: context.knobs.boolean(
+                              label: "onPressedOutlinedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      children: context.knobs
+                              .boolean(label: "children", initialValue: true)
+                          ? Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    RecupCircleAvatar(
+                                      photo:
+                                          'https://github.com/arielsardinha.png',
+                                      radius: 16,
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text("Capsulas de café")
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.history_rounded),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text("Aberto, fecha ás 21h00")
+                                  ],
+                                ),
+                              ],
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Donation Enabled',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalFeedCard(
+                      backgroundImages: const [
+                        'https://github.com/arielsardinha.png',
+                        'https://github.com/treinaweb.png',
+                        'https://github.com/recup.png',
+                      ],
+                      nameAvatar: context.knobs.text(
+                        label: 'nameAvatar',
+                        initialValue: 'Ariel Sardinha',
+                      ),
+                      photoHeader: context.knobs.text(
+                        label: 'photoHeader',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      titleHeader: context.knobs.text(
+                        label: 'titleHeader',
+                        initialValue: 'Title Header',
+                      ),
+                      subtitleHeader: context.knobs.text(
+                        label: 'subtitleHeader',
+                        initialValue: 'Subtitle Header',
+                      ),
+                      trailingHeader:
+                          context.knobs.boolean(label: "trailingHeader")
+                              ? const Icon(Icons.favorite_border_outlined)
+                              : null,
+                      childContent: RecupStatus(
+                        text: context.knobs.text(
+                          label: 'childContent',
+                          initialValue: 'Text',
+                        ),
                       ),
                       childElevatedButton: Row(
                         children: [
