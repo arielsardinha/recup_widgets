@@ -52,6 +52,9 @@ abstract class _StorybookOrganismis {
               WidgetbookUseCase(
                 name: 'Default',
                 builder: (context) {
+                  final recoinsDisabled =
+                      context.knobs.boolean(label: "recoinsDisabled");
+
                   return Center(
                     child: RecupCardVerticalFeedCard(
                       backgroundImages: const [
@@ -75,6 +78,83 @@ abstract class _StorybookOrganismis {
                         label: 'subtitleHeader',
                         initialValue: 'Subtitle Header',
                       ),
+                      trailingHeader:
+                          context.knobs.boolean(label: "trailingHeader")
+                              ? const Icon(Icons.more_vert)
+                              : null,
+                      titleContent: context.knobs.text(
+                        label: 'titleContent',
+                        initialValue: 'titleContent',
+                      ),
+                      subtitleContent: context.knobs.text(
+                        label: 'subtitleContent',
+                        initialValue: 'subtitleContent',
+                      ),
+                      textContent: context.knobs.text(
+                        label: 'textContent',
+                        initialValue: 'textContent',
+                      ),
+                      recoins: context.knobs.text(
+                        label: 'recoins',
+                        initialValue: 'recoins',
+                      ),
+                      recoinsIcon: context.knobs
+                              .boolean(label: "recoinsIcon", initialValue: true)
+                          ? Icon(
+                              Icons.clear,
+                              color: recoinsDisabled
+                                  ? Theme.of(context).colorScheme.outlineVariant
+                                  : null,
+                            )
+                          : null,
+                      recoinsDisabled: recoinsDisabled,
+                      childElevatedButton: Text(
+                        context.knobs.text(
+                          label: 'childElevatedButton',
+                          initialValue: 'Enabled',
+                        ),
+                      ),
+                      childOutlinedButton: Text(
+                        context.knobs.text(
+                          label: 'childOutlinedButton',
+                          initialValue: 'Enabled',
+                        ),
+                      ),
+                      onPressedElevatedButton: context.knobs.boolean(
+                              label: "onPressedElevatedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      onPressedOutlinedButton: context.knobs.boolean(
+                              label: "onPressedOutlinedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      isPrimaryContainerColorButton: context.knobs
+                          .boolean(label: "isPrimaryContainerColorButton"),
+                      children: context.knobs
+                              .boolean(label: "children", initialValue: true)
+                          ? Column(
+                              children: [
+                                Row(
+                                  children: const [
+                                    Icon(Icons
+                                        .panorama_vertical_select_outlined),
+                                    Text("Support text")
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  children: const [
+                                    Icon(Icons.timer),
+                                    Text("Support text")
+                                  ],
+                                )
+                              ],
+                            )
+                          : null,
                     ),
                   );
                 },

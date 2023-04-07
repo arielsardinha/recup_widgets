@@ -18,6 +18,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       trailingHeader,
       childOutlinedButton,
       childElevatedButton;
+  final bool recoinsDisabled;
 
   const RecupCardVerticalFeedCard({
     super.key,
@@ -38,6 +39,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.titleContent = '',
     this.subtitleContent = '',
     this.textContent = '',
+    this.recoinsDisabled = false,
   });
 
   @override
@@ -82,6 +84,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                   child: RecupInputChip(
                     text: recoins,
                     widget: recoinsIcon,
+                    disabled: recoinsDisabled,
                   ),
                 )
             ],
