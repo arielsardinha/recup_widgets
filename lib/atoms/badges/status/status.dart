@@ -33,10 +33,12 @@ enum RecupStatusColor {
 class RecupStatus extends StatelessWidget {
   final String text;
   final RecupStatusColor color;
+  final double? width;
   const RecupStatus({
     super.key,
     this.text = '',
     this.color = RecupStatusColor.AVAILABLE,
+    this.width,
   });
 
   final spaceSizeText = 25;
@@ -69,6 +71,8 @@ class RecupStatus extends StatelessWidget {
     return Container(
       width: calcSize(text, theme),
       padding: const EdgeInsets.symmetric(horizontal: 2),
+      constraints: BoxConstraints(
+          maxWidth: width != null ? (width! + 20) : double.maxFinite),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: color.colorBackground(theme.colorScheme),
@@ -87,13 +91,41 @@ class RecupStatus extends StatelessWidget {
           const SizedBox(
             width: 4,
           ),
-          Text(
-            text,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: theme.textTheme.labelMedium?.copyWith(
-              color: color.color(theme.colorScheme),
-            ),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final textPainter = TextPainter(
+                text: TextSpan(
+                  text: text,
+                  style: theme.textTheme.labelMedium?.copyWith(
+                    color: color.color(theme.colorScheme),
+                  ),
+                ),
+                maxLines: 1,
+                textDirection: TextDirection.ltr,
+              );
+              textPainter.layout(
+                minWidth: constraints.minWidth,
+                maxWidth: constraints.maxWidth,
+              );
+
+              final textWidget = Text(
+                text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: color.color(theme.colorScheme),
+                ),
+              );
+
+              if (width != null && textPainter.width > width!) {
+                return SizedBox(
+                  width: width,
+                  child: textWidget,
+                );
+              } else {
+                return textWidget;
+              }
+            },
           ),
         ],
       ),
