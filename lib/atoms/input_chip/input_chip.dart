@@ -22,11 +22,8 @@ class _RecupInputChipState extends State<RecupInputChip> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        _widgetWidth = getWidgetSize(_widgetKey);
-      });
-    });
+    _widgetWidth = getWidgetSize(_widgetKey);
+
     super.initState();
   }
 
