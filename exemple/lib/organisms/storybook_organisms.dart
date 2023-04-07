@@ -52,32 +52,29 @@ abstract class _StorybookOrganismis {
               WidgetbookUseCase(
                 name: 'Default',
                 builder: (context) {
-                  return RecupCardVerticalFeedCard(
-                    backgroundImage: const [
-                      'https://github.com/arielsardinha.png',
-                      'https://github.com/treinaweb.png',
-                      'https://github.com/recup.png',
-                    ],
-                    avatars: const [
-                      'https://github.com/arielsardinha.png',
-                      'https://github.com/treinaweb.png',
-                      'https://github.com/recup.png',
-                    ],
-                    nameAvatar: context.knobs.text(
-                      label: 'nameAvatar',
-                      initialValue: 'Ariel Sardinha',
-                    ),
-                    photoHeader: context.knobs.text(
-                      label: 'photoHeader',
-                      initialValue: 'https://github.com/arielsardinha.png',
-                    ),
-                    titleHeader: context.knobs.text(
-                      label: 'titleHeader',
-                      initialValue: 'Title Header',
-                    ),
-                    subtitleHeader: context.knobs.text(
-                      label: 'subtitleHeader',
-                      initialValue: 'Subtitle Header',
+                  return Center(
+                    child: RecupCardVerticalFeedCard(
+                      backgroundImages: const [
+                        'https://github.com/arielsardinha.png',
+                        'https://github.com/treinaweb.png',
+                        'https://github.com/recup.png',
+                      ],
+                      nameAvatar: context.knobs.text(
+                        label: 'nameAvatar',
+                        initialValue: 'Ariel Sardinha',
+                      ),
+                      photoHeader: context.knobs.text(
+                        label: 'photoHeader',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      titleHeader: context.knobs.text(
+                        label: 'titleHeader',
+                        initialValue: 'Title Header',
+                      ),
+                      subtitleHeader: context.knobs.text(
+                        label: 'subtitleHeader',
+                        initialValue: 'Subtitle Header',
+                      ),
                     ),
                   );
                 },

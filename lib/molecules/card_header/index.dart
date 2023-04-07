@@ -5,7 +5,7 @@ class RecupCardHeader extends StatelessWidget {
   final String title;
   final String subtitle;
   final String photo;
-  final void Function()? onPressed;
+
   final Widget? trailing;
   const RecupCardHeader({
     super.key,
@@ -13,7 +13,6 @@ class RecupCardHeader extends StatelessWidget {
     this.title = '',
     this.subtitle = '',
     this.photo = '',
-    this.onPressed,
     this.trailing,
   });
 
