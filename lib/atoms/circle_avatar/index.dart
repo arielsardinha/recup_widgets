@@ -4,8 +4,13 @@ class RecupCircleAvatar extends StatelessWidget {
   final String name;
   final String photo;
   final Color? backgroundColor;
+  final double? radius;
   const RecupCircleAvatar(
-      {super.key, this.name = '', this.photo = '', this.backgroundColor});
+      {super.key,
+      this.name = '',
+      this.photo = '',
+      this.backgroundColor,
+      this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +37,7 @@ class RecupCircleAvatar extends StatelessWidget {
       backgroundColor: backgroundColor ?? theme.colorScheme.primaryContainer,
       foregroundColor: theme.colorScheme.primary,
       backgroundImage: !isPhoto(photo) ? null : NetworkImage(photo),
+      radius: radius,
       child: name.isEmpty || isPhoto(photo)
           ? null
           : Text(
