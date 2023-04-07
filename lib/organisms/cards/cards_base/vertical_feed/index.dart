@@ -51,7 +51,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
 
     return Container(
       width: 360,
-      height: carouselSize == RecupCarouselSize.NORMAL ? 480 : 500,
+      height: carouselSize == RecupCarouselSize.NORMAL ? 480 : 520,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.fromBorderSide(
