@@ -46,7 +46,11 @@ class _RecupStandardState extends State<RecupStandard> {
   final spaceSizeText = 25;
   @override
   void initState() {
-    _widgetWidth = getWidgetSize(_widgetKey);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _widgetWidth = getWidgetSize(_widgetKey);
+      });
+    });
     super.initState();
   }
 
