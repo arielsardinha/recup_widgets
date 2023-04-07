@@ -30,7 +30,7 @@ enum RecupStatusColor {
   }
 }
 
-class RecupStatus extends StatefulWidget {
+class RecupStatus extends StatelessWidget {
   final String text;
   final RecupStatusColor color;
   const RecupStatus({
@@ -39,19 +39,7 @@ class RecupStatus extends StatefulWidget {
     this.color = RecupStatusColor.AVAILABLE,
   });
 
-  @override
-  State<RecupStatus> createState() => _RecupStatusState();
-}
-
-class _RecupStatusState extends State<RecupStatus> {
-  final _widgetKey = GlobalKey();
-  double _widgetWidth = 0;
   final spaceSizeText = 25;
-  @override
-  void initState() {
-    _widgetWidth = getWidgetSize(_widgetKey);
-    super.initState();
-  }
 
   double getWidgetSize(GlobalKey key) {
     final renderBox = key.currentContext?.findRenderObject() as RenderBox?;
@@ -72,18 +60,18 @@ class _RecupStatusState extends State<RecupStatus> {
     textPainter.layout();
     final textWidth = textPainter.width;
 
-    return textWidth + 30 + _widgetWidth;
+    return textWidth + 30;
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      width: calcSize(widget.text, theme),
+      width: calcSize(text, theme),
       padding: const EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: widget.color.colorBackground(theme.colorScheme),
+        color: color.colorBackground(theme.colorScheme),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +80,7 @@ class _RecupStatusState extends State<RecupStatus> {
             width: 12,
             height: 12,
             decoration: BoxDecoration(
-              color: widget.color.color(theme.colorScheme),
+              color: color.color(theme.colorScheme),
               borderRadius: BorderRadius.circular(50),
             ),
           ),
@@ -100,11 +88,11 @@ class _RecupStatusState extends State<RecupStatus> {
             width: 4,
           ),
           Text(
-            widget.text,
+            text,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: theme.textTheme.labelMedium?.copyWith(
-              color: widget.color.color(theme.colorScheme),
+              color: color.color(theme.colorScheme),
             ),
           ),
         ],
