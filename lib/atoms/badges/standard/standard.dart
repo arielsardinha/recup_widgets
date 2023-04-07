@@ -43,7 +43,7 @@ class RecupStandard extends StatefulWidget {
 class _RecupStandardState extends State<RecupStandard> {
   final _widgetKey = GlobalKey();
   double _widgetWidth = 0;
-  final spaceSizeText = 25;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -72,8 +72,8 @@ class _RecupStandardState extends State<RecupStandard> {
 
     textPainter.layout();
     final textWidth = textPainter.width;
-
-    return textWidth + 30 + _widgetWidth;
+    const spaceTextSize = 5;
+    return textWidth + spaceTextSize + _widgetWidth;
   }
 
   @override
