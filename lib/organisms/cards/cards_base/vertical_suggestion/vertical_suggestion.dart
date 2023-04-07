@@ -10,6 +10,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
   final Widget? child;
   final void Function()? onTap;
   final Color? backgroundColorAvatar;
+  final double? textContentMaxWidth;
 
   const RecupCardVerticalSuggestion({
     Key? key,
@@ -22,6 +23,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.nameAvatar = '',
     this.textContent = '',
     this.backgroundColorAvatar,
+    this.textContentMaxWidth,
   }) : super(key: key);
 
   @override
@@ -94,21 +96,10 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                   ),
                 ),
               if (textContent.isNotEmpty)
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: theme.colorScheme.surfaceVariant),
-                  child: Text(
-                    textContent,
-                    maxLines: subtitle.isNotEmpty ? 1 : 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                )
+                RecupStandard(
+                  text: textContent,
+                  width: textContentMaxWidth,
+                ),
             ],
           ),
           const Spacer(),

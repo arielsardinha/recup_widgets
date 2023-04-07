@@ -37,6 +37,8 @@ abstract class _StorybookAtoms {
                           ),
                         ],
                       ),
+                      width:
+                          double.tryParse(context.knobs.text(label: "width")),
                     ),
                   );
                 },
