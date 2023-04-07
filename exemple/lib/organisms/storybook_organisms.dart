@@ -1215,7 +1215,38 @@ abstract class _StorybookOrganismis {
                 },
               ),
             ],
-          )
+          ),
+          WidgetbookComponent(
+            name: "Vertical Bignumber",
+            useCases: [
+              WidgetbookUseCase(
+                name: "Default",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalBignumber(
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      onPressed: context.knobs.boolean(label: "onPressed")
+                          ? () {}
+                          : null,
+                      widget: const RecupCircleAvatar(
+                        name: "A",
+                      ),
+                      child: context.knobs.boolean(label: "child")
+                          ? const Icon(Icons.reduce_capacity_outlined)
+                          : null,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ],
       )
     ],

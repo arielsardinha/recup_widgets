@@ -16,3 +16,4 @@ part 'organisms/cards/cards_base/vertical_suggestion/vertical_suggestion.dart';
 part 'atoms/input_chip/input_chip.dart';
 part 'atoms/badges/standard/standard.dart';
 part 'atoms/badges/status/status.dart';
+part 'organisms/cards/cards_base/vertical_bignumber/vertical_bignumber.dart';
