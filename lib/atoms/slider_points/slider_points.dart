@@ -23,11 +23,10 @@ class RecupSliderPoints extends StatelessWidget {
             child: Container(
               width: 9.0,
               height: 9.0,
-              margin:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 2),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: theme.colorScheme.primary
+                color: theme.colorScheme.primaryContainer
                     .withOpacity(currentPoint == entry.key ? 1 : 0.4),
               ),
             ),
