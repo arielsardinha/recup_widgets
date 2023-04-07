@@ -3,6 +3,82 @@ part of 'package:exemple/main.dart';
 abstract class _StorybookAtoms {
   static final atomsStorybook = WidgetbookCategory(
     name: 'atoms',
+    folders: [
+      WidgetbookFolder(
+        name: "Badges",
+        widgets: [
+          WidgetbookComponent(
+            name: "Standard",
+            useCases: [
+              WidgetbookUseCase(
+                name: "Default",
+                builder: (context) {
+                  return Center(
+                    child: RecupStandard(
+                      text: context.knobs
+                          .text(label: "text", initialValue: "text"),
+                      widget: context.knobs
+                              .boolean(label: "widget", initialValue: true)
+                          ? const Icon(
+                              Icons.clear,
+                              size: 16,
+                            )
+                          : null,
+                      color: context.knobs.options(
+                        label: "color",
+                        options: const [
+                          Option(
+                            label: "PRIMARY",
+                            value: RecupStandardColor.PRIMARY,
+                          ),
+                          Option(
+                            label: "ERROR",
+                            value: RecupStandardColor.ERROR,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
+          WidgetbookComponent(
+            name: "Status",
+            useCases: [
+              WidgetbookUseCase(
+                name: "Default",
+                builder: (context) {
+                  return Center(
+                    child: RecupStatus(
+                      text: context.knobs
+                          .text(label: "text", initialValue: "text"),
+                      color: context.knobs.options(
+                        label: "color",
+                        options: const [
+                          Option(
+                            label: "UNVAILABLO",
+                            value: RecupStatusColor.UNVAILABLO,
+                          ),
+                          Option(
+                            label: "AVAILABLE",
+                            value: RecupStatusColor.AVAILABLE,
+                          ),
+                          Option(
+                            label: "OPERATING",
+                            value: RecupStatusColor.OPERATING,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
+        ],
+      )
+    ],
     widgets: [
       WidgetbookComponent(
         name: 'Slider Points',
@@ -90,7 +166,7 @@ abstract class _StorybookAtoms {
             },
           )
         ],
-      )
+      ),
     ],
   );
 }
