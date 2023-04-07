@@ -57,6 +57,8 @@ abstract class _StorybookOrganismis {
 
                   return Center(
                     child: RecupCardVerticalFeedCard(
+                      noSliderPoints:
+                          context.knobs.boolean(label: "noSliderPoints"),
                       backgroundImages: const [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
@@ -263,6 +265,8 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalFeedCard(
+                      noSliderPoints: context.knobs
+                          .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: const [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
@@ -370,6 +374,8 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalFeedCard(
+                      noSliderPoints: context.knobs
+                          .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: const [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
@@ -395,6 +401,10 @@ abstract class _StorybookOrganismis {
                           context.knobs.boolean(label: "trailingHeader")
                               ? const Icon(Icons.favorite_border_outlined)
                               : null,
+                      subtitleContent: context.knobs.text(
+                        label: 'subtitleContent',
+                        initialValue: 'subtitleContent',
+                      ),
                       childContent: RecupStatus(
                         text: context.knobs.text(
                           label: 'childContent',
@@ -404,7 +414,7 @@ abstract class _StorybookOrganismis {
                       childElevatedButton: Row(
                         children: [
                           const Icon(
-                            Icons.next_plan_outlined,
+                            Icons.circle_outlined,
                             size: 16,
                           ),
                           const SizedBox(
@@ -413,7 +423,7 @@ abstract class _StorybookOrganismis {
                           Text(
                             context.knobs.text(
                               label: 'childOutlinedButton',
-                              initialValue: 'Enabled',
+                              initialValue: 'Ativar',
                             ),
                           ),
                         ],
@@ -421,7 +431,7 @@ abstract class _StorybookOrganismis {
                       childOutlinedButton: Text(
                         context.knobs.text(
                           label: 'childElevatedButton',
-                          initialValue: 'Enabled',
+                          initialValue: 'Ver mais',
                         ),
                       ),
                       onPressedElevatedButton: context.knobs.boolean(
@@ -436,20 +446,142 @@ abstract class _StorybookOrganismis {
                           : null,
                       children: context.knobs
                               .boolean(label: "children", initialValue: true)
-                          ? Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                RecupAvatars(
-                                  images: [
-                                    'https://github.com/arielsardinha.png',
-                                    'https://github.com/treinaweb.png',
-                                    'https://github.com/recup.png',
+                          ? Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.person),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text("486 doadores ativos")
                                   ],
                                 ),
-                                SizedBox(
-                                  width: 8,
+                                const SizedBox(
+                                  height: 8,
                                 ),
-                                Text("3 marcas contribuintes")
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.volunteer_activism_outlined),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text("1 358€ doados")
+                                  ],
+                                ),
+                              ],
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Donation Actived',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalFeedCard(
+                      noSliderPoints: context.knobs
+                          .boolean(label: "noSliderPoints", initialValue: true),
+                      backgroundImages: const [
+                        'https://github.com/arielsardinha.png',
+                        'https://github.com/treinaweb.png',
+                        'https://github.com/recup.png',
+                      ],
+                      nameAvatar: context.knobs.text(
+                        label: 'nameAvatar',
+                        initialValue: 'Ariel Sardinha',
+                      ),
+                      photoHeader: context.knobs.text(
+                        label: 'photoHeader',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      titleHeader: context.knobs.text(
+                        label: 'titleHeader',
+                        initialValue: 'Title Header',
+                      ),
+                      subtitleHeader: context.knobs.text(
+                        label: 'subtitleHeader',
+                        initialValue: 'Subtitle Header',
+                      ),
+                      trailingHeader:
+                          context.knobs.boolean(label: "trailingHeader")
+                              ? const Icon(Icons.favorite_border_outlined)
+                              : null,
+                      subtitleContent: context.knobs.text(
+                        label: 'subtitleContent',
+                        initialValue: 'subtitleContent',
+                      ),
+                      childContent: RecupStatus(
+                        text: context.knobs.text(
+                          label: 'childContent',
+                          initialValue: 'Text',
+                        ),
+                      ),
+                      isPrimaryContainerColorButton: context.knobs
+                          .boolean(label: "isPrimaryContainerColorButton"),
+                      childElevatedButton: Row(
+                        children: [
+                          const Icon(
+                            Icons.check_circle_outlined,
+                            size: 16,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            context.knobs.text(
+                              label: 'childOutlinedButton',
+                              initialValue: 'Ativo',
+                            ),
+                          ),
+                        ],
+                      ),
+                      childOutlinedButton: Text(
+                        context.knobs.text(
+                          label: 'childElevatedButton',
+                          initialValue: 'Ver mais',
+                        ),
+                      ),
+                      onPressedElevatedButton: context.knobs.boolean(
+                              label: "onPressedElevatedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      onPressedOutlinedButton: context.knobs.boolean(
+                              label: "onPressedOutlinedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      children: context.knobs
+                              .boolean(label: "children", initialValue: true)
+                          ? Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.person),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text("486 doadores ativos")
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.volunteer_activism_outlined),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Text("1 358€ doados")
+                                  ],
+                                ),
                               ],
                             )
                           : null,

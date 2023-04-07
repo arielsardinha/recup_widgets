@@ -7,17 +7,17 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       photoHeader,
       recoins,
       titleContent,
-      subtitleContent,
-      textContent;
+      subtitleContent;
   final List<String> backgroundImages;
   final void Function()? onPressedOutlinedButton;
   final void Function()? onPressedElevatedButton;
-  final bool isPrimaryContainerColorButton;
+  final bool isPrimaryContainerColorButton, noSliderPoints;
   final Widget? children,
       recoinsIcon,
       trailingHeader,
       childOutlinedButton,
-      childElevatedButton;
+      childElevatedButton,
+      childContent;
   final bool recoinsDisabled;
 
   const RecupCardVerticalFeedCard({
@@ -38,8 +38,9 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.recoinsIcon,
     this.titleContent = '',
     this.subtitleContent = '',
-    this.textContent = '',
     this.recoinsDisabled = false,
+    this.childContent,
+    this.noSliderPoints = false,
   });
 
   @override
@@ -68,6 +69,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
             trailing: trailingHeader,
           ),
           RecupCarousel(
+            noSliderPoints: noSliderPoints,
             images: backgroundImages,
           ),
           Padding(
@@ -108,22 +110,10 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               ],
             ),
           ),
-          if (textContent.isNotEmpty)
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: theme.colorScheme.error,
-              ),
-              child: Text(
-                textContent,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.labelMedium?.copyWith(
-                  color: theme.colorScheme.onError,
-                ),
-              ),
+          if (childContent != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: childContent!,
             ),
           const Spacer(),
           if (children != null)

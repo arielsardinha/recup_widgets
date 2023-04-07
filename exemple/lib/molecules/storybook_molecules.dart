@@ -38,24 +38,28 @@ abstract class _StorybookMolecules {
           WidgetbookUseCase(
             name: 'Default',
             builder: (context) {
-              return RecupCarousel(
-                height: context.knobs.options(
-                  label: "height",
-                  options: const [
-                    Option(
-                      label: "NORMAL",
-                      value: RecupCarouselSize.NORML,
-                    ),
-                    Option(
-                      label: "LARGE",
-                      value: RecupCarouselSize.LARGE,
-                    )
+              return Center(
+                child: RecupCarousel(
+                  height: context.knobs.options(
+                    label: "height",
+                    options: const [
+                      Option(
+                        label: "NORMAL",
+                        value: RecupCarouselSize.NORML,
+                      ),
+                      Option(
+                        label: "LARGE",
+                        value: RecupCarouselSize.LARGE,
+                      ),
+                    ],
+                  ),
+                  noSliderPoints: context.knobs
+                      .boolean(label: "noSliderPoints", initialValue: true),
+                  images: const [
+                    'https://github.com/arielsardinha.png',
+                    'https://github.com/treinaweb.png',
                   ],
                 ),
-                images: const [
-                  'https://github.com/arielsardinha.png',
-                  'https://github.com/treinaweb.png',
-                ],
               );
             },
           ),
