@@ -70,24 +70,43 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
           RecupCarousel(
             images: backgroundImages,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: ListTile(
-                  title: Text(titleContent),
-                  subtitle: Text(subtitleContent),
-                ),
-              ),
-              if (recoins.isNotEmpty || recoinsIcon != null)
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: RecupInputChip(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                if (titleContent.isNotEmpty || subtitleContent.isNotEmpty)
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (titleContent.isNotEmpty)
+                          Text(
+                            titleContent,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              color: theme.colorScheme.inverseSurface,
+                            ),
+                          ),
+                        if (subtitleContent.isNotEmpty)
+                          Text(
+                            subtitleContent,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                const Spacer(),
+                if (recoins.isNotEmpty || recoinsIcon != null)
+                  RecupInputChip(
                     text: recoins,
                     widget: recoinsIcon,
                     disabled: recoinsDisabled,
-                  ),
-                )
-            ],
+                  )
+              ],
+            ),
           ),
           if (textContent.isNotEmpty)
             Container(

@@ -159,6 +159,197 @@ abstract class _StorybookOrganismis {
                   );
                 },
               ),
+              WidgetbookUseCase(
+                name: 'product category enable',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalFeedCard(
+                      backgroundImages: const [
+                        'https://github.com/arielsardinha.png',
+                        'https://github.com/treinaweb.png',
+                        'https://github.com/recup.png',
+                      ],
+                      nameAvatar: context.knobs.text(
+                        label: 'nameAvatar',
+                        initialValue: 'Ariel Sardinha',
+                      ),
+                      photoHeader: context.knobs.text(
+                        label: 'photoHeader',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      titleHeader: context.knobs.text(
+                        label: 'titleHeader',
+                        initialValue: 'Title Header',
+                      ),
+                      subtitleHeader: context.knobs.text(
+                        label: 'subtitleHeader',
+                        initialValue: 'Subtitle Header',
+                      ),
+                      trailingHeader:
+                          context.knobs.boolean(label: "trailingHeader")
+                              ? Icon(
+                                  Icons.favorite,
+                                  color: Theme.of(context).colorScheme.primary,
+                                )
+                              : null,
+                      titleContent: context.knobs.text(
+                        label: 'titleContent',
+                        initialValue: 'titleContent',
+                      ),
+                      subtitleContent: context.knobs.text(
+                        label: 'subtitleContent',
+                        initialValue: 'subtitleContent',
+                      ),
+                      textContent: context.knobs.text(
+                        label: 'textContent',
+                        initialValue: 'textContent',
+                      ),
+                      childElevatedButton: Row(
+                        children: [
+                          const Icon(
+                            Icons.control_camera_outlined,
+                            size: 16,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            context.knobs.text(
+                              label: 'childOutlinedButton',
+                              initialValue: 'Enabled',
+                            ),
+                          ),
+                        ],
+                      ),
+                      childOutlinedButton: Text(
+                        context.knobs.text(
+                          label: 'childElevatedButton',
+                          initialValue: 'Enabled',
+                        ),
+                      ),
+                      onPressedElevatedButton: context.knobs.boolean(
+                              label: "onPressedElevatedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      onPressedOutlinedButton: context.knobs.boolean(
+                              label: "onPressedOutlinedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      children: context.knobs
+                              .boolean(label: "children", initialValue: true)
+                          ? Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                RecupAvatars(
+                                  images: [
+                                    'https://github.com/arielsardinha.png',
+                                    'https://github.com/treinaweb.png',
+                                    'https://github.com/recup.png',
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text("3 marcas contribuintes")
+                              ],
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'collection point, Enabled',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalFeedCard(
+                      backgroundImages: const [
+                        'https://github.com/arielsardinha.png',
+                        'https://github.com/treinaweb.png',
+                        'https://github.com/recup.png',
+                      ],
+                      nameAvatar: context.knobs.text(
+                        label: 'nameAvatar',
+                        initialValue: 'Ariel Sardinha',
+                      ),
+                      photoHeader: context.knobs.text(
+                        label: 'photoHeader',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      titleHeader: context.knobs.text(
+                        label: 'titleHeader',
+                        initialValue: 'Title Header',
+                      ),
+                      subtitleHeader: context.knobs.text(
+                        label: 'subtitleHeader',
+                        initialValue: 'Subtitle Header',
+                      ),
+                      trailingHeader:
+                          context.knobs.boolean(label: "trailingHeader")
+                              ? const Icon(Icons.favorite_border_outlined)
+                              : null,
+                      textContent: context.knobs.text(
+                        label: 'textContent',
+                        initialValue: 'textContent',
+                      ),
+                      childElevatedButton: Row(
+                        children: [
+                          const Icon(
+                            Icons.next_plan_outlined,
+                            size: 16,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            context.knobs.text(
+                              label: 'childOutlinedButton',
+                              initialValue: 'Enabled',
+                            ),
+                          ),
+                        ],
+                      ),
+                      childOutlinedButton: Text(
+                        context.knobs.text(
+                          label: 'childElevatedButton',
+                          initialValue: 'Enabled',
+                        ),
+                      ),
+                      onPressedElevatedButton: context.knobs.boolean(
+                              label: "onPressedElevatedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      onPressedOutlinedButton: context.knobs.boolean(
+                              label: "onPressedOutlinedButton",
+                              initialValue: true)
+                          ? () {}
+                          : null,
+                      children: context.knobs
+                              .boolean(label: "children", initialValue: true)
+                          ? Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                RecupAvatars(
+                                  images: [
+                                    'https://github.com/arielsardinha.png',
+                                    'https://github.com/treinaweb.png',
+                                    'https://github.com/recup.png',
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text("3 marcas contribuintes")
+                              ],
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
             ],
           ),
           WidgetbookComponent(
