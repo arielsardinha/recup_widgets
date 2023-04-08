@@ -3,12 +3,13 @@ part of 'package:recup_storybook/recup_storybook.dart';
 class RecupInputChip extends StatefulWidget {
   final String text;
   final Widget? widget;
-  final bool disabled;
+  final bool disabled, loading;
   const RecupInputChip({
     Key? key,
     this.text = '',
     this.widget,
     this.disabled = false,
+    this.loading = false,
   }) : super(key: key);
 
   @override
@@ -55,6 +56,17 @@ class _RecupInputChipState extends State<RecupInputChip> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    if (widget.loading) {
+      return const SkeletonLine(
+        style: SkeletonLineStyle(
+          width: 80,
+          height: 30,
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          alignment: Alignment.center,
+        ),
+      );
+    }
 
     return Container(
       width: calcSize(widget.text, theme),

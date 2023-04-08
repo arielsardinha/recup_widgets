@@ -150,6 +150,7 @@ abstract class _StorybookAtoms {
 
               return Center(
                 child: RecupInputChip(
+                  loading: context.knobs.boolean(label: "loading"),
                   text: context.knobs.text(
                     label: "text",
                     initialValue: "123",
