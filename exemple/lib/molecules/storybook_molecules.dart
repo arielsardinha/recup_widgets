@@ -116,12 +116,14 @@ abstract class _StorybookMolecules {
           WidgetbookUseCase(
             name: 'Default',
             builder: (context) {
-              return const RecupAvatars(
-                images: [
-                  'https://github.com/arielsardinha.png',
-                  'https://github.com/treinaweb.png',
-                  'https://github.com/recup.png',
-                ],
+              return const Center(
+                child: RecupAvatars(
+                  images: [
+                    'https://github.com/arielsardinha.png',
+                    'https://github.com/treinaweb.png',
+                    'https://github.com/recup.png',
+                  ],
+                ),
               );
             },
           ),

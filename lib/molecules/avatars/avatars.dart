@@ -40,6 +40,12 @@ class _RecupAvatarsState extends State<RecupAvatars> {
   Widget build(BuildContext context) {
     const avatarWidth = 27.0;
 
+    if (avatars.isEmpty) {
+      return const RecupCircleAvatar(
+        name: 'X',
+      );
+    }
+
     return SizedBox(
       width: 94,
       height: 40,
