@@ -40,7 +40,7 @@ class _RecupCarouselState extends State<RecupCarousel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 24),
+      padding: EdgeInsets.only(bottom: widget.noSliderPoints ? 0 : 24),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
