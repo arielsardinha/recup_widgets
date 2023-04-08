@@ -15,7 +15,15 @@ class _RecupAvatarsState extends State<RecupAvatars> {
     if (photo.isEmpty) {
       return false;
     }
-    final validExtensions = ['.png', '.jpg', '.jpeg', '.bmp', '.gif', '.svg'];
+    final validExtensions = [
+      '.png',
+      '.jpg',
+      '.jpeg',
+      '.bmp',
+      '.gif',
+      '.svg',
+      '.webp'
+    ];
     return validExtensions
         .any((extension) => photo.toLowerCase().endsWith(extension));
   }
