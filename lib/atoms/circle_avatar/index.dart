@@ -5,16 +5,31 @@ class RecupCircleAvatar extends StatelessWidget {
   final String photo;
   final Color? backgroundColor;
   final double? radius;
-  const RecupCircleAvatar(
-      {super.key,
-      this.name = '',
-      this.photo = '',
-      this.backgroundColor,
-      this.radius});
+  final bool loading;
+  const RecupCircleAvatar({
+    super.key,
+    this.name = '',
+    this.photo = '',
+    this.backgroundColor,
+    this.radius,
+    this.loading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    if (loading) {
+      return const SkeletonAvatar(
+        style: SkeletonAvatarStyle(
+          width: 40,
+          height: 40,
+          borderRadius: BorderRadius.all(
+            Radius.circular(50),
+          ),
+        ),
+      );
+    }
 
     bool isPhoto(String photo) {
       if (photo.isEmpty) {

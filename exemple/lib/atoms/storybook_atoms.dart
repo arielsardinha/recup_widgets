@@ -114,6 +114,7 @@ abstract class _StorybookAtoms {
             builder: (context) {
               return Center(
                 child: RecupCircleAvatar(
+                  loading: context.knobs.boolean(label: "loading"),
                   name: context.knobs.text(
                     label: 'Ariel',
                     initialValue: 'Ariel Sardinha',
