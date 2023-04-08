@@ -57,6 +57,8 @@ abstract class _StorybookOrganismis {
 
                   return Center(
                     child: RecupCardVerticalFeedCard(
+                      width:
+                          double.tryParse(context.knobs.text(label: "width")),
                       noSliderPoints:
                           context.knobs.boolean(label: "noSliderPoints"),
                       carouselSize: context.knobs.options(
