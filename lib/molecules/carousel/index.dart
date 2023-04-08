@@ -46,6 +46,9 @@ class _RecupCarouselState extends State<RecupCarousel> {
         children: [
           CarouselSlider(
             options: CarouselOptions(
+              scrollPhysics: widget.noSliderPoints
+                  ? const NeverScrollableScrollPhysics()
+                  : null,
               height: widget.height.size,
               autoPlay: autoPlay,
               autoPlayAnimationDuration: const Duration(milliseconds: 1000),
