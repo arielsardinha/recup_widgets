@@ -8,38 +8,43 @@ abstract class _StorybookOrganismis {
         name: 'Cards',
         widgets: [
           WidgetbookComponent(
-            name: 'Horizontal',
+            name: 'Horizontal Card Ads',
             useCases: [
               WidgetbookUseCase(
                 name: 'Default',
                 builder: (context) {
-                  return RecupCardHorizontalCardBase(
-                    title: context.knobs.text(
-                      label: 'title',
-                      initialValue: 'Header',
-                    ),
-                    subtitle: context.knobs.text(
-                      label: 'subtitle',
-                      initialValue: 'subtitle',
-                    ),
-                    text: context.knobs.text(
-                      label: 'text',
-                      initialValue: 'text',
-                    ),
-                    textButton: context.knobs.text(
-                      label: 'textButton',
-                      initialValue: 'Enabled',
-                    ),
-                    onPressedButton:
-                        context.knobs.boolean(label: 'onPressedButton')
-                            ? null
-                            : () {},
-                    onPressedIcon: context.knobs.boolean(label: 'onPressedIcon')
-                        ? null
-                        : () {},
-                    photo: context.knobs.text(
-                      label: 'photo',
-                      initialValue: 'https://github.com/recup.png',
+                  return Center(
+                    child: RecupCardHorizontalCardAds(
+                      title: context.knobs.text(
+                        label: 'title',
+                        initialValue: 'Header',
+                      ),
+                      subtitle: context.knobs.text(
+                        label: 'subtitle',
+                        initialValue: 'subtitle',
+                      ),
+                      text: context.knobs.text(
+                        label: 'text',
+                        initialValue: 'text',
+                      ),
+                      textButton: context.knobs.text(
+                        label: 'textButton',
+                        initialValue: 'Enabled',
+                      ),
+                      onPressedButton:
+                          context.knobs.boolean(label: 'onPressedButton')
+                              ? null
+                              : () {},
+                      leading: context.knobs.boolean(label: 'leading')
+                          ? null
+                          : const Icon(
+                              Icons.check_circle_outline_outlined,
+                              size: 40,
+                            ),
+                      photo: context.knobs.text(
+                        label: 'photo',
+                        initialValue: 'https://github.com/recup.png',
+                      ),
                     ),
                   );
                 },

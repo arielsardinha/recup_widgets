@@ -11,7 +11,7 @@ part 'molecules/card_header/index.dart';
 part 'molecules/carousel/index.dart';
 part 'molecules/text_form_field/text_form_field.dart';
 part 'organisms/cards/cards_base/vertical_feed/index.dart';
-part 'organisms/cards/cards_base/horizontal/horizontal_card_base.dart';
+part 'organisms/cards/cards_base/horizontal_card_ads/horizontal_card_ads.dart';
 part 'organisms/cards/cards_base/vertical_action/vertical_action.dart';
 part 'organisms/cards/cards_base/vertical_suggestion/vertical_suggestion.dart';
 part 'atoms/input_chip/input_chip.dart';
