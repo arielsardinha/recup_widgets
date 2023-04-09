@@ -1,7 +1,7 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalSuggestion extends StatelessWidget {
-  final String titulo,
+  final String title,
       subtitle,
       photoBackground,
       photoAvatar,
@@ -9,14 +9,14 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
       textContent;
   final Widget? child;
   final void Function()? onTap;
-  final Color? backgroundColorAvatar;
+  final Color? backgroundColorAvatar, backgroundColor;
   final double? textContentMaxWidth;
   final RecupStatusColor textContentColor;
 
   const RecupCardVerticalSuggestion({
     Key? key,
     this.onTap,
-    this.titulo = '',
+    this.title = '',
     this.subtitle = '',
     this.child,
     this.photoBackground = '',
@@ -26,6 +26,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.backgroundColorAvatar,
     this.textContentMaxWidth,
     this.textContentColor = RecupStatusColor.AVAILABLE,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -55,13 +56,14 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                     width: 200,
                     height: 140,
                     decoration: BoxDecoration(
+                      color: backgroundColor,
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(photoBackground),
                       ),
                       borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16),
                       ),
                     ),
                   ),
@@ -76,14 +78,14 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                   )
                 ],
               ),
-              if (subtitle.isNotEmpty || titulo.isNotEmpty)
+              if (subtitle.isNotEmpty || title.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: ListTile(
                     contentPadding: EdgeInsets.zero,
-                    title: titulo.isNotEmpty
+                    title: title.isNotEmpty
                         ? Text(
-                            titulo,
+                            title,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           )

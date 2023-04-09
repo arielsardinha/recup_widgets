@@ -884,9 +884,9 @@ abstract class _StorybookOrganismis {
                         label: "photoAvatar",
                         initialValue: "https://github.com/arielsardinha.png",
                       ),
-                      titulo: context.knobs.text(
-                        label: "titulo",
-                        initialValue: "titulo",
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
                       ),
                       subtitle: context.knobs.text(
                         label: "subtitle",
@@ -942,9 +942,9 @@ abstract class _StorybookOrganismis {
                         label: "photoAvatar",
                         initialValue: "https://github.com/arielsardinha.png",
                       ),
-                      titulo: context.knobs.text(
-                        label: "titulo",
-                        initialValue: "titulo",
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
                       ),
                       subtitle: context.knobs.text(
                         label: "subtitle",
@@ -1000,9 +1000,9 @@ abstract class _StorybookOrganismis {
                         label: "photoAvatar",
                         initialValue: "https://github.com/arielsardinha.png",
                       ),
-                      titulo: context.knobs.text(
-                        label: "titulo",
-                        initialValue: "titulo",
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
                       ),
                       subtitle: context.knobs.text(
                         label: "subtitle",
@@ -1058,9 +1058,9 @@ abstract class _StorybookOrganismis {
                         label: "photoAvatar",
                         initialValue: "https://github.com/arielsardinha.png",
                       ),
-                      titulo: context.knobs.text(
-                        label: "titulo",
-                        initialValue: "titulo",
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
                       ),
                       subtitle: context.knobs.text(
                         label: "subtitle",
@@ -1116,9 +1116,9 @@ abstract class _StorybookOrganismis {
                         label: "photoAvatar",
                         initialValue: "https://github.com/arielsardinha.png",
                       ),
-                      titulo: context.knobs.text(
-                        label: "titulo",
-                        initialValue: "titulo",
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
                       ),
                       subtitle: context.knobs.text(
                         label: "subtitle",
@@ -1173,9 +1173,9 @@ abstract class _StorybookOrganismis {
                         label: "photoAvatar",
                         initialValue: "https://github.com/arielsardinha.png",
                       ),
-                      titulo: context.knobs.text(
-                        label: "titulo",
-                        initialValue: "titulo",
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
                       ),
                       subtitle: context.knobs.text(
                         label: "subtitle",
