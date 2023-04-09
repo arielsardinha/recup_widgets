@@ -47,33 +47,35 @@ class RecupCardHorizontalNotification extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Column(
-                    children: [
-                      ListTile(
-                        title: title.isNotEmpty
-                            ? Text(
-                                title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: false,
-                              )
-                            : null,
-                        subtitle: subtitle.isNotEmpty
-                            ? Text(
-                                subtitle,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: false,
-                              )
-                            : null,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: LinearProgressIndicator(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.inverseSurface,
+                          ),
+                        ),
+                        Text(
+                          subtitle,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                        LinearProgressIndicator(
                           value: value,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 if (child != null) child!,
