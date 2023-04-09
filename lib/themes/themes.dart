@@ -13,6 +13,17 @@ abstract class Themes {
         backgroundColor: _lightColorScheme.primary,
       ),
     ),
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: Colors.transparent,
+      iconTheme: MaterialStateProperty.resolveWith((states) {
+        if (states.contains(MaterialState.selected)) {
+          return IconThemeData(
+            color: _lightColorScheme.primary,
+          );
+        }
+        return null;
+      }),
+    ),
   );
 
   static final themeDataDark = ThemeData(
@@ -24,6 +35,17 @@ abstract class Themes {
         foregroundColor: _darkColorScheme.onPrimary,
         backgroundColor: _darkColorScheme.primary,
       ),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: Colors.transparent,
+      iconTheme: MaterialStateProperty.resolveWith((states) {
+        if (states.contains(MaterialState.selected)) {
+          return IconThemeData(
+            color: _darkColorScheme.primary,
+          );
+        }
+        return null;
+      }),
     ),
   );
 }
