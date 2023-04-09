@@ -111,11 +111,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          if (child != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              child: child!,
-            )
+          if (child != null) child!
         ],
       ),
     );
