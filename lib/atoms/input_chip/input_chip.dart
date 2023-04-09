@@ -19,7 +19,7 @@ class RecupInputChip extends StatefulWidget {
 class _RecupInputChipState extends State<RecupInputChip> {
   final _widgetKey = GlobalKey();
   double _widgetWidth = 0;
-  final spaceSizeText = 20;
+  final spaceSizeText = 10;
 
   @override
   void initState() {
@@ -50,7 +50,7 @@ class _RecupInputChipState extends State<RecupInputChip> {
     textPainter.layout();
     final textWidth = textPainter.width;
 
-    return textWidth + 30 + _widgetWidth;
+    return textWidth + 10 + _widgetWidth;
   }
 
   @override
@@ -70,7 +70,7 @@ class _RecupInputChipState extends State<RecupInputChip> {
 
     return Container(
       width: calcSize(widget.text, theme),
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
@@ -93,11 +93,11 @@ class _RecupInputChipState extends State<RecupInputChip> {
             child: Text(
               widget.text,
               maxLines: 1,
-              overflow: TextOverflow.ellipsis,
               style: theme.textTheme.titleSmall?.copyWith(
-                  color: widget.disabled
-                      ? theme.colorScheme.outlineVariant
-                      : theme.colorScheme.onSurfaceVariant),
+                color: widget.disabled
+                    ? theme.colorScheme.outlineVariant
+                    : theme.colorScheme.onSurfaceVariant,
+              ),
             ),
           ),
         ],
