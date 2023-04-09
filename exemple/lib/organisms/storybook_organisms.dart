@@ -1254,6 +1254,41 @@ abstract class _StorybookOrganismis {
               ),
             ],
           ),
+          WidgetbookComponent(
+            name: "Horizontal Notification",
+            useCases: [
+              WidgetbookUseCase(
+                name: "Default",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardHorizontalNotification(
+                      title: context.knobs.text(
+                        label: "title",
+                        initialValue: "title",
+                      ),
+                      subtitle: context.knobs.text(
+                        label: "subtitle",
+                        initialValue: "subtitle",
+                      ),
+                      photo: context.knobs.text(
+                        label: "photo",
+                        initialValue: "https://github.com/arielsardinha.png",
+                      ),
+                      value: double.tryParse(
+                            context.knobs.text(label: "value"),
+                          ) ??
+                          0.0,
+                      child: context.knobs.boolean(label: "child")
+                          ? const RecupInputChip(
+                              text: 'Text',
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ],
       )
     ],
