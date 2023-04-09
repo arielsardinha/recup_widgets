@@ -50,7 +50,7 @@ class _RecupInputChipState extends State<RecupInputChip> {
     textPainter.layout();
     final textWidth = textPainter.width;
 
-    return textWidth + 10 + _widgetWidth;
+    return textWidth + 11 + _widgetWidth;
   }
 
   @override
@@ -86,6 +86,7 @@ class _RecupInputChipState extends State<RecupInputChip> {
           if (widget.widget != null)
             Container(
               key: _widgetKey,
+              margin: const EdgeInsets.only(right: 4, top: 2, bottom: 2),
               child: widget.widget!,
             ),
           SizedBox(

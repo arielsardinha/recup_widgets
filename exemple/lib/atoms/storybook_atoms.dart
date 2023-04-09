@@ -160,7 +160,7 @@ abstract class _StorybookAtoms {
                     initialValue: true,
                   )
                       ? Icon(
-                          Icons.clear,
+                          Icons.circle,
                           color: disabled
                               ? Theme.of(context).colorScheme.outlineVariant
                               : null,
