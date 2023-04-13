@@ -77,7 +77,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                 if (title.isNotEmpty)
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 8),
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Text(
                       title,
                       maxLines: 2,
@@ -89,7 +89,8 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                   ),
                 if (subtitleListTile != null)
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding:
+                        const EdgeInsets.only(right: 16, left: 16, bottom: 8),
                     child: subtitleListTile,
                   ),
                 if (textContent.isNotEmpty)
