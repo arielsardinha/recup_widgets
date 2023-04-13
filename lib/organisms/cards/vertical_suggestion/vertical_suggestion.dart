@@ -104,9 +104,6 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                   ),
               ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
             const Spacer(),
             if (child != null) child!
           ],
