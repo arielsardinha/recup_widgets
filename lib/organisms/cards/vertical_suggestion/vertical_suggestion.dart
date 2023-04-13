@@ -74,20 +74,23 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                     )
                   ],
                 ),
-                if (subtitleListTile != null || title.isNotEmpty)
+                if (title.isNotEmpty)
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 8),
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: theme.colorScheme.inverseSurface,
+                      ),
+                    ),
+                  ),
+                if (subtitleListTile != null)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title: title.isNotEmpty
-                          ? Text(
-                              title,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            )
-                          : null,
-                      subtitle: subtitleListTile,
-                    ),
+                    child: subtitleListTile,
                   ),
                 if (textContent.isNotEmpty)
                   Padding(
