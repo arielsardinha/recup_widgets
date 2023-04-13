@@ -7,10 +7,10 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
       photoAvatar,
       nameAvatar,
       textContent;
-  final Widget? child;
+  final Widget? child, subtitleIcon;
   final void Function()? onTap;
   final Color? backgroundColorAvatar, backgroundColor;
-  final double? textContentMaxWidth;
+
   final RecupStatusColor textContentColor;
 
   const RecupCardVerticalSuggestion({
@@ -24,95 +24,117 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.nameAvatar = '',
     this.textContent = '',
     this.backgroundColorAvatar,
-    this.textContentMaxWidth,
     this.textContentColor = RecupStatusColor.AVAILABLE,
     this.backgroundColor,
+    this.subtitleIcon,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Container(
-      width: 200,
-      height: 280,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        border: Border.fromBorderSide(
-          BorderSide(
-            color: theme.colorScheme.surfaceVariant,
+    Widget? subtitleListTiel() {
+      if (subtitle.isNotEmpty || subtitleIcon != null) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (subtitleIcon != null) subtitleIcon!,
+            if (subtitle.isNotEmpty)
+              SizedBox(
+                width: subtitleIcon != null ? 130 : 150,
+                child: Text(
+                  subtitle,
+                  maxLines: textContent.isNotEmpty && child != null ? 1 : 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+          ],
+        );
+      }
+      return null;
+    }
+
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: 200,
+        height: 280,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          border: Border.fromBorderSide(
+            BorderSide(
+              color: theme.colorScheme.surfaceVariant,
+            ),
           ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    width: 200,
-                    height: 140,
-                    decoration: BoxDecoration(
-                      color: backgroundColor,
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(photoBackground),
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 140,
+                      decoration: BoxDecoration(
+                        color: backgroundColor,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(photoBackground),
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(16),
+                          topRight: Radius.circular(16),
+                        ),
                       ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 16, horizontal: 16),
+                      child: RecupCircleAvatar(
+                        photo: photoAvatar,
+                        name: nameAvatar,
+                        backgroundColor: backgroundColorAvatar,
+                      ),
+                    )
+                  ],
+                ),
+                if (subtitle.isNotEmpty || title.isNotEmpty)
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 16),
-                    child: RecupCircleAvatar(
-                      photo: photoAvatar,
-                      name: nameAvatar,
-                      backgroundColor: backgroundColorAvatar,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: title.isNotEmpty
+                          ? Text(
+                              title,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            )
+                          : null,
+                      subtitle: subtitleListTiel(),
                     ),
-                  )
-                ],
-              ),
-              if (subtitle.isNotEmpty || title.isNotEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: title.isNotEmpty
-                        ? Text(
-                            title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          )
-                        : null,
-                    subtitle: subtitle.isNotEmpty
-                        ? Text(
-                            subtitle,
-                            maxLines: textContent.isNotEmpty ? 1 : 2,
-                            overflow: TextOverflow.ellipsis,
-                          )
-                        : null,
                   ),
-                ),
-              if (textContent.isNotEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: RecupStatus(
-                    text: textContent,
-                    width: textContentMaxWidth,
-                    color: textContentColor,
+                if (textContent.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: RecupStatus(
+                      text: textContent,
+                      width: 140,
+                      color: textContentColor,
+                    ),
                   ),
-                ),
-            ],
-          ),
-          const Spacer(),
-          if (child != null) child!
-        ],
+              ],
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const Spacer(),
+            if (child != null) child!
+          ],
+        ),
       ),
     );
   }

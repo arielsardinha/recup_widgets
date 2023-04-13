@@ -892,6 +892,11 @@ abstract class _StorybookOrganismis {
                         label: "subtitle",
                         initialValue: "subtitle",
                       ),
+                      subtitleIcon: context.knobs.boolean(label: "subtitleIcon")
+                          ? const Icon(
+                              Icons.pin_drop_outlined,
+                            )
+                          : null,
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
@@ -902,29 +907,33 @@ abstract class _StorybookOrganismis {
                         label: "textContent",
                         initialValue: "textContent",
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.light_mode_outlined,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              const Text('Label')
-                            ],
-                          ),
-                          Icon(
-                            Icons.settings,
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          )
-                        ],
-                      ),
+                      child: context.knobs.boolean(label: "child")
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.light_mode_outlined,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                    const SizedBox(
+                                      width: 8,
+                                    ),
+                                    const Text('Label')
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.settings,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurfaceVariant,
+                                )
+                              ],
+                            ),
                     ),
                   );
                 },
