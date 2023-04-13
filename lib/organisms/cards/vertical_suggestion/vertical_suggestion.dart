@@ -1,13 +1,8 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalSuggestion extends StatelessWidget {
-  final String title,
-      subtitle,
-      photoBackground,
-      photoAvatar,
-      nameAvatar,
-      textContent;
-  final Widget? child, subtitleIcon;
+  final String title, photoBackground, photoAvatar, nameAvatar, textContent;
+  final Widget? child, subtitleListTile;
   final void Function()? onTap;
   final Color? backgroundColorAvatar, backgroundColor;
 
@@ -17,7 +12,6 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     Key? key,
     this.onTap,
     this.title = '',
-    this.subtitle = '',
     this.child,
     this.photoBackground = '',
     this.photoAvatar = '',
@@ -26,34 +20,12 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.backgroundColorAvatar,
     this.textContentColor = RecupStatusColor.AVAILABLE,
     this.backgroundColor,
-    this.subtitleIcon,
+    this.subtitleListTile,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    Widget? subtitleListTiel() {
-      if (subtitle.isNotEmpty || subtitleIcon != null) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (subtitleIcon != null) subtitleIcon!,
-            if (subtitle.isNotEmpty)
-              SizedBox(
-                width: subtitleIcon != null ? 130 : 150,
-                child: Text(
-                  subtitle,
-                  maxLines: textContent.isNotEmpty && child != null ? 1 : 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-          ],
-        );
-      }
-      return null;
-    }
 
     return InkWell(
       onTap: onTap,
@@ -102,7 +74,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                     )
                   ],
                 ),
-                if (subtitle.isNotEmpty || title.isNotEmpty)
+                if (subtitleListTile != null || title.isNotEmpty)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: ListTile(
@@ -114,7 +86,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             )
                           : null,
-                      subtitle: subtitleListTiel(),
+                      subtitle: subtitleListTile,
                     ),
                   ),
                 if (textContent.isNotEmpty)
