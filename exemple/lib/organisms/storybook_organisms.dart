@@ -888,15 +888,27 @@ abstract class _StorybookOrganismis {
                         label: "title",
                         initialValue: "title",
                       ),
-                      subtitle: context.knobs.text(
-                        label: "subtitle",
-                        initialValue: "subtitle",
-                      ),
-                      subtitleIcon: context.knobs.boolean(label: "subtitleIcon")
-                          ? const Icon(
-                              Icons.pin_drop_outlined,
-                            )
-                          : null,
+                      subtitleListTile:
+                          context.knobs.boolean(label: "subtitleListTile")
+                              ? Row(
+                                  children: [
+                                    if (context.knobs
+                                        .boolean(label: "subtitleListTileIcon"))
+                                      const Icon(
+                                        Icons.pin_drop_outlined,
+                                      ),
+                                    SizedBox(
+                                      width: 130,
+                                      child: Text(
+                                        context.knobs.text(
+                                          label: "subtitleListTileText",
+                                          initialValue: "title",
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                )
+                              : null,
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
@@ -955,9 +967,11 @@ abstract class _StorybookOrganismis {
                         label: "title",
                         initialValue: "title",
                       ),
-                      subtitle: context.knobs.text(
-                        label: "subtitle",
-                        initialValue: "subtitle",
+                      subtitleListTile: Text(
+                        context.knobs.text(
+                          label: "subtitle",
+                          initialValue: 'subtitle',
+                        ),
                       ),
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
@@ -1013,9 +1027,11 @@ abstract class _StorybookOrganismis {
                         label: "title",
                         initialValue: "title",
                       ),
-                      subtitle: context.knobs.text(
-                        label: "subtitle",
-                        initialValue: "",
+                      subtitleListTile: Text(
+                        context.knobs.text(
+                          label: "subtitle",
+                          initialValue: "",
+                        ),
                       ),
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
@@ -1071,9 +1087,11 @@ abstract class _StorybookOrganismis {
                         label: "title",
                         initialValue: "title",
                       ),
-                      subtitle: context.knobs.text(
-                        label: "subtitle",
-                        initialValue: "subtitle",
+                      subtitleListTile: Text(
+                        context.knobs.text(
+                          label: "subtitle",
+                          initialValue: "subtitle",
+                        ),
                       ),
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
@@ -1129,9 +1147,11 @@ abstract class _StorybookOrganismis {
                         label: "title",
                         initialValue: "title",
                       ),
-                      subtitle: context.knobs.text(
-                        label: "subtitle",
-                        initialValue: "subtitle",
+                      subtitleListTile: Text(
+                        context.knobs.text(
+                          label: "subtitle",
+                          initialValue: "subtitle",
+                        ),
                       ),
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
@@ -1186,9 +1206,11 @@ abstract class _StorybookOrganismis {
                         label: "title",
                         initialValue: "title",
                       ),
-                      subtitle: context.knobs.text(
-                        label: "subtitle",
-                        initialValue: "subtitle",
+                      subtitleListTile: Text(
+                        context.knobs.text(
+                          label: "subtitle",
+                          initialValue: "subtitle",
+                        ),
                       ),
                       photoBackground: context.knobs.text(
                         label: "photoBackground",
