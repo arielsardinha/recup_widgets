@@ -66,8 +66,18 @@ class RecupCardVerticalAction extends StatelessWidget {
                 visible: !(title.isEmpty && subtitle.isEmpty),
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: title.isNotEmpty ? Text(title) : null,
-                  subtitle: subtitle.isNotEmpty ? Text(subtitle) : null,
+                  title: title.isNotEmpty
+                      ? Text(
+                          title,
+                          maxLines: 2,
+                        )
+                      : null,
+                  subtitle: subtitle.isNotEmpty
+                      ? Text(
+                          subtitle,
+                          maxLines: 1,
+                        )
+                      : null,
                 ),
               ),
               Visibility(
