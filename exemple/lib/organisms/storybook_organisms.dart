@@ -829,7 +829,7 @@ abstract class _StorybookOrganismis {
                         label: "textButton",
                         initialValue: 'Ativar',
                       ),
-                      isPrimaryContainerColorButton: context.knobs.boolean(
+                      isActive: context.knobs.boolean(
                         label: 'isPrimaryContainerColorButton',
                         initialValue: true,
                       ),

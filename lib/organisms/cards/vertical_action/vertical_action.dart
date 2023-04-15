@@ -4,7 +4,7 @@ class RecupCardVerticalAction extends StatelessWidget {
   final String photoAvatar, nameAvatar, title, subtitle, textCenter, textButton;
   final Widget? iconCenter, iconButtonHeader;
   final void Function()? onPressedButton;
-  final bool isPrimaryContainerColorButton;
+  final bool isActive;
   final IconData? iconFromButtom;
   final Color? backgroundColorAvatar;
   const RecupCardVerticalAction({
@@ -19,7 +19,7 @@ class RecupCardVerticalAction extends StatelessWidget {
     this.iconFromButtom,
     this.textButton = '',
     required this.onPressedButton,
-    this.isPrimaryContainerColorButton = false,
+    this.isActive = false,
     this.backgroundColorAvatar,
   });
 
@@ -110,10 +110,10 @@ class RecupCardVerticalAction extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onPressedButton,
               style: ElevatedButton.styleFrom(
-                foregroundColor: isPrimaryContainerColorButton
+                foregroundColor: isActive
                     ? theme.colorScheme.onPrimaryContainer
                     : null,
-                backgroundColor: isPrimaryContainerColorButton
+                backgroundColor: isActive
                     ? theme.colorScheme.primaryContainer
                     : null,
               ),
