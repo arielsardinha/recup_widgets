@@ -6,6 +6,7 @@ class RecupCardVerticalAction extends StatelessWidget {
   final void Function()? onPressedHeaderIconButton, onPressedButton;
   final bool isPrimaryContainerColorButton;
   final IconData? iconFromButtom;
+  final Color? backgroundColorAvatar;
   const RecupCardVerticalAction({
     super.key,
     this.photoAvatar = '',
@@ -20,6 +21,7 @@ class RecupCardVerticalAction extends StatelessWidget {
     this.onPressedHeaderIconButton,
     required this.onPressedButton,
     this.isPrimaryContainerColorButton = false,
+    this.backgroundColorAvatar,
   });
 
   @override
@@ -49,6 +51,7 @@ class RecupCardVerticalAction extends StatelessWidget {
                   RecupCircleAvatar(
                     photo: photoAvatar,
                     name: nameAvatar,
+                    backgroundColor: backgroundColorAvatar,
                   ),
                   if (iconHeader != null)
                     IconButton(
