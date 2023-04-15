@@ -625,7 +625,8 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: const Icon(Icons.settings),
+                      iconButtonHeader: IconButton(
+                          onPressed: () {}, icon: const Icon(Icons.delete)),
                       title: context.knobs.text(
                         label: "title",
                         initialValue: 'Header',
@@ -681,8 +682,8 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: context.knobs.boolean(
-                        label: "iconHeader",
+                      iconButtonHeader: context.knobs.boolean(
+                        label: "iconButtonHeader",
                         initialValue: true,
                       )
                           ? Icon(
@@ -745,8 +746,8 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: context.knobs.boolean(
-                        label: "iconHeader",
+                      iconButtonHeader: context.knobs.boolean(
+                        label: "iconButtonHeader",
                         initialValue: true,
                       )
                           ? Icon(
@@ -809,8 +810,8 @@ abstract class _StorybookOrganismis {
                       )
                           ? () {}
                           : null,
-                      iconHeader: context.knobs.boolean(
-                        label: "iconHeader",
+                      iconButtonHeader: context.knobs.boolean(
+                        label: "iconButtonHeader",
                         initialValue: true,
                       )
                           ? Icon(
