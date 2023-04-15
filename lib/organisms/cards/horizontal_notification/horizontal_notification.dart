@@ -19,7 +19,7 @@ class RecupCardHorizontalNotification extends StatelessWidget {
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         border: Border.fromBorderSide(
           BorderSide(
             color: theme.colorScheme.surfaceVariant,
