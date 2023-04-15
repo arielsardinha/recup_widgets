@@ -54,11 +54,7 @@ class RecupCardVerticalAction extends StatelessWidget {
                       backgroundColor: backgroundColorAvatar,
                     ),
                   ),
-                  if (iconButtonHeader != null)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16, right: 16),
-                      child: iconButtonHeader!,
-                    )
+                  if (iconButtonHeader != null) iconButtonHeader!
                 ],
               ),
               Padding(
@@ -110,12 +106,10 @@ class RecupCardVerticalAction extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onPressedButton,
               style: ElevatedButton.styleFrom(
-                foregroundColor: isActive
-                    ? theme.colorScheme.onPrimaryContainer
-                    : null,
-                backgroundColor: isActive
-                    ? theme.colorScheme.primaryContainer
-                    : null,
+                foregroundColor:
+                    isActive ? theme.colorScheme.onPrimaryContainer : null,
+                backgroundColor:
+                    isActive ? theme.colorScheme.primaryContainer : null,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
