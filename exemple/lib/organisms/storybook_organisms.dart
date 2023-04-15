@@ -619,12 +619,6 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedHeaderIconButton: context.knobs.boolean(
-                        label: "onPressedHeaderIconButton",
-                        initialValue: true,
-                      )
-                          ? () {}
-                          : null,
                       iconButtonHeader: IconButton(
                           onPressed: () {}, icon: const Icon(Icons.delete)),
                       title: context.knobs.text(
@@ -676,12 +670,6 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedHeaderIconButton: context.knobs.boolean(
-                        label: "onPressedHeaderIconButton",
-                        initialValue: false,
-                      )
-                          ? () {}
-                          : null,
                       iconButtonHeader: context.knobs.boolean(
                         label: "iconButtonHeader",
                         initialValue: true,
@@ -740,12 +728,6 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedHeaderIconButton: context.knobs.boolean(
-                        label: "onPressedHeaderIconButton",
-                        initialValue: true,
-                      )
-                          ? () {}
-                          : null,
                       iconButtonHeader: context.knobs.boolean(
                         label: "iconButtonHeader",
                         initialValue: true,
@@ -804,12 +786,6 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalAction(
-                      onPressedHeaderIconButton: context.knobs.boolean(
-                        label: "onPressedHeaderIconButton",
-                        initialValue: true,
-                      )
-                          ? () {}
-                          : null,
                       iconButtonHeader: context.knobs.boolean(
                         label: "iconButtonHeader",
                         initialValue: true,
