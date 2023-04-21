@@ -158,8 +158,8 @@ abstract class _StorybookOrganismis {
                               initialValue: true)
                           ? () {}
                           : null,
-                      isPrimaryContainerColorButton: context.knobs
-                          .boolean(label: "isPrimaryContainerColorButton"),
+                      isActive: context.knobs
+                          .boolean(label: "isActive"),
                       children: context.knobs
                               .boolean(label: "children", initialValue: true)
                           ? Column(
@@ -544,8 +544,8 @@ abstract class _StorybookOrganismis {
                           initialValue: 'Text',
                         ),
                       ),
-                      isPrimaryContainerColorButton: context.knobs
-                          .boolean(label: "isPrimaryContainerColorButton"),
+                      isActive: context.knobs
+                          .boolean(label: "isActive"),
                       childElevatedButton: Row(
                         children: [
                           const Icon(
@@ -834,7 +834,7 @@ abstract class _StorybookOrganismis {
                         initialValue: 'Ativar',
                       ),
                       isActive: context.knobs.boolean(
-                        label: 'isPrimaryContainerColorButton',
+                        label: 'isActive',
                         initialValue: true,
                       ),
                       onPressedButton: context.knobs.boolean(

@@ -11,7 +11,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
   final List<String> backgroundImages;
   final void Function()? onPressedOutlinedButton;
   final void Function()? onPressedElevatedButton;
-  final bool isPrimaryContainerColorButton, noSliderPoints, recoinsDisabled;
+  final bool isActive, noSliderPoints, recoinsDisabled;
   final Widget? children,
       recoinsIcon,
       trailingHeader,
@@ -35,7 +35,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.onPressedElevatedButton,
     this.childOutlinedButton,
     this.childElevatedButton,
-    this.isPrimaryContainerColorButton = false,
+    this.isActive = false,
     this.recoins = '',
     this.recoinsIcon,
     this.titleContent = '',
@@ -145,12 +145,10 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: onPressedElevatedButton,
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: isPrimaryContainerColorButton
-                        ? theme.colorScheme.onPrimaryContainer
-                        : null,
-                    backgroundColor: isPrimaryContainerColorButton
-                        ? theme.colorScheme.primaryContainer
-                        : null,
+                    foregroundColor:
+                        isActive ? theme.colorScheme.onPrimaryContainer : null,
+                    backgroundColor:
+                        isActive ? theme.colorScheme.primaryContainer : null,
                   ),
                   child: childElevatedButton,
                 )
