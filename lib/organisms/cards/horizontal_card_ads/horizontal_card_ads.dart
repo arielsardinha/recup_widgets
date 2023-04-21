@@ -6,6 +6,7 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
   final Widget? leading, childButton;
   final Color? avatarBackgroundColor;
   final double? widthText;
+  final bool isActive;
   const RecupCardHorizontalCardAds({
     super.key,
     this.title = '',
@@ -19,6 +20,7 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
     this.avatarBackgroundColor,
     this.childButton,
     this.widthText,
+    this.isActive = false,
   });
 
   @override
@@ -69,8 +71,14 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ListTile(
-                  title: Text(title),
-                  subtitle: Text(subtitle),
+                  title: Text(
+                    title,
+                    maxLines: 2,
+                  ),
+                  subtitle: Text(
+                    subtitle,
+                    maxLines: 2,
+                  ),
                   leading: leading,
                 ),
                 if (text.isNotEmpty)
@@ -88,6 +96,10 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   margin: const EdgeInsets.only(right: 16, bottom: 16),
                   child: ElevatedButton(
                     onPressed: onPressedButton,
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: isActive
+                            ? theme.colorScheme.primaryContainer
+                            : theme.colorScheme.primary),
                     child: childButton,
                   ),
                 )
