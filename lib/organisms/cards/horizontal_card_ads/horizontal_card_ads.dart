@@ -100,9 +100,12 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: onPressedButton,
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: isActive
-                            ? theme.colorScheme.primaryContainer
-                            : theme.colorScheme.primary),
+                      foregroundColor: isActive
+                          ? theme.colorScheme.onPrimaryContainer
+                          : null,
+                      backgroundColor:
+                          isActive ? theme.colorScheme.primaryContainer : null,
+                    ),
                     child: childButton,
                   ),
                 )
