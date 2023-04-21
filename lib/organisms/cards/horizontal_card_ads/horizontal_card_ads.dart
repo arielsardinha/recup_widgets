@@ -67,17 +67,20 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
             ],
           ),
           Expanded(
+            flex: 2,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ListTile(
                   title: Text(
                     title,
-                    maxLines: 2,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: Text(
                     subtitle,
-                    maxLines: 2,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   leading: leading,
                 ),
