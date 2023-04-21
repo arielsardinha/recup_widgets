@@ -52,15 +52,16 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                top: 16,
-                left: 16,
-                child: RecupCircleAvatar(
-                  photo: avatarPhoto,
-                  name: avatarName,
-                  backgroundColor: avatarBackgroundColor,
-                ),
-              )
+              if (avatarPhoto.isNotEmpty || avatarName.isNotEmpty)
+                Positioned(
+                  top: 16,
+                  left: 16,
+                  child: RecupCircleAvatar(
+                    photo: avatarPhoto,
+                    name: avatarName,
+                    backgroundColor: avatarBackgroundColor,
+                  ),
+                )
             ],
           ),
           Expanded(
