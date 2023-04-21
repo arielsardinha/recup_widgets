@@ -1,18 +1,24 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardHorizontalCardAds extends StatelessWidget {
-  final String textButton, title, subtitle, text, photo;
+  final String title, subtitle, text, avatarPhoto, avatarName, photoBackground;
   final void Function()? onPressedButton;
-  final Widget? leading;
+  final Widget? leading, childButton;
+  final Color? avatarBackgroundColor;
+  final double? widthText;
   const RecupCardHorizontalCardAds({
     super.key,
-    this.textButton = '',
     this.title = '',
     this.subtitle = '',
     this.text = '',
     this.onPressedButton,
-    this.photo = '',
+    this.avatarPhoto = '',
     this.leading,
+    this.photoBackground = '',
+    this.avatarName = '',
+    this.avatarBackgroundColor,
+    this.childButton,
+    this.widthText,
   });
 
   @override
@@ -30,19 +36,32 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            width: 160,
-            decoration: BoxDecoration(
-              color: theme.colorScheme.background,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16),
-                bottomLeft: Radius.circular(16),
+          Stack(
+            children: [
+              Container(
+                width: 160,
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.background,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    bottomLeft: Radius.circular(16),
+                  ),
+                  image: DecorationImage(
+                    image: NetworkImage(photoBackground),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-              image: DecorationImage(
-                image: NetworkImage(photo),
-                fit: BoxFit.cover,
-              ),
-            ),
+              Positioned(
+                top: 16,
+                left: 16,
+                child: RecupCircleAvatar(
+                  photo: avatarPhoto,
+                  name: avatarName,
+                  backgroundColor: avatarBackgroundColor,
+                ),
+              )
+            ],
           ),
           Expanded(
             child: Column(
@@ -57,7 +76,8 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: RecupStandard(
-                      width: MediaQuery.of(context).size.width * 0.1,
+                      width:
+                          widthText ?? MediaQuery.of(context).size.width * 0.1,
                       text: text,
                     ),
                   ),
@@ -67,7 +87,7 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   margin: const EdgeInsets.only(right: 16, bottom: 16),
                   child: ElevatedButton(
                     onPressed: onPressedButton,
-                    child: Text(textButton),
+                    child: childButton,
                   ),
                 )
               ],

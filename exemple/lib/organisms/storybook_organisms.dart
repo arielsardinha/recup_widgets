@@ -27,10 +27,6 @@ abstract class _StorybookOrganismis {
                         label: 'text',
                         initialValue: 'text',
                       ),
-                      textButton: context.knobs.text(
-                        label: 'textButton',
-                        initialValue: 'Enabled',
-                      ),
                       onPressedButton:
                           context.knobs.boolean(label: 'onPressedButton')
                               ? null
@@ -41,9 +37,17 @@ abstract class _StorybookOrganismis {
                               Icons.check_circle_outline_outlined,
                               size: 40,
                             ),
-                      photo: context.knobs.text(
-                        label: 'photo',
+                      photoBackground: context.knobs.text(
+                        label: 'photoBackground',
                         initialValue: 'https://github.com/recup.png',
+                      ),
+                      avatarPhoto: context.knobs.text(
+                        label: 'avatarPhoto',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      avatarName: context.knobs.text(
+                        label: 'avatarName',
+                        initialValue: 'ariel sardinha',
                       ),
                     ),
                   );
