@@ -49,7 +49,9 @@ class _RecupStandardState extends State<RecupStandard> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _widgetWidth = getWidgetSize(_widgetKey);
+      setState(() {
+        _widgetWidth = getWidgetSize(_widgetKey);
+      });
     });
     super.initState();
   }
