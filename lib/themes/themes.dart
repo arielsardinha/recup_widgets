@@ -7,6 +7,24 @@ abstract class Themes {
     useMaterial3: true,
     colorScheme: _lightColorScheme,
     textTheme: _textTheme,
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.selected)) {
+            return _lightColorScheme.primary;
+          }
+          return _lightColorScheme.onBackground;
+        }),
+        backgroundColor: MaterialStateProperty.resolveWith(
+          (states) {
+            if (states.contains(MaterialState.selected)) {
+              return _lightColorScheme.primaryContainer;
+            }
+            return null;
+          },
+        ),
+      ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: _lightColorScheme.onPrimary,
@@ -30,6 +48,24 @@ abstract class Themes {
     useMaterial3: true,
     colorScheme: _darkColorScheme,
     textTheme: _textTheme,
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.selected)) {
+            return _darkColorScheme.primary;
+          }
+          return _darkColorScheme.onBackground;
+        }),
+        backgroundColor: MaterialStateProperty.resolveWith(
+          (states) {
+            if (states.contains(MaterialState.selected)) {
+              return _darkColorScheme.primaryContainer;
+            }
+            return null;
+          },
+        ),
+      ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: _darkColorScheme.onPrimary,
