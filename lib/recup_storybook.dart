@@ -7,7 +7,6 @@ import 'package:skeletons/skeletons.dart';
 part 'atoms/circle_avatar/index.dart';
 part 'atoms/slider_points/slider_points.dart';
 part 'molecules/avatars/avatars.dart';
-part 'molecules/card_header/index.dart';
 part 'molecules/carousel/index.dart';
 part 'molecules/text_form_field/text_form_field.dart';
 part 'organisms/cards/vertical_feed/index.dart';

@@ -65,12 +65,39 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RecupCardHeader(
-            nameAvatar: nameAvatar,
-            title: titleHeader,
-            subtitle: subtitleHeader,
-            photo: photoHeader,
-            trailing: trailingHeader,
+          Row(
+            children: [
+              Expanded(
+                child: ListTile(
+                  title: titleHeader.isEmpty
+                      ? null
+                      : Text(
+                          titleHeader,
+                          maxLines: 1,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.inverseSurface,
+                          ),
+                        ),
+                  subtitle: subtitleHeader.isEmpty
+                      ? null
+                      : Text(
+                          subtitleHeader,
+                          maxLines: 1,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                  leading: RecupCircleAvatar(
+                    name: nameAvatar,
+                    photo: photoHeader,
+                  ),
+                ),
+              ),
+              if (trailingHeader != null) trailingHeader!,
+              const SizedBox(
+                width: 8,
+              )
+            ],
           ),
           RecupCarousel(
             noSliderPoints: noSliderPoints,

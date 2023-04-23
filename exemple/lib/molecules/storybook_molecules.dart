@@ -5,34 +5,6 @@ abstract class _StorybookMolecules {
     name: 'molecules',
     widgets: [
       WidgetbookComponent(
-        name: 'Card Header',
-        useCases: [
-          WidgetbookUseCase(
-            name: 'Default',
-            builder: (context) {
-              return RecupCardHeader(
-                title: context.knobs.text(
-                  label: 'title',
-                  initialValue: 'Sunt duis ea excepteur duis.',
-                ),
-                subtitle: context.knobs.text(
-                  label: 'subtitle',
-                  initialValue: 'Sunt duis ea excepteur duis.',
-                ),
-                nameAvatar: context.knobs.text(
-                  label: 'nameAvatar',
-                  initialValue: 'Ariel Sardinha',
-                ),
-                photo: context.knobs.text(
-                  label: 'photo',
-                  initialValue: 'https://github.com/arielsardinha.png',
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      WidgetbookComponent(
         name: 'Carousel',
         useCases: [
           WidgetbookUseCase(
