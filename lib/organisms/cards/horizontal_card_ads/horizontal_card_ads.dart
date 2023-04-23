@@ -96,7 +96,8 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                 const Spacer(),
                 Container(
                   alignment: Alignment.bottomRight,
-                  margin: const EdgeInsets.only(right: 16, bottom: 16),
+                  margin:
+                      const EdgeInsets.only(right: 16, bottom: 16, left: 16),
                   child: ElevatedButton(
                     onPressed: onPressedButton,
                     style: ElevatedButton.styleFrom(
