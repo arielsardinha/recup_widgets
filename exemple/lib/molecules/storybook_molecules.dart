@@ -27,10 +27,10 @@ abstract class _StorybookMolecules {
                   ),
                   noSliderPoints: context.knobs
                       .boolean(label: "noSliderPoints", initialValue: true),
-                  images: const [
+                  itens: const [
                     'https://github.com/arielsardinha.png',
                     'https://github.com/treinaweb.png',
-                  ],
+                  ].map((e) => RecupCarouselItem(images: e, item: e)).toList(),
                 ),
               );
             },

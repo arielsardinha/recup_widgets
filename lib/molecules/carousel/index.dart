@@ -10,15 +10,23 @@ enum RecupCarouselSize {
   const RecupCarouselSize(this.size);
 }
 
-class RecupCarousel extends StatefulWidget {
-  final List<String> images;
+class RecupCarouselItem<T> {
+  final String images;
+  final T item;
+
+  RecupCarouselItem({required this.images, required this.item});
+}
+
+class RecupCarousel<T> extends StatefulWidget {
+  final List<RecupCarouselItem<T>> itens;
   final RecupCarouselSize height;
-  final void Function(String image, int indice)? onChange;
+  final void Function(T item)? onChange, onTap;
   final bool noSliderPoints;
   const RecupCarousel({
     Key? key,
-    required this.images,
+    required this.itens,
     this.onChange,
+    this.onTap,
     this.height = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
   }) : super(key: key);
@@ -33,7 +41,7 @@ class _RecupCarouselState extends State<RecupCarousel> {
 
   @override
   void initState() {
-    autoPlay = widget.noSliderPoints ? false : widget.images.length > 1;
+    autoPlay = widget.noSliderPoints ? false : widget.itens.length > 1;
     super.initState();
   }
 
@@ -55,22 +63,30 @@ class _RecupCarouselState extends State<RecupCarousel> {
               viewportFraction: 1,
               onPageChanged: (index, reason) {
                 if (widget.onChange != null) {
-                  widget.onChange!(widget.images[index], index);
+                  widget.onChange!(widget.itens[index].item);
                 }
                 setState(() {
                   _current = index;
                 });
               },
             ),
-            items: widget.images
+            items: widget.itens
                 .map(
-                  (image) => Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(5.0),
+                  (item) => InkWell(
+                    onTap: widget.onTap != null
+                        ? () {
+                            widget.onTap!(item);
+                          }
+                        : null,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(5.0),
+                        ),
+                        image: DecorationImage(
+                            image: NetworkImage(item.images),
+                            fit: BoxFit.cover),
                       ),
-                      image: DecorationImage(
-                          image: NetworkImage(image), fit: BoxFit.cover),
                     ),
                   ),
                 )
@@ -82,7 +98,7 @@ class _RecupCarouselState extends State<RecupCarousel> {
               left: 0,
               right: 0,
               child: RecupSliderPoints(
-                points: widget.images,
+                points: widget.itens.map((e) => e.images).toList(),
                 currentPoint: _current,
               ),
             ),
