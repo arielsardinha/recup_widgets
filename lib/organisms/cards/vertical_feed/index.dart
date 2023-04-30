@@ -140,7 +140,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(bottom: 8),
                     constraints: BoxConstraints(
-                      maxWidth: size.width - 30,
+                      maxWidth: size.width - 100,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
