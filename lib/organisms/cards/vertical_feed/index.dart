@@ -1,22 +1,13 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalFeedBackground {
-  List<String>? backgroundImages;
+  List<RecupCarouselItem>? backgroundImages;
   Widget? backgroundWidget;
 
   RecupCardVerticalFeedBackground({
     this.backgroundImages,
     this.backgroundWidget,
   });
-
-  List<RecupCarouselItem<String>> toMapbackgroundImages() {
-    if (backgroundImages != null) {
-      return backgroundImages!
-          .map((e) => RecupCarouselItem(images: e, item: e))
-          .toList();
-    }
-    return [];
-  }
 }
 
 class RecupCardVerticalFeedCard extends StatelessWidget {
@@ -129,7 +120,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               backgroundImages?.backgroundWidget == null)
             RecupCarousel(
               noSliderPoints: noSliderPoints,
-              itens: backgroundImages!.toMapbackgroundImages(),
+              itens: backgroundImages!.backgroundImages ?? [],
               height: carouselSize,
             ),
           if (backgroundImages?.backgroundWidget != null &&
