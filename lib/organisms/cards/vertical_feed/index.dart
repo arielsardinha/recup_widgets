@@ -126,7 +126,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               height: carouselSize,
             ),
           if (backgroundImages?.backgroundWidget != null &&
-              (backgroundImages?.backgroundImages?.isEmpty ?? false))
+              (backgroundImages?.backgroundImages?.isEmpty ?? true))
             backgroundImages!.backgroundWidget!,
           const SizedBox(
             height: 16,
