@@ -122,9 +122,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               backgroundImages?.backgroundWidget == null)
             RecupCarousel(
               noSliderPoints: noSliderPoints,
-              itens: backgroundImages!.backgroundImages!
-                  .map((e) => RecupCarouselItem(images: e, item: e))
-                  .toList(),
+              itens: backgroundImages!.toMapbackgroundImages(),
               height: carouselSize,
             ),
           if (backgroundImages?.backgroundWidget != null &&
