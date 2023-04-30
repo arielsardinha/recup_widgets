@@ -7,6 +7,11 @@ abstract class Themes {
     useMaterial3: true,
     colorScheme: _lightColorScheme,
     textTheme: _textTheme,
+    appBarTheme: AppBarTheme(
+      titleTextStyle: _textTheme.titleMedium?.copyWith(
+        color: _lightColorScheme.onSurface,
+      ),
+    ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.resolveWith((states) {
@@ -48,6 +53,11 @@ abstract class Themes {
     useMaterial3: true,
     colorScheme: _darkColorScheme,
     textTheme: _textTheme,
+    appBarTheme: AppBarTheme(
+      titleTextStyle: _textTheme.titleMedium?.copyWith(
+        color: _darkColorScheme.onSurface,
+      ),
+    ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.resolveWith((states) {
