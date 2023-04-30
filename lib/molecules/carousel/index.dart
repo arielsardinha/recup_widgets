@@ -12,9 +12,10 @@ enum RecupCarouselSize {
 
 class RecupCarouselItem<T> {
   final String images;
+  final Color? color;
   final T item;
 
-  RecupCarouselItem({required this.images, required this.item});
+  RecupCarouselItem({required this.images, required this.item, this.color});
 }
 
 class RecupCarousel<T> extends StatefulWidget {
@@ -80,12 +81,14 @@ class _RecupCarouselState extends State<RecupCarousel> {
                         : null,
                     child: Container(
                       decoration: BoxDecoration(
+                        color: item.color,
                         borderRadius: const BorderRadius.all(
                           Radius.circular(5.0),
                         ),
                         image: DecorationImage(
-                            image: NetworkImage(item.images),
-                            fit: BoxFit.cover),
+                          image: NetworkImage(item.images),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
