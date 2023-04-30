@@ -69,6 +69,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final size = MediaQuery.of(context).size;
 
     return Container(
       width: width,
@@ -138,6 +139,9 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                 if (titleContent.isNotEmpty || subtitleContent.isNotEmpty)
                   Container(
                     margin: const EdgeInsets.only(bottom: 8),
+                    constraints: BoxConstraints(
+                      maxWidth: size.width * 0.25,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
