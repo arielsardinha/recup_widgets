@@ -11,15 +11,10 @@ enum RecupCarouselSize {
 }
 
 class RecupCarouselItem<T> {
-  final String? imageLink;
-  final Uint8List? imageBit;
+  final String images;
   final T item;
 
-  RecupCarouselItem({
-    this.imageLink,
-    required this.item,
-    this.imageBit,
-  });
+  RecupCarouselItem({required this.images, required this.item});
 }
 
 class RecupCarousel<T> extends StatefulWidget {
@@ -48,24 +43,6 @@ class _RecupCarouselState extends State<RecupCarousel> {
   void initState() {
     autoPlay = widget.noSliderPoints ? false : widget.itens.length > 1;
     super.initState();
-  }
-
-  DecorationImage? getDecorationImageFromCarouselItem(RecupCarouselItem item) {
-    if (item.imageLink != null) {
-      return DecorationImage(
-        image: NetworkImage(item.imageLink!),
-        fit: BoxFit.cover,
-      );
-    }
-
-    if (item.imageBit != null) {
-      return DecorationImage(
-        image: MemoryImage(item.imageBit!),
-        fit: BoxFit.cover,
-      );
-    }
-
-    return null;
   }
 
   @override
@@ -106,7 +83,9 @@ class _RecupCarouselState extends State<RecupCarousel> {
                         borderRadius: const BorderRadius.all(
                           Radius.circular(5.0),
                         ),
-                        image: getDecorationImageFromCarouselItem(item),
+                        image: DecorationImage(
+                            image: NetworkImage(item.images),
+                            fit: BoxFit.cover),
                       ),
                     ),
                   ),
@@ -119,7 +98,7 @@ class _RecupCarouselState extends State<RecupCarousel> {
               left: 0,
               right: 0,
               child: RecupSliderPoints(
-                points: widget.itens.map((e) => e.imageLink ?? '').toList(),
+                points: widget.itens.map((e) => e.images).toList(),
                 currentPoint: _current,
               ),
             ),

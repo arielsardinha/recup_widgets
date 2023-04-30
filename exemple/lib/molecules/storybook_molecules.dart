@@ -30,9 +30,7 @@ abstract class _StorybookMolecules {
                   itens: const [
                     'https://github.com/arielsardinha.png',
                     'https://github.com/treinaweb.png',
-                  ]
-                      .map((e) => RecupCarouselItem(imageLink: e, item: e))
-                      .toList(),
+                  ].map((e) => RecupCarouselItem(images: e, item: e)).toList(),
                 ),
               );
             },
