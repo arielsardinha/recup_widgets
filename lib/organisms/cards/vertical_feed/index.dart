@@ -41,6 +41,8 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
   final RecupCarouselSize carouselSize;
   final double? width;
 
+  final Color? backgroundColor;
+
   const RecupCardVerticalFeedCard({
     super.key,
     this.nameAvatar = '',
@@ -64,6 +66,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.noSliderPoints = false,
     this.carouselSize = RecupCarouselSize.LARGE,
     this.width,
+    this.backgroundColor,
   });
 
   @override
@@ -75,6 +78,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       width: width,
       height: carouselSize == RecupCarouselSize.NORMAL ? 480 : 520,
       decoration: BoxDecoration(
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(20),
         border: Border.fromBorderSide(
           BorderSide(
