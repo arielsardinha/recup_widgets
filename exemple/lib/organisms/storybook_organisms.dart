@@ -87,7 +87,9 @@ abstract class _StorybookOrganismis {
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]
+                          .map((e) => RecupCarouselItem(imageLink: e, item: e))
+                          .toList(),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -195,7 +197,9 @@ abstract class _StorybookOrganismis {
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]
+                          .map((e) => RecupCarouselItem(imageLink: e, item: e))
+                          .toList(),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -294,7 +298,9 @@ abstract class _StorybookOrganismis {
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]
+                          .map((e) => RecupCarouselItem(imageLink: e, item: e))
+                          .toList(),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -403,7 +409,9 @@ abstract class _StorybookOrganismis {
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]
+                          .map((e) => RecupCarouselItem(imageLink: e, item: e))
+                          .toList(),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -512,7 +520,9 @@ abstract class _StorybookOrganismis {
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]
+                          .map((e) => RecupCarouselItem(imageLink: e, item: e))
+                          .toList(),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',

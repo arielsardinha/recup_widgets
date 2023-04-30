@@ -8,7 +8,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       recoins,
       titleContent,
       subtitleContent;
-  final List<String> backgroundImages;
+  final List<RecupCarouselItem> backgroundImages;
   final void Function()? onPressedOutlinedButton;
   final void Function()? onPressedElevatedButton;
   final bool isActive, noSliderPoints, recoinsDisabled;
@@ -101,9 +101,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
           ),
           RecupCarousel(
             noSliderPoints: noSliderPoints,
-            itens: backgroundImages
-                .map((e) => RecupCarouselItem(images: e, item: e))
-                .toList(),
+            itens: backgroundImages,
             height: carouselSize,
           ),
           const SizedBox(
