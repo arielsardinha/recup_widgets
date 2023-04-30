@@ -1,5 +1,24 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
+class RecupCardVerticalFeedBackground {
+  List<String>? backgroundImages;
+  Widget? backgroundWidget;
+
+  RecupCardVerticalFeedBackground({
+    this.backgroundImages,
+    this.backgroundWidget,
+  });
+
+  List<RecupCarouselItem<String>> toMapbackgroundImages() {
+    if (backgroundImages != null) {
+      return backgroundImages!
+          .map((e) => RecupCarouselItem(images: e, item: e))
+          .toList();
+    }
+    return [];
+  }
+}
+
 class RecupCardVerticalFeedCard extends StatelessWidget {
   final String nameAvatar,
       titleHeader,
@@ -8,7 +27,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       recoins,
       titleContent,
       subtitleContent;
-  final List<String> backgroundImages;
+  final RecupCardVerticalFeedBackground? backgroundImages;
   final void Function()? onPressedOutlinedButton;
   final void Function()? onPressedElevatedButton;
   final bool isActive, noSliderPoints, recoinsDisabled;
@@ -27,7 +46,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
     this.nameAvatar = '',
     this.titleHeader = '',
     this.subtitleHeader = '',
-    this.backgroundImages = const [],
+    this.backgroundImages,
     this.photoHeader = '',
     this.children,
     this.trailingHeader,
@@ -99,13 +118,18 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               )
             ],
           ),
-          RecupCarousel(
-            noSliderPoints: noSliderPoints,
-            itens: backgroundImages
-                .map((e) => RecupCarouselItem(images: e, item: e))
-                .toList(),
-            height: carouselSize,
-          ),
+          if ((backgroundImages?.backgroundImages?.isNotEmpty ?? false) &&
+              backgroundImages?.backgroundWidget == null)
+            RecupCarousel(
+              noSliderPoints: noSliderPoints,
+              itens: backgroundImages!.backgroundImages!
+                  .map((e) => RecupCarouselItem(images: e, item: e))
+                  .toList(),
+              height: carouselSize,
+            ),
+          if (backgroundImages?.backgroundWidget != null &&
+              (backgroundImages?.backgroundImages?.isEmpty ?? false))
+            backgroundImages!.backgroundWidget!,
           const SizedBox(
             height: 16,
           ),

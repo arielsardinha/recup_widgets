@@ -83,11 +83,12 @@ abstract class _StorybookOrganismis {
                           )
                         ],
                       ),
-                      backgroundImages: const [
+                      backgroundImages:
+                          RecupCardVerticalFeedBackground(backgroundImages: [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -191,11 +192,12 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalFeedCard(
-                      backgroundImages: const [
+                      backgroundImages:
+                          RecupCardVerticalFeedBackground(backgroundImages: [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -290,11 +292,12 @@ abstract class _StorybookOrganismis {
                     child: RecupCardVerticalFeedCard(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
-                      backgroundImages: const [
+                      backgroundImages:
+                          RecupCardVerticalFeedBackground(backgroundImages: [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -399,11 +402,12 @@ abstract class _StorybookOrganismis {
                     child: RecupCardVerticalFeedCard(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
-                      backgroundImages: const [
+                      backgroundImages:
+                          RecupCardVerticalFeedBackground(backgroundImages: [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
@@ -508,11 +512,12 @@ abstract class _StorybookOrganismis {
                     child: RecupCardVerticalFeedCard(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
-                      backgroundImages: const [
+                      backgroundImages:
+                          RecupCardVerticalFeedBackground(backgroundImages: [
                         'https://github.com/arielsardinha.png',
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
-                      ],
+                      ]),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
