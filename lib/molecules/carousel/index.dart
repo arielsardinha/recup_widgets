@@ -21,7 +21,7 @@ class RecupCarouselItem<T> {
 class RecupCarousel<T> extends StatefulWidget {
   final List<RecupCarouselItem<T>> itens;
   final RecupCarouselSize height;
-  final void Function(T item)? onChange, onTap;
+  final void Function(RecupCarouselItem<T> item)? onChange, onTap;
   final bool noSliderPoints;
   const RecupCarousel({
     Key? key,
@@ -33,10 +33,10 @@ class RecupCarousel<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<RecupCarousel> createState() => _RecupCarouselState();
+  State<RecupCarousel<T>> createState() => _RecupCarouselState<T>();
 }
 
-class _RecupCarouselState extends State<RecupCarousel> {
+class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
   int _current = 0;
   bool autoPlay = false;
 
@@ -64,7 +64,7 @@ class _RecupCarouselState extends State<RecupCarousel> {
               viewportFraction: 1,
               onPageChanged: (index, reason) {
                 if (widget.onChange != null) {
-                  widget.onChange!(widget.itens[index].item);
+                  widget.onChange!(widget.itens[index]);
                 }
                 setState(() {
                   _current = index;
