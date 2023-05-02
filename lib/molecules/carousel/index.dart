@@ -21,7 +21,7 @@ class RecupCarouselItem<T> {
 class RecupCarousel<T> extends StatefulWidget {
   final List<RecupCarouselItem<T>> itens;
   final RecupCarouselSize height;
-  final void Function(RecupCarouselItem<T> item)? onChange, onTap;
+  final void Function(T item)? onChange, onTap;
   final bool noSliderPoints;
   const RecupCarousel({
     Key? key,
@@ -64,7 +64,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
               viewportFraction: 1,
               onPageChanged: (index, reason) {
                 if (widget.onChange != null) {
-                  widget.onChange!(widget.itens[index]);
+                  widget.onChange!(widget.itens[index].item);
                 }
                 setState(() {
                   _current = index;
@@ -76,7 +76,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                   (item) => InkWell(
                     onTap: widget.onTap != null
                         ? () {
-                            widget.onTap!(item);
+                            widget.onTap!(item.item);
                           }
                         : null,
                     child: Container(
