@@ -20,11 +20,12 @@ class RecupCircleAvatar extends StatelessWidget {
     final theme = Theme.of(context);
 
     if (loading) {
-      return const SkeletonAvatar(
+      final double size = radius != null ? radius! * 2 : 40;
+      return SkeletonAvatar(
         style: SkeletonAvatarStyle(
-          width: 40,
-          height: 40,
-          borderRadius: BorderRadius.all(
+          width: size,
+          height: size,
+          borderRadius: const BorderRadius.all(
             Radius.circular(50),
           ),
         ),

@@ -123,6 +123,10 @@ abstract class _StorybookAtoms {
                     label: 'photo',
                     initialValue: 'https://github.com/arielsardinha.png',
                   ),
+                  radius: double.tryParse(context.knobs.text(
+                    label: 'radius',
+                    initialValue: "",
+                  )),
                   backgroundColor: context.knobs.options(
                     label: "backgroundColor",
                     options: const [
