@@ -64,8 +64,6 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final size = MediaQuery.of(context).size;
-
     return Container(
       width: width,
       height: carouselSize == RecupCarouselSize.NORMAL ? 480 : 520,
@@ -134,11 +132,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
             child: Row(
               children: [
                 if (titleContent.isNotEmpty || subtitleContent.isNotEmpty)
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 8),
-                    constraints: BoxConstraints(
-                      maxWidth: size.width - 100,
-                    ),
+                  Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
