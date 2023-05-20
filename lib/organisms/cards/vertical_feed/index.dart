@@ -154,7 +154,6 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                const Spacer(),
                 if (recoins.isNotEmpty || recoinsIcon != null)
                   RecupInputChip(
                     text: recoins,
