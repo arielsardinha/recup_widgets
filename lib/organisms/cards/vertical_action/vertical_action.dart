@@ -28,7 +28,7 @@ class RecupCardVerticalAction extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       width: 160,
-      height: 214,
+      height: 220,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.fromBorderSide(
