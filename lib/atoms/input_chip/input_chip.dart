@@ -69,7 +69,6 @@ class _RecupInputChipState extends State<RecupInputChip> {
     }
 
     return Container(
-      width: calcSize(widget.text, theme),
       padding: const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
@@ -89,8 +88,7 @@ class _RecupInputChipState extends State<RecupInputChip> {
               margin: const EdgeInsets.only(right: 4, top: 2, bottom: 2),
               child: widget.widget!,
             ),
-          SizedBox(
-            width: calcSize(widget.text, theme) - spaceSizeText - _widgetWidth,
+          Expanded(
             child: Text(
               widget.text,
               maxLines: 1,
