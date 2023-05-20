@@ -28,7 +28,7 @@ class RecupCardVerticalAction extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       width: 160,
-      height: 220,
+      height: 214,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.fromBorderSide(
@@ -122,9 +122,14 @@ class RecupCardVerticalAction extends StatelessWidget {
                     ),
                   if (iconFromButtom != null)
                     const SizedBox(
-                      width: 8,
+                      width: 4,
                     ),
-                  Text(textButton),
+                  Expanded(
+                    child: Text(
+                      textButton,
+                      maxLines: 1,
+                    ),
+                  ),
                 ],
               ),
             ),
