@@ -45,8 +45,8 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: theme.colorScheme.background,
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    bottomLeft: Radius.circular(16),
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
                   ),
                   image: DecorationImage(
                     image: NetworkImage(photoBackground),
