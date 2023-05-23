@@ -28,14 +28,13 @@ enum RecupStandardColor {
 class RecupStandard extends StatefulWidget {
   final String text;
   final Widget? widget;
-  final double? width;
+
   final RecupStandardColor color;
   const RecupStandard({
     super.key,
     this.text = '',
     this.widget,
     this.color = RecupStandardColor.ERROR,
-    this.width,
   });
 
   @override
@@ -84,9 +83,6 @@ class _RecupStandardState extends State<RecupStandard> {
     return Container(
       width: calcSize(widget.text, theme),
       padding: const EdgeInsets.symmetric(horizontal: 2),
-      constraints: BoxConstraints(
-          maxWidth:
-              widget.width != null ? (widget.width! + 20) : double.maxFinite),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: widget.color.colorBackground(theme.colorScheme),
@@ -99,41 +95,15 @@ class _RecupStandardState extends State<RecupStandard> {
               key: _widgetKey,
               child: widget.widget!,
             ),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final textPainter = TextPainter(
-                text: TextSpan(
-                  text: widget.text,
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    color: widget.color.colorText(theme.colorScheme),
-                  ),
-                ),
-                maxLines: 1,
-                textDirection: TextDirection.ltr,
-              );
-              textPainter.layout(
-                minWidth: constraints.minWidth,
-                maxWidth: constraints.maxWidth,
-              );
-
-              final textWidget = Text(
-                widget.text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.labelMedium?.copyWith(
-                  color: widget.color.colorText(theme.colorScheme),
-                ),
-              );
-
-              if (widget.width != null && textPainter.width > widget.width!) {
-                return SizedBox(
-                  width: widget.width,
-                  child: textWidget,
-                );
-              } else {
-                return textWidget;
-              }
-            },
+          Expanded(
+            child: Text(
+              widget.text,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: theme.textTheme.labelMedium?.copyWith(
+                color: widget.color.colorText(theme.colorScheme),
+              ),
+            ),
           ),
         ],
       ),

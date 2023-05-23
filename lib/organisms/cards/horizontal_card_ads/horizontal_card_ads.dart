@@ -88,8 +88,6 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: RecupStandard(
-                      width:
-                          widthText ?? MediaQuery.of(context).size.width * 0.1,
                       text: text,
                     ),
                   ),
