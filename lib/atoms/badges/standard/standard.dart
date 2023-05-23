@@ -73,8 +73,8 @@ class _RecupStandardState extends State<RecupStandard> {
 
     textPainter.layout();
     final textWidth = textPainter.width;
-    const spaceTextSize = 5;
-    return textWidth + spaceTextSize + _widgetWidth;
+
+    return textWidth + _widgetWidth;
   }
 
   @override
