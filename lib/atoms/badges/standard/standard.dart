@@ -89,6 +89,7 @@ class _RecupStandardState extends State<RecupStandard> {
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (widget.widget != null)
             Container(
