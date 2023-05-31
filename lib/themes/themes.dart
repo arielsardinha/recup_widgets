@@ -38,6 +38,7 @@ abstract class Themes {
     ),
     navigationBarTheme: NavigationBarThemeData(
       indicatorColor: Colors.transparent,
+      labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
       iconTheme: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
           return IconThemeData(
