@@ -83,7 +83,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                       decoration: BoxDecoration(
                         color: item.color,
                         borderRadius: const BorderRadius.all(
-                          Radius.circular(5.0),
+                          Radius.circular(20),
                         ),
                         image: DecorationImage(
                           image: NetworkImage(item.images),
