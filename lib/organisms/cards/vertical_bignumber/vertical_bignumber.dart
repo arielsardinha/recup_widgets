@@ -1,6 +1,6 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupInputChip extends StatelessWidget {
+class RecupCardVerticalBignumber extends StatelessWidget {
   final String title, subtitle;
   final Widget? widget, child;
   final void Function()? onPressed;
