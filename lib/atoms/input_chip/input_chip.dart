@@ -4,14 +4,14 @@ class RecupInputChip extends StatelessWidget {
   final String text;
   final Widget? widget;
   final bool disabled, loading;
-  final void Function()? onPressed;
+  final void Function(bool)? onSelected;
   const RecupInputChip({
     Key? key,
     this.text = '',
     this.widget,
     this.disabled = false,
     this.loading = false,
-    this.onPressed,
+    this.onSelected,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class RecupInputChip extends StatelessWidget {
 
     return InputChip(
       label: Text(text),
-      onPressed: onPressed ?? () {},
+      onSelected: onSelected ?? (value) {},
       avatar: widget,
       visualDensity: VisualDensity.compact,
       labelPadding: const EdgeInsets.only(right: 8),
