@@ -55,14 +55,16 @@ class RecupCardVerticalBignumber extends StatelessWidget {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.labelLarge,
+                    style: theme.textTheme.labelLarge
+                        ?.copyWith(color: theme.colorScheme.inverseSurface),
                   ),
                 if (subtitle.isNotEmpty)
                   Text(
                     subtitle,
                     maxLines: child != null ? 2 : 3,
                     overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.bodySmall
+                        ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
                   ),
               ],
             ),
