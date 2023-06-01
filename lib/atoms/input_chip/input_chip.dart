@@ -29,7 +29,7 @@ class RecupInputChip extends StatelessWidget {
 
     return InputChip(
       label: Text(text),
-      onPressed: onPressed,
+      onPressed: onPressed ?? () {},
       avatar: widget,
       visualDensity: VisualDensity.compact,
       labelPadding: const EdgeInsets.only(right: 8),
