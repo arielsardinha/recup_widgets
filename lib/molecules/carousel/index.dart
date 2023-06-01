@@ -22,7 +22,7 @@ class RecupCarousel<T> extends StatefulWidget {
   final List<RecupCarouselItem<T>> itens;
   final RecupCarouselSize height;
   final void Function(T item)? onChange, onTap;
-  final bool noSliderPoints;
+  final bool noSliderPoints, borderIsRadiusCircle;
   const RecupCarousel({
     Key? key,
     required this.itens,
@@ -30,6 +30,7 @@ class RecupCarousel<T> extends StatefulWidget {
     this.onTap,
     this.height = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
+    this.borderIsRadiusCircle = false,
   }) : super(key: key);
 
   @override
@@ -82,8 +83,8 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: item.color,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(widget.borderIsRadiusCircle ? 20 : 0),
                         ),
                         image: DecorationImage(
                           image: NetworkImage(item.images),
