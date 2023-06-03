@@ -24,8 +24,9 @@ class _RecupAvatarsState extends State<RecupAvatars> {
       '.svg',
       '.webp'
     ];
+
     return validExtensions
-        .any((extension) => photo.toLowerCase().endsWith(extension));
+        .any((extensionImage) => photo.toLowerCase().contains(extensionImage));
   }
 
   @override
@@ -38,7 +39,8 @@ class _RecupAvatarsState extends State<RecupAvatars> {
 
   @override
   Widget build(BuildContext context) {
-    const avatarWidth = 27.0;
+    const avatarWidth = 25.0;
+    final theme = Theme.of(context);
 
     if (avatars.isEmpty) {
       return const RecupCircleAvatar(
@@ -47,14 +49,25 @@ class _RecupAvatarsState extends State<RecupAvatars> {
     }
 
     return SizedBox(
-      width: 94,
       height: 40,
       child: Stack(
         children: List.generate(
           avatars.length,
           (index) => Positioned(
             left: index * avatarWidth,
-            child: RecupCircleAvatar(photo: avatars[index]),
+            child: Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.background,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(50),
+                ),
+              ),
+              child: RecupCircleAvatar(
+                radius: 17,
+                photo: avatars[index],
+              ),
+            ),
           ),
         ),
       ),
