@@ -11,6 +11,7 @@ abstract class Themes {
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _lightColorScheme.onSurface,
       ),
+      surfaceTintColor: _lightColorScheme.surface,
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
@@ -39,6 +40,7 @@ abstract class Themes {
     navigationBarTheme: NavigationBarThemeData(
       indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
+      surfaceTintColor: _lightColorScheme.surface,
       iconTheme: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
           return IconThemeData(
@@ -58,6 +60,7 @@ abstract class Themes {
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _darkColorScheme.onSurface,
       ),
+      surfaceTintColor: _darkColorScheme.surface,
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
@@ -86,6 +89,7 @@ abstract class Themes {
     navigationBarTheme: NavigationBarThemeData(
       indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
+      surfaceTintColor: _darkColorScheme.surface,
       iconTheme: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
           return IconThemeData(
