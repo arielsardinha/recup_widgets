@@ -110,6 +110,7 @@ class RecupCardVerticalAction extends StatelessWidget {
                     isActive ? theme.colorScheme.onPrimaryContainer : null,
                 backgroundColor:
                     isActive ? theme.colorScheme.primaryContainer : null,
+                visualDensity: VisualDensity.comfortable,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

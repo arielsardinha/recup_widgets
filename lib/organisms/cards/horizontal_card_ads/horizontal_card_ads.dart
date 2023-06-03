@@ -104,6 +104,7 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                           : null,
                       backgroundColor:
                           isActive ? theme.colorScheme.primaryContainer : null,
+                      visualDensity: VisualDensity.comfortable,
                     ),
                     child: childButton,
                   ),

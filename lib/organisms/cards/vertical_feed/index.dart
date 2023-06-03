@@ -182,6 +182,9 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               children: [
                 OutlinedButton(
                   onPressed: onPressedOutlinedButton,
+                  style: OutlinedButton.styleFrom(
+                    visualDensity: VisualDensity.comfortable,
+                  ),
                   child: childOutlinedButton,
                 ),
                 const SizedBox(
@@ -194,6 +197,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                         isActive ? theme.colorScheme.onPrimaryContainer : null,
                     backgroundColor:
                         isActive ? theme.colorScheme.primaryContainer : null,
+                    visualDensity: VisualDensity.comfortable,
                   ),
                   child: childElevatedButton,
                 )

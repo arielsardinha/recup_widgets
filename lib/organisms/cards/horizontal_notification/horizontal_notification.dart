@@ -83,6 +83,7 @@ class RecupCardHorizontalNotification extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: IconButton(
                     onPressed: () {},
+                    visualDensity: VisualDensity.comfortable,
                     icon: const Icon(Icons.arrow_outward_outlined),
                   ),
                 )
