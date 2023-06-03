@@ -50,6 +50,7 @@ class _RecupAvatarsState extends State<RecupAvatars> {
 
     return SizedBox(
       height: 40,
+      width: 94,
       child: Stack(
         children: List.generate(
           avatars.length,
