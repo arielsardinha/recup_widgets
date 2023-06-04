@@ -45,8 +45,9 @@ class RecupCircleAvatar extends StatelessWidget {
         '.svg',
         '.webp'
       ];
-      return validExtensions
-          .any((extension) => photo.toLowerCase().endsWith(extension));
+
+      return validExtensions.any(
+          (extensionImage) => photo.toLowerCase().contains(extensionImage));
     }
 
     return CircleAvatar(
