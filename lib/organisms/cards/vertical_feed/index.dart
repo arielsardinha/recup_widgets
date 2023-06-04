@@ -118,9 +118,10 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          if (subtitleHeader.isEmpty)
+            const SizedBox(
+              height: 8,
+            ),
           if ((backgroundImages?.backgroundImages != null) &&
               backgroundImages?.backgroundWidget == null)
             RecupCarousel(
