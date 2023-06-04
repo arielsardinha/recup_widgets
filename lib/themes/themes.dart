@@ -18,6 +18,7 @@ sealed class RecupTheme {
     appBarTheme: AppBarTheme(
       surfaceTintColor: _lightCustonColor.surface1,
       backgroundColor: _lightCustonColor.surface1,
+      scrolledUnderElevation: 0,
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _lightColorScheme.onSurface,
       ),
@@ -72,6 +73,7 @@ sealed class RecupTheme {
     appBarTheme: AppBarTheme(
       surfaceTintColor: _darkCustonColor.surface1,
       backgroundColor: _darkCustonColor.surface1,
+      scrolledUnderElevation: 0,
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _darkColorScheme.onSurface,
       ),
