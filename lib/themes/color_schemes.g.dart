@@ -1,5 +1,28 @@
 part of 'themes.dart';
 
+class _CustonColor {
+  final Color surface1;
+  final Color surface2;
+  final Color surface3;
+  final Color surface4;
+  final Color surface5;
+  const _CustonColor({
+    required this.surface1,
+    required this.surface2,
+    required this.surface3,
+    required this.surface4,
+    required this.surface5,
+  });
+}
+
+const _lightCustonColor = _CustonColor(
+  surface1: Color(0xFFF1F4F4),
+  surface2: Color(0xFFE8EBEB),
+  surface3: Color(0xFFDFE2E2),
+  surface4: Color(0xFFD6D9D9),
+  surface5: Color(0xFFCDD0D0),
+);
+
 const _lightColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Color(0xFF006D38),
@@ -32,6 +55,14 @@ const _lightColorScheme = ColorScheme(
   surfaceTint: Color(0xFF006D38),
   outlineVariant: Color(0xFFC1C9BF),
   scrim: Color(0xFF000000),
+);
+
+const _darkCustonColor = _CustonColor(
+  surface1: Color(0xFF222526),
+  surface2: Color(0xFF2B2E2F),
+  surface3: Color(0xFF343738),
+  surface4: Color(0xFF3D4041),
+  surface5: Color(0xFF46494A),
 );
 
 const _darkColorScheme = ColorScheme(
