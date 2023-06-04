@@ -89,7 +89,7 @@ abstract class _StorybookOrganismis {
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
                       ]
-                              .map((e) => RecupCarouselItem(images: e, item: e))
+                              .map((e) => RecupCarouselItem(image: e, item: e))
                               .toList()),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
@@ -200,7 +200,7 @@ abstract class _StorybookOrganismis {
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
                       ]
-                              .map((e) => RecupCarouselItem(images: e, item: e))
+                              .map((e) => RecupCarouselItem(image: e, item: e))
                               .toList()),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
@@ -302,7 +302,7 @@ abstract class _StorybookOrganismis {
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
                       ]
-                              .map((e) => RecupCarouselItem(images: e, item: e))
+                              .map((e) => RecupCarouselItem(image: e, item: e))
                               .toList()),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
@@ -414,7 +414,7 @@ abstract class _StorybookOrganismis {
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
                       ]
-                              .map((e) => RecupCarouselItem(images: e, item: e))
+                              .map((e) => RecupCarouselItem(image: e, item: e))
                               .toList()),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',
@@ -526,7 +526,7 @@ abstract class _StorybookOrganismis {
                         'https://github.com/treinaweb.png',
                         'https://github.com/recup.png',
                       ]
-                              .map((e) => RecupCarouselItem(images: e, item: e))
+                              .map((e) => RecupCarouselItem(image: e, item: e))
                               .toList()),
                       nameAvatar: context.knobs.text(
                         label: 'nameAvatar',

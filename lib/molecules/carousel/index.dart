@@ -11,11 +11,11 @@ enum RecupCarouselSize {
 }
 
 class RecupCarouselItem<T> {
-  final String images;
+  final String image;
   final Color? color;
   final T item;
 
-  RecupCarouselItem({required this.images, required this.item, this.color});
+  RecupCarouselItem({required this.image, required this.item, this.color});
 }
 
 class RecupCarousel<T> extends StatefulWidget {
@@ -23,6 +23,7 @@ class RecupCarousel<T> extends StatefulWidget {
   final RecupCarouselSize height;
   final void Function(T item)? onChange, onTap;
   final bool noSliderPoints, borderIsRadiusCircle;
+  final BoxFit? boxFit;
   const RecupCarousel({
     Key? key,
     required this.itens,
@@ -31,6 +32,7 @@ class RecupCarousel<T> extends StatefulWidget {
     this.height = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
     this.borderIsRadiusCircle = false,
+    this.boxFit,
   }) : super(key: key);
 
   @override
@@ -44,6 +46,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
   @override
   void initState() {
     autoPlay = widget.noSliderPoints ? false : widget.itens.length > 1;
+
     super.initState();
   }
 
@@ -87,8 +90,8 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                           Radius.circular(widget.borderIsRadiusCircle ? 20 : 0),
                         ),
                         image: DecorationImage(
-                          image: NetworkImage(item.images),
-                          fit: BoxFit.cover,
+                          image: NetworkImage(item.image),
+                          fit: widget.boxFit ?? BoxFit.cover,
                         ),
                       ),
                     ),
@@ -96,13 +99,13 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                 )
                 .toList(),
           ),
-          if (!widget.noSliderPoints)
+          if (!widget.noSliderPoints || !(widget.itens.length <= 1))
             Positioned(
               bottom: -24,
               left: 0,
               right: 0,
               child: RecupSliderPoints(
-                points: widget.itens.map((e) => e.images).toList(),
+                points: widget.itens.map((e) => e.image).toList(),
                 currentPoint: _current,
               ),
             ),
