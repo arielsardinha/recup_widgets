@@ -79,6 +79,9 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 8,
+          ),
           Row(
             children: [
               Expanded(
@@ -114,6 +117,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               )
             ],
           ),
+          const SizedBox(height: 8,),
           if ((backgroundImages?.backgroundImages != null) &&
               backgroundImages?.backgroundWidget == null)
             RecupCarousel(
