@@ -4,53 +4,55 @@ part 'text_theme.g.dart';
 
 abstract class Themes {
   static final themeDataLight = ThemeData(
-    useMaterial3: true,
-    colorScheme: _lightColorScheme,
-    textTheme: _textTheme,
-    appBarTheme: AppBarTheme(
-      titleTextStyle: _textTheme.titleMedium?.copyWith(
-        color: _lightColorScheme.onSurface,
+      useMaterial3: true,
+      colorScheme: _lightColorScheme,
+      textTheme: _textTheme,
+      appBarTheme: AppBarTheme(
+        titleTextStyle: _textTheme.titleMedium?.copyWith(
+          color: _lightColorScheme.onSurface,
+        ),
+        surfaceTintColor: _lightColorScheme.surface,
       ),
-      surfaceTintColor: _lightColorScheme.surface,
-    ),
-    segmentedButtonTheme: SegmentedButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
-            return _lightColorScheme.primary;
-          }
-          return _lightColorScheme.onBackground;
-        }),
-        backgroundColor: MaterialStateProperty.resolveWith(
-          (states) {
+      segmentedButtonTheme: SegmentedButtonThemeData(
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.selected)) {
-              return _lightColorScheme.primaryContainer;
+              return _lightColorScheme.primary;
             }
-            return null;
-          },
+            return _lightColorScheme.onBackground;
+          }),
+          backgroundColor: MaterialStateProperty.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.selected)) {
+                return _lightColorScheme.primaryContainer;
+              }
+              return null;
+            },
+          ),
         ),
       ),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        foregroundColor: _lightColorScheme.onPrimary,
-        backgroundColor: _lightColorScheme.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: _lightColorScheme.onPrimary,
+          backgroundColor: _lightColorScheme.primary,
+        ),
       ),
-    ),
-    navigationBarTheme: NavigationBarThemeData(
-      indicatorColor: Colors.transparent,
-      labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
-      surfaceTintColor: _lightColorScheme.surface,
-      iconTheme: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) {
-          return IconThemeData(
-            color: _lightColorScheme.primary,
-          );
-        }
-        return null;
-      }),
-    ),
-  );
+      navigationBarTheme: NavigationBarThemeData(
+        indicatorColor: Colors.transparent,
+        labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
+        surfaceTintColor: _lightColorScheme.surface,
+        iconTheme: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.selected)) {
+            return IconThemeData(
+              color: _lightColorScheme.primary,
+            );
+          }
+          return null;
+        }),
+      ),
+      dialogTheme: DialogTheme(
+        surfaceTintColor: _lightColorScheme.surface,
+      ));
 
   static final themeDataDark = ThemeData(
     useMaterial3: true,
@@ -98,6 +100,9 @@ abstract class Themes {
         }
         return null;
       }),
+    ),
+    dialogTheme: DialogTheme(
+      surfaceTintColor: _darkColorScheme.surface,
     ),
   );
 }
