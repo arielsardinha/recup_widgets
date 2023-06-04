@@ -39,9 +39,9 @@ class _RecupAvatarsState extends State<RecupAvatars> {
 
   @override
   Widget build(BuildContext context) {
-    const double avatarWidth = 25.0; // Largura do avatar
-    const double overlap = 15.0; // Quantidade de overlap entre os avatares
     final theme = Theme.of(context);
+    const avatarWidth = 25.0;
+    const avatarSpacing = 25;
 
     if (avatars.isEmpty) {
       return const RecupCircleAvatar(
@@ -49,18 +49,16 @@ class _RecupAvatarsState extends State<RecupAvatars> {
       );
     }
 
-    // Calcula a largura total baseada no número de avatares e o quanto eles se sobrepõem
-    double totalWidth =
-        (avatars.length - 1) * (avatarWidth - overlap) + avatarWidth;
+    final totalWidth = avatarSpacing * avatars.length + 15;
 
     return SizedBox(
       height: 40,
-      width: totalWidth,
+      width: totalWidth.toDouble(),
       child: Stack(
         children: List.generate(
           avatars.length,
           (index) => Positioned(
-            left: index * (avatarWidth - overlap),
+            left: index * avatarWidth,
             child: Container(
               padding: const EdgeInsets.all(3),
               decoration: BoxDecoration(
