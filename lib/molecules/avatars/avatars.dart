@@ -40,7 +40,9 @@ class _RecupAvatarsState extends State<RecupAvatars> {
   @override
   Widget build(BuildContext context) {
     const avatarWidth = 25.0;
+    const avatarSpacing = avatarWidth + 1;
     final theme = Theme.of(context);
+    final totalWidth = avatarSpacing * avatars.length;
 
     if (avatars.isEmpty) {
       return const RecupCircleAvatar(
@@ -50,7 +52,7 @@ class _RecupAvatarsState extends State<RecupAvatars> {
 
     return SizedBox(
       height: 40,
-      width: 94,
+      width: totalWidth,
       child: Stack(
         children: List.generate(
           avatars.length,
