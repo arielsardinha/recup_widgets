@@ -15,7 +15,6 @@ class HotReload extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Widgetbook.material(
       categories: [
         _StorybookAtoms.atomsStorybook,
@@ -30,11 +29,11 @@ class HotReload extends StatelessWidget {
       themes: [
         WidgetbookTheme(
           name: 'Light',
-          data: Themes.themeDataLight,
+          data: RecupTheme.themeDataLight,
         ),
         WidgetbookTheme(
           name: 'Dark',
-          data: Themes.themeDataDark,
+          data: RecupTheme.themeDataDark,
         ),
       ],
       devices: [

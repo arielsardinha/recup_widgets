@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 part 'color_schemes.g.dart';
 part 'text_theme.g.dart';
 
-abstract class Themes {
+sealed class RecupTheme {
   static CustonColor custonColor(BuildContext context) {
     final Brightness brightness = MediaQuery.of(context).platformBrightness;
     if (brightness == Brightness.light) {
