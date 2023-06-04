@@ -40,7 +40,7 @@ class _RecupAvatarsState extends State<RecupAvatars> {
   @override
   Widget build(BuildContext context) {
     const avatarWidth = 25.0;
-    const avatarSpacing = avatarWidth + 1;
+    const avatarSpacing = avatarWidth + 5;
     final theme = Theme.of(context);
     final totalWidth = avatarSpacing * avatars.length;
 
