@@ -3,6 +3,14 @@ part 'color_schemes.g.dart';
 part 'text_theme.g.dart';
 
 abstract class Themes {
+  static CustonColor custonColor(BuildContext context) {
+    final Brightness brightness = MediaQuery.of(context).platformBrightness;
+    if (brightness == Brightness.light) {
+      return _darkCustonColor;
+    }
+    return _lightCustonColor;
+  }
+
   static final themeDataLight = ThemeData(
     useMaterial3: true,
     colorScheme: _lightColorScheme,

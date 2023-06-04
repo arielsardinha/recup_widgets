@@ -3,6 +3,7 @@ library recup_storybook;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:recup_storybook/themes/themes.dart';
 import 'package:skeletons/skeletons.dart';
 part 'atoms/circle_avatar/index.dart';
 part 'atoms/slider_points/slider_points.dart';
