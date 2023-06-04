@@ -5,7 +5,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
   final Widget? child, subtitleListTile;
   final void Function()? onTap;
   final Color? backgroundColorAvatar, backgroundColor;
-
+  final BoxFit? fit;
   final RecupStatusColor textContentColor;
 
   const RecupCardVerticalSuggestion({
@@ -21,6 +21,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.textContentColor = RecupStatusColor.AVAILABLE,
     this.backgroundColor,
     this.subtitleListTile,
+    this.fit,
   }) : super(key: key);
 
   @override
@@ -54,7 +55,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: backgroundColor,
                         image: DecorationImage(
-                          fit: BoxFit.cover,
+                          fit: fit ?? BoxFit.cover,
                           image: NetworkImage(photoBackground),
                         ),
                         borderRadius: const BorderRadius.only(
