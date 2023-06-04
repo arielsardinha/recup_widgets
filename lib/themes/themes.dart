@@ -4,65 +4,69 @@ part 'text_theme.g.dart';
 
 abstract class Themes {
   static final themeDataLight = ThemeData(
-      useMaterial3: true,
-      colorScheme: _lightColorScheme,
-      textTheme: _textTheme,
-      appBarTheme: AppBarTheme(
-        titleTextStyle: _textTheme.titleMedium?.copyWith(
-          color: _lightColorScheme.onSurface,
-        ),
-        surfaceTintColor: _lightCustonColor.surface1,
+    useMaterial3: true,
+    colorScheme: _lightColorScheme,
+    textTheme: _textTheme,
+    appBarTheme: AppBarTheme(
+      surfaceTintColor: _lightCustonColor.surface1,
+      backgroundColor: _lightCustonColor.surface1,
+      titleTextStyle: _textTheme.titleMedium?.copyWith(
+        color: _lightColorScheme.onSurface,
       ),
-      segmentedButtonTheme: SegmentedButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.selected)) {
-              return _lightColorScheme.primary;
-            }
-            return _lightColorScheme.onBackground;
-          }),
-          backgroundColor: MaterialStateProperty.resolveWith(
-            (states) {
-              if (states.contains(MaterialState.selected)) {
-                return _lightColorScheme.primaryContainer;
-              }
-              return null;
-            },
-          ),
-        ),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          foregroundColor: _lightColorScheme.onPrimary,
-          backgroundColor: _lightColorScheme.primary,
-        ),
-      ),
-      navigationBarTheme: NavigationBarThemeData(
-        indicatorColor: Colors.transparent,
-        labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
-        surfaceTintColor: _lightCustonColor.surface1,
-        iconTheme: MaterialStateProperty.resolveWith((states) {
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
-            return IconThemeData(
-              color: _lightColorScheme.primary,
-            );
+            return _lightColorScheme.primary;
           }
-          return null;
+          return _lightColorScheme.onBackground;
         }),
+        backgroundColor: MaterialStateProperty.resolveWith(
+          (states) {
+            if (states.contains(MaterialState.selected)) {
+              return _lightColorScheme.primaryContainer;
+            }
+            return null;
+          },
+        ),
       ),
-      dialogTheme: DialogTheme(
-        surfaceTintColor: _lightColorScheme.surface,
-      ));
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        foregroundColor: _lightColorScheme.onPrimary,
+        backgroundColor: _lightColorScheme.primary,
+      ),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: Colors.transparent,
+      labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
+      surfaceTintColor: _lightCustonColor.surface1,
+      backgroundColor: _lightCustonColor.surface1,
+      iconTheme: MaterialStateProperty.resolveWith((states) {
+        if (states.contains(MaterialState.selected)) {
+          return IconThemeData(
+            color: _lightColorScheme.primary,
+          );
+        }
+        return null;
+      }),
+    ),
+    dialogTheme: DialogTheme(
+      surfaceTintColor: _lightColorScheme.surface,
+    ),
+  );
 
   static final themeDataDark = ThemeData(
     useMaterial3: true,
     colorScheme: _darkColorScheme,
     textTheme: _textTheme,
     appBarTheme: AppBarTheme(
+      surfaceTintColor: _darkCustonColor.surface1,
+      backgroundColor: _darkCustonColor.surface1,
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _darkColorScheme.onSurface,
       ),
-      surfaceTintColor: _darkCustonColor.surface1,
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
@@ -92,6 +96,7 @@ abstract class Themes {
       indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
       surfaceTintColor: _darkCustonColor.surface1,
+      backgroundColor: _darkCustonColor.surface1,
       iconTheme: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
           return IconThemeData(
