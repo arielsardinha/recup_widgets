@@ -3,7 +3,7 @@ part 'color_schemes.g.dart';
 part 'text_theme.g.dart';
 
 sealed class RecupTheme {
-  static CustonColor custonColor(BuildContext context) {
+  static CustomColor custonColor(BuildContext context) {
     final Brightness brightness = MediaQuery.of(context).platformBrightness;
     if (brightness == Brightness.light) {
       return _lightCustonColor;

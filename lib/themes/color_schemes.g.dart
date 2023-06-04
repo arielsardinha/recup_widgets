@@ -1,12 +1,12 @@
 part of 'themes.dart';
 
-final class CustonColor {
+final class CustomColor {
   final Color surface1;
   final Color surface2;
   final Color surface3;
   final Color surface4;
   final Color surface5;
-  const CustonColor({
+  const CustomColor({
     required this.surface1,
     required this.surface2,
     required this.surface3,
@@ -15,7 +15,7 @@ final class CustonColor {
   });
 }
 
-const _lightCustonColor = CustonColor(
+const _lightCustonColor = CustomColor(
   surface1: Color(0xFFF1F4F4),
   surface2: Color(0xFFE8EBEB),
   surface3: Color(0xFFDFE2E2),
@@ -57,7 +57,7 @@ const _lightColorScheme = ColorScheme(
   scrim: Color(0xFF000000),
 );
 
-const _darkCustonColor = CustonColor(
+const _darkCustonColor = CustomColor(
   surface1: Color(0xFF222526),
   surface2: Color(0xFF2B2E2F),
   surface3: Color(0xFF343738),
