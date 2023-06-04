@@ -6,9 +6,9 @@ sealed class RecupTheme {
   static CustonColor custonColor(BuildContext context) {
     final Brightness brightness = MediaQuery.of(context).platformBrightness;
     if (brightness == Brightness.light) {
-      return _darkCustonColor;
+      return _lightCustonColor;
     }
-    return _lightCustonColor;
+    return _darkCustonColor;
   }
 
   static final themeDataLight = ThemeData(
