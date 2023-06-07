@@ -138,7 +138,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
               (backgroundImages?.backgroundImages?.isEmpty ?? true))
             backgroundImages!.backgroundWidget!,
           const SizedBox(
-            height: 16,
+            height: 8,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
