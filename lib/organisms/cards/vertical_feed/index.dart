@@ -94,6 +94,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                       : Text(
                           titleHeader,
                           maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.titleMedium?.copyWith(
                             color: theme.colorScheme.inverseSurface,
                           ),
@@ -103,6 +104,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                       : Text(
                           subtitleHeader,
                           maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
