@@ -18,3 +18,5 @@ part 'atoms/badges/standard/standard.dart';
 part 'atoms/badges/status/status.dart';
 part 'organisms/cards/vertical_bignumber/vertical_bignumber.dart';
 part 'organisms/cards/horizontal_notification/horizontal_notification.dart';
+
+teste() {}

@@ -667,7 +667,6 @@ abstract class _StorybookOrganismis {
                               color: Theme.of(context).colorScheme.primary,
                             )
                           : null,
-                      iconFromButtom: Icons.add,
                       textButton: context.knobs.text(
                         label: "textButton",
                         initialValue: 'Enabled',
@@ -725,7 +724,6 @@ abstract class _StorybookOrganismis {
                               color: Theme.of(context).colorScheme.primary,
                             )
                           : null,
-                      iconFromButtom: Icons.sensors_outlined,
                       textButton: context.knobs.text(
                         label: "textButton",
                         initialValue: 'Depositar',
@@ -783,7 +781,6 @@ abstract class _StorybookOrganismis {
                               color: Theme.of(context).colorScheme.primary,
                             )
                           : null,
-                      iconFromButtom: Icons.circle_outlined,
                       textButton: context.knobs.text(
                         label: "textButton",
                         initialValue: 'Ativar',
@@ -841,7 +838,6 @@ abstract class _StorybookOrganismis {
                               color: Theme.of(context).colorScheme.primary,
                             )
                           : null,
-                      iconFromButtom: Icons.check_circle_outline,
                       textButton: context.knobs.text(
                         label: "textButton",
                         initialValue: 'Ativar',
