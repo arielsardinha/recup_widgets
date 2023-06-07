@@ -100,13 +100,16 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                 .toList(),
           ),
           if (!widget.noSliderPoints || !(widget.itens.length <= 1))
-            Positioned(
-              bottom: -24,
-              left: 0,
-              right: 0,
-              child: RecupSliderPoints(
-                points: widget.itens.map((e) => e.image).toList(),
-                currentPoint: _current,
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Positioned(
+                bottom: -24,
+                left: 0,
+                right: 0,
+                child: RecupSliderPoints(
+                  points: widget.itens.map((e) => e.image).toList(),
+                  currentPoint: _current,
+                ),
               ),
             ),
         ],
