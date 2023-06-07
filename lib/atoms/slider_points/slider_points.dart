@@ -11,6 +11,7 @@ class RecupSliderPoints extends StatelessWidget {
     this.onTap,
   });
 
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -23,7 +24,7 @@ class RecupSliderPoints extends StatelessWidget {
             child: Container(
               width: 9.0,
               height: 9.0,
-              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 2),
+              margin: const EdgeInsets.symmetric(horizontal: 2),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: theme.colorScheme.primaryContainer
