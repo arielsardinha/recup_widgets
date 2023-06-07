@@ -113,7 +113,11 @@ class RecupCardVerticalAction extends StatelessWidget {
               child: Text(
                 textButton,
                 maxLines: 1,
-                style: theme.textTheme.titleSmall,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  color: isActive
+                      ? theme.colorScheme.onPrimaryContainer
+                      : theme.colorScheme.onPrimary,
+                ),
               ),
             ),
           )
