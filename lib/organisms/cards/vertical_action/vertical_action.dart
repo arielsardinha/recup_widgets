@@ -99,7 +99,8 @@ class RecupCardVerticalAction extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
+          Container(
+            width: double.maxFinite,
             padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
             child: ElevatedButton(
               onPressed: onPressedButton,
