@@ -22,6 +22,9 @@ sealed class RecupTheme {
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _lightColorScheme.onSurface,
       ),
+      iconTheme: IconThemeData(
+        color: _lightColorScheme.primary,
+      ),
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
@@ -76,6 +79,9 @@ sealed class RecupTheme {
       scrolledUnderElevation: 0,
       titleTextStyle: _textTheme.titleMedium?.copyWith(
         color: _darkColorScheme.onSurface,
+      ),
+      iconTheme: IconThemeData(
+        color: _darkColorScheme.primary,
       ),
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
