@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-part 'color_schemes.dart';
+part 'color_schemes.g.dart';
 part 'text_theme.g.dart';
 
 sealed class RecupTheme {

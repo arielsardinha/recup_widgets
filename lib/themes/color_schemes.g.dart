@@ -67,7 +67,7 @@ const _darkCustonColor = CustomColor(
 
 const _darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xFF54DF88),
+  primary: Color(0xFFC3FFCF),
   onPrimary: Color(0xFF00391A),
   primaryContainer: Color(0xFFC3FFCF),
   onPrimaryContainer: Color(0xFF005229),
