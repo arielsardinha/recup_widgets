@@ -1,6 +1,5 @@
 part of 'themes.dart';
 
-// v1.0.1
 final class CustomColor {
   final Color surface1;
   final Color surface2;
