@@ -200,6 +200,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                   onPressed: onPressedOutlinedButton,
                   style: OutlinedButton.styleFrom(
                     visualDensity: VisualDensity.comfortable,
+                    textStyle: theme.textTheme.titleSmall,
                   ),
                   child: childOutlinedButton,
                 ),
@@ -214,6 +215,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
                     backgroundColor:
                         isActive ? theme.colorScheme.primaryContainer : null,
                     visualDensity: VisualDensity.comfortable,
+                    textStyle: theme.textTheme.titleSmall,
                   ),
                   child: childElevatedButton,
                 )
