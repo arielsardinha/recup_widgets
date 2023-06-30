@@ -3,7 +3,7 @@ part of 'package:exemple/main.dart';
 abstract class _StorybookMolecules {
   static final storybookMolecules = WidgetbookCategory(
     name: 'molecules',
-    widgets: [
+    children: [
       WidgetbookComponent(
         name: 'Carousel',
         useCases: [
@@ -12,17 +12,11 @@ abstract class _StorybookMolecules {
             builder: (context) {
               return Center(
                 child: RecupCarousel(
-                  height: context.knobs.options(
+                  height: context.knobs.list(
                     label: "height",
                     options: const [
-                      Option(
-                        label: "NORMAL",
-                        value: RecupCarouselSize.NORMAL,
-                      ),
-                      Option(
-                        label: "LARGE",
-                        value: RecupCarouselSize.LARGE,
-                      ),
+                      RecupCarouselSize.NORMAL,
+                      RecupCarouselSize.LARGE
                     ],
                   ),
                   noSliderPoints: context.knobs
@@ -49,11 +43,11 @@ abstract class _StorybookMolecules {
                     label: "enabled",
                     initialValue: true,
                   ),
-                  hintText: context.knobs.text(
+                  hintText: context.knobs.string(
                     label: "hintText",
                     initialValue: "hintText",
                   ),
-                  label: context.knobs.text(
+                  label: context.knobs.string(
                     label: "label",
                     initialValue: "label",
                   ),

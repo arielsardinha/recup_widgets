@@ -3,10 +3,10 @@ part of 'package:exemple/main.dart';
 abstract class _StorybookAtoms {
   static final atomsStorybook = WidgetbookCategory(
     name: 'atoms',
-    folders: [
+    children: [
       WidgetbookFolder(
         name: "Badges",
-        widgets: [
+        children: [
           WidgetbookComponent(
             name: "Standard",
             useCases: [
@@ -16,7 +16,7 @@ abstract class _StorybookAtoms {
                   return Center(
                     child: RecupStandard(
                       text: context.knobs
-                          .text(label: "text", initialValue: "text"),
+                          .string(label: "text", initialValue: "text"),
                       widget: context.knobs
                               .boolean(label: "widget", initialValue: true)
                           ? const Icon(
@@ -24,17 +24,11 @@ abstract class _StorybookAtoms {
                               size: 16,
                             )
                           : null,
-                      color: context.knobs.options(
+                      color: context.knobs.list(
                         label: "color",
                         options: const [
-                          Option(
-                            label: "PRIMARY",
-                            value: RecupStandardColor.PRIMARY,
-                          ),
-                          Option(
-                            label: "ERROR",
-                            value: RecupStandardColor.ERROR,
-                          ),
+                          RecupStandardColor.PRIMARY,
+                          RecupStandardColor.ERROR
                         ],
                       ),
                     ),
@@ -52,24 +46,15 @@ abstract class _StorybookAtoms {
                   return Center(
                     child: RecupStatus(
                       width:
-                          double.tryParse(context.knobs.text(label: "width")),
+                          double.tryParse(context.knobs.string(label: "width")),
                       text: context.knobs
-                          .text(label: "text", initialValue: "text"),
-                      color: context.knobs.options(
+                          .string(label: "text", initialValue: "text"),
+                      color: context.knobs.list(
                         label: "color",
                         options: const [
-                          Option(
-                            label: "UNVAILABLO",
-                            value: RecupStatusColor.UNVAILABLO,
-                          ),
-                          Option(
-                            label: "AVAILABLE",
-                            value: RecupStatusColor.AVAILABLE,
-                          ),
-                          Option(
-                            label: "OPERATING",
-                            value: RecupStatusColor.OPERATING,
-                          )
+                          RecupStatusColor.UNVAILABLO,
+                          RecupStatusColor.AVAILABLE,
+                          RecupStatusColor.OPERATING
                         ],
                       ),
                     ),
@@ -79,9 +64,7 @@ abstract class _StorybookAtoms {
             ],
           ),
         ],
-      )
-    ],
-    widgets: [
+      ),
       WidgetbookComponent(
         name: 'Slider Points',
         useCases: [
@@ -91,12 +74,9 @@ abstract class _StorybookAtoms {
               return Center(
                 child: RecupSliderPoints(
                   points: const ['', ''],
-                  currentPoint: context.knobs.options(
+                  currentPoint: context.knobs.list(
                     label: 'currentPoint',
-                    options: const [
-                      Option(label: '0', value: 0),
-                      Option(label: '1', value: 1),
-                    ],
+                    options: const [0, 1],
                   ),
                 ),
               );
@@ -113,27 +93,24 @@ abstract class _StorybookAtoms {
               return Center(
                 child: RecupCircleAvatar(
                   loading: context.knobs.boolean(label: "loading"),
-                  name: context.knobs.text(
+                  name: context.knobs.string(
                     label: 'Ariel',
                     initialValue: 'Ariel Sardinha',
                   ),
-                  photo: context.knobs.text(
+                  photo: context.knobs.string(
                     label: 'photo',
                     initialValue: 'https://github.com/arielsardinha.png',
                   ),
-                  radius: double.tryParse(context.knobs.text(
+                  radius: double.tryParse(context.knobs.string(
                     label: 'radius',
                     initialValue: "",
                   )),
-                  backgroundColor: context.knobs.options(
+                  backgroundColor: context.knobs.list(
                     label: "backgroundColor",
                     options: const [
-                      Option(label: "blue", value: Colors.blue),
-                      Option(label: "red", value: Colors.red),
-                      Option(
-                        label: "default",
-                        value: null,
-                      )
+                      Colors.blue,
+                      Colors.red,
+                      null,
                     ],
                   ),
                 ),
@@ -153,7 +130,7 @@ abstract class _StorybookAtoms {
               return Center(
                 child: RecupInputChip(
                   loading: context.knobs.boolean(label: "loading"),
-                  text: context.knobs.text(
+                  text: context.knobs.string(
                     label: "text",
                     initialValue: "123",
                   ),

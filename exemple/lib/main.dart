@@ -16,29 +16,64 @@ class HotReload extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Widgetbook.material(
-      categories: [
+      addons: [
+        DeviceFrameAddon(
+          initialDevice: Devices.android.samsungGalaxyA50,
+          devices: [
+            Devices.ios.iPhone13,
+            Devices.android.samsungGalaxyA50,
+          ],
+        ),
+        ThemeAddon(
+          themes: [
+            WidgetbookTheme(
+              name: 'Light',
+              data: RecupTheme.themeDataLight,
+            ),
+            WidgetbookTheme(
+              name: 'Dark',
+              data: RecupTheme.themeDataDark,
+            ),
+          ],
+          themeBuilder: (context, theme, child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: theme,
+              home: child,
+            );
+          },
+        )
+      ],
+      directories: [
         _StorybookAtoms.atomsStorybook,
         _StorybookMolecules.storybookMolecules,
         _StorybookOrganismis.organismisbookMolecules,
-        // WidgetbookCategory(name: 'tempate'),
-        // WidgetbookCategory(name: 'pages')
-      ],
-      appInfo: AppInfo(
-        name: 'Widgetbook Example',
-      ),
-      themes: [
-        WidgetbookTheme(
-          name: 'Light',
-          data: RecupTheme.themeDataLight,
-        ),
-        WidgetbookTheme(
-          name: 'Dark',
-          data: RecupTheme.themeDataDark,
-        ),
-      ],
-      devices: [
-        Samsung.s10,
       ],
     );
+    // return Widgetbook.material(
+    //   categories: [
+    //     _StorybookAtoms.atomsStorybook,
+    //     _StorybookMolecules.storybookMolecules,
+    //     _StorybookOrganismis.organismisbookMolecules,
+    //     // WidgetbookCategory(name: 'tempate'),
+    //     // WidgetbookCategory(name: 'pages')
+    //   ],
+    //   appInfo: AppInfo(
+    //     name: 'Widgetbook Example',
+    //   ),
+    //   themes: [
+    // WidgetbookTheme(
+    //   name: 'Light',
+    //   data: RecupTheme.themeDataLight,
+    // ),
+    // WidgetbookTheme(
+    //   name: 'Dark',
+    //   data: RecupTheme.themeDataDark,
+    // ),
+    //   ],
+    //   devices: [
+    //     Samsung.s10,
+    //   ],
+    // );
   }
 }
