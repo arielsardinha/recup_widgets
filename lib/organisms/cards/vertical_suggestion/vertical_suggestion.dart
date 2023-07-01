@@ -24,6 +24,24 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.fit,
   }) : super(key: key);
 
+  bool isPhoto(String photo) {
+    if (photo.isEmpty) {
+      return false;
+    }
+    final validExtensions = [
+      '.png',
+      '.jpg',
+      '.jpeg',
+      '.bmp',
+      '.gif',
+      '.svg',
+      '.webp'
+    ];
+
+    return validExtensions
+        .any((extensionImage) => photo.toLowerCase().contains(extensionImage));
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -54,10 +72,12 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                       height: 140,
                       decoration: BoxDecoration(
                         color: backgroundColor,
-                        image: DecorationImage(
-                          fit: fit ?? BoxFit.cover,
-                          image: NetworkImage(photoBackground),
-                        ),
+                        image: isPhoto(photoBackground)
+                            ? DecorationImage(
+                                fit: fit ?? BoxFit.cover,
+                                image: NetworkImage(photoBackground),
+                              )
+                            : null,
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(16),
                           topRight: Radius.circular(16),
