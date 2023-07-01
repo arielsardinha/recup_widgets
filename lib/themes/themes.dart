@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 part 'color_schemes.g.dart';
+
 part 'text_theme.g.dart';
 
 sealed class RecupTheme {
   static CustomColor custonColor(BuildContext context) {
-    final Brightness brightness = MediaQuery.of(context).platformBrightness;
+    final Brightness brightness = Theme.of(context).brightness;
     if (brightness == Brightness.light) {
       return _lightCustonColor;
     }
@@ -51,7 +53,7 @@ sealed class RecupTheme {
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      indicatorColor: Colors.transparent,
+      // indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
       surfaceTintColor: _lightCustonColor.surface1,
       backgroundColor: _lightCustonColor.surface1,
@@ -109,7 +111,7 @@ sealed class RecupTheme {
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      indicatorColor: Colors.transparent,
+      // indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
       surfaceTintColor: _darkCustonColor.surface1,
       backgroundColor: _darkCustonColor.surface1,
