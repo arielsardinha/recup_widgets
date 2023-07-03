@@ -4,6 +4,7 @@ class RecupCardHorizontalNotification extends StatelessWidget {
   final String photo, title, subtitle;
   final Widget? child;
   final double value;
+
   const RecupCardHorizontalNotification({
     super.key,
     this.photo = '',
@@ -71,8 +72,14 @@ class RecupCardHorizontalNotification extends StatelessWidget {
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
                         ),
-                        LinearProgressIndicator(
-                          value: value,
+                        Material(
+                          clipBehavior: Clip.antiAlias,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                          child: LinearProgressIndicator(
+                            minHeight: 8,
+                            value: value,
+                          ),
                         ),
                       ],
                     ),
