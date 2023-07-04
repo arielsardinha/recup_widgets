@@ -58,17 +58,163 @@ abstract class _StorybookMolecules {
         ],
       ),
       WidgetbookComponent(
-        name: 'ElevatedButton',
+        name: 'Recup Button',
         useCases: [
           WidgetbookUseCase(
-            name: 'Default',
+            name: 'Filled Button',
             builder: (context) {
+              final knobVisualDensity = context.knobs.list(
+                label: 'Visual Density',
+                options: [
+                  VisualDensityButton.standard,
+                  VisualDensityButton.comfortable,
+                  VisualDensityButton.compact
+                ],
+                labelBuilder: (value) => value.name,
+              );
+
               return Center(
-                child: ElevatedButton(
-                  onPressed:
-                      context.knobs.boolean(label: "onPressed") ? () {} : null,
-                  child: const Text(
-                    'Elevated Button',
+                child: RecupFilledButton(
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: knobVisualDensity,
+                  ),
+                  onPressed: context.knobs.boolean(
+                    label: "onPressed",
+                    initialValue: true,
+                  )
+                      ? () {}
+                      : null,
+                  child: Text(
+                    context.knobs
+                        .string(label: 'Text', initialValue: 'Button'),
+                  ),
+                ),
+              );
+            },
+          ),
+          WidgetbookUseCase(
+            name: 'Outlined Button',
+            builder: (context) {
+              final knobVisualDensity = context.knobs.list(
+                label: 'Visual Density',
+                options: [
+                  VisualDensityButton.standard,
+                  VisualDensityButton.comfortable,
+                  VisualDensityButton.compact
+                ],
+                labelBuilder: (value) => value.name,
+              );
+
+              return Center(
+                child: RecupOutlinedButton(
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: knobVisualDensity,
+                  ),
+                  onPressed: context.knobs.boolean(
+                    label: "onPressed",
+                    initialValue: true,
+                  )
+                      ? () {}
+                      : null,
+                  child: Text(
+                    context.knobs
+                        .string(label: 'Text', initialValue: 'Button'),
+                  ),
+                ),
+              );
+            },
+          ),
+          WidgetbookUseCase(
+            name: 'Text Button',
+            builder: (context) {
+              final knobVisualDensity = context.knobs.list(
+                label: 'Visual Density',
+                options: [
+                  VisualDensityButton.standard,
+                  VisualDensityButton.comfortable,
+                  VisualDensityButton.compact
+                ],
+                labelBuilder: (value) => value.name,
+              );
+
+              return Center(
+                child: RecupTextButton(
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: knobVisualDensity,
+                  ),
+                  onPressed: context.knobs.boolean(
+                    label: "onPressed",
+                    initialValue: true,
+                  )
+                      ? () {}
+                      : null,
+                  child: Text(
+                    context.knobs
+                        .string(label: 'Text', initialValue: 'Button'),
+                  ),
+                ),
+              );
+            },
+          ),
+          WidgetbookUseCase(
+            name: 'Elevated Button',
+            builder: (context) {
+              final knobVisualDensity = context.knobs.list(
+                label: 'Visual Density',
+                options: [
+                  VisualDensityButton.standard,
+                  VisualDensityButton.comfortable,
+                  VisualDensityButton.compact
+                ],
+                labelBuilder: (value) => value.name,
+              );
+
+              return Center(
+                child: RecupElevatedButton(
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: knobVisualDensity,
+                  ),
+                  onPressed: context.knobs.boolean(
+                    label: "onPressed",
+                    initialValue: true,
+                  )
+                      ? () {}
+                      : null,
+                  child: Text(
+                    context.knobs
+                        .string(label: 'Text', initialValue: 'Button'),
+                  ),
+                ),
+              );
+            },
+          ),
+          WidgetbookUseCase(
+            name: 'Tonal Button',
+            builder: (context) {
+              final knobVisualDensity = context.knobs.list(
+                label: 'Visual Density',
+                options: [
+                  VisualDensityButton.standard,
+                  VisualDensityButton.comfortable,
+                  VisualDensityButton.compact
+                ],
+                labelBuilder: (value) => value.name,
+              );
+
+              return Center(
+                child: RecupTonalButton(
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: knobVisualDensity,
+                  ),
+                  onPressed: context.knobs.boolean(
+                    label: "onPressed",
+                    initialValue: true,
+                  )
+                      ? () {}
+                      : null,
+                  child: Text(
+                    context.knobs
+                        .string(label: 'Text', initialValue: 'Button'),
                   ),
                 ),
               );

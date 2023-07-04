@@ -4,6 +4,8 @@ part 'color_schemes.g.dart';
 
 part 'text_theme.g.dart';
 
+
+
 sealed class RecupTheme {
   static CustomColor custonColor(BuildContext context) {
     final Brightness brightness = Theme.of(context).brightness;
@@ -46,12 +48,12 @@ sealed class RecupTheme {
         ),
       ),
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        foregroundColor: _lightColorScheme.onPrimary,
-        backgroundColor: _lightColorScheme.primary,
-      ),
-    ),
+    // elevatedButtonTheme: ElevatedButtonThemeData(
+    //   style: ElevatedButton.styleFrom(
+    //     foregroundColor: _lightColorScheme.onPrimary,
+    //     backgroundColor: _lightColorScheme.primary,
+    //   ),
+    // ),
     navigationBarTheme: NavigationBarThemeData(
       // indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
@@ -104,12 +106,12 @@ sealed class RecupTheme {
         ),
       ),
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        foregroundColor: _darkColorScheme.onPrimary,
-        backgroundColor: _darkColorScheme.primary,
-      ),
-    ),
+    // elevatedButtonTheme: ElevatedButtonThemeData(
+    //   style: ElevatedButton.styleFrom(
+    //     foregroundColor: _darkColorScheme.onPrimary,
+    //     backgroundColor: _darkColorScheme.primary,
+    //   ),
+    // ),
     navigationBarTheme: NavigationBarThemeData(
       // indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
