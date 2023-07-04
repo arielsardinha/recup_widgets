@@ -7,6 +7,7 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
   final Color? avatarBackgroundColor;
   final double? widthText;
   final bool isActive;
+
   const RecupCardHorizontalCardAds({
     super.key,
     this.title = '',
@@ -96,20 +97,10 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   margin:
                       const EdgeInsets.only(right: 16, bottom: 16, left: 16),
-                  child: RecupFilledButton(
+                  child: RecupTonalButton(
                     onPressed: onPressedButton,
                     recupButtonStyle: RecupButtonStyle(
-                      visualDensityButton: VisualDensityButton.comfortable
-                    ),
-                    // style: ElevatedButton.styleFrom(
-                    //   foregroundColor: isActive
-                    //       ? theme.colorScheme.onPrimaryContainer
-                    //       : null,
-                    //   backgroundColor:
-                    //       isActive ? theme.colorScheme.primaryContainer : null,
-                    //   visualDensity: VisualDensity.comfortable,
-                    //   textStyle: theme.textTheme.titleSmall
-                    // ),
+                        visualDensityButton: VisualDensityButton.comfortable),
                     child: childButton,
                   ),
                 )

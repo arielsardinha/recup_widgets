@@ -107,13 +107,6 @@ class RecupCardVerticalAction extends StatelessWidget {
               recupButtonStyle: RecupButtonStyle(
                 visualDensityButton: VisualDensityButton.comfortable
               ),
-              // style: ElevatedButton.styleFrom(
-              //   foregroundColor:
-              //       isActive ? theme.colorScheme.onPrimaryContainer : null,
-              //   backgroundColor:
-              //       isActive ? theme.colorScheme.primaryContainer : null,
-              //   visualDensity: VisualDensity.comfortable,
-              // ),
               child: Text(
                 textButton,
                 maxLines: 1,
