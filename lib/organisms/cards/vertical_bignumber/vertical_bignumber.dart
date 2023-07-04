@@ -4,6 +4,7 @@ class RecupCardVerticalBignumber extends StatelessWidget {
   final String title, subtitle;
   final Widget? widget, child;
   final void Function()? onPressed;
+
   const RecupCardVerticalBignumber({
     super.key,
     this.title = '',
@@ -36,7 +37,18 @@ class RecupCardVerticalBignumber extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                if (widget != null) widget!,
+                if (widget != null)
+                  Builder(
+                    builder: (context) {
+                      if (widget! is Icon) {
+                        return CircleAvatar(
+                          backgroundColor: theme.colorScheme.onInverseSurface,
+                          child: widget,
+                        );
+                      }
+                      return widget!;
+                    },
+                  ),
                 if (onPressed != null)
                   IconButton(
                     onPressed: onPressed,
@@ -59,12 +71,15 @@ class RecupCardVerticalBignumber extends StatelessWidget {
                         ?.copyWith(color: theme.colorScheme.inverseSurface),
                   ),
                 if (subtitle.isNotEmpty)
-                  Text(
-                    subtitle,
-                    maxLines: child != null ? 2 : 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall
-                        ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      subtitle,
+                      maxLines: child != null ? 2 : 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodySmall
+                          ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                    ),
                   ),
               ],
             ),
