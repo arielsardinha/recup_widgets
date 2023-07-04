@@ -98,14 +98,12 @@ class _RecupStandardState extends State<RecupStandard> {
               key: _widgetKey,
               child: widget.widget!,
             ),
-          Expanded(
-            child: Text(
-              widget.text,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.labelMedium?.copyWith(
-                color: widget.color.colorText(theme.colorScheme),
-              ),
+          Text(
+            widget.text,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.labelMedium?.copyWith(
+              color: widget.color.colorText(theme.colorScheme),
             ),
           ),
         ],
