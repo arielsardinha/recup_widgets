@@ -74,8 +74,9 @@ class RecupCardHorizontalNotification extends StatelessWidget {
                         ),
                         Material(
                           clipBehavior: Clip.antiAlias,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(8)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(8),
+                          ),
                           child: LinearProgressIndicator(
                             minHeight: 10,
                             value: value,

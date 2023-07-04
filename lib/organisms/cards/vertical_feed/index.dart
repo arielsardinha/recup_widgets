@@ -196,26 +196,20 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                OutlinedButton(
+                RecupOutlinedButton(
                   onPressed: onPressedOutlinedButton,
-                  style: OutlinedButton.styleFrom(
-                    visualDensity: VisualDensity.comfortable,
-                    textStyle: theme.textTheme.titleSmall,
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: VisualDensityButton.comfortable,
                   ),
                   child: childOutlinedButton,
                 ),
                 const SizedBox(
                   width: 8,
                 ),
-                ElevatedButton(
+                RecupFilledButton(
                   onPressed: onPressedElevatedButton,
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor:
-                        isActive ? theme.colorScheme.onPrimaryContainer : null,
-                    backgroundColor:
-                        isActive ? theme.colorScheme.primaryContainer : null,
-                    visualDensity: VisualDensity.comfortable,
-                    textStyle: theme.textTheme.titleSmall,
+                  recupButtonStyle: RecupButtonStyle(
+                    visualDensityButton: VisualDensityButton.comfortable,
                   ),
                   child: childElevatedButton,
                 )

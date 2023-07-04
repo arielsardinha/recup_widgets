@@ -15,6 +15,12 @@ abstract class _StorybookOrganismis {
                 builder: (context) {
                   return Center(
                     child: RecupCardHorizontalCardAds(
+                      childButton: Text(
+                          context.knobs.string(
+                            label: 'Button Text',
+                            initialValue: 'Text',
+                          )
+                      ),
                       title: context.knobs.string(
                         label: 'title',
                         initialValue: 'Header',

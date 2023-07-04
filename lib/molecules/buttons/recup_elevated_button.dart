@@ -2,7 +2,7 @@ part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupElevatedButton extends StatelessWidget {
   final VoidCallback? onPressed;
-  final Widget child;
+  final Widget? child;
   final RecupButtonStyle? recupButtonStyle;
 
   const RecupElevatedButton({
