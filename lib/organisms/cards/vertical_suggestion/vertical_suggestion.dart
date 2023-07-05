@@ -1,12 +1,13 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardVerticalSuggestion extends StatelessWidget {
-  final String title, photoBackground, photoAvatar, nameAvatar, textContent;
-  final Widget? child, subtitleListTile;
+  final String title, photoBackground, photoAvatar, nameAvatar, subtitle;
+
+  final Widget? child, contentWidget;
   final void Function()? onTap;
   final Color? backgroundColorAvatar, backgroundColor;
   final BoxFit? fit;
-  final RecupStandardColor textContentColor;
+  final EdgeInsets? paddingBottom;
 
   const RecupCardVerticalSuggestion({
     Key? key,
@@ -16,12 +17,12 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.photoBackground = '',
     this.photoAvatar = '',
     this.nameAvatar = '',
-    this.textContent = '',
+    this.contentWidget,
+    this.subtitle = '',
     this.backgroundColorAvatar,
-    this.textContentColor = RecupStandardColor.ERROR,
     this.backgroundColor,
-    this.subtitleListTile,
     this.fit,
+    this.paddingBottom = const EdgeInsets.fromLTRB(16, 0, 4, 4),
   }) : super(key: key);
 
   bool isPhoto(String photo) {
@@ -46,6 +47,8 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    final int maxLines = title.isNotEmpty && subtitle.isNotEmpty ? 1 : 2;
+
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -60,72 +63,79 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Stack(
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 140,
-                      decoration: BoxDecoration(
-                        color: backgroundColor,
-                        image: isPhoto(photoBackground)
-                            ? DecorationImage(
-                                fit: fit ?? BoxFit.cover,
-                                image: NetworkImage(photoBackground),
-                              )
-                            : null,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          topRight: Radius.circular(16),
-                        ),
-                      ),
+                Container(
+                  width: 200,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    image: isPhoto(photoBackground)
+                        ? DecorationImage(
+                            fit: fit ?? BoxFit.cover,
+                            image: NetworkImage(photoBackground),
+                          )
+                        : null,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 16),
-                      child: RecupCircleAvatar(
-                        photo: photoAvatar,
-                        name: nameAvatar,
-                        backgroundColor: backgroundColorAvatar,
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-                if (title.isNotEmpty)
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: Text(
-                      title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        color: theme.colorScheme.inverseSurface,
-                      ),
-                    ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  child: RecupCircleAvatar(
+                    photo: photoAvatar,
+                    name: nameAvatar,
+                    backgroundColor: backgroundColorAvatar,
                   ),
-                if (subtitleListTile != null)
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(right: 16, left: 16, bottom: 8),
-                    child: subtitleListTile,
-                  ),
-                if (textContent.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: RecupStandard(
-                      text: textContent,
-                      color: textContentColor,
-                    ),
-                  ),
+                )
               ],
             ),
-            const Spacer(),
-            if (child != null) child!
+            Flexible(
+              child: Container(
+                // color: Colors.red,
+                margin: EdgeInsets.fromLTRB(16, 16, 16, child != null ? 0 : 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (title.isNotEmpty)
+                      Text(
+                        title,
+                        maxLines: maxLines,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          color: theme.colorScheme.inverseSurface,
+                        ),
+                      ),
+                    if (subtitle.isNotEmpty)
+                      Text(
+                        subtitle,
+                        maxLines: maxLines,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: theme.colorScheme.inverseSurface,
+                        ),
+                      ),
+                    const Spacer(),
+                    if (contentWidget != null)
+                      contentWidget!,
+                    if(contentWidget != null)
+                      const Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            if (child != null)
+              Container(
+                alignment: Alignment.centerRight,
+                padding: paddingBottom,
+                child: child!,
+              )
           ],
         ),
       ),

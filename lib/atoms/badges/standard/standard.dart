@@ -30,6 +30,7 @@ class RecupStandard extends StatefulWidget {
   final Widget? widget;
 
   final RecupStandardColor color;
+
   const RecupStandard({
     super.key,
     this.text = '',
