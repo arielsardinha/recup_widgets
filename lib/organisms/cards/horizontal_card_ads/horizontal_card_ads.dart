@@ -1,6 +1,6 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupCardHorizontalCardAds extends StatelessWidget {
+class RecupCardHorizontalCardAds extends StatelessWidget with ImageValidationMixin {
   final String title, subtitle, text, avatarPhoto, avatarName, photoBackground;
   final void Function()? onPressedButton;
   final Widget? leading, childButton;
@@ -27,6 +27,9 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+ 
+
     return Container(
       height: 156,
       decoration: BoxDecoration(
@@ -49,10 +52,12 @@ class RecupCardHorizontalCardAds extends StatelessWidget {
                     topLeft: Radius.circular(20),
                     bottomLeft: Radius.circular(20),
                   ),
-                  image: DecorationImage(
-                    image: NetworkImage(photoBackground),
-                    fit: BoxFit.cover,
-                  ),
+                  image: isPhoto(photoBackground)
+                      ? DecorationImage(
+                          image: NetworkImage(photoBackground),
+                          fit: BoxFit.cover,
+                        )
+                      : null,
                 ),
               ),
               if (avatarPhoto.isNotEmpty || avatarName.isNotEmpty)

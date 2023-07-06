@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:skeletons/skeletons.dart';
-
+import './utils/mixin/image_validate_mixin.dart';
 part 'atoms/circle_avatar/index.dart';
 part 'atoms/slider_points/slider_points.dart';
 part 'molecules/avatars/avatars.dart';

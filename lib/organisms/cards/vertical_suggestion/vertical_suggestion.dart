@@ -1,6 +1,7 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupCardVerticalSuggestion extends StatelessWidget {
+class RecupCardVerticalSuggestion extends StatelessWidget
+    with ImageValidationMixin {
   final String title, photoBackground, photoAvatar, nameAvatar, textContent;
   final Widget? child, subtitleListTile;
   final void Function()? onTap;
@@ -23,24 +24,6 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.subtitleListTile,
     this.fit,
   }) : super(key: key);
-
-  bool isPhoto(String photo) {
-    if (photo.isEmpty) {
-      return false;
-    }
-    final validExtensions = [
-      '.png',
-      '.jpg',
-      '.jpeg',
-      '.bmp',
-      '.gif',
-      '.svg',
-      '.webp'
-    ];
-
-    return validExtensions
-        .any((extensionImage) => photo.toLowerCase().contains(extensionImage));
-  }
 
   @override
   Widget build(BuildContext context) {

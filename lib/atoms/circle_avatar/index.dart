@@ -1,6 +1,6 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupCircleAvatar extends StatelessWidget {
+class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
   final String name;
   final String photo;
   final Color? backgroundColor;
@@ -30,24 +30,6 @@ class RecupCircleAvatar extends StatelessWidget {
           ),
         ),
       );
-    }
-
-    bool isPhoto(String photo) {
-      if (photo.isEmpty) {
-        return false;
-      }
-      final validExtensions = [
-        '.png',
-        '.jpg',
-        '.jpeg',
-        '.bmp',
-        '.gif',
-        '.svg',
-        '.webp'
-      ];
-
-      return validExtensions.any(
-          (extensionImage) => photo.toLowerCase().contains(extensionImage));
     }
 
     return CircleAvatar(
