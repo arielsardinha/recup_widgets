@@ -3,7 +3,7 @@ part of 'package:recup_storybook/recup_storybook.dart';
 class RecupCardVerticalSuggestion extends StatelessWidget {
   final String title, photoBackground, photoAvatar, nameAvatar, subtitle;
 
-  final Widget? child, contentWidget;
+  final Widget? child, content;
   final void Function()? onTap;
   final Color? backgroundColorAvatar, backgroundColor;
   final BoxFit? fit;
@@ -17,7 +17,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
     this.photoBackground = '',
     this.photoAvatar = '',
     this.nameAvatar = '',
-    this.contentWidget,
+    this.content,
     this.subtitle = '',
     this.backgroundColorAvatar,
     this.backgroundColor,
@@ -122,9 +122,9 @@ class RecupCardVerticalSuggestion extends StatelessWidget {
                         ),
                       ),
                     const Spacer(),
-                    if (contentWidget != null)
-                      contentWidget!,
-                    if(contentWidget != null)
+                    if (content != null)
+                      content!,
+                    if(content != null)
                       const Spacer(),
                   ],
                 ),

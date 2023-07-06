@@ -982,8 +982,8 @@ abstract class _StorybookOrganismis {
                       ),
                       // onTap:
                       //     context.knobs.boolean(label: "onTap") ? () {} : null,
-                      contentWidget: context.knobs.boolean(
-                        label: "contentWidget",
+                      content: context.knobs.boolean(
+                        label: "content",
                         initialValue: true,
                       )
                           ? Builder(
@@ -1055,8 +1055,8 @@ abstract class _StorybookOrganismis {
                         label: "subtitle",
                         initialValue: '7 tipos aceitos',
                       ),
-                      contentWidget: context.knobs.boolean(
-                        label: "contentWidget",
+                      content: context.knobs.boolean(
+                        label: "content",
                         initialValue: false,
                       )
                           ? Builder(
@@ -1126,8 +1126,8 @@ abstract class _StorybookOrganismis {
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      contentWidget: context.knobs.boolean(
-                        label: "contentWidget",
+                      content: context.knobs.boolean(
+                        label: "content",
                         initialValue: true,
                       )
                           ? Builder(
@@ -1193,24 +1193,25 @@ abstract class _StorybookOrganismis {
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      contentWidget: context.knobs.boolean(
-                        label: "contentWidget",
+                      content: context.knobs.boolean(
+                        label: "content",
                         initialValue: true,
                       )
-                          ? Builder(
-                              builder: (context) {
-                                final text = context.knobs.string(
-                                  label: "Exemple Text",
-                                  description: 'Badge Status Text',
-                                  initialValue: "Rebox One",
-                                );
-
-                                return text.isNotEmpty
-                                    ? RecupStatus(
-                                        text: text,
-                                      )
-                                    : Container();
-                              },
+                          ? Row(
+                              children: [
+                                Icon(
+                                  Icons.circle,
+                                  size: 16,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  '100',
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                )
+                              ],
                             )
                           : null,
                       paddingBottom: context.knobs.boolean(
