@@ -3,6 +3,7 @@ part of 'package:exemple/main.dart';
 abstract class _StorybookMolecules {
   static final storybookMolecules = WidgetbookCategory(
     name: 'molecules',
+    isInitiallyExpanded: false,
     children: [
       WidgetbookComponent(
         name: 'Carousel',

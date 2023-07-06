@@ -18,6 +18,7 @@ part 'molecules/buttons/recup_text_button.dart';
 part 'molecules/buttons/moddel.dart';
 part 'organisms/cards/vertical_feed/index.dart';
 part 'organisms/cards/horizontal_card_ads/horizontal_card_ads.dart';
+part 'organisms/cards/horizontal_card_ads/horizontal_card_image.dart';
 part 'organisms/cards/vertical_action/vertical_action.dart';
 part 'organisms/cards/vertical_suggestion/vertical_suggestion.dart';
 part 'atoms/input_chip/input_chip.dart';

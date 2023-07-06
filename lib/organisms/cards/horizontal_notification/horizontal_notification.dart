@@ -2,16 +2,19 @@ part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupCardHorizontalNotification extends StatelessWidget {
   final String photo, title, subtitle;
-  final Widget? child;
+  final Widget? child, leading;
   final double value;
+  final VoidCallback? onPressed;
 
   const RecupCardHorizontalNotification({
     super.key,
     this.photo = '',
     this.title = '',
     this.subtitle = '',
+    this.leading,
     this.child,
     this.value = 0.0,
+    this.onPressed,
   });
 
   @override
@@ -29,73 +32,90 @@ class RecupCardHorizontalNotification extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            width: 80,
-            decoration: BoxDecoration(
-              color: theme.colorScheme.background,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16),
-                bottomLeft: Radius.circular(16),
-              ),
-              image: DecorationImage(
-                image: NetworkImage(photo),
-                fit: BoxFit.cover,
+          if (photo.isNotEmpty)
+            Container(
+              width: 80,
+              decoration: BoxDecoration(
+                color: theme.colorScheme.background,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  bottomLeft: Radius.circular(16),
+                ),
+                image: DecorationImage(
+                  image: NetworkImage(photo),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
           Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          title,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: false,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            color: theme.colorScheme.inverseSurface,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 4, 16),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (leading != null) leading!,
+                  Flexible(
+                    child: Container(
+                      padding: leading != null
+                          ? const EdgeInsets.only(left: 16)
+                          : null,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: false,
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  color: theme.colorScheme.inverseSurface,
+                                ),
+                              ),
+                              Text(
+                                subtitle,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: false,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Text(
-                          subtitle,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: false,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
+                          Material(
+                            clipBehavior: Clip.antiAlias,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(8),
+                            ),
+                            child: LinearProgressIndicator(
+                              minHeight: 4,
+                              value: value,
+                            ),
                           ),
-                        ),
-                        Material(
-                          clipBehavior: Clip.antiAlias,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(8),
-                          ),
-                          child: LinearProgressIndicator(
-                            minHeight: 10,
-                            value: value,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                if (child != null) child!,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: IconButton(
-                    onPressed: () {},
-                    visualDensity: VisualDensity.comfortable,
-                    icon: const Icon(Icons.arrow_outward_outlined),
-                  ),
-                )
-              ],
+                  if (child != null)
+                    Container(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: child!,
+                    ),
+                  if (onPressed != null)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: IconButton(
+                        onPressed: onPressed,
+                        visualDensity: VisualDensity.comfortable,
+                        icon: const Icon(Icons.arrow_outward_outlined),
+                      ),
+                    )
+                ],
+              ),
             ),
           )
         ],

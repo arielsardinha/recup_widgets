@@ -10,7 +10,7 @@ class RecupCardVerticalFeedBackground {
   });
 }
 
-class RecupCardVerticalFeedCard extends StatelessWidget {
+class RecupCardVerticalFeed extends StatelessWidget {
   final String nameAvatar,
       titleHeader,
       subtitleHeader,
@@ -35,7 +35,7 @@ class RecupCardVerticalFeedCard extends StatelessWidget {
 
   final Color? backgroundColor, backgroundColorAvatarHeader;
 
-  const RecupCardVerticalFeedCard({
+  const RecupCardVerticalFeed({
     super.key,
     this.nameAvatar = '',
     this.titleHeader = '',

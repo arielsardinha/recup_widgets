@@ -8,18 +8,18 @@ abstract class _StorybookOrganismis {
         name: 'Cards',
         children: [
           WidgetbookComponent(
-            name: 'Horizontal Card Ads',
+            name: 'Horizontal Action',
             useCases: [
               WidgetbookUseCase(
-                name: 'Default',
+                name: 'Offer Active',
                 builder: (context) {
                   return Center(
-                    child: RecupCardHorizontalCardAds(
+                    child: RecupCardHorizontalActionAds(
                       childButton: Text(
-                          context.knobs.string(
-                            label: 'Button Text',
-                            initialValue: 'Text',
-                          )
+                        context.knobs.string(
+                          label: 'childButton (Text)',
+                          initialValue: 'Cupom Ativo',
+                        ),
                       ),
                       title: context.knobs.string(
                         label: 'title',
@@ -29,20 +29,31 @@ abstract class _StorybookOrganismis {
                         label: 'subtitle',
                         initialValue: 'subtitle',
                       ),
-                      text: context.knobs.string(
-                        label: 'text',
+                      badgeText: context.knobs.string(
+                        label: 'badgeText',
                         initialValue: 'text',
+                      ),
+                      badgeColor: context.knobs.list(
+                        label: 'badgeColor',
+                        options: [
+                          RecupStandardColor.ERROR,
+                          RecupStandardColor.PRIMARY,
+                        ],
+                        labelBuilder: (value) => value.name,
                       ),
                       onPressedButton:
                           context.knobs.boolean(label: 'onPressedButton')
                               ? null
                               : () {},
-                      leading: context.knobs.boolean(label: 'leading')
-                          ? null
-                          : const Icon(
+                      leading: context.knobs.boolean(
+                        label: 'leading',
+                        initialValue: false,
+                      )
+                          ? const Icon(
                               Icons.check_circle_outline_outlined,
                               size: 40,
-                            ),
+                            )
+                          : null,
                       photoBackground: context.knobs.string(
                         label: 'photoBackground',
                         initialValue: 'https://github.com/recup.png',
@@ -59,10 +70,87 @@ abstract class _StorybookOrganismis {
                   );
                 },
               ),
+              WidgetbookUseCase(
+                name: 'Assotiation Active',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardHorizontalActionAds(
+                      childButton: Text(
+                        context.knobs.string(
+                          label: 'childButton (Text)',
+                          initialValue: 'Don ativo',
+                        ),
+                      ),
+                      title: context.knobs.string(
+                        label: 'title',
+                        initialValue: '3,5 €',
+                      ),
+                      subtitle: context.knobs.string(
+                        label: 'subtitle',
+                        initialValue: 'Ligue Conter le cancer',
+                      ),
+                      badgeText: context.knobs.string(
+                        label: 'badgeText',
+                        initialValue: 'Text',
+                      ),
+                      badgeColor: context.knobs.list(
+                          label: 'badgeColor',
+                          options: [
+                            RecupStandardColor.ERROR,
+                            RecupStandardColor.PRIMARY,
+                          ],
+                          labelBuilder: (value) => value.name,
+                          initialOption: RecupStandardColor.PRIMARY),
+                      onPressedButton:
+                          context.knobs.boolean(label: 'onPressedButton')
+                              ? null
+                              : () {},
+                      leading: context.knobs
+                              .boolean(label: 'leading', initialValue: false)
+                          ? const Icon(
+                              Icons.check_circle_outline_outlined,
+                              size: 40,
+                            )
+                          : null,
+                      photoBackground: context.knobs.string(
+                        label: 'photoBackground',
+                        initialValue: 'https://github.com/recup.png',
+                      ),
+                      avatarPhoto: context.knobs.string(
+                        label: 'avatarPhoto',
+                        initialValue: 'https://github.com/arielsardinha.png',
+                      ),
+                      avatarName: context.knobs.string(
+                        label: 'avatarName',
+                        initialValue: 'ariel sardinha',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Ads Image',
+                builder: (context) {
+                  return Center(
+                    child: RecupCardHorizontalActionImage(
+                      photoBackground: context.knobs.string(
+                        label: 'photoBackground',
+                        initialValue: 'https://github.com/recup.png',
+                      ),
+                      onPressed: context.knobs.boolean(
+                        label: 'onPressed',
+                        initialValue: true,
+                      )
+                          ? () {}
+                          : null,
+                    ),
+                  );
+                },
+              ),
             ],
           ),
           WidgetbookComponent(
-            name: 'vertical feed',
+            name: 'Vertical feed',
             useCases: [
               WidgetbookUseCase(
                 name: 'Default',
@@ -71,7 +159,7 @@ abstract class _StorybookOrganismis {
                       context.knobs.boolean(label: "recoinsDisabled");
 
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       width:
                           double.tryParse(context.knobs.string(label: "width")),
                       noSliderPoints:
@@ -84,20 +172,21 @@ abstract class _StorybookOrganismis {
                         ],
                       ),
                       backgroundImages: RecupCardVerticalFeedBackground(
-                          backgroundImages: [
-                        'https://github.com/arielsardinha.png',
-                        'https://github.com/treinaweb.png',
-                        'https://github.com/recup.png',
-                      ]
-                              .map((e) => RecupCarouselItem(image: e, item: e))
-                              .toList()),
+                        backgroundImages: [
+                          'https://github.com/arielsardinha.png',
+                          'https://github.com/treinaweb.png',
+                          'https://github.com/recup.png',
+                        ]
+                            .map((e) => RecupCarouselItem(image: e, item: e))
+                            .toList(),
+                      ),
                       nameAvatar: context.knobs.string(
                         label: 'nameAvatar',
                         initialValue: 'Ariel Sardinha',
                       ),
                       photoHeader: context.knobs.string(
                         label: 'photoHeader',
-                        initialValue: 'https://github.com/arielsardinha.png',
+                        initialValue: 'https://github.com/boginni.png',
                       ),
                       titleHeader: context.knobs.string(
                         label: 'titleHeader',
@@ -193,7 +282,7 @@ abstract class _StorybookOrganismis {
                 name: 'product category enable',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       backgroundImages: RecupCardVerticalFeedBackground(
                           backgroundImages: [
                         'https://github.com/arielsardinha.png',
@@ -293,7 +382,7 @@ abstract class _StorybookOrganismis {
                 name: 'collection point, Enabled',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: RecupCardVerticalFeedBackground(
@@ -405,7 +494,7 @@ abstract class _StorybookOrganismis {
                 name: 'Donation Enabled',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: RecupCardVerticalFeedBackground(
@@ -481,11 +570,11 @@ abstract class _StorybookOrganismis {
                           : null,
                       children: context.knobs
                               .boolean(label: "children", initialValue: true)
-                          ? Column(
+                          ? const Column(
                               children: [
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Icon(Icons.person),
                                     SizedBox(
                                       width: 8,
@@ -493,12 +582,12 @@ abstract class _StorybookOrganismis {
                                     Text("486 doadores ativos")
                                   ],
                                 ),
-                                const SizedBox(
+                                SizedBox(
                                   height: 8,
                                 ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Icon(Icons.volunteer_activism_outlined),
                                     SizedBox(
                                       width: 8,
@@ -517,7 +606,7 @@ abstract class _StorybookOrganismis {
                 name: 'Donation Actived',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: RecupCardVerticalFeedBackground(
@@ -594,11 +683,11 @@ abstract class _StorybookOrganismis {
                           : null,
                       children: context.knobs
                               .boolean(label: "children", initialValue: true)
-                          ? Column(
+                          ? const Column(
                               children: [
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Icon(Icons.person),
                                     SizedBox(
                                       width: 8,
@@ -606,12 +695,12 @@ abstract class _StorybookOrganismis {
                                     Text("486 doadores ativos")
                                   ],
                                 ),
-                                const SizedBox(
+                                SizedBox(
                                   height: 8,
                                 ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Icon(Icons.volunteer_activism_outlined),
                                     SizedBox(
                                       width: 8,
@@ -629,7 +718,7 @@ abstract class _StorybookOrganismis {
             ],
           ),
           WidgetbookComponent(
-            name: 'vertical action',
+            name: 'Vertical action',
             useCases: [
               WidgetbookUseCase(
                 name: 'Default',
@@ -637,7 +726,9 @@ abstract class _StorybookOrganismis {
                   return Center(
                     child: RecupCardVerticalAction(
                       iconButtonHeader: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.delete)),
+                        onPressed: () {},
+                        icon: const Icon(Icons.delete),
+                      ),
                       title: context.knobs.string(
                         label: "title",
                         initialValue: 'Header',
@@ -862,80 +953,79 @@ abstract class _StorybookOrganismis {
             name: 'Vertical Suggestion',
             useCases: [
               WidgetbookUseCase(
-                name: 'Default',
+                name: 'Base',
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalSuggestion(
                       nameAvatar: context.knobs.string(
                         label: "nameAvatar",
-                        initialValue: "Ariel",
+                        initialValue: "Name Avatar",
                       ),
                       photoAvatar: context.knobs.string(
                         label: "photoAvatar",
-                        initialValue: "https://github.com/arielsardinha.png",
+                        initialValue: "",
                       ),
+                      backgroundColorAvatar:
+                          Theme.of(context).colorScheme.onInverseSurface,
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Header",
                       ),
-                      subtitleListTile:
-                          context.knobs.boolean(label: "subtitleListTile")
-                              ? Row(
-                                  children: [
-                                    if (context.knobs
-                                        .boolean(label: "subtitleListTileIcon"))
-                                      const Icon(
-                                        Icons.pin_drop_outlined,
-                                      ),
-                                    SizedBox(
-                                      width: 130,
-                                      child: Text(
-                                        context.knobs.string(
-                                          label: "subtitleListTileText",
-                                          initialValue: "title",
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              : null,
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: 'Subhead',
+                      ),
                       photoBackground: context.knobs.string(
                         label: "photoBackground",
-                        initialValue: "https://github.com/recup.png",
+                        initialValue:
+                            "https://htmlcolorcodes.com/assets/images/colors/blue-gray-color-solid-background-1920x1080.png",
                       ),
-                      onTap:
-                          context.knobs.boolean(label: "onTap") ? () {} : null,
-                      textContent: context.knobs.string(
-                        label: "textContent",
-                        initialValue: "textContent",
-                      ),
-                      child: context.knobs.boolean(label: "child")
-                          ? null
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.light_mode_outlined,
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
-                                    const SizedBox(
-                                      width: 8,
-                                    ),
-                                    const Text('Label')
-                                  ],
+                      // onTap:
+                      //     context.knobs.boolean(label: "onTap") ? () {} : null,
+                      content: context.knobs.boolean(
+                        label: "content",
+                        initialValue: true,
+                      )
+                          ? Builder(
+                              builder: (context) {
+                                final text = context.knobs.string(
+                                  label: "Exemple Text",
+                                  description: 'Badge Status Text',
+                                  initialValue: "Badge Text",
+                                );
+
+                                return text.isNotEmpty
+                                    ? RecupStatus(
+                                        text: text,
+                                      )
+                                    : Container();
+                              },
+                            )
+                          : null,
+                      paddingBottom: context.knobs.boolean(
+                        label: 'paddingBottom',
+                        initialValue: false,
+                      )
+                          ? const EdgeInsets.only(
+                              right: 16,
+                              bottom: 16,
+                            )
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? Align(
+                              alignment: Alignment.centerRight,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
-                                Icon(
-                                  Icons.settings,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSurfaceVariant,
-                                )
-                              ],
-                            ),
+                              ),
+                            )
+                          : null,
                     ),
                   );
                 },
@@ -955,47 +1045,58 @@ abstract class _StorybookOrganismis {
                       ),
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
-                      ),
-                      subtitleListTile: Text(
-                        context.knobs.string(
-                          label: "subtitle",
-                          initialValue: 'subtitle',
-                        ),
+                        initialValue: "Capsulas de café",
                       ),
                       photoBackground: context.knobs.string(
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      onTap:
-                          context.knobs.boolean(label: "onTap") ? () {} : null,
-                      textContent: context.knobs.string(
-                        label: "textContent",
-                        initialValue: "",
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: '7 tipos aceitos',
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.location_on_outlined,
-                                color: Theme.of(context).colorScheme.primary,
+                      content: context.knobs.boolean(
+                        label: "content",
+                        initialValue: false,
+                      )
+                          ? Builder(
+                              builder: (context) {
+                                final text = context.knobs.string(
+                                  label: "Exemple Text",
+                                  description: 'Badge Status Text',
+                                  initialValue: "Badge Text",
+                                );
+
+                                return text.isNotEmpty
+                                    ? RecupStatus(
+                                        text: text,
+                                      )
+                                    : Container();
+                              },
+                            )
+                          : null,
+                      paddingBottom: context.knobs.boolean(
+                        label: 'paddingBottom',
+                        initialValue: false,
+                      )
+                          ? const EdgeInsets.only(
+                              right: 16,
+                              bottom: 16,
+                            )
+                          : null,
+                      child: context.knobs
+                              .boolean(label: "child", initialValue: true)
+                          ? Align(
+                              alignment: Alignment.centerRight,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.bookmark,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
                               ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              const Text('0,3 km')
-                            ],
-                          ),
-                          Icon(
-                            Icons.favorite_border_outlined,
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          )
-                        ],
-                      ),
+                            )
+                          : null,
                     ),
                   );
                 },
@@ -1015,107 +1116,54 @@ abstract class _StorybookOrganismis {
                       ),
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Intermarché Rouen Constantine",
                       ),
-                      subtitleListTile: Text(
-                        context.knobs.string(
-                          label: "subtitle",
-                          initialValue: "",
-                        ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: '',
                       ),
                       photoBackground: context.knobs.string(
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      onTap:
-                          context.knobs.boolean(label: "onTap") ? () {} : null,
-                      textContent: context.knobs.string(
-                        label: "textContent",
-                        initialValue: "Rebox One • Disponivel",
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.location_on_outlined,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              const Text('0,3 km')
-                            ],
-                          ),
-                          Icon(
-                            Icons.favorite_border_outlined,
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-              WidgetbookUseCase(
-                name: 'Donation',
-                builder: (context) {
-                  return Center(
-                    child: RecupCardVerticalSuggestion(
-                      nameAvatar: context.knobs.string(
-                        label: "nameAvatar",
-                        initialValue: "Ariel",
-                      ),
-                      photoAvatar: context.knobs.string(
-                        label: "photoAvatar",
-                        initialValue: "https://github.com/arielsardinha.png",
-                      ),
-                      title: context.knobs.string(
-                        label: "title",
-                        initialValue: "title",
-                      ),
-                      subtitleListTile: Text(
-                        context.knobs.string(
-                          label: "subtitle",
-                          initialValue: "subtitle",
-                        ),
-                      ),
-                      photoBackground: context.knobs.string(
-                        label: "photoBackground",
-                        initialValue: "https://github.com/recup.png",
-                      ),
-                      onTap:
-                          context.knobs.boolean(label: "onTap") ? () {} : null,
-                      textContent: context.knobs.string(
-                        label: "textContent",
-                        initialValue: "",
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.person,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              const Text('728')
-                            ],
-                          ),
-                          Icon(
-                            Icons.favorite_border_outlined,
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          )
-                        ],
-                      ),
+                      content: context.knobs.boolean(
+                        label: "content",
+                        initialValue: true,
+                      )
+                          ? Builder(
+                              builder: (context) {
+                                final text = context.knobs.string(
+                                  label: "Exemple Text",
+                                  description: 'Badge Status Text',
+                                  initialValue: "Rebox One",
+                                );
+
+                                return text.isNotEmpty
+                                    ? RecupStatus(
+                                        text: text,
+                                      )
+                                    : Container();
+                              },
+                            )
+                          : null,
+                      paddingBottom: context.knobs.boolean(
+                        label: 'paddingBottom',
+                        initialValue: true,
+                      )
+                          ? const EdgeInsets.only(
+                              right: 16,
+                              bottom: 16,
+                            )
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? Text(
+                              context.knobs.string(
+                                  label: "child text", initialValue: '0.3km'),
+                            )
+                          : null,
                     ),
                   );
                 },
@@ -1135,52 +1183,65 @@ abstract class _StorybookOrganismis {
                       ),
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Voucher de 10€ em produtos orgâncios",
                       ),
-                      subtitleListTile: Text(
-                        context.knobs.string(
-                          label: "subtitle",
-                          initialValue: "subtitle",
-                        ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: '',
                       ),
                       photoBackground: context.knobs.string(
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      onTap:
-                          context.knobs.boolean(label: "onTap") ? () {} : null,
-                      textContent: context.knobs.string(
-                        label: "textContent",
-                        initialValue: "",
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.highlight_remove_outlined,
-                                color: Theme.of(context).colorScheme.primary,
+                      content: context.knobs.boolean(
+                        label: "content",
+                        initialValue: true,
+                      )
+                          ? Row(
+                              children: [
+                                Icon(
+                                  Icons.circle,
+                                  size: 16,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  '100',
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                )
+                              ],
+                            )
+                          : null,
+                      paddingBottom: context.knobs.boolean(
+                        label: 'paddingBottom',
+                        initialValue: false,
+                      )
+                          ? const EdgeInsets.only(
+                              right: 16,
+                              bottom: 16,
+                            )
+                          : null,
+                      child: context.knobs
+                              .boolean(label: "child", initialValue: true)
+                          ? Align(
+                              alignment: Alignment.centerRight,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
                               ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              const Text('200')
-                            ],
-                          ),
-                          Icon(
-                            Icons.favorite,
-                            color: Theme.of(context).colorScheme.primary,
-                          )
-                        ],
-                      ),
+                            )
+                          : null,
                     ),
                   );
                 },
               ),
               WidgetbookUseCase(
-                name: 'Offer actived',
+                name: 'Donation',
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalSuggestion(
@@ -1194,50 +1255,28 @@ abstract class _StorybookOrganismis {
                       ),
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Liga contra o cancer",
                       ),
-                      subtitleListTile: Text(
-                        context.knobs.string(
-                          label: "subtitle",
-                          initialValue: "subtitle",
-                        ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: '256 doadores',
                       ),
                       photoBackground: context.knobs.string(
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      onTap:
-                          context.knobs.boolean(label: "onTap") ? () {} : null,
-                      textContent: context.knobs.string(
-                        label: "textContent",
-                        initialValue: "",
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                Icon(
-                                  Icons.local_activity_outlined,
-                                  size: 16,
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text('Cupom')
-                              ],
-                            ),
-                          ),
-                          Icon(
-                            Icons.login,
-                            color: Theme.of(context).colorScheme.primary,
-                          )
-                        ],
-                      ),
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.favorite,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            )
+                          : null,
                     ),
                   );
                 },
@@ -1248,17 +1287,187 @@ abstract class _StorybookOrganismis {
             name: "Vertical Bignumber",
             useCases: [
               WidgetbookUseCase(
-                name: "Default",
+                name: "Base",
                 builder: (context) {
                   return Center(
                     child: RecupCardVerticalBignumber(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Header",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "Subhead",
+                      ),
+                      onPressed: context.knobs.boolean(label: "onPressed")
+                          ? () {}
+                          : null,
+                      widget: RecupCircleAvatar(
+                        name: "A",
+                        backgroundColor:
+                            Theme.of(context).colorScheme.onInverseSurface,
+                      ),
+                      iconCircleBackground: context.knobs.boolean(
+                        label: 'iconCircleBackground',
+                        initialValue: true,
+                      ),
+                      child: context.knobs.boolean(label: "child")
+                          ? const Icon(Icons.reduce_capacity_outlined)
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Icon",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalBignumber(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Total",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "Subhead",
+                      ),
+                      onPressed: context.knobs.boolean(label: "onPressed")
+                          ? () {}
+                          : null,
+                      widget: const Icon(Icons.sync),
+                      iconCircleBackground: context.knobs.boolean(
+                        label: 'iconCircleBackground',
+                        initialValue: true,
+                      ),
+                      child: context.knobs.boolean(label: "child")
+                          ? const Icon(Icons.reduce_capacity_outlined)
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Ecoscore",
+                builder: (context) {
+                  double leftPaddingGain = 8;
+                  IconData icon = Icons.chevron_right;
+                  return Center(
+                    child: RecupCardVerticalBignumber(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Total",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "",
+                      ),
+                      onPressed: context.knobs.boolean(label: "onPressed")
+                          ? () {}
+                          : null,
+                      widget: Icon(
+                        Icons.abc,
+                        size: 40,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      iconCircleBackground: context.knobs.boolean(
+                        label: 'iconCircleBackground',
+                        initialValue: false,
+                      ),
+                      child: context.knobs
+                              .boolean(label: "child", initialValue: true)
+                          ? Stack(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 4 * leftPaddingGain),
+                                  child: Icon(
+                                    icon,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 3 * leftPaddingGain),
+                                  child: Icon(
+                                    icon,
+                                    color: Colors.orange,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 2 * leftPaddingGain),
+                                  child: Icon(
+                                    icon,
+                                    color: Colors.yellow,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 1 * leftPaddingGain),
+                                  child: Icon(
+                                    icon,
+                                    color: Colors.greenAccent,
+                                  ),
+                                ),
+                                Icon(
+                                  icon,
+                                  color: Colors.green,
+                                ),
+                              ],
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Percentage",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalBignumber(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Header",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "Subhead",
+                      ),
+                      onPressed: context.knobs.boolean(label: "onPressed")
+                          ? () {}
+                          : null,
+                      widget: CircularProgressIndicator(
+                        value: double.tryParse(
+                          context.knobs.string(
+                            label: 'Progress',
+                            initialValue: '0.25',
+                            description: 'Usando CircularProgressIndicator',
+                          ),
+                        ),
+                      ),
+                      iconCircleBackground: context.knobs.boolean(
+                        label: 'iconCircleBackground',
+                        initialValue: true,
+                      ),
+                      child: context.knobs.boolean(label: "child")
+                          ? const Icon(Icons.reduce_capacity_outlined)
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Donation",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardVerticalBignumber(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Total",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "Subtitle",
                       ),
                       onPressed: context.knobs.boolean(label: "onPressed")
                           ? () {}
@@ -1279,28 +1488,188 @@ abstract class _StorybookOrganismis {
             name: "Horizontal Notification",
             useCases: [
               WidgetbookUseCase(
-                name: "Default",
+                name: "Base",
                 builder: (context) {
                   return Center(
                     child: RecupCardHorizontalNotification(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Header",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "Subhead",
                       ),
                       photo: context.knobs.string(
                         label: "photo",
-                        initialValue: "https://github.com/arielsardinha.png",
+                        initialValue:
+                            "https://htmlcolorcodes.com/assets/images/colors/blue-gray-color-solid-background-1920x1080.png",
+                      ),
+                      value: double.tryParse(
+                            context.knobs.string(
+                              label: "value",
+                              initialValue: '0.25',
+                            ),
+                          ) ??
+                          0.0,
+                      onPressed: context.knobs
+                              .boolean(label: 'onPressed', initialValue: true)
+                          ? () {}
+                          : null,
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: false,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? const RecupStandard(
+                              text: 'Text',
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Level",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardHorizontalNotification(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Level",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "25%",
+                      ),
+                      photo: context.knobs.string(
+                        label: "photo",
+                        initialValue: "https://github.com/boginni.png",
+                      ),
+                      value: double.tryParse(
+                            context.knobs.string(label: "value"),
+                          ) ??
+                          0.25,
+                      onPressed: context.knobs
+                              .boolean(label: 'onPressed', initialValue: true)
+                          ? () {}
+                          : null,
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: false,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: false,
+                      )
+                          ? const RecupStandard(
+                              text: 'Text',
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Big Number",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardHorizontalNotification(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Header",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "Subhead",
+                      ),
+                      photo: context.knobs.string(
+                        label: "photo",
+                        initialValue: "",
                       ),
                       value: double.tryParse(
                             context.knobs.string(label: "value"),
                           ) ??
                           0.0,
-                      child: context.knobs.boolean(label: "child")
-                          ? const RecupInputChip(
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: true,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      onPressed: context.knobs.boolean(
+                        label: 'onPressed',
+                        initialValue: false,
+                      )
+                          ? () {}
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? RecupInputChip(
+                              onSelected: (p0) {},
+                              text: '+25%',
+                              widget: const Icon(
+                                Icons.trending_up,
+                              ),
+                            )
+                          : null,
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: "Other",
+                builder: (context) {
+                  return Center(
+                    child: RecupCardHorizontalNotification(
+                      title: context.knobs.string(
+                        label: "title",
+                        initialValue: "Header",
+                      ),
+                      subtitle: context.knobs.string(
+                        label: "subtitle",
+                        initialValue: "Subhead",
+                      ),
+                      photo: context.knobs.string(
+                        label: "photo",
+                        initialValue: "",
+                      ),
+                      value: double.tryParse(
+                            context.knobs.string(label: "value"),
+                          ) ??
+                          0.0,
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: true,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      onPressed: context.knobs
+                              .boolean(label: 'onPressed', initialValue: true)
+                          ? () {}
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? const RecupStandard(
                               text: 'Text',
                             )
                           : null,

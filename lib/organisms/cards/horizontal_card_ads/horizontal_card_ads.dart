@@ -1,18 +1,26 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupCardHorizontalCardAds extends StatelessWidget with ImageValidationMixin {
-  final String title, subtitle, text, avatarPhoto, avatarName, photoBackground;
+class RecupCardHorizontalActionAds extends StatelessWidget with ImageValidationMixin{
+  final String title,
+      subtitle,
+      avatarPhoto,
+      avatarName,
+      photoBackground,
+      badgeText;
+  final RecupStandardColor badgeColor;
   final void Function()? onPressedButton;
   final Widget? leading, childButton;
+
   final Color? avatarBackgroundColor;
   final double? widthText;
   final bool isActive;
 
-  const RecupCardHorizontalCardAds({
+  const RecupCardHorizontalActionAds({
     super.key,
     this.title = '',
     this.subtitle = '',
-    this.text = '',
+    this.badgeText = '',
+    this.badgeColor = RecupStandardColor.ERROR,
     this.onPressedButton,
     this.avatarPhoto = '',
     this.leading,
@@ -74,42 +82,46 @@ class RecupCardHorizontalCardAds extends StatelessWidget with ImageValidationMix
           ),
           Expanded(
             flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListTile(
-                  title: Text(
-                    title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  subtitle: Text(
-                    subtitle,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  leading: leading,
-                ),
-                if (text.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: RecupStandard(
-                      text: text,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ListTile(
+                    dense: true,
+                    contentPadding: EdgeInsets.zero,
+                    leading: leading,
+                    title: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    subtitle: Text(
+                      subtitle,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodySmall,
                     ),
                   ),
-                const Spacer(),
-                Container(
-                  alignment: Alignment.bottomRight,
-                  margin:
-                      const EdgeInsets.only(right: 16, bottom: 16, left: 16),
-                  child: RecupTonalButton(
-                    onPressed: onPressedButton,
-                    recupButtonStyle: RecupButtonStyle(
-                        visualDensityButton: VisualDensityButton.comfortable),
-                    child: childButton,
-                  ),
-                )
-              ],
+                  if (badgeText.isNotEmpty)
+                    RecupStandard(
+                      text: badgeText,
+                      color: badgeColor,
+                    ),
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    child: RecupTonalButton(
+                      onPressed: onPressedButton,
+                      recupButtonStyle: RecupButtonStyle(
+                          visualDensityButton: VisualDensityButton.comfortable),
+                      child: childButton,
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],

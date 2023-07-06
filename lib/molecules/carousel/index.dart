@@ -99,7 +99,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                 )
                 .toList(),
           ),
-          if (!widget.noSliderPoints || !(widget.itens.length <= 1))
+          if (!widget.noSliderPoints && !(widget.itens.length <= 1))
             Positioned(
               bottom: -24,
               left: 0,
