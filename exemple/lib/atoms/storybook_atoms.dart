@@ -3,6 +3,7 @@ part of 'package:exemple/main.dart';
 abstract class _StorybookAtoms {
   static final atomsStorybook = WidgetbookCategory(
     name: 'atoms',
+    isInitiallyExpanded: false,
     children: [
       WidgetbookFolder(
         name: "Badges",

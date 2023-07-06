@@ -101,10 +101,11 @@ class RecupCardHorizontalActionAds extends StatelessWidget {
                       style: theme.textTheme.bodySmall,
                     ),
                   ),
-                  if (badgeText.isNotEmpty) RecupStandard(
-                    text: badgeText,
-                    color: badgeColor,
-                  ),
+                  if (badgeText.isNotEmpty)
+                    RecupStandard(
+                      text: badgeText,
+                      color: badgeColor,
+                    ),
                   Container(
                     alignment: Alignment.bottomRight,
                     child: RecupTonalButton(

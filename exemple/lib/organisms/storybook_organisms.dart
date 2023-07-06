@@ -159,7 +159,7 @@ abstract class _StorybookOrganismis {
                       context.knobs.boolean(label: "recoinsDisabled");
 
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       width:
                           double.tryParse(context.knobs.string(label: "width")),
                       noSliderPoints:
@@ -282,7 +282,7 @@ abstract class _StorybookOrganismis {
                 name: 'product category enable',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       backgroundImages: RecupCardVerticalFeedBackground(
                           backgroundImages: [
                         'https://github.com/arielsardinha.png',
@@ -382,7 +382,7 @@ abstract class _StorybookOrganismis {
                 name: 'collection point, Enabled',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: RecupCardVerticalFeedBackground(
@@ -494,7 +494,7 @@ abstract class _StorybookOrganismis {
                 name: 'Donation Enabled',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: RecupCardVerticalFeedBackground(
@@ -606,7 +606,7 @@ abstract class _StorybookOrganismis {
                 name: 'Donation Actived',
                 builder: (context) {
                   return Center(
-                    child: RecupCardVerticalFeedCard(
+                    child: RecupCardVerticalFeed(
                       noSliderPoints: context.knobs
                           .boolean(label: "noSliderPoints", initialValue: true),
                       backgroundImages: RecupCardVerticalFeedBackground(
@@ -1264,21 +1264,6 @@ abstract class _StorybookOrganismis {
                         label: "photoBackground",
                         initialValue: "https://github.com/recup.png",
                       ),
-                      // onTap:
-                      //     context.knobs.boolean(label: "onTap") ? () {} : null,
-                      // contentWidget: Builder(
-                      //   builder: (context) {
-                      //     final text = context.knobs.string(
-                      //       label: "textContent",
-                      //       description: 'Badge Status Text',
-                      //       initialValue: "",
-                      //     );
-                      //
-                      //     return text.isNotEmpty ? RecupStatus(
-                      //       text: text,
-                      //     ) : Container();
-                      //   }
-                      // ),
                       child: context.knobs.boolean(
                         label: "child",
                         initialValue: true,
@@ -1477,11 +1462,11 @@ abstract class _StorybookOrganismis {
                     child: RecupCardVerticalBignumber(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Total",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "Subtitle",
                       ),
                       onPressed: context.knobs.boolean(label: "onPressed")
                           ? () {}
@@ -1508,11 +1493,11 @@ abstract class _StorybookOrganismis {
                     child: RecupCardHorizontalNotification(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Header",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "Subhead",
                       ),
                       photo: context.knobs.string(
                         label: "photo",
@@ -1520,11 +1505,29 @@ abstract class _StorybookOrganismis {
                             "https://htmlcolorcodes.com/assets/images/colors/blue-gray-color-solid-background-1920x1080.png",
                       ),
                       value: double.tryParse(
-                            context.knobs.string(label: "value"),
+                            context.knobs.string(
+                              label: "value",
+                              initialValue: '0.25',
+                            ),
                           ) ??
                           0.0,
-                      child: context.knobs.boolean(label: "child")
-                          ? const RecupInputChip(
+                      onPressed: context.knobs
+                              .boolean(label: 'onPressed', initialValue: true)
+                          ? () {}
+                          : null,
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: false,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? const RecupStandard(
                               text: 'Text',
                             )
                           : null,
@@ -1539,22 +1542,37 @@ abstract class _StorybookOrganismis {
                     child: RecupCardHorizontalNotification(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Level",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "25%",
                       ),
                       photo: context.knobs.string(
                         label: "photo",
-                        initialValue: "https://github.com/arielsardinha.png",
+                        initialValue: "https://github.com/boginni.png",
                       ),
                       value: double.tryParse(
                             context.knobs.string(label: "value"),
                           ) ??
-                          0.0,
-                      child: context.knobs.boolean(label: "child")
-                          ? const RecupInputChip(
+                          0.25,
+                      onPressed: context.knobs
+                              .boolean(label: 'onPressed', initialValue: true)
+                          ? () {}
+                          : null,
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: false,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: false,
+                      )
+                          ? const RecupStandard(
                               text: 'Text',
                             )
                           : null,
@@ -1569,23 +1587,44 @@ abstract class _StorybookOrganismis {
                     child: RecupCardHorizontalNotification(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Header",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "Subhead",
                       ),
                       photo: context.knobs.string(
                         label: "photo",
-                        initialValue: "https://github.com/arielsardinha.png",
+                        initialValue: "",
                       ),
                       value: double.tryParse(
                             context.knobs.string(label: "value"),
                           ) ??
                           0.0,
-                      child: context.knobs.boolean(label: "child")
-                          ? const RecupInputChip(
-                              text: 'Text',
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: true,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      onPressed: context.knobs.boolean(
+                        label: 'onPressed',
+                        initialValue: false,
+                      )
+                          ? () {}
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? RecupInputChip(
+                              onSelected: (p0) {},
+                              text: '+25%',
+                              widget: const Icon(
+                                Icons.trending_up,
+                              ),
                             )
                           : null,
                     ),
@@ -1599,22 +1638,37 @@ abstract class _StorybookOrganismis {
                     child: RecupCardHorizontalNotification(
                       title: context.knobs.string(
                         label: "title",
-                        initialValue: "title",
+                        initialValue: "Header",
                       ),
                       subtitle: context.knobs.string(
                         label: "subtitle",
-                        initialValue: "subtitle",
+                        initialValue: "Subhead",
                       ),
                       photo: context.knobs.string(
                         label: "photo",
-                        initialValue: "https://github.com/arielsardinha.png",
+                        initialValue: "",
                       ),
                       value: double.tryParse(
                             context.knobs.string(label: "value"),
                           ) ??
                           0.0,
-                      child: context.knobs.boolean(label: "child")
-                          ? const RecupInputChip(
+                      leading: context.knobs.boolean(
+                        label: "leading",
+                        initialValue: true,
+                      )
+                          ? const RecupCircleAvatar(
+                              name: 'R',
+                            )
+                          : null,
+                      onPressed: context.knobs
+                              .boolean(label: 'onPressed', initialValue: true)
+                          ? () {}
+                          : null,
+                      child: context.knobs.boolean(
+                        label: "child",
+                        initialValue: true,
+                      )
+                          ? const RecupStandard(
                               text: 'Text',
                             )
                           : null,
