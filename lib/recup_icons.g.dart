@@ -6,16 +6,16 @@ sealed class RecupIcon {
   static const _kFontFam = 'RecupIcon';
   static const String? _kFontPkg = null;
 
-  // static const _eco_score_bar_light = 'assets/eco_score-light.svg';
-  // static const _eco_score_bar_dark = 'assets/eco_score-bar-dark.svg';
-  //
-  // static bool _isLightMode(BuildContext context) {
-  //   return Theme.of(context).brightness == Brightness.light;
-  // }
-  //
-  // static String ecoScoreBar(BuildContext context) {
-  //   return _isLightMode(context) ? _eco_score_bar_light : _eco_score_bar_dark;
-  // }
+  static const _eco_score_bar_light = 'assets/eco_score-light.svg';
+  static const _eco_score_bar_dark = 'assets/eco_score-bar-dark.svg';
+
+  static bool _isLightMode(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.light;
+  }
+
+  static String ecoScoreBar(BuildContext context) {
+    return _isLightMode(context) ? _eco_score_bar_light : _eco_score_bar_dark;
+  }
 
   static const IconData chevron_double_down =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
