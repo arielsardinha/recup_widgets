@@ -69,64 +69,42 @@ class RecupStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      width: calcSize(text, theme),
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      constraints: BoxConstraints(
-          maxWidth: width != null ? (width! + 20) : double.maxFinite),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      constraints: width != null
+          ? BoxConstraints(
+        maxWidth: width! + 20,
+        minHeight: 15,
+      )
+          : const BoxConstraints(
+        minHeight: 15,
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: color.colorBackground(theme.colorScheme),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 12,
-            height: 12,
+            width: 8,
+            height: 8,
+            margin: text.isEmpty ? null : const EdgeInsets.only(right: 4),
             decoration: BoxDecoration(
-              color: color.color(theme.colorScheme),
-              borderRadius: BorderRadius.circular(50),
-            ),
+                color: color.color(theme.colorScheme), shape: BoxShape.circle),
           ),
-          const SizedBox(
-            width: 4,
-          ),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final textPainter = TextPainter(
-                text: TextSpan(
-                  text: text,
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    color: color.color(theme.colorScheme),
-                  ),
-                ),
-                maxLines: 1,
-                textDirection: TextDirection.ltr,
-              );
-              textPainter.layout(
-                minWidth: constraints.minWidth,
-                maxWidth: constraints.maxWidth,
-              );
-
-              final textWidget = Text(
+          if (text.isNotEmpty)
+            Flexible(
+              child: Text(
                 text,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.labelMedium?.copyWith(
                   color: color.color(theme.colorScheme),
                 ),
-              );
-
-              if (width != null && textPainter.width > width!) {
-                return SizedBox(
-                  width: width,
-                  child: textWidget,
-                );
-              } else {
-                return textWidget;
-              }
-            },
-          ),
+                textAlign: TextAlign.center,
+              ),
+            )
         ],
       ),
     );

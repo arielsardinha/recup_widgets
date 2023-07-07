@@ -30,12 +30,14 @@ class RecupStandard extends StatefulWidget {
   final Widget? widget;
 
   final RecupStandardColor color;
+  final double? maxWidth;
 
   const RecupStandard({
     super.key,
     this.text = '',
     this.widget,
     this.color = RecupStandardColor.ERROR,
+    this.maxWidth,
   });
 
   @override
@@ -83,14 +85,29 @@ class _RecupStandardState extends State<RecupStandard> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final double minSize = widget.text.isEmpty
+        ? 10
+        : (theme.textTheme.labelMedium?.fontSize ?? 16) * 1.5;
+
     return Container(
-      width: calcSize(widget.text, theme),
-      padding: const EdgeInsets.symmetric(horizontal: 2),
+      padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+      constraints: widget.maxWidth != null
+          ? BoxConstraints(
+        maxWidth: widget.maxWidth! + 21,
+        minWidth: minSize,
+        minHeight: 10,
+      )
+          : BoxConstraints(
+        minWidth: minSize,
+        minHeight: 10,
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: widget.color.colorBackground(theme.colorScheme),
       ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -99,14 +116,18 @@ class _RecupStandardState extends State<RecupStandard> {
               key: _widgetKey,
               child: widget.widget!,
             ),
-          Text(
-            widget.text,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: theme.textTheme.labelMedium?.copyWith(
-              color: widget.color.colorText(theme.colorScheme),
+          if (widget.text.isNotEmpty)
+            Flexible(
+              child: Text(
+                widget.text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: widget.color.colorText(theme.colorScheme),
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
         ],
       ),
     );

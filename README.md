@@ -1,39 +1,40 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Features (ChatGPT)
+Este é um pacote Flutter que fornece uma coleção de widgets personalizados, juntamente com um Storybook integrado e um conjunto de ícones. O objetivo deste pacote é facilitar o desenvolvimento de interfaces de usuário elegantes e intuitivas em aplicativos Flutter.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+#### Recursos
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+Widgets personalizados: Este pacote oferece uma ampla variedade de widgets personalizados prontos para uso. Esses widgets foram projetados para serem altamente configuráveis ​​e adaptáveis ​​às necessidades do seu aplicativo.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Storybook integrado: O pacote inclui um Storybook integrado, permitindo que você visualize e interaja com os widgets fornecidos. Isso facilita a exploração das opções de configuração disponíveis para cada widget e a visualização dos diferentes estados e aparências.
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Conjunto de ícones: O pacote também oferece um conjunto de ícones pré-definidos, abrangendo uma ampla gama de categorias. Esses ícones podem ser usados ​​para fornecer uma estética visual consistente e profissional em seu aplicativo.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Incluir a referência da fonte no `pubspec.yaml`
 
+```yaml
+dependencies:
+    recup_storybook:
+# Caso esteja Utilizando story_book
+#       path: ../
+        git: https://github.com/arielsardinha/recup_widgets
+
+# The following section is specific to Flutter packages.
+flutter:
+  fonts:
+    - family: RecupIcon
+      fonts:
+        - asset: packages/recup_storybook/assets/fonts/recup-icon-font.ttf
+```
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+import 'package:flutter_widgets_collection/flutter_widgets_collection.dart';
 ```
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+const Icon(
+    RecupIcon.recoin,
+)
+```

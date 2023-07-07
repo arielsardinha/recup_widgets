@@ -1,12 +1,14 @@
+import 'dart:math';
+
 import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';
 import 'package:recup_storybook/themes/themes.dart';
 import 'package:recup_storybook/recup_storybook.dart';
 
 part 'atoms/storybook_atoms.dart';
-
 part 'molecules/storybook_molecules.dart';
-
+part 'molecules/buttons/custom.dart';
+part 'molecules/buttons/standard.dart';
 part 'organisms/storybook_organisms.dart';
 
 void main() {
@@ -23,8 +25,10 @@ class HotReload extends StatelessWidget {
         DeviceFrameAddon(
           initialDevice: Devices.android.samsungGalaxyA50,
           devices: [
-            Devices.ios.iPhone13,
+            Devices.android.smallPhone,
             Devices.android.samsungGalaxyA50,
+            Devices.android.bigPhone,
+            Devices.ios.iPhone13,
           ],
         ),
         ThemeAddon(
