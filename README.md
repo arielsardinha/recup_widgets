@@ -16,8 +16,6 @@ Incluir a referência da fonte no `pubspec.yaml`
 ```yaml
 dependencies:
     recup_storybook:
-# Caso esteja Utilizando story_book
-#       path: ../
         git: https://github.com/arielsardinha/recup_widgets
 
 # The following section is specific to Flutter packages.
