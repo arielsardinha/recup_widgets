@@ -30,7 +30,7 @@ flutter:
 ## Usage
 
 ```dart
-import 'package:flutter_widgets_collection/flutter_widgets_collection.dart';
+import 'package:recup_storybook/recup_storybook.dart';
 ```
 
 ```dart
