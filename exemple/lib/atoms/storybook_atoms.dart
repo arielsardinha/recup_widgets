@@ -224,6 +224,9 @@ abstract class _StorybookAtoms {
                       ) ??
                       5,
                   child: RecupStandard(
+                    maxWidth: double.tryParse(
+                      context.knobs.string(label: "width"),
+                    ),
                     text: context.knobs.string(
                       label: "text",
                       initialValue: "text",
@@ -506,6 +509,13 @@ abstract class _StorybookAtoms {
       WidgetbookUseCase(
         name: 'Recup',
         builder: (context) {
+          final bg = context.knobs.listOrNull(
+            label: "backgroundColor",
+            options: Colors.accents,
+            initialOption: null,
+            labelBuilder: (value) => value?.value.toRadixString(16) ?? '',
+          );
+
           return Center(
             child: RecupCircleAvatar(
               loading: context.knobs.boolean(label: "loading"),
@@ -520,23 +530,80 @@ abstract class _StorybookAtoms {
               radius: double.tryParse(
                 context.knobs.string(
                   label: 'radius',
-                  initialValue: "",
+                  initialValue: "60",
                 ),
               ),
-              backgroundColor: context.knobs.list(
-                label: "backgroundColor",
-                options: const [
-                  Colors.blue,
-                  Colors.red,
-                  null,
-                ],
-              ),
+              backgroundColor: bg,
               onTap: context.knobs.boolean(
                 label: 'onTap',
                 initialValue: true,
               )
                   ? () {}
                   : null,
+            ),
+          );
+        },
+      ),
+      WidgetbookUseCase(
+        name: 'Wide Photo',
+        builder: (context) {
+          final loading = context.knobs.boolean(label: "loading");
+
+          final fit = context.knobs.listOrNull(
+            label: "fit",
+            description: 'default = Cover',
+            options: BoxFit.values,
+            initialOption: null,
+            labelBuilder: (value) => value?.name ?? '',
+          );
+
+          final name = context.knobs.string(
+            label: 'name',
+            initialValue: 'Wide Image',
+          );
+
+          final photos = [
+            'https://via.placeholder.com/640x880.png/0055aa?text=width',
+            'https://via.placeholder.com/480x840.png/0055aa?text=height',
+            'https://via.placeholder.com/480x480.png/0055aa?text=equal',
+          ];
+
+          final radius = double.tryParse(
+            context.knobs.string(
+              label: 'radius',
+              initialValue: "120",
+            ),
+          );
+
+          final backgroundColor = context.knobs.listOrNull(
+            label: "backgroundColor",
+            options: Colors.accents,
+            initialOption: null,
+            labelBuilder: (value) => value?.value.toRadixString(16) ?? '',
+          );
+
+          final onTap = context.knobs.boolean(
+            label: 'onTap',
+            initialValue: true,
+          )
+              ? () {}
+              : null;
+
+          return Center(
+            child: Wrap(
+              direction: Axis.vertical,
+              spacing: 12,
+              children: photos
+                  .map((e) => RecupCircleAvatar(
+                        loading: loading,
+                        name: name,
+                        photo: e,
+                        radius: radius,
+                        backgroundColor: backgroundColor,
+                        onTap: onTap,
+                        fit: fit,
+                      ))
+                  .toList(),
             ),
           );
         },

@@ -7,6 +7,8 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
   final double? radius;
   final bool loading;
   final VoidCallback? onTap;
+  final BoxFit? fit;
+
   const RecupCircleAvatar({
     super.key,
     this.name = '',
@@ -15,6 +17,7 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
     this.radius,
     this.loading = false,
     this.onTap,
+    this.fit = BoxFit.cover,
   });
 
   @override
@@ -28,9 +31,7 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
         style: SkeletonAvatarStyle(
           width: size,
           height: size,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(50),
-          ),
+          shape: BoxShape.circle,
         ),
       );
     }
@@ -43,26 +44,25 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
         width: size,
         height: size,
         decoration: BoxDecoration(
-            image: isPhoto(photo)
-                ? DecorationImage(
-              image: NetworkImage(photo),
-            )
-                : null,
-            color: backgroundColor ?? theme.colorScheme.primaryContainer),
+          image: isPhoto(photo)
+              ? DecorationImage(image: NetworkImage(photo), fit: fit)
+              : null,
+          color: backgroundColor ?? theme.colorScheme.primaryContainer,
+        ),
         child: InkWell(
           onTap: onTap,
           child: name.isEmpty || isPhoto(photo)
               ? null
               : Center(
-            child: Text(
-              name[0].toUpperCase(),
-              style: theme.textTheme.labelLarge?.copyWith(
-                color: theme.colorScheme.primary,
-                fontSize: (theme.textTheme.labelLarge?.fontSize ?? 16.0) *
-                    (size / 40.0),
-              ),
-            ),
-          ),
+                  child: Text(
+                    name[0].toUpperCase(),
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      color: theme.colorScheme.primary,
+                      fontSize: (theme.textTheme.labelLarge?.fontSize ?? 16.0) *
+                          (size / 40.0),
+                    ),
+                  ),
+                ),
         ),
       ),
     );
