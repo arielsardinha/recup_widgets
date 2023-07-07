@@ -39,7 +39,7 @@ class RecupCarousel<T> extends StatefulWidget {
   State<RecupCarousel<T>> createState() => _RecupCarouselState<T>();
 }
 
-class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
+class _RecupCarouselState<T> extends State<RecupCarousel<T>> with ImageValidationMixin{
   int _current = 0;
   bool autoPlay = false;
 
@@ -89,10 +89,10 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> {
                         borderRadius: BorderRadius.all(
                           Radius.circular(widget.borderIsRadiusCircle ? 20 : 0),
                         ),
-                        image: DecorationImage(
+                        image: isPhoto(item.image) ? DecorationImage(
                           image: NetworkImage(item.image),
                           fit: widget.fit ?? BoxFit.cover,
-                        ),
+                        ) : null,
                       ),
                     ),
                   ),

@@ -393,6 +393,7 @@ abstract class _StorybookOrganismis {
                 'https://github.com/arielsardinha.png',
                 'https://github.com/treinaweb.png',
                 'https://github.com/recup.png',
+                'file:///',
               ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
               nameAvatar: context.knobs.string(
                 label: 'nameAvatar',

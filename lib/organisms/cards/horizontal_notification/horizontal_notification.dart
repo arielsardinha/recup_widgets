@@ -1,6 +1,6 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupCardHorizontalNotification extends StatelessWidget {
+class RecupCardHorizontalNotification extends StatelessWidget with ImageValidationMixin {
   final String photo, title, subtitle;
   final Widget? child, leading;
   final double value;
@@ -41,10 +41,10 @@ class RecupCardHorizontalNotification extends StatelessWidget {
                   topLeft: Radius.circular(16),
                   bottomLeft: Radius.circular(16),
                 ),
-                image: DecorationImage(
+                image: isPhoto(photo) ? DecorationImage(
                   image: NetworkImage(photo),
                   fit: BoxFit.cover,
-                ),
+                ) : null,
               ),
             ),
           Expanded(

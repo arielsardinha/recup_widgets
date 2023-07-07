@@ -1,6 +1,6 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
-class RecupCardHorizontalActionImage extends StatelessWidget {
+class RecupCardHorizontalActionImage extends StatelessWidget with ImageValidationMixin {
   final String photoBackground;
   final void Function()? onPressed;
 
@@ -29,10 +29,10 @@ class RecupCardHorizontalActionImage extends StatelessWidget {
                   color: theme.colorScheme.surfaceVariant,
                 ),
               ),
-              image: DecorationImage(
+              image: isPhoto(photoBackground) ? DecorationImage(
                 image: NetworkImage(photoBackground),
                 fit: BoxFit.cover,
-              ),
+              ) : null,
             ),
           ),
         ),
