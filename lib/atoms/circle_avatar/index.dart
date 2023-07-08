@@ -8,23 +8,25 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
   final bool loading;
   final VoidCallback? onTap;
   final BoxFit? fit;
+  final double borderSize;
 
   const RecupCircleAvatar({
     super.key,
     this.name = '',
     this.photo = '',
     this.backgroundColor,
-    this.radius,
+    this.radius = 20,
     this.loading = false,
     this.onTap,
     this.fit = BoxFit.cover,
+    this.borderSize = 0,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final double size = radius != null ? radius! * 2 : 40;
+    final double size = (radius ?? 20) * 2;
 
     if (loading) {
       return SkeletonAvatar(
@@ -36,16 +38,18 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
       );
     }
 
+    final sizeScale = (size / 40);
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding:  EdgeInsets.all(2),
+        padding: EdgeInsets.all(borderSize),
         decoration: BoxDecoration(
           color: theme.colorScheme.primaryContainer,
-          borderRadius: BorderRadius.circular(50 * (size / 40)),
+          borderRadius: BorderRadius.circular(50 * sizeScale),
         ),
         child: CircleAvatar(
-          radius: radius,
+          radius: (size - borderSize) * 0.5,
           backgroundImage: isPhotoValidUri(photo) ? NetworkImage(photo) : null,
           backgroundColor:
               backgroundColor ?? theme.colorScheme.primaryContainer,
@@ -57,7 +61,7 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
                     style: theme.textTheme.labelLarge?.copyWith(
                       color: theme.colorScheme.primary,
                       fontSize: (theme.textTheme.labelLarge?.fontSize ?? 16.0) *
-                          (size / 40.0),
+                          sizeScale,
                     ),
                   ),
                 )

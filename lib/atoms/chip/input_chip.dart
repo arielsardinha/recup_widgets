@@ -13,7 +13,7 @@ class RecupInputChip extends StatelessWidget {
     this.disabled = false,
     this.loading = false,
     this.onSelected,
-    this.selected = false,
+    this.selected = true,
     this.showCheckmark = false,
   }) : super(key: key);
 
@@ -30,32 +30,56 @@ class RecupInputChip extends StatelessWidget {
       );
     }
 
-    final hasWidget = widget != null;
+    var icon = widget;
+    if (widget is Icon) {
+      final i = widget as Icon;
+      icon = Icon(
+        i.icon,
+        color:
+        disabled ? null : i.color ?? Theme
+            .of(context)
+            .colorScheme
+            .primary,
+        size: pi * 30 / 4.0,
+      );
+    }
 
-    return InputChip(
-      label: Visibility(
-        visible: text.isNotEmpty,
-        child: Text(
-          text,
-        ),
+    final hasWidget = icon != null;
+
+    final chip = InputChip(
+      label:  SizedBox(
+        width: hasWidget || text.length > 1 ? null : pi * 10,
+        child: text.isNotEmpty ? Padding(
+          padding: hasWidget
+              ? const EdgeInsets.only(right: 8)
+              : const EdgeInsets.symmetric(horizontal: 8),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+          ),
+        ) : null,
       ),
-      onSelected: onSelected,
+      avatar: hasWidget ? icon : null,
+      onSelected: onSelected ?? (x) {},
       showCheckmark: showCheckmark,
-      avatar: hasWidget ? widget : null,
       visualDensity: VisualDensity.compact,
       labelPadding: hasWidget && text.isNotEmpty
-          ? const EdgeInsets.only(right: 8)
+          ? const EdgeInsets.only(left: 0, right: 4)
           : EdgeInsets.zero,
-      padding: EdgeInsets.symmetric(horizontal: hasWidget ? 2 : 8),
-      // padding: EdgeInsets.zero,
+      padding: const EdgeInsets.symmetric(horizontal: -2, vertical: 0),
       isEnabled: !disabled,
       selected: selected,
-      selectedColor: Theme.of(context).colorScheme.primaryContainer,
+      selectedColor: Theme
+          .of(context)
+          .colorScheme
+          .primaryContainer,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(50),
         ),
       ),
     );
+
+    return chip;
   }
 }

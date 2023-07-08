@@ -64,6 +64,53 @@ flutter:
     - family: RecupIcon
       fonts:
         - asset: packages/recup_storybook/assets/fonts/recup-icon-font.ttf
+    - family: Poppins
+      fonts:
+        - asset: packages/recup_storybook/assets/fonts/Poppins-ThinItalic.ttf
+          style: italic
+          weight: 100
+        - asset: packages/recup_storybook/assets/fonts/Poppins-Thin.ttf
+          weight: 100
+        - asset: packages/recup_storybook/assets/fonts/Poppins-ExtraLightItalic.ttf
+          style: italic
+          weight: 200
+        - asset: packages/recup_storybook/assets/fonts/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: packages/recup_storybook/assets/fonts/Poppins-LightItalic.ttf
+          style: italic
+          weight: 300
+        - asset: packages/recup_storybook/assets/fonts/Poppins-Light.ttf
+          weight: 300
+        # - asset: packages/recup_storybook/assets/fonts/Poppins-RegularItalic.ttf
+        #   style: italic
+        #   weight: 400
+        - asset: packages/recup_storybook/assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: packages/recup_storybook/assets/fonts/Poppins-MediumItalic.ttf
+          style: italic
+          weight: 500
+        - asset: packages/recup_storybook/assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: packages/recup_storybook/assets/fonts/Poppins-SemiBoldItalic.ttf
+          style: italic
+          weight: 600
+        - asset: packages/recup_storybook/assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: packages/recup_storybook/assets/fonts/Poppins-BoldItalic.ttf
+          style: italic
+          weight: 700
+        - asset: packages/recup_storybook/assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: packages/recup_storybook/assets/fonts/Poppins-ExtraBoldItalic.ttf
+          style: italic
+          weight: 800
+        - asset: packages/recup_storybook/assets/fonts/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: packages/recup_storybook/assets/fonts/Poppins-BlackItalic.ttf
+          style: italic
+          weight: 900
+        - asset: packages/recup_storybook/assets/fonts/Poppins-Black.ttf
+          weight: 900
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
