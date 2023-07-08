@@ -36,24 +36,22 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
       );
     }
 
-    return Material(
-      shape: const CircleBorder(),
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      color: Colors.transparent,
-      child: Ink(
-        width: size,
-        height: size,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding:  EdgeInsets.all(2),
         decoration: BoxDecoration(
-          image: isPhoto(photo)
-              ? DecorationImage(image: NetworkImage(photo), fit: fit)
-              : null,
-          color: backgroundColor ?? theme.colorScheme.primaryContainer,
+          color: theme.colorScheme.primaryContainer,
+          borderRadius: BorderRadius.circular(50 * (size / 40)),
         ),
-        child: InkWell(
-          onTap: onTap,
-          child: name.isEmpty || isPhoto(photo)
-              ? null
-              : Center(
+        child: CircleAvatar(
+          radius: radius,
+          backgroundImage: isPhotoValidUri(photo) ? NetworkImage(photo) : null,
+          backgroundColor:
+              backgroundColor ?? theme.colorScheme.primaryContainer,
+          foregroundColor: theme.colorScheme.primary,
+          child: name.isNotEmpty && !isPhotoValidUri(photo)
+              ? Center(
                   child: Text(
                     name[0].toUpperCase(),
                     style: theme.textTheme.labelLarge?.copyWith(
@@ -62,7 +60,8 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
                           (size / 40.0),
                     ),
                   ),
-                ),
+                )
+              : null,
         ),
       ),
     );

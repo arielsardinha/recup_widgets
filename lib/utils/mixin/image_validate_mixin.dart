@@ -16,4 +16,12 @@ mixin ImageValidationMixin {
     return validExtensions
         .any((extensionImage) => photo.toLowerCase().contains(extensionImage));
   }
+
+  bool isPhotoValidUri(String? photo) {
+    if (photo == null) {
+      return false;
+    }
+
+    return isPhoto(photo) && (Uri.tryParse(photo)?.isAbsolute ?? false);
+  }
 }

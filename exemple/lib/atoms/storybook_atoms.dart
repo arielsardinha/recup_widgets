@@ -516,6 +516,26 @@ abstract class _StorybookAtoms {
             labelBuilder: (value) => value?.value.toRadixString(16) ?? '',
           );
 
+
+
+          // return Center(
+          //   child: Transform.scale(
+          //     scale: 10,
+          //     child: CircleAvatar(
+          //       backgroundImage: NetworkImage(
+          //         x,
+          //       ),
+          //     ),
+          //   ),
+          // );
+
+
+          String x = context.knobs.string(
+            label: 'backgroundImage',
+          );
+
+          x = 'https://$x';
+
           return Center(
             child: RecupCircleAvatar(
               loading: context.knobs.boolean(label: "loading"),
@@ -523,10 +543,7 @@ abstract class _StorybookAtoms {
                 label: 'name',
                 initialValue: 'Recup',
               ),
-              photo: context.knobs.string(
-                label: 'photo',
-                initialValue: 'https://github.com/recup.png',
-              ),
+              photo: x,
               radius: double.tryParse(
                 context.knobs.string(
                   label: 'radius',
@@ -563,7 +580,7 @@ abstract class _StorybookAtoms {
           );
 
           final photos = [
-            'https://via.placeholder.com/640x880.png/0055aa?text=width',
+            'https://via.placeholder.com/840x640.png/0055aa?text=width',
             'https://via.placeholder.com/480x840.png/0055aa?text=height',
             'https://via.placeholder.com/480x480.png/0055aa?text=equal',
           ];
