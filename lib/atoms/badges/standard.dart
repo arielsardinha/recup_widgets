@@ -2,49 +2,49 @@
 
 part of 'package:recup_storybook/recup_storybook.dart';
 
-enum RecupStandardColor {
+enum RecupBadgeStandardColor {
   ERROR,
   PRIMARY;
 
   Color? colorText(ColorScheme colorScheme) {
     switch (this) {
-      case RecupStandardColor.ERROR:
+      case RecupBadgeStandardColor.ERROR:
         return colorScheme.onError;
-      case RecupStandardColor.PRIMARY:
+      case RecupBadgeStandardColor.PRIMARY:
         return colorScheme.primary;
     }
   }
 
   Color? colorBackground(ColorScheme colorScheme) {
     switch (this) {
-      case RecupStandardColor.ERROR:
+      case RecupBadgeStandardColor.ERROR:
         return colorScheme.error;
-      case RecupStandardColor.PRIMARY:
+      case RecupBadgeStandardColor.PRIMARY:
         return colorScheme.primaryContainer;
     }
   }
 }
 
-class RecupStandard extends StatefulWidget {
+class RecupBadgeStandard extends StatefulWidget {
   final String text;
   final Widget? widget;
 
-  final RecupStandardColor color;
+  final RecupBadgeStandardColor color;
   final double? maxWidth;
 
-  const RecupStandard({
+  const RecupBadgeStandard({
     super.key,
     this.text = '',
     this.widget,
-    this.color = RecupStandardColor.ERROR,
+    this.color = RecupBadgeStandardColor.ERROR,
     this.maxWidth,
   });
 
   @override
-  State<RecupStandard> createState() => _RecupStandardState();
+  State<RecupBadgeStandard> createState() => _RecupBadgeStandardState();
 }
 
-class _RecupStandardState extends State<RecupStandard> {
+class _RecupBadgeStandardState extends State<RecupBadgeStandard> {
   final _widgetKey = GlobalKey();
   double _widgetWidth = 0;
 

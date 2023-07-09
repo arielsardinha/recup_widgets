@@ -7,7 +7,7 @@ class RecupCardHorizontalActionAds extends StatelessWidget with ImageValidationM
       avatarName,
       photoBackground,
       badgeText;
-  final RecupStandardColor badgeColor;
+  final RecupBadgeStandardColor badgeColor;
   final void Function()? onPressedButton;
   final Widget? leading, childButton;
 
@@ -20,7 +20,7 @@ class RecupCardHorizontalActionAds extends StatelessWidget with ImageValidationM
     this.title = '',
     this.subtitle = '',
     this.badgeText = '',
-    this.badgeColor = RecupStandardColor.ERROR,
+    this.badgeColor = RecupBadgeStandardColor.ERROR,
     this.onPressedButton,
     this.avatarPhoto = '',
     this.leading,
@@ -107,7 +107,7 @@ class RecupCardHorizontalActionAds extends StatelessWidget with ImageValidationM
                     ),
                   ),
                   if (badgeText.isNotEmpty)
-                    RecupStandard(
+                    RecupBadgeStandard(
                       text: badgeText,
                       color: badgeColor,
                     ),

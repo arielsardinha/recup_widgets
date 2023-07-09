@@ -22,6 +22,11 @@ abstract class _StorybookOrganismis {
         isInitiallyExpanded: false,
         useCases: _picker,
       ),
+      // WidgetbookComponent(
+      //   name: 'Others',
+      //   isInitiallyExpanded: false,
+      //   useCases: _select,
+      // ),
     ],
   );
 
@@ -55,8 +60,8 @@ abstract class _StorybookOrganismis {
               badgeColor: context.knobs.list(
                 label: 'badgeColor',
                 options: [
-                  RecupStandardColor.ERROR,
-                  RecupStandardColor.PRIMARY,
+                  RecupBadgeStandardColor.ERROR,
+                  RecupBadgeStandardColor.PRIMARY,
                 ],
                 labelBuilder: (value) => value.name,
               ),
@@ -114,11 +119,11 @@ abstract class _StorybookOrganismis {
               badgeColor: context.knobs.list(
                   label: 'badgeColor',
                   options: [
-                    RecupStandardColor.ERROR,
-                    RecupStandardColor.PRIMARY,
+                    RecupBadgeStandardColor.ERROR,
+                    RecupBadgeStandardColor.PRIMARY,
                   ],
                   labelBuilder: (value) => value.name,
-                  initialOption: RecupStandardColor.PRIMARY),
+                  initialOption: RecupBadgeStandardColor.PRIMARY),
               onPressedButton: context.knobs.boolean(label: 'onPressedButton')
                   ? null
                   : () {},
@@ -222,7 +227,7 @@ abstract class _StorybookOrganismis {
                 label: 'subtitleContent',
                 initialValue: 'subtitleContent',
               ),
-              childContent: RecupStandard(
+              childContent: RecupBadgeStandard(
                 text: context.knobs.string(
                   label: 'childContent',
                   initialValue: 'Text',
@@ -414,7 +419,7 @@ abstract class _StorybookOrganismis {
               trailingHeader: context.knobs.boolean(label: "trailingHeader")
                   ? const Icon(Icons.favorite_border_outlined)
                   : null,
-              childContent: RecupStatus(
+              childContent: RecupBadgeStatus(
                 text: context.knobs.string(
                   label: 'childContent',
                   initialValue: 'Text',
@@ -524,7 +529,7 @@ abstract class _StorybookOrganismis {
                 label: 'subtitleContent',
                 initialValue: 'subtitleContent',
               ),
-              childContent: RecupStatus(
+              childContent: RecupBadgeStatus(
                 text: context.knobs.string(
                   label: 'childContent',
                   initialValue: 'Text',
@@ -631,7 +636,7 @@ abstract class _StorybookOrganismis {
                 label: 'subtitleContent',
                 initialValue: 'subtitleContent',
               ),
-              childContent: RecupStatus(
+              childContent: RecupBadgeStatus(
                 text: context.knobs.string(
                   label: 'childContent',
                   initialValue: 'Text',
@@ -987,7 +992,7 @@ abstract class _StorybookOrganismis {
                         );
 
                         return text.isNotEmpty
-                            ? RecupStatus(
+                            ? RecupBadgeStatus(
                                 text: text,
                               )
                             : Container();
@@ -1060,7 +1065,7 @@ abstract class _StorybookOrganismis {
                         );
 
                         return text.isNotEmpty
-                            ? RecupStatus(
+                            ? RecupBadgeStatus(
                                 text: text,
                               )
                             : Container();
@@ -1130,7 +1135,7 @@ abstract class _StorybookOrganismis {
                         );
 
                         return text.isNotEmpty
-                            ? RecupStatus(
+                            ? RecupBadgeStatus(
                                 text: text,
                               )
                             : Container();
@@ -1511,7 +1516,7 @@ abstract class _StorybookOrganismis {
                 label: "child",
                 initialValue: true,
               )
-                  ? const RecupStandard(
+                  ? const RecupBadgeStandard(
                       text: 'Text',
                     )
                   : null,
@@ -1556,7 +1561,7 @@ abstract class _StorybookOrganismis {
                 label: "child",
                 initialValue: false,
               )
-                  ? const RecupStandard(
+                  ? const RecupBadgeStandard(
                       text: 'Text',
                     )
                   : null,
@@ -1652,7 +1657,7 @@ abstract class _StorybookOrganismis {
                 label: "child",
                 initialValue: true,
               )
-                  ? const RecupStandard(
+                  ? const RecupBadgeStandard(
                       text: 'Text',
                     )
                   : null,
@@ -1771,4 +1776,38 @@ abstract class _StorybookOrganismis {
       },
     ),
   ];
+
+  // static final _selectController = TextEditingController();
+
+  // static final _select = [
+  //   // WidgetbookUseCase(
+  //   //   name: 'Recup Select',
+  //   //   builder: (context) {
+  //   //     int i = 0;
+  //   //
+  //   //     final itens = ValueNotifier(
+  //   //       List.filled(20, 'Item')
+  //   //           .map(
+  //   //             (e) => RecupSelectItem(
+  //   //               text: '$e ${i++}',
+  //   //               value: i,
+  //   //             ),
+  //   //           )
+  //   //           .toList(),
+  //   //     );
+  //   //
+  //   //     final widget = RecupSelect(
+  //   //       items: itens,
+  //   //     );
+  //   //
+  //   //     return widget;
+  //   //   },
+  //   // ),
+  //   // WidgetbookUseCase(
+  //   //   name: 'Base',
+  //   //   builder: (context) {
+  //   //     return RecupListItem();
+  //   //   },
+  //   // ),
+  // ];
 }

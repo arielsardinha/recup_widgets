@@ -2,42 +2,42 @@
 
 part of 'package:recup_storybook/recup_storybook.dart';
 
-enum RecupStatusColor {
+enum RecupBadgeStatusColor {
   UNVAILABLO,
   AVAILABLE,
   OPERATING;
 
   Color? color(ColorScheme colorScheme) {
     switch (this) {
-      case RecupStatusColor.UNVAILABLO:
+      case RecupBadgeStatusColor.UNVAILABLO:
         return colorScheme.error;
-      case RecupStatusColor.AVAILABLE:
+      case RecupBadgeStatusColor.AVAILABLE:
         return colorScheme.primary;
-      case RecupStatusColor.OPERATING:
+      case RecupBadgeStatusColor.OPERATING:
         return colorScheme.secondary;
     }
   }
 
   Color? colorBackground(ColorScheme colorScheme) {
     switch (this) {
-      case RecupStatusColor.UNVAILABLO:
+      case RecupBadgeStatusColor.UNVAILABLO:
         return colorScheme.errorContainer.withOpacity(0.5);
-      case RecupStatusColor.AVAILABLE:
+      case RecupBadgeStatusColor.AVAILABLE:
         return colorScheme.primaryContainer.withOpacity(0.5);
-      case RecupStatusColor.OPERATING:
+      case RecupBadgeStatusColor.OPERATING:
         return colorScheme.secondaryContainer.withOpacity(0.5);
     }
   }
 }
 
-class RecupStatus extends StatelessWidget {
+class RecupBadgeStatus extends StatelessWidget {
   final String text;
-  final RecupStatusColor color;
+  final RecupBadgeStatusColor color;
   final double? width;
-  const RecupStatus({
+  const RecupBadgeStatus({
     super.key,
     this.text = '',
-    this.color = RecupStatusColor.AVAILABLE,
+    this.color = RecupBadgeStatusColor.AVAILABLE,
     this.width,
   });
 

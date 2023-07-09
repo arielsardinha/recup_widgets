@@ -13,7 +13,7 @@ class RecupInputChip extends StatelessWidget {
     this.disabled = false,
     this.loading = false,
     this.onSelected,
-    this.selected = true,
+    this.selected = false,
     this.showCheckmark = false,
   }) : super(key: key);
 
@@ -36,28 +36,27 @@ class RecupInputChip extends StatelessWidget {
       icon = Icon(
         i.icon,
         color:
-        disabled ? null : i.color ?? Theme
-            .of(context)
-            .colorScheme
-            .primary,
+            disabled ? null : i.color ?? Theme.of(context).colorScheme.primary,
         size: pi * 30 / 4.0,
       );
     }
 
     final hasWidget = icon != null;
 
-    final chip = InputChip(
-      label:  SizedBox(
+    return InputChip(
+      label: SizedBox(
         width: hasWidget || text.length > 1 ? null : pi * 10,
-        child: text.isNotEmpty ? Padding(
-          padding: hasWidget
-              ? const EdgeInsets.only(right: 8)
-              : const EdgeInsets.symmetric(horizontal: 8),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-          ),
-        ) : null,
+        child: text.isNotEmpty
+            ? Padding(
+                padding: hasWidget
+                    ? const EdgeInsets.only(right: 8)
+                    : const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                ),
+              )
+            : null,
       ),
       avatar: hasWidget ? icon : null,
       onSelected: onSelected ?? (x) {},
@@ -69,17 +68,12 @@ class RecupInputChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: -2, vertical: 0),
       isEnabled: !disabled,
       selected: selected,
-      selectedColor: Theme
-          .of(context)
-          .colorScheme
-          .primaryContainer,
+      selectedColor: Theme.of(context).colorScheme.primaryContainer,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(50),
         ),
       ),
     );
-
-    return chip;
   }
 }

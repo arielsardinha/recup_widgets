@@ -3,7 +3,7 @@ part of 'package:recup_storybook/recup_storybook.dart';
 class RecupCardHorizontalNotification extends StatelessWidget with ImageValidationMixin {
   final String photo, title, subtitle;
   final Widget? child, leading;
-  final double value;
+  final double? value;
   final VoidCallback? onPressed;
 
   const RecupCardHorizontalNotification({
@@ -13,7 +13,7 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
     this.subtitle = '',
     this.leading,
     this.child,
-    this.value = 0.0,
+    this.value,
     this.onPressed,
   });
 
@@ -49,12 +49,12 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
             ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 4, 16),
+              padding: EdgeInsets.fromLTRB(16, 16, onPressed != null? 4 : 16, 16),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   if (leading != null) leading!,
-                  Flexible(
+                  Expanded(
                     child: Container(
                       padding: leading != null
                           ? const EdgeInsets.only(left: 16)
@@ -86,6 +86,7 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
                               ),
                             ],
                           ),
+                          if(value != null)
                           Material(
                             clipBehavior: Clip.antiAlias,
                             borderRadius: const BorderRadius.all(
@@ -93,7 +94,7 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
                             ),
                             child: LinearProgressIndicator(
                               minHeight: 4,
-                              value: value,
+                              value: value!,
                             ),
                           ),
                         ],
