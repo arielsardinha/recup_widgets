@@ -22,11 +22,52 @@ abstract class _StorybookOrganismis {
         isInitiallyExpanded: false,
         useCases: _picker,
       ),
-      // WidgetbookComponent(
-      //   name: 'Others',
-      //   isInitiallyExpanded: false,
-      //   useCases: _select,
-      // ),
+      WidgetbookFolder(
+        name: 'Others',
+        isInitiallyExpanded: false,
+        children: [
+          WidgetbookComponent(
+            name: 'Recup Debug',
+            useCases: [
+              WidgetbookUseCase(
+                name: 'Base Exemple',
+                builder: (context) {
+                  return Center(
+                    child: RecupDebug(
+                      text: RecupDebugText(context.knobs.string(
+                        label: 'text',
+                        initialValue: 'Mensagem Personalidade',
+                      )),
+                      child:
+                          const Text('Funcionalidade que precisa ser Ajsutada'),
+                    ),
+                  );
+                },
+              ),
+              WidgetbookUseCase(
+                name: 'Card Exemple',
+                builder: (context) {
+                  if (context.knobs.boolean(label: 'test')) {
+                    return Center(
+                      child: RecupDebug(
+                        text: RecupDebugText(context.knobs.string(
+                          label: 'text',
+                          initialValue: 'Mensagem Personalidade',
+                        )),
+                        child: const RecupCardHorizontalNotification(),
+                      ),
+                    );
+                  }
+
+                  return const Center(
+                    child: RecupCardHorizontalNotification(),
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
     ],
   );
 
@@ -1777,37 +1818,37 @@ abstract class _StorybookOrganismis {
     ),
   ];
 
-  // static final _selectController = TextEditingController();
+// static final _selectController = TextEditingController();
 
-  // static final _select = [
-  //   // WidgetbookUseCase(
-  //   //   name: 'Recup Select',
-  //   //   builder: (context) {
-  //   //     int i = 0;
-  //   //
-  //   //     final itens = ValueNotifier(
-  //   //       List.filled(20, 'Item')
-  //   //           .map(
-  //   //             (e) => RecupSelectItem(
-  //   //               text: '$e ${i++}',
-  //   //               value: i,
-  //   //             ),
-  //   //           )
-  //   //           .toList(),
-  //   //     );
-  //   //
-  //   //     final widget = RecupSelect(
-  //   //       items: itens,
-  //   //     );
-  //   //
-  //   //     return widget;
-  //   //   },
-  //   // ),
-  //   // WidgetbookUseCase(
-  //   //   name: 'Base',
-  //   //   builder: (context) {
-  //   //     return RecupListItem();
-  //   //   },
-  //   // ),
-  // ];
+// static final _select = [
+//   // WidgetbookUseCase(
+//   //   name: 'Recup Select',
+//   //   builder: (context) {
+//   //     int i = 0;
+//   //
+//   //     final itens = ValueNotifier(
+//   //       List.filled(20, 'Item')
+//   //           .map(
+//   //             (e) => RecupSelectItem(
+//   //               text: '$e ${i++}',
+//   //               value: i,
+//   //             ),
+//   //           )
+//   //           .toList(),
+//   //     );
+//   //
+//   //     final widget = RecupSelect(
+//   //       items: itens,
+//   //     );
+//   //
+//   //     return widget;
+//   //   },
+//   // ),
+//   // WidgetbookUseCase(
+//   //   name: 'Base',
+//   //   builder: (context) {
+//   //     return RecupListItem();
+//   //   },
+//   // ),
+// ];
 }

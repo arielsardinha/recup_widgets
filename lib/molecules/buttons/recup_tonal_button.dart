@@ -29,11 +29,11 @@ class RecupTonalButton extends StatelessWidget {
       }
     }
 
-    return FilledButton.tonal(
+    return FilledButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: recupButtonStyle?.backgroundColor ??
-            theme.colorScheme.primaryContainer,
+        foregroundColor: theme.colorScheme.primary,
+        backgroundColor: theme.colorScheme.primaryContainer,
         visualDensity: recupButtonStyle?.visualDensityButton.visualDensity ??
             VisualDensityButton.standard.visualDensity,
         textStyle: handleTextStyle(recupButtonStyle?.visualDensityButton ??

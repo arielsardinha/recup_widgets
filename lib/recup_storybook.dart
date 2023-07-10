@@ -3,6 +3,7 @@ library recup_storybook;
 import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:skeletons/skeletons.dart';
@@ -49,5 +50,6 @@ part 'organisms/lists/recup_list_tile.dart';
 part 'organisms/lists/recup_switch_list_tile.dart';
 //
 part 'organisms/text_partial/recup_text_partial.dart';
+part 'organisms/recup_debug.dart';
 
 teste() {}

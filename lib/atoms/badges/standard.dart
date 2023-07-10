@@ -122,7 +122,7 @@ class _RecupBadgeStandardState extends State<RecupBadgeStandard> {
                 widget.text,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.labelMedium?.copyWith(
+                style: theme.textTheme.labelSmall?.copyWith(
                   color: widget.color.colorText(theme.colorScheme),
                 ),
                 textAlign: TextAlign.center,
