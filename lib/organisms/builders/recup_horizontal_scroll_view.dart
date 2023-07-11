@@ -5,7 +5,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
     super.key,
     this.padding,
     this.itemPadding,
-    required this.items,
+    required this.children,
     this.physics = const AlwaysScrollableScrollPhysics(
       parent: BouncingScrollPhysics(),
     ),
@@ -13,9 +13,34 @@ class RecupHorizontalScrollView extends StatelessWidget {
   });
 
   final EdgeInsets? padding, itemPadding;
-  final List<Widget> items;
+  final List<Widget> children;
   final ScrollPhysics physics;
   final MainAxisAlignment mainAxisAlignment;
+
+  static RecupHorizontalScrollView builder<T>({
+    Key? key,
+    EdgeInsets? padding,
+    EdgeInsets? itemPadding,
+    required List<T> items,
+    required Widget Function(int index, T item) builder,
+    ScrollPhysics physics = const AlwaysScrollableScrollPhysics(
+      parent: BouncingScrollPhysics(),
+    ),
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+  }) {
+
+    int i = 0;
+    final list = items.map((e) => builder(i, items[i++])).toList();
+
+    return RecupHorizontalScrollView(
+      key: key,
+      padding: padding,
+      itemPadding: itemPadding,
+      mainAxisAlignment: mainAxisAlignment,
+      physics: physics,
+      children: list,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +53,15 @@ class RecupHorizontalScrollView extends StatelessWidget {
         child: Padding(
           padding: padding ?? EdgeInsets.zero,
           child: Row(
-              mainAxisAlignment: mainAxisAlignment,
-              mainAxisSize: MainAxisSize.max,
-              children: items
-                  .map((e) => Padding(
-                        padding: itemPadding ?? EdgeInsets.zero,
-                        child: e,
-                      ))
-                  .toList()),
+            mainAxisAlignment: mainAxisAlignment,
+            mainAxisSize: MainAxisSize.max,
+            children: children
+                .map((e) => Padding(
+                      padding: itemPadding ?? EdgeInsets.zero,
+                      child: e,
+                    ))
+                .toList(),
+          ),
         ),
       ),
     );

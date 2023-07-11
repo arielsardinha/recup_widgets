@@ -24,7 +24,7 @@ class RecupDebug extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!kDebugMode && !showDebugIcon) {
+    if (!kDebugMode || !showDebugIcon) {
       return child;
     }
 
