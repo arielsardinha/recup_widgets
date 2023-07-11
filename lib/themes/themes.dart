@@ -27,6 +27,12 @@ sealed class RecupTheme {
       iconTheme: IconThemeData(
         color: _lightColorScheme.primary,
       ),
+      shape: Border(
+        bottom: BorderSide(
+          color: _lightColorScheme.outlineVariant,
+          width: 0.5,
+        ),
+      ),
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
@@ -46,12 +52,6 @@ sealed class RecupTheme {
         ),
       ),
     ),
-    // elevatedButtonTheme: ElevatedButtonThemeData(
-    //   style: ElevatedButton.styleFrom(
-    //     foregroundColor: _lightColorScheme.onPrimary,
-    //     backgroundColor: _lightColorScheme.primary,
-    //   ),
-    // ),
     navigationBarTheme: NavigationBarThemeData(
       // indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),
@@ -85,6 +85,12 @@ sealed class RecupTheme {
       iconTheme: IconThemeData(
         color: _darkColorScheme.primary,
       ),
+      shape: Border(
+        bottom: BorderSide(
+          color: _darkColorScheme.outlineVariant,
+          width: 0.5,
+        ),
+      ),
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
@@ -104,12 +110,6 @@ sealed class RecupTheme {
         ),
       ),
     ),
-    // elevatedButtonTheme: ElevatedButtonThemeData(
-    //   style: ElevatedButton.styleFrom(
-    //     foregroundColor: _darkColorScheme.onPrimary,
-    //     backgroundColor: _darkColorScheme.primary,
-    //   ),
-    // ),
     navigationBarTheme: NavigationBarThemeData(
       // indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStatePropertyAll(_textTheme.bodySmall),

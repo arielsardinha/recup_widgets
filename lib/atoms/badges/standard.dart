@@ -124,6 +124,8 @@ class _RecupBadgeStandardState extends State<RecupBadgeStandard> {
                 overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.labelSmall?.copyWith(
                   color: widget.color.colorText(theme.colorScheme),
+                  fontSize: 12,
+                  height: 16 / 12,
                 ),
                 textAlign: TextAlign.center,
               ),
