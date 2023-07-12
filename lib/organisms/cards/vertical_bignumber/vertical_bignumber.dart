@@ -55,8 +55,9 @@ class RecupCardVerticalBignumber extends StatelessWidget {
                               if (widget! is Icon && iconCircleBackground) {
                                 return CircleAvatar(
                                   backgroundColor:
-                                      theme.colorScheme.onInverseSurface,
+                                      theme.colorScheme.surfaceVariant,
                                   child: widget,
+
                                 );
                               }
                               return widget!;
