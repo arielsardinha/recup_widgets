@@ -31,7 +31,7 @@ class RecupCardVerticalFeed extends StatelessWidget {
 
   final RecupCarouselSize carouselSize;
   final double? width;
-  final BoxFit? fit;
+  final BoxFit fit;
 
   final Color? backgroundColor, backgroundColorAvatarHeader;
 
@@ -60,7 +60,7 @@ class RecupCardVerticalFeed extends StatelessWidget {
     this.width,
     this.backgroundColor,
     this.backgroundColorAvatarHeader,
-    this.fit,
+    this.fit = BoxFit.cover,
   });
 
   @override

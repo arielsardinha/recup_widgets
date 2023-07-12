@@ -5,41 +5,11 @@ abstract class _StorybookMolecules {
     name: 'molecules',
     isInitiallyExpanded: false,
     children: [
-      _carrousel,
       _formFields,
       _button,
       _avatars,
     ],
   );
-
-  static final _carrousel = WidgetbookComponent(
-    name: 'Carousel',
-    useCases: [
-      WidgetbookUseCase(
-        name: 'Default',
-        builder: (context) {
-          return Center(
-            child: RecupCarousel(
-              height: context.knobs.list(
-                label: "height",
-                options: const [
-                  RecupCarouselSize.NORMAL,
-                  RecupCarouselSize.LARGE
-                ],
-              ),
-              noSliderPoints: context.knobs
-                  .boolean(label: "noSliderPoints", initialValue: true),
-              itens: const [
-                'https://github.com/arielsardinha.png',
-                'https://github.com/treinaweb.png',
-              ].map((e) => RecupCarouselItem(image: e, item: e)).toList(),
-            ),
-          );
-        },
-      ),
-    ],
-  );
-
   static final _formFields = WidgetbookComponent(
     name: 'Form Fields',
     useCases: [

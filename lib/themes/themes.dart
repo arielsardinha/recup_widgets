@@ -34,6 +34,8 @@ sealed class RecupTheme {
         ),
       ),
     ),
+    buttonTheme: const ButtonThemeData(
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12)),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.resolveWith((states) {
@@ -75,6 +77,8 @@ sealed class RecupTheme {
     useMaterial3: true,
     colorScheme: _darkColorScheme,
     textTheme: _textTheme,
+    buttonTheme: const ButtonThemeData(
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12)),
     appBarTheme: AppBarTheme(
       surfaceTintColor: _darkCustonColor.surface1,
       backgroundColor: _darkCustonColor.surface1,

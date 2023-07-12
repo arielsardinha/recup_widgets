@@ -7,6 +7,7 @@ enum RecupCarouselSize {
   LARGE(240);
 
   final double size;
+
   const RecupCarouselSize(this.size);
 }
 
@@ -23,7 +24,11 @@ class RecupCarousel<T> extends StatefulWidget {
   final RecupCarouselSize height;
   final void Function(T item)? onChange, onTap;
   final bool noSliderPoints, borderIsRadiusCircle;
-  final BoxFit? fit;
+  final BoxFit fit;
+
+  final double itemHorizontalPadding;
+  final double viewportFraction;
+
   const RecupCarousel({
     Key? key,
     required this.itens,
@@ -32,21 +37,23 @@ class RecupCarousel<T> extends StatefulWidget {
     this.height = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
     this.borderIsRadiusCircle = false,
-    this.fit,
+    this.fit = BoxFit.cover,
+    this.itemHorizontalPadding = 0,
+    this.viewportFraction = 1,
   }) : super(key: key);
 
   @override
   State<RecupCarousel<T>> createState() => _RecupCarouselState<T>();
 }
 
-class _RecupCarouselState<T> extends State<RecupCarousel<T>> with ImageValidationMixin{
+class _RecupCarouselState<T> extends State<RecupCarousel<T>>
+    with ImageValidationMixin {
   int _current = 0;
   bool autoPlay = false;
 
   @override
   void initState() {
     autoPlay = widget.noSliderPoints ? false : widget.itens.length > 1;
-
     super.initState();
   }
 
@@ -65,7 +72,8 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> with ImageValidatio
               height: widget.height.size,
               autoPlay: autoPlay,
               autoPlayAnimationDuration: const Duration(milliseconds: 1000),
-              viewportFraction: 1,
+              viewportFraction:
+                  widget.viewportFraction > 1 ? widget.viewportFraction : 1,
               onPageChanged: (index, reason) {
                 if (widget.onChange != null) {
                   widget.onChange!(widget.itens[index].item);
@@ -77,23 +85,27 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>> with ImageValidatio
             ),
             items: widget.itens
                 .map(
-                  (item) => InkWell(
-                    onTap: widget.onTap != null
-                        ? () {
-                            widget.onTap!(item.item);
-                          }
-                        : null,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: item.color,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(widget.borderIsRadiusCircle ? 20 : 0),
-                        ),
-                        image: isPhoto(item.image) ? DecorationImage(
-                          image: NetworkImage(item.image),
-                          fit: widget.fit ?? BoxFit.cover,
-                        ) : null,
+                  (item) => Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: widget.itemHorizontalPadding),
+                    decoration: BoxDecoration(
+                      color: item.color,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(widget.borderIsRadiusCircle ? 20 : 0),
                       ),
+                      image: isPhoto(item.image)
+                          ? DecorationImage(
+                              image: NetworkImage(item.image),
+                              fit: BoxFit.cover,
+                            )
+                          : null,
+                    ),
+                    child: InkWell(
+                      onTap: widget.onTap != null
+                          ? () {
+                              widget.onTap!(item.item);
+                            }
+                          : null,
                     ),
                   ),
                 )

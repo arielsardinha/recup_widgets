@@ -23,6 +23,7 @@ class RecupTextFormField extends StatefulWidget {
   final FocusNode? focusNode;
   final bool autofocus;
   final Widget? prefixIcon;
+
   const RecupTextFormField({
     super.key,
     this.controller,
@@ -95,6 +96,12 @@ class _RecupTextFormFieldState extends State<RecupTextFormField> {
 
   @override
   Widget build(BuildContext context) {
+    final padding = widget.contentPadding ??
+        EdgeInsets.symmetric(
+          horizontal: 12 + (widget.prefixIcon == null ? 8 : 0),
+          vertical: 12,
+        );
+
     return FocusScope(
       onFocusChange: (value) {
         if (value && widget.onFocus != null) {
@@ -119,7 +126,7 @@ class _RecupTextFormFieldState extends State<RecupTextFormField> {
         maxLength: widget.maxLength,
         focusNode: widget.focusNode,
         decoration: InputDecoration(
-          contentPadding: widget.contentPadding,
+          contentPadding: padding,
           hintMaxLines: widget.hintMaxLines,
           isDense: true,
           label: Text(widget.label),

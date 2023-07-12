@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:exemple/organisms/carousel/carousel_use_case.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';
 import 'package:recup_storybook/themes/themes.dart';

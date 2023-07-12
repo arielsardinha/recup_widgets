@@ -23,7 +23,7 @@ part 'atoms/dividers/divider.dart';
 //
 part 'molecules/avatars/avatars.dart';
 part 'molecules/carousel/index.dart';
-part 'molecules/text_form_field/text_form_field.dart';
+part 'molecules/text_form_field/recup_text_form_field.dart';
 part 'molecules/buttons/model.dart';
 part 'molecules/buttons/recup_elevated_button.dart';
 part 'molecules/buttons/recup_tonal_button.dart';
@@ -49,7 +49,7 @@ part 'organisms/cards/horizontal_notification/horizontal_notification.dart';
 part 'organisms/lists/recup_list_tile.dart';
 part 'organisms/lists/recup_switch_list_tile.dart';
 //
-part 'organisms/text_partial/recup_text_partial.dart';
+part 'organisms/sections/recup_text_section.dart';
 part 'organisms/recup_debug.dart';
 
 teste() {}

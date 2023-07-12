@@ -5,6 +5,7 @@ abstract class _StorybookOrganismis {
     name: 'organisms',
     isInitiallyExpanded: false,
     children: [
+      CarouselUseCases.carrousel,
       WidgetbookFolder(
         name: 'Cards',
         isInitiallyExpanded: false,

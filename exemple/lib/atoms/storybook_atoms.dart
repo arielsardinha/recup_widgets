@@ -463,7 +463,10 @@ abstract class _StorybookAtoms {
                     ) ??
                     5,
                 child: RecupFilterChip(
-                  onTap: context.knobs.boolean(label: "onTap", initialValue: true) ? () {} : null,
+                  onTap:
+                      context.knobs.boolean(label: "onTap", initialValue: true)
+                          ? () {}
+                          : null,
                   loading: context.knobs.boolean(label: "loading"),
                   enabled: context.knobs
                       .boolean(label: "enabled", initialValue: true),
@@ -498,7 +501,10 @@ abstract class _StorybookAtoms {
                     ) ??
                     5,
                 child: RecupFilterChip(
-                  onTap: context.knobs.boolean(label: "onTap", initialValue: true) ? () {} : null,
+                  onTap:
+                      context.knobs.boolean(label: "onTap", initialValue: true)
+                          ? () {}
+                          : null,
                   loading: context.knobs.boolean(label: "loading"),
                   enabled: context.knobs
                       .boolean(label: "enabled", initialValue: true),

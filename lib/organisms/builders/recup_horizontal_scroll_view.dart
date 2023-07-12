@@ -28,7 +28,6 @@ class RecupHorizontalScrollView extends StatelessWidget {
     ),
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
   }) {
-
     int i = 0;
     final list = items.map((e) => builder(i, items[i++])).toList();
 
@@ -44,6 +43,8 @@ class RecupHorizontalScrollView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int currentIndex = 0;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       physics: physics,
@@ -57,7 +58,11 @@ class RecupHorizontalScrollView extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: children
                 .map((e) => Padding(
-                      padding: itemPadding ?? EdgeInsets.zero,
+                      padding: itemPadding?.copyWith(
+                            left: currentIndex++ == 0 ? 0 : null,
+                            right: currentIndex == children.length ? 0 : null,
+                          ) ??
+                          EdgeInsets.zero,
                       child: e,
                     ))
                 .toList(),
