@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:exemple/atoms/components/badges.dart';
+import 'package:exemple/atoms/components/base.dart';
 import 'package:exemple/organisms/carousel/carousel_use_case.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';

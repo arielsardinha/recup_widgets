@@ -25,9 +25,8 @@ enum RecupBadgeStandardColor {
   }
 }
 
-class RecupBadgeStandard extends StatefulWidget {
+class RecupBadgeStandard extends StatelessWidget {
   final String text;
-  final Widget? widget;
 
   final RecupBadgeStandardColor color;
   final double? maxWidth;
@@ -35,103 +34,55 @@ class RecupBadgeStandard extends StatefulWidget {
   const RecupBadgeStandard({
     super.key,
     this.text = '',
-    this.widget,
     this.color = RecupBadgeStandardColor.ERROR,
     this.maxWidth,
   });
 
   @override
-  State<RecupBadgeStandard> createState() => _RecupBadgeStandardState();
-}
-
-class _RecupBadgeStandardState extends State<RecupBadgeStandard> {
-  final _widgetKey = GlobalKey();
-  double _widgetWidth = 0;
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
-        setState(() {
-          _widgetWidth = getWidgetSize(_widgetKey);
-        });
-      }
-    });
-    super.initState();
-  }
-
-  double getWidgetSize(GlobalKey key) {
-    final renderBox = key.currentContext?.findRenderObject() as RenderBox?;
-    return renderBox?.size.width ?? 0;
-  }
-
-  double calcSize(String text, ThemeData theme) {
-    final textPainter = TextPainter(
-      text: TextSpan(
-        text: text,
-        style: theme.textTheme.labelMedium
-            ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
-      ),
-      maxLines: 1,
-      textDirection: TextDirection.ltr,
-    );
-
-    textPainter.layout();
-    final textWidth = textPainter.width;
-    const spaceTextSize = 13;
-    return textWidth + spaceTextSize + _widgetWidth;
-  }
-
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final double minSize = widget.text.isEmpty
-        ? 10
-        : (theme.textTheme.labelMedium?.fontSize ?? 16) * 1.5;
+
+    double padding = text.length > 1 ? 4 : 1;
+    double fontHeight = text.isNotEmpty ? 16 : 0;
+    double minSize = 6;
+
+    double size = minSize > fontHeight ? minSize : fontHeight;
+
+    var constrains = BoxConstraints(
+      minWidth: size,
+      minHeight: size,
+    );
+
+    if (maxWidth != null) {
+      constrains = constrains.copyWith(
+        maxWidth: maxWidth,
+        minWidth: size > maxWidth! ? maxWidth : size,
+      );
+    }
+
+    if (text.isEmpty) {
+      constrains = BoxConstraints.loose(Size.square(size));
+    }
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-      constraints: widget.maxWidth != null
-          ? BoxConstraints(
-        maxWidth: widget.maxWidth! + 21,
-        minWidth: minSize,
-        minHeight: 10,
-      )
-          : BoxConstraints(
-        minWidth: minSize,
-        minHeight: 10,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: padding),
+      constraints: constrains,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: widget.color.colorBackground(theme.colorScheme),
+        color: color.colorBackground(theme.colorScheme),
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (widget.widget != null)
-            Container(
-              key: _widgetKey,
-              child: widget.widget!,
-            ),
-          if (widget.text.isNotEmpty)
-            Flexible(
-              child: Text(
-                widget.text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: widget.color.colorText(theme.colorScheme),
-                  fontSize: 12,
-                  height: 16 / 12,
-                ),
-                textAlign: TextAlign.center,
+      child: text.isNotEmpty
+          ? Text(
+              text,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: color.colorText(theme.colorScheme),
               ),
-            ),
-        ],
-      ),
+              textAlign: TextAlign.center,
+            )
+          : null,
     );
   }
 }
