@@ -5,6 +5,7 @@ import 'package:widgetbook/widgetbook.dart';
 sealed class AtomsBadges {
   static final badges = WidgetbookFolder(
     name: "Badges",
+    isInitiallyExpanded: false,
     children: [
       WidgetbookComponent(
         name: "Standard",

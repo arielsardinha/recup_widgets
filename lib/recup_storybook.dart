@@ -12,13 +12,11 @@ part 'recup_icons.g.dart';
 
 part 'atoms/circle_avatar/index.dart';
 part 'atoms/slider_points/slider_points.dart';
-//
 part 'atoms/chips/input_chip.dart';
 part 'atoms/chips/filter_chip.dart';
-//
 part 'atoms/badges/standard.dart';
 part 'atoms/badges/status.dart';
-//
+part 'atoms/tags/tags.dart';
 part 'atoms/dividers/divider.dart';
 //
 part 'molecules/avatars/avatars.dart';
@@ -31,7 +29,7 @@ part 'molecules/buttons/recup_filled_button.dart';
 part 'molecules/buttons/recup_outlined_button.dart';
 part 'molecules/buttons/recup_text_button.dart';
 part 'molecules/radio_buttons/recup_radio_list_tile.dart';
-// part 'molecules/buttons/standard/';
+//
 part 'organisms/builders/recup_future_builder.dart';
 part 'organisms/builders/recup_horizontal_scroll_view.dart';
 //

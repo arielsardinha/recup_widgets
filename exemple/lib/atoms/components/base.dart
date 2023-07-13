@@ -6,6 +6,7 @@ import 'package:widgetbook/widgetbook.dart';
 sealed class AtomsBase {
   static final icons = WidgetbookComponent(
     name: "Icons",
+    isInitiallyExpanded: false,
     useCases: [
       WidgetbookUseCase(
         name: 'All',
@@ -249,8 +250,12 @@ sealed class AtomsBase {
     )
   ];
 
-  static final text = [
-    ..._texts,
-    ..._textList,
-  ];
+  static final text = WidgetbookComponent(
+    name: 'Text',
+    isInitiallyExpanded: false,
+    useCases: [
+      ..._texts,
+      ..._textList,
+    ],
+  );
 }

@@ -34,6 +34,8 @@ class RecupBadgeStatus extends StatelessWidget {
   final String text;
   final RecupBadgeStatusColor color;
   final double? width;
+
+  /// o [width] mínimo é 16.0
   const RecupBadgeStatus({
     super.key,
     this.text = '',
@@ -41,43 +43,27 @@ class RecupBadgeStatus extends StatelessWidget {
     this.width,
   });
 
-  final spaceSizeText = 25;
-
-  double getWidgetSize(GlobalKey key) {
-    final renderBox = key.currentContext?.findRenderObject() as RenderBox?;
-    return renderBox?.size.width ?? 0;
-  }
-
-  double calcSize(String text, ThemeData theme) {
-    final textPainter = TextPainter(
-      text: TextSpan(
-        text: text,
-        style: theme.textTheme.labelMedium
-            ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
-      ),
-      maxLines: 1,
-      textDirection: TextDirection.ltr,
-    );
-
-    textPainter.layout();
-    final textWidth = textPainter.width;
-
-    return textWidth + 30;
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    double minSize = 16;
+    double boxSize = minSize / 2.0;
+
+    var constrains = BoxConstraints(
+      minWidth: minSize,
+      minHeight: minSize,
+    );
+
+    if (width != null) {
+      constrains = constrains.copyWith(
+        maxWidth: minSize > width! ? minSize : width,
+      );
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 4),
-      constraints: width != null
-          ? BoxConstraints(
-        maxWidth: width! + 20,
-        minHeight: 15,
-      )
-          : const BoxConstraints(
-        minHeight: 15,
-      ),
+      constraints: constrains,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: color.colorBackground(theme.colorScheme),
@@ -87,25 +73,26 @@ class RecupBadgeStatus extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 8,
-            height: 8,
-            margin: text.isEmpty ? null : const EdgeInsets.only(right: 4),
+            width: boxSize,
+            height: boxSize,
             decoration: BoxDecoration(
-                color: color.color(theme.colorScheme), shape: BoxShape.circle),
+              color: color.color(theme.colorScheme),
+              shape: BoxShape.circle,
+            ),
           ),
           if (text.isNotEmpty)
             Flexible(
-              child: Text(
-                text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.labelMedium?.copyWith(
-                  color: color.color(theme.colorScheme),
-                  fontSize: 12,
-                  height: 16 / 12,
-                  fontWeight: FontWeight.w500,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 4),
+                child: Text(
+                  text,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: color.color(theme.colorScheme),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             )
         ],

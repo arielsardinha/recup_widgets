@@ -23,6 +23,28 @@ class RecupTextSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+
+    final rightChildren = [
+      if(iconRight != null)
+        Icon(
+          iconRight,
+          color: theme.colorScheme.primary,
+          size: iconRightSize,
+        ),
+      if (textRight.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: Text(
+            textRight,
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+            softWrap: false,
+          ),
+        ),
+    ];
+
     return Padding(
       padding: padding ??
           EdgeInsets.only(left: 16, right: textRight.isNotEmpty ? 0 : 0),
@@ -47,29 +69,13 @@ class RecupTextSection extends StatelessWidget {
               ),
             ],
           ),
+          if(rightChildren.isNotEmpty)
           Flexible(
             child: RecupTextButton(
               onPressed: onTap,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    iconRight,
-                    color: theme.colorScheme.primary,
-                    size: iconRightSize,
-                  ),
-                  if (textRight.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(
-                        textRight,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: theme.colorScheme.primary,
-                        ),
-                        softWrap: false,
-                      ),
-                    ),
-                ],
+                children: rightChildren,
               ),
             ),
           )
