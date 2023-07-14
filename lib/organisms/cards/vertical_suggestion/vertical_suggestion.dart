@@ -33,19 +33,20 @@ class RecupCardVerticalSuggestion extends StatelessWidget
 
     final int maxLines = title.isNotEmpty && subtitle.isNotEmpty ? 1 : 2;
 
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        width: 200,
-        height: 280,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          border: Border.fromBorderSide(
-            BorderSide(
-              color: theme.colorScheme.surfaceVariant,
-            ),
+    return Container(
+      width: 200,
+      height: 280,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.fromBorderSide(
+          BorderSide(
+            color: theme.colorScheme.surfaceVariant,
           ),
         ),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: InkWell(
+        onTap: onTap,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,10 +64,6 @@ class RecupCardVerticalSuggestion extends StatelessWidget
                             image: NetworkImage(photoBackground),
                           )
                         : null,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(16),
-                    ),
                   ),
                 ),
                 Padding(
@@ -88,12 +85,15 @@ class RecupCardVerticalSuggestion extends StatelessWidget
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (title.isNotEmpty)
-                      Text(
-                        title,
-                        maxLines: maxLines,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          color: theme.colorScheme.inverseSurface,
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Text(
+                          title,
+                          maxLines: maxLines,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.inverseSurface,
+                          ),
                         ),
                       ),
                     if (subtitle.isNotEmpty)
@@ -101,8 +101,8 @@ class RecupCardVerticalSuggestion extends StatelessWidget
                         subtitle,
                         maxLines: maxLines,
                         overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: theme.colorScheme.inverseSurface,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                     const Spacer(),

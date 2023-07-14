@@ -10,7 +10,7 @@ import 'package:skeletons/skeletons.dart';
 import './utils/mixin/image_validate_mixin.dart';
 part 'recup_icons.g.dart';
 
-part 'atoms/circle_avatar/index.dart';
+part 'atoms/circle_avatar/circle_avatar.dart';
 part 'atoms/slider_points/slider_points.dart';
 part 'atoms/chips/input_chip.dart';
 part 'atoms/chips/filter_chip.dart';

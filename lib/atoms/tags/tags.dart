@@ -3,10 +3,10 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 class RecupTagColorContainer {
-  final Color primary;
-  final Color secondary;
+  final Color background;
+  final Color foreground;
 
-  RecupTagColorContainer(this.primary, this.secondary);
+  RecupTagColorContainer(this.background, this.foreground);
 }
 
 enum RecupTagColor {
@@ -57,9 +57,9 @@ class RecupTag extends StatelessWidget {
       ) : null,
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       decoration: BoxDecoration(
-        color: colors.secondary,
+        color: colors.foreground,
         border: Border.all(
-          color: colors.primary,
+          color: colors.background,
           width: 1,
         ),
         borderRadius: BorderRadius.circular(10),
@@ -68,7 +68,7 @@ class RecupTag extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
         text,
-        style: theme.textTheme.bodySmall?.copyWith(color: colors.primary),
+        style: theme.textTheme.bodySmall?.copyWith(color: colors.background),
       ),
     );
   }

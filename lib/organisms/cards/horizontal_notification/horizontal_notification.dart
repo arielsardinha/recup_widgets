@@ -72,7 +72,7 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
                                 overflow: TextOverflow.ellipsis,
                                 softWrap: false,
                                 style: theme.textTheme.titleMedium?.copyWith(
-                                  color: theme.colorScheme.inverseSurface,
+                                  // color: theme.colorScheme.inverseSurface,
                                 ),
                               ),
                               Text(

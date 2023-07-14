@@ -72,13 +72,16 @@ class RecupTextSection extends StatelessWidget {
           if(rightChildren.isNotEmpty)
           Flexible(
             child: RecupTextButton(
-              onPressed: onTap,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: rightChildren,
+                onPressed: onTap,
+                recupButtonStyle: RecupButtonStyle(
+                  visualDensityButton: VisualDensityButton.comfortable,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: rightChildren,
+                ),
               ),
-            ),
-          )
+            )
         ],
       ),
     );

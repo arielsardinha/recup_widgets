@@ -994,78 +994,82 @@ abstract class _StorybookOrganismis {
       WidgetbookUseCase(
         name: 'Base',
         builder: (context) {
-          return Center(
-            child: RecupCardVerticalSuggestion(
-              nameAvatar: context.knobs.string(
-                label: "nameAvatar",
-                initialValue: "Name Avatar",
-              ),
-              photoAvatar: context.knobs.string(
-                label: "photoAvatar",
-                initialValue: "",
-              ),
-              backgroundColorAvatar:
-                  Theme.of(context).colorScheme.onInverseSurface,
-              title: context.knobs.string(
-                label: "title",
-                initialValue: "Header",
-              ),
-              subtitle: context.knobs.string(
-                label: "subtitle",
-                initialValue: 'Subhead',
-              ),
-              photoBackground: context.knobs.string(
-                label: "photoBackground",
-                initialValue:
-                    "https://htmlcolorcodes.com/assets/images/colors/blue-gray-color-solid-background-1920x1080.png",
-              ),
-              // onTap:
-              //     context.knobs.boolean(label: "onTap") ? () {} : null,
+          return UseCaseTest(
+            totalButtons: 2,
+            builder: (context, onTap) {
+              return RecupCardVerticalSuggestion(
+                nameAvatar: context.knobs.string(
+                  label: "nameAvatar",
+                  initialValue: "Name Avatar",
+                ),
+                photoAvatar: context.knobs.string(
+                  label: "photoAvatar",
+                  initialValue: "",
+                ),
+                ///todo
+                // backgroundColorAvatar:
+                //     Theme.of(context).colorScheme.onInverseSurface,
+                title: context.knobs.string(
+                  label: "title",
+                  initialValue: "Header",
+                ),
+                subtitle: context.knobs.string(
+                  label: "subtitle",
+                  initialValue: 'Subhead',
+                ),
+                photoBackground: context.knobs.string(
+                  label: "photoBackground",
+                  initialValue:
+                      "https://htmlcolorcodes.com/assets/images/colors/blue-gray-color-solid-background-1920x1080.png",
+                ),
+              onTap:
+                  context.knobs.boolean(label: "onTap") ? () => onTap(0) : null,
               content: context.knobs.boolean(
                 label: "content",
                 initialValue: true,
               )
                   ? Builder(
-                      builder: (context) {
-                        final text = context.knobs.string(
-                          label: "Exemple Text",
-                          description: 'Badge Status Text',
-                          initialValue: "Badge Text",
-                        );
+                        builder: (context) {
+                          final text = context.knobs.string(
+                            label: "Exemple Text",
+                            description: 'Badge Status Text',
+                            initialValue: "Badge Text",
+                          );
 
-                        return text.isNotEmpty
-                            ? RecupBadgeStatus(
-                                text: text,
-                              )
-                            : Container();
-                      },
-                    )
-                  : null,
+                          return text.isNotEmpty
+                              ? RecupBadgeStatus(
+                                  text: text,
+                                )
+                              : Container();
+                        },
+                      )
+                    : null,
               paddingBottom: context.knobs.boolean(
                 label: 'paddingBottom',
                 initialValue: false,
               )
                   ? const EdgeInsets.only(
-                      right: 16,
-                      bottom: 16,
-                    )
-                  : null,
+                        right: 16,
+                        bottom: 16,
+                      )
+                    : null,
               child: context.knobs.boolean(
                 label: "child",
                 initialValue: true,
               )
                   ? Align(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite,
-                          color: Theme.of(context).colorScheme.primary,
+                        alignment: Alignment.centerRight,
+                        child: IconButton(
+                          onPressed: () => onTap(1),
+                          icon: Icon(
+                            Icons.favorite,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                         ),
-                      ),
-                    )
-                  : null,
-            ),
+                      )
+                    : null,
+              );
+            },
           );
         },
       ),
@@ -1340,9 +1344,8 @@ abstract class _StorybookOrganismis {
               ),
               onPressed:
                   context.knobs.boolean(label: "onPressed") ? () {} : null,
-              widget: RecupCircleAvatar(
+              widget: const RecupCircleAvatar(
                 name: "A",
-                backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
               ),
               iconCircleBackground: context.knobs.boolean(
                 label: 'iconCircleBackground',
