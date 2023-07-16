@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:exemple/support/use_case_testing.dart';
 import 'package:flutter/material.dart';
 import 'package:recup_storybook/recup_storybook.dart';
@@ -204,7 +202,6 @@ sealed class AtomChips {
         builder: (context) {
           return UseCaseTest(
             builder: (context, onTap) {
-
               return RecupTag(
                 text: context.knobs.string(
                   label: 'text',
@@ -231,7 +228,6 @@ sealed class AtomChips {
         builder: (context) {
           return UseCaseTest(
             builder: (context, onTap) {
-
               final text = context.knobs.string(
                 label: 'text',
                 initialValue: 'Text',
@@ -246,16 +242,17 @@ sealed class AtomChips {
 
               return Column(
                 mainAxisSize: MainAxisSize.min,
-                children: RecupTagColor.values.map((e) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: RecupTag(
-                    text: text,
-                    color: e,
-                    maxWidth: maxWidth,
-                  ),
-                )).toList(),
+                children: RecupTagColor.values
+                    .map((e) => Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: RecupTag(
+                            text: text,
+                            color: e,
+                            maxWidth: maxWidth,
+                          ),
+                        ))
+                    .toList(),
               );
-
             },
           );
         },

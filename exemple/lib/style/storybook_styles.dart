@@ -27,7 +27,7 @@ sealed class StoryBookStyles {
 
           final names = context.knobs.boolean(
             label: 'names',
-            initialValue: false,
+            initialValue: true,
           );
 
           return Center(
@@ -37,29 +37,26 @@ sealed class StoryBookStyles {
                 childAspectRatio: 1,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
-                crossAxisCount: 5,
+                crossAxisCount: 3,
               ),
               padding: const EdgeInsets.all(16),
               itemCount: iconList.length,
               itemBuilder: (BuildContext ctx, index) {
                 final icon = iconList[index];
-                return Container(
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Icon(
-                        icon.value,
-                      ),
-                      if (names)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Text(
-                            icon.key,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        )
-                    ],
-                  ),
+                return Column(
+                  children: [
+                    Icon(
+                      icon.value,
+                    ),
+                    if (names)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          icon.key,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
+                  ],
                 );
               },
             ),
@@ -113,14 +110,15 @@ sealed class StoryBookStyles {
           builder: (BuildContext context, dynamic Function(int) onTap) {
             final style = styleEntry.value;
 
-            final txtColor =
-                style?.color?.value.toRadixString(16).toUpperCase().substring(2);
+            final txtColor = style?.color?.value
+                .toRadixString(16)
+                .toUpperCase()
+                .substring(2);
             String txtColorMatch = '';
             if ((style?.color) != null) {
               txtColorMatch = RecupTheme.colorSchemeList(context)
                   .entries
-                  .where(
-                      (value) => value.value.value == style!.color!.value)
+                  .where((value) => value.value.value == style!.color!.value)
                   .map((e) => e.key)
                   .join(', ');
             }
@@ -348,10 +346,10 @@ sealed class StoryBookStyles {
                 continue;
               }
 
-              int z = y == 0 ? 1 : 0;
+              final z = y == 0 ? 1 : 0;
 
               final backgroundColor = colors[i];
-              var textColor = colors[x + z];
+              final textColor = colors[x + z];
               row.add(colorContainer(backgroundColor, textColor));
             }
 
