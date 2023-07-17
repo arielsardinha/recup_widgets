@@ -10,6 +10,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
       parent: BouncingScrollPhysics(),
     ),
     this.mainAxisAlignment = MainAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
   });
 
   final EdgeInsets? padding;
@@ -17,6 +18,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
   final List<Widget> children;
   final ScrollPhysics physics;
   final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
 
   static RecupHorizontalScrollView builder<T>({
     Key? key,
@@ -28,6 +30,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
       parent: BouncingScrollPhysics(),
     ),
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start,
   }) {
     int i = 0;
     final list = items.map((e) => builder(i, items[i++])).toList();
@@ -37,6 +40,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
       padding: padding,
       childrenSpacing: 16,
       mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
       physics: physics,
       children: list,
     );
@@ -57,11 +61,14 @@ class RecupHorizontalScrollView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: mainAxisAlignment,
             mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: crossAxisAlignment,
             children: children
                 .map((e) => Padding(
                       padding: EdgeInsets.only(
                         left: currentIndex++ == 0 ? 0 : childrenSpacing * 0.5,
-                        right: currentIndex == children.length ? 0 : childrenSpacing * 0.5,
+                        right: currentIndex == children.length
+                            ? 0
+                            : childrenSpacing * 0.5,
                       ),
                       child: e,
                     ))
