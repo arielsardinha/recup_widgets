@@ -38,7 +38,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
     return RecupHorizontalScrollView(
       key: key,
       padding: padding,
-      childrenSpacing: 16,
+      childrenSpacing: childrenSpacing,
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       physics: physics,
