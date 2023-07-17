@@ -11,7 +11,7 @@ enum RecupBadgeStandardColor {
       case RecupBadgeStandardColor.ERROR:
         return colorScheme.onError;
       case RecupBadgeStandardColor.PRIMARY:
-        return colorScheme.primary;
+        return colorScheme.onPrimaryContainer;
     }
   }
 
@@ -20,7 +20,7 @@ enum RecupBadgeStandardColor {
       case RecupBadgeStandardColor.ERROR:
         return colorScheme.error;
       case RecupBadgeStandardColor.PRIMARY:
-        return colorScheme.primaryContainer;
+        return colorScheme.surfaceVariant;
     }
   }
 }
