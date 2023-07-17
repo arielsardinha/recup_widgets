@@ -3,9 +3,11 @@ import 'dart:math';
 import 'package:exemple/atoms/components/badges.dart';
 import 'package:exemple/atoms/components/chips.dart';
 import 'package:exemple/atoms/components/circle_avatar.dart';
+import 'package:exemple/organisms/builders/horizontal_scrollview.dart';
+import 'package:exemple/organisms/cards/vertical_big_number.dart';
+import 'package:exemple/organisms/cards/vertical_suggestion.dart';
 import 'package:exemple/organisms/carousel/carousel_use_case.dart';
 import 'package:exemple/style/storybook_styles.dart';
-import 'package:exemple/support/use_case_testing.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';
 import 'package:recup_storybook/themes/themes.dart';
@@ -61,7 +63,7 @@ class HotReload extends StatelessWidget {
         StoryBookStyles.stylesBook,
         _StorybookAtoms.atomsStorybook,
         _StorybookMolecules.storybookMolecules,
-        _StorybookOrganismis.organismisbookMolecules,
+        _StorybookOrganismis.widgets,
       ],
     );
     // return Widgetbook.material(

@@ -4,7 +4,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
   const RecupHorizontalScrollView({
     super.key,
     this.padding,
-    this.itemPadding,
+    this.childrenSpacing = 16,
     required this.children,
     this.physics = const AlwaysScrollableScrollPhysics(
       parent: BouncingScrollPhysics(),
@@ -12,7 +12,8 @@ class RecupHorizontalScrollView extends StatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.start,
   });
 
-  final EdgeInsets? padding, itemPadding;
+  final EdgeInsets? padding;
+  final double childrenSpacing;
   final List<Widget> children;
   final ScrollPhysics physics;
   final MainAxisAlignment mainAxisAlignment;
@@ -20,7 +21,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
   static RecupHorizontalScrollView builder<T>({
     Key? key,
     EdgeInsets? padding,
-    EdgeInsets? itemPadding,
+    double childrenSpacing = 16,
     required List<T> items,
     required Widget Function(int index, T item) builder,
     ScrollPhysics physics = const AlwaysScrollableScrollPhysics(
@@ -34,7 +35,7 @@ class RecupHorizontalScrollView extends StatelessWidget {
     return RecupHorizontalScrollView(
       key: key,
       padding: padding,
-      itemPadding: itemPadding,
+      childrenSpacing: 16,
       mainAxisAlignment: mainAxisAlignment,
       physics: physics,
       children: list,
@@ -58,11 +59,10 @@ class RecupHorizontalScrollView extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: children
                 .map((e) => Padding(
-                      padding: itemPadding?.copyWith(
-                            left: currentIndex++ == 0 ? 0 : null,
-                            right: currentIndex == children.length ? 0 : null,
-                          ) ??
-                          EdgeInsets.zero,
+                      padding: EdgeInsets.only(
+                        left: currentIndex++ == 0 ? 0 : childrenSpacing * 0.5,
+                        right: currentIndex == children.length ? 0 : childrenSpacing * 0.5,
+                      ),
                       child: e,
                     ))
                 .toList(),

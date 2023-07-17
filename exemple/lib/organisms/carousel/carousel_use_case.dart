@@ -29,10 +29,10 @@ sealed class CarouselUseCases {
                     label: "noSliderPoints",
                     initialValue: false,
                   ),
-                  borderIsRadiusCircle: context.knobs.boolean(
-                    label: "borderIsRadiusCircle",
+                  itemBorderRadius: context.knobs.boolean(
+                    label: "itemBorderRadius",
                     initialValue: false,
-                  ),
+                  ) ? BorderRadius.circular(20) : null,
                   onTap: context.knobs.boolean(
                     label: "onTap",
                     initialValue: true,

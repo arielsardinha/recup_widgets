@@ -23,9 +23,9 @@ class RecupCarousel<T> extends StatefulWidget {
   final List<RecupCarouselItem<T>> itens;
   final RecupCarouselSize height;
   final void Function(T item)? onChange, onTap;
-  final bool noSliderPoints, borderIsRadiusCircle;
+  final bool noSliderPoints;
   final BoxFit fit;
-
+  final BorderRadius? itemBorderRadius;
   final double itemHorizontalPadding;
   final double viewportFraction;
 
@@ -36,10 +36,10 @@ class RecupCarousel<T> extends StatefulWidget {
     this.onTap,
     this.height = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
-    this.borderIsRadiusCircle = false,
     this.fit = BoxFit.cover,
     this.itemHorizontalPadding = 0,
     this.viewportFraction = 1,
+    this.itemBorderRadius,
   }) : super(key: key);
 
   @override
@@ -90,9 +90,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>>
                         horizontal: widget.itemHorizontalPadding),
                     decoration: BoxDecoration(
                       color: item.color,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(widget.borderIsRadiusCircle ? 20 : 0),
-                      ),
+                      borderRadius: widget.itemBorderRadius,
                       image: isPhoto(item.image)
                           ? DecorationImage(
                               image: NetworkImage(item.image),
