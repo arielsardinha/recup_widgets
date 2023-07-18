@@ -125,6 +125,9 @@ class _RecupTextFormFieldState extends State<RecupTextFormField> {
         initialValue: widget.initialValue,
         maxLength: widget.maxLength,
         focusNode: widget.focusNode,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          color: Theme.of(context).colorScheme.onSurfaceVariant
+        ),
         decoration: InputDecoration(
           contentPadding: padding,
           hintMaxLines: widget.hintMaxLines,
