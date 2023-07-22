@@ -121,6 +121,7 @@ sealed class StoryBookStyles {
         }
 
         return Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               color: context.knobs

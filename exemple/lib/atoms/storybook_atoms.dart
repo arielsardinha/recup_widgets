@@ -34,21 +34,11 @@ abstract class _StorybookAtoms {
         name: "Zoomed",
         builder: (context) {
           return Center(
-            child: Transform.scale(
-              scale: double.tryParse(
-                    context.knobs.string(
-                      label: 'scale',
-                      initialValue: '5',
-                      description: 'storybook only',
-                    ),
-                  ) ??
-                  5,
-              child: RecupSliderPoints(
-                points: const ['', ''],
-                currentPoint: context.knobs.list(
-                  label: 'currentPoint',
-                  options: const [0, 1],
-                ),
+            child: RecupSliderPoints(
+              points: const ['', ''],
+              currentPoint: context.knobs.list(
+                label: 'currentPoint',
+                options: const [0, 1],
               ),
             ),
           );

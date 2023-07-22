@@ -11,7 +11,6 @@ sealed class WidgetbookVerticalSugestion {
     WidgetbookUseCase(
       name: 'Base',
       builder: (context) {
-
         return RecupCardVerticalSuggestion(
           nameAvatar: context.knobs.string(
             label: "nameAvatar",
@@ -210,14 +209,25 @@ sealed class WidgetbookVerticalSugestion {
             )
                 : null,
             child: context.knobs.boolean(
-              label: "child",
-              initialValue: true,
-            )
-                ? Text(
-              context.knobs
-                  .string(label: "child text", initialValue: '0.3km'),
-            )
-                : null,
+                label: "child",
+                initialValue: true,
+              )
+                  ? Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          RecupIcon.local_outline,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 18,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          context.knobs.string(
+                              label: "child text", initialValue: '0.3km'),
+                        ),
+                      ],
+                    )
+                  : null,
           ),
         );
       },
@@ -296,8 +306,7 @@ sealed class WidgetbookVerticalSugestion {
     WidgetbookUseCase(
       name: 'Donation',
       builder: (context) {
-        return Center(
-          child: RecupCardVerticalSuggestion(
+          return RecupCardVerticalSuggestion(
             nameAvatar: context.knobs.string(
               label: "nameAvatar",
               initialValue: "Ariel",
@@ -323,16 +332,15 @@ sealed class WidgetbookVerticalSugestion {
               initialValue: true,
             )
                 ? IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            )
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  )
                 : null,
-          ),
-        );
-      },
+          );
+        },
     ),
   ],
 );

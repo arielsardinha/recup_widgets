@@ -93,17 +93,11 @@ class _VoidCallbacksWidgetState extends State<_VoidCallbacksWidget> {
       list[i] = counter;
     });
 
-    print(list);
   }
 
   @override
   Widget build(BuildContext context) {
     int texts = 0;
-
-    // return VoidCallBackInh(
-    //   call: onTap,
-    //   child: widget.child,
-    // );
 
     if (!widget.showCounters) {
       list.clear();

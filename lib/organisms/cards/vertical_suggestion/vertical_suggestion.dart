@@ -24,7 +24,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget
     this.backgroundColorAvatar,
     this.backgroundColor,
     this.fit,
-    this.paddingBottom = const EdgeInsets.fromLTRB(16, 0, 4, 4),
+    this.paddingBottom = const EdgeInsets.fromLTRB(16, 0, 0, 0),
   }) : super(key: key);
 
   @override

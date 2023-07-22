@@ -10,7 +10,7 @@ class TransformAddon extends WidgetbookAddon<TransformAddonSettings> {
           initialSetting: TransformAddonSettings(
             scale: 1.0,
             rotation: 0,
-            transform: true,
+            transform: false,
           ),
         );
 
@@ -90,11 +90,7 @@ class _TranformWidgetState extends State<_TranformWidget> {
           scale: widget.setting.scale,
           child: Transform.rotate(
             angle: widget.setting.rotation,
-            child: Stack(
-               children: [
-                 widget.child,
-               ],
-            ),
+            child: Center(child: widget.child),
           ),
         ),
       ),

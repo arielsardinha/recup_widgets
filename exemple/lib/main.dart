@@ -7,7 +7,9 @@ import 'package:exemple/organisms/builders/horizontal_scrollview.dart';
 import 'package:exemple/organisms/cards/vertical_big_number.dart';
 import 'package:exemple/organisms/cards/vertical_suggestion.dart';
 import 'package:exemple/organisms/carousel/carousel_use_case.dart';
-import 'package:exemple/plugins/transform_addon.dart';
+import 'package:exemple/plugins/offset_addon.dart';
+import 'package:exemple/plugins/rotation_addon.dart';
+import 'package:exemple/plugins/scale_addon.dart';
 import 'package:exemple/plugins/voidcallback_addon.dart';
 import 'package:exemple/style/storybook_styles.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +18,9 @@ import 'package:recup_storybook/themes/themes.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 part 'atoms/storybook_atoms.dart';
-
 part 'molecules/buttons/custom.dart';
-
 part 'molecules/buttons/standard.dart';
-
 part 'molecules/storybook_molecules.dart';
-
 part 'organisms/storybook_organisms.dart';
 
 void main() {
@@ -56,16 +54,11 @@ class HotReload extends StatelessWidget {
               data: RecupTheme.themeDataDark,
             ),
           ],
-          // themeBuilder: (context, theme, child) {
-          //   return MaterialApp(
-          //     debugShowCheckedModeBanner: false,
-          //     theme: theme,
-          //     home: child,
-          //   );
-          // },
         ),
         VoidCallbackAddon(),
-        TransformAddon(),
+        ScaleAddon(),
+        RotationAddon(),
+        OffsetAddon(),
       ],
       directories: [
         StoryBookStyles.stylesBook,
@@ -74,30 +67,5 @@ class HotReload extends StatelessWidget {
         _StorybookOrganismis.widgets,
       ],
     );
-    // return Widgetbook.material(
-    //   categories: [
-    //     _StorybookAtoms.atomsStorybook,
-    //     _StorybookMolecules.storybookMolecules,
-    //     _StorybookOrganismis.organismisbookMolecules,
-    //     // WidgetbookCategory(name: 'tempate'),
-    //     // WidgetbookCategory(name: 'pages')
-    //   ],
-    //   appInfo: AppInfo(
-    //     name: 'Widgetbook Example',
-    //   ),
-    //   themes: [
-    // WidgetbookTheme(
-    //   name: 'Light',
-    //   data: RecupTheme.themeDataLight,
-    // ),
-    // WidgetbookTheme(
-    //   name: 'Dark',
-    //   data: RecupTheme.themeDataDark,
-    // ),
-    //   ],
-    //   devices: [
-    //     Samsung.s10,
-    //   ],
-    // );
   }
 }

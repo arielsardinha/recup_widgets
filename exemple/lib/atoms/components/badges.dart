@@ -118,31 +118,21 @@ sealed class AtomsBadges {
             name: "Zoomed",
             builder: (context) {
               return Center(
-                child: Transform.scale(
-                  scale: double.tryParse(
-                        context.knobs.string(
-                          label: 'scale',
-                          initialValue: '5',
-                          description: 'storybook only',
-                        ),
-                      ) ??
-                      5,
-                  child: RecupBadgeStandard(
-                    maxWidth: double.tryParse(
-                      context.knobs.string(label: "width"),
-                    ),
-                    text: context.knobs.string(
-                      label: "text",
-                      initialValue: "text",
-                    ),
-                    color: context.knobs.list(
-                        label: "color",
-                        options: const [
-                          RecupBadgeStandardColor.PRIMARY,
-                          RecupBadgeStandardColor.ERROR
-                        ],
-                        initialOption: RecupBadgeStandardColor.ERROR),
+                child: RecupBadgeStandard(
+                  maxWidth: double.tryParse(
+                    context.knobs.string(label: "width"),
                   ),
+                  text: context.knobs.string(
+                    label: "text",
+                    initialValue: "text",
+                  ),
+                  color: context.knobs.list(
+                      label: "color",
+                      options: const [
+                        RecupBadgeStandardColor.PRIMARY,
+                        RecupBadgeStandardColor.ERROR
+                      ],
+                      initialOption: RecupBadgeStandardColor.ERROR),
                 ),
               );
             },
@@ -181,30 +171,20 @@ sealed class AtomsBadges {
                   context.knobs.string(label: "text", initialValue: "text");
 
               return Center(
-                child: Transform.scale(
-                  scale: double.tryParse(
-                        context.knobs.string(
-                          label: 'scale',
-                          initialValue: '1',
-                          description: 'storybook only',
-                        ),
-                      ) ??
-                      1,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: RecupBadgeStatusColor.values
-                        .map(
-                          (e) => Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: RecupBadgeStatus(
-                              width: width,
-                              text: text,
-                              color: e,
-                            ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: RecupBadgeStatusColor.values
+                      .map(
+                        (e) => Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: RecupBadgeStatus(
+                            width: width,
+                            text: text,
+                            color: e,
                           ),
-                        )
-                        .toList(),
-                  ),
+                        ),
+                      )
+                      .toList(),
                 ),
               );
             },
@@ -213,28 +193,18 @@ sealed class AtomsBadges {
             name: "Zoomed",
             builder: (context) {
               return Center(
-                child: Transform.scale(
-                  scale: double.tryParse(
-                        context.knobs.string(
-                          label: 'scale',
-                          initialValue: '5',
-                          description: 'storybook only',
-                        ),
-                      ) ??
-                      5,
-                  child: RecupBadgeStatus(
-                    width:
-                        double.tryParse(context.knobs.string(label: "width")),
-                    text: context.knobs
-                        .string(label: "text", initialValue: "text"),
-                    color: context.knobs.list(
-                      label: "color",
-                      options: const [
-                        RecupBadgeStatusColor.UNVAILABLO,
-                        RecupBadgeStatusColor.AVAILABLE,
-                        RecupBadgeStatusColor.OPERATING
-                      ],
-                    ),
+                child: RecupBadgeStatus(
+                  width:
+                      double.tryParse(context.knobs.string(label: "width")),
+                  text: context.knobs
+                      .string(label: "text", initialValue: "text"),
+                  color: context.knobs.list(
+                    label: "color",
+                    options: const [
+                      RecupBadgeStatusColor.UNVAILABLO,
+                      RecupBadgeStatusColor.AVAILABLE,
+                      RecupBadgeStatusColor.OPERATING
+                    ],
                   ),
                 ),
               );

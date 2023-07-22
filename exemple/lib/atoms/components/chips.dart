@@ -73,37 +73,27 @@ sealed class AtomChips {
         builder: (context) {
           final disabled = context.knobs.boolean(label: "disabled");
           return Center(
-            child: Transform.scale(
-              scale: double.tryParse(
-                    context.knobs.string(
-                      label: 'scale',
-                      initialValue: '5',
-                      description: 'storybook only',
-                    ),
-                  ) ??
-                  5,
-              child: RecupInputChip(
-                loading: context.knobs.boolean(label: "loading"),
-                text: context.knobs.string(
-                  label: "text",
-                  initialValue: "123",
-                ),
-                widget: context.knobs.boolean(
-                  label: "widget",
-                  initialValue: true,
-                )
-                    ? Icon(
-                        Icons.circle,
-                        color: disabled
-                            ? Theme.of(context).colorScheme.outlineVariant
-                            : null,
-                      )
-                    : null,
-                onSelected:
-                    context.knobs.boolean(label: "onSelected") ? (p0) {} : null,
-                selected: context.knobs.boolean(label: "selected"),
-                disabled: disabled,
+            child: RecupInputChip(
+              loading: context.knobs.boolean(label: "loading"),
+              text: context.knobs.string(
+                label: "text",
+                initialValue: "123",
               ),
+              widget: context.knobs.boolean(
+                label: "widget",
+                initialValue: true,
+              )
+                  ? Icon(
+                      Icons.circle,
+                      color: disabled
+                          ? Theme.of(context).colorScheme.outlineVariant
+                          : null,
+                    )
+                  : null,
+              onSelected:
+                  context.knobs.boolean(label: "onSelected") ? (p0) {} : null,
+              selected: context.knobs.boolean(label: "selected"),
+              disabled: disabled,
             ),
           );
         },
@@ -118,35 +108,25 @@ sealed class AtomChips {
         name: "Base",
         builder: (context) {
           return Center(
-            child: Transform.scale(
-              scale: double.tryParse(
-                    context.knobs.string(
-                      label: 'scale',
-                      initialValue: '5',
-                      description: 'storybook only',
-                    ),
-                  ) ??
-                  5,
-              child: RecupFilterChip(
-                onTap: context.knobs.boolean(label: "onTap", initialValue: true)
-                    ? () {}
-                    : null,
-                loading: context.knobs.boolean(label: "loading"),
-                enabled:
-                    context.knobs.boolean(label: "enabled", initialValue: true),
-                leading: context.knobs.boolean(label: "leading")
-                    ? RecupIcon.car
-                    : null,
-                trailing:
-                    context.knobs.boolean(label: "trailing", initialValue: true)
-                        ? RecupIcon.chevron_down
-                        : null,
-                text: context.knobs.string(
-                  label: "text",
-                  initialValue: "year",
-                ),
-                selected: context.knobs.boolean(label: "selected"),
+            child: RecupFilterChip(
+              onTap: context.knobs.boolean(label: "onTap", initialValue: true)
+                  ? () {}
+                  : null,
+              loading: context.knobs.boolean(label: "loading"),
+              enabled:
+                  context.knobs.boolean(label: "enabled", initialValue: true),
+              leading: context.knobs.boolean(label: "leading")
+                  ? RecupIcon.car
+                  : null,
+              trailing:
+                  context.knobs.boolean(label: "trailing", initialValue: true)
+                      ? RecupIcon.chevron_down
+                      : null,
+              text: context.knobs.string(
+                label: "text",
+                initialValue: "year",
               ),
+              selected: context.knobs.boolean(label: "selected"),
             ),
           );
         },
@@ -155,37 +135,26 @@ sealed class AtomChips {
         name: "Test Padding",
         builder: (context) {
           return Center(
-            child: Transform.scale(
-              scale: double.tryParse(
-                    context.knobs.string(
-                      label: 'scale',
-                      initialValue: '5',
-                      description: 'storybook only',
-                    ),
-                  ) ??
-                  5,
-              child: RecupFilterChip(
-                onTap: context.knobs.boolean(label: "onTap", initialValue: true)
-                    ? () {}
-                    : null,
-                loading: context.knobs.boolean(label: "loading"),
-                enabled:
-                    context.knobs.boolean(label: "enabled", initialValue: true),
-                leading: context.knobs.boolean(label: "leading")
-                    ? Icons.circle
-                    : null,
-                trailing: context.knobs.boolean(
-                  label: "trailing",
-                  initialValue: true,
-                )
-                    ? Icons.circle
-                    : null,
-                text: context.knobs.string(
-                  label: "text",
-                  initialValue: "",
-                ),
-                selected: context.knobs.boolean(label: "selected"),
+            child: RecupFilterChip(
+              onTap: context.knobs.boolean(label: "onTap", initialValue: true)
+                  ? () {}
+                  : null,
+              loading: context.knobs.boolean(label: "loading"),
+              enabled:
+                  context.knobs.boolean(label: "enabled", initialValue: true),
+              leading:
+                  context.knobs.boolean(label: "leading") ? Icons.circle : null,
+              trailing: context.knobs.boolean(
+                label: "trailing",
+                initialValue: true,
+              )
+                  ? Icons.circle
+                  : null,
+              text: context.knobs.string(
+                label: "text",
+                initialValue: "",
               ),
+              selected: context.knobs.boolean(label: "selected"),
             ),
           );
         },
