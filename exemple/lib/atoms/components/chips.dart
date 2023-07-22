@@ -1,4 +1,3 @@
-import 'package:exemple/support/use_case_testing.dart';
 import 'package:flutter/material.dart';
 import 'package:recup_storybook/recup_storybook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -200,60 +199,53 @@ sealed class AtomChips {
       WidgetbookUseCase(
         name: 'Base',
         builder: (context) {
-          return UseCaseTest(
-            builder: (context, onTap) {
-              return RecupTag(
-                text: context.knobs.string(
-                  label: 'text',
-                  initialValue: 'Text',
-                ),
-                color: context.knobs.list(
-                  label: 'color',
-                  options: RecupTagColor.values,
-                  labelBuilder: (value) => value.name,
-                ),
-                maxWidth: double.tryParse(
-                  context.knobs.string(
-                    label: 'maxWidth',
-                    initialValue: '',
-                  ),
-                ),
-              );
-            },
+
+          return RecupTag(
+            text: context.knobs.string(
+              label: 'text',
+              initialValue: 'Text',
+            ),
+            color: context.knobs.list(
+              label: 'color',
+              options: RecupTagColor.values,
+              labelBuilder: (value) => value.name,
+            ),
+            maxWidth: double.tryParse(
+              context.knobs.string(
+                label: 'maxWidth',
+                initialValue: '',
+              ),
+            ),
           );
         },
       ),
       WidgetbookUseCase(
         name: 'All Colors',
         builder: (context) {
-          return UseCaseTest(
-            builder: (context, onTap) {
-              final text = context.knobs.string(
-                label: 'text',
-                initialValue: 'Text',
-              );
+          final text = context.knobs.string(
+            label: 'text',
+            initialValue: 'Text',
+          );
 
-              final maxWidth = double.tryParse(
-                context.knobs.string(
-                  label: 'maxWidth',
-                  initialValue: '80',
-                ),
-              );
+          final maxWidth = double.tryParse(
+            context.knobs.string(
+              label: 'maxWidth',
+              initialValue: '80',
+            ),
+          );
 
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: RecupTagColor.values
-                    .map((e) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: RecupTag(
-                            text: text,
-                            color: e,
-                            maxWidth: maxWidth,
-                          ),
-                        ))
-                    .toList(),
-              );
-            },
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: RecupTagColor.values
+                .map((e) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: RecupTag(
+                text: text,
+                color: e,
+                maxWidth: maxWidth,
+              ),
+            ))
+                .toList(),
           );
         },
       ),

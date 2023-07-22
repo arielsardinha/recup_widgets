@@ -24,7 +24,7 @@ sealed class _StandardButtons {
               label: "onPressed",
               initialValue: true,
             )
-                ? () {}
+                ? () => context.callbacks.call(0)
                 : null,
             child: Text(
               context.knobs.string(label: 'Text', initialValue: 'Button'),

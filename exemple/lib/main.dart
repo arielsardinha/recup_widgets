@@ -7,16 +7,22 @@ import 'package:exemple/organisms/builders/horizontal_scrollview.dart';
 import 'package:exemple/organisms/cards/vertical_big_number.dart';
 import 'package:exemple/organisms/cards/vertical_suggestion.dart';
 import 'package:exemple/organisms/carousel/carousel_use_case.dart';
+import 'package:exemple/plugins/transform_addon.dart';
+import 'package:exemple/plugins/voidcallback_addon.dart';
 import 'package:exemple/style/storybook_styles.dart';
-import 'package:widgetbook/widgetbook.dart';
 import 'package:flutter/material.dart';
-import 'package:recup_storybook/themes/themes.dart';
 import 'package:recup_storybook/recup_storybook.dart';
+import 'package:recup_storybook/themes/themes.dart';
+import 'package:widgetbook/widgetbook.dart';
 
 part 'atoms/storybook_atoms.dart';
-part 'molecules/storybook_molecules.dart';
+
 part 'molecules/buttons/custom.dart';
+
 part 'molecules/buttons/standard.dart';
+
+part 'molecules/storybook_molecules.dart';
+
 part 'organisms/storybook_organisms.dart';
 
 void main() {
@@ -39,7 +45,7 @@ class HotReload extends StatelessWidget {
             Devices.ios.iPhone13,
           ],
         ),
-        ThemeAddon(
+        MaterialThemeAddon(
           themes: [
             WidgetbookTheme(
               name: 'Light',
@@ -50,14 +56,16 @@ class HotReload extends StatelessWidget {
               data: RecupTheme.themeDataDark,
             ),
           ],
-          themeBuilder: (context, theme, child) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              theme: theme,
-              home: child,
-            );
-          },
-        )
+          // themeBuilder: (context, theme, child) {
+          //   return MaterialApp(
+          //     debugShowCheckedModeBanner: false,
+          //     theme: theme,
+          //     home: child,
+          //   );
+          // },
+        ),
+        VoidCallbackAddon(),
+        TransformAddon(),
       ],
       directories: [
         StoryBookStyles.stylesBook,

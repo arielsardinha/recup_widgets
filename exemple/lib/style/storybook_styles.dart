@@ -3,7 +3,6 @@ import 'package:recup_storybook/recup_storybook.dart';
 import 'package:recup_storybook/themes/themes.dart';
 import 'package:widgetbook/widgetbook.dart';
 
-import '../support/use_case_testing.dart';
 
 sealed class StoryBookStyles {
   static final stylesBook = WidgetbookFolder(
@@ -106,56 +105,53 @@ sealed class StoryBookStyles {
           labelBuilder: (value) => value.key,
         );
 
-        return UseCaseTest(
-          builder: (BuildContext context, dynamic Function(int) onTap) {
-            final style = styleEntry.value;
+        final style = styleEntry.value;
 
-            final txtColor = style?.color?.value
-                .toRadixString(16)
-                .toUpperCase()
-                .substring(2);
-            String txtColorMatch = '';
-            if ((style?.color) != null) {
-              txtColorMatch = RecupTheme.colorSchemeList(context)
-                  .entries
-                  .where((value) => value.value.value == style!.color!.value)
-                  .map((e) => e.key)
-                  .join(', ');
-            }
+        final txtColor = style?.color?.value
+            .toRadixString(16)
+            .toUpperCase()
+            .substring(2);
+        String txtColorMatch = '';
+        if ((style?.color) != null) {
+          txtColorMatch = RecupTheme.colorSchemeList(context)
+              .entries
+              .where((value) => value.value.value == style!.color!.value)
+              .map((e) => e.key)
+              .join(', ');
+        }
 
-            return Column(
-              children: [
-                Container(
-                  color: context.knobs
-                          .boolean(label: 'wrapContainer', initialValue: false)
-                      ? Colors.red
-                      : null,
-                  child: Text(
-                    context.knobs.string(
-                      label: 'text',
-                      initialValue: 'Exemple Text',
-                    ),
-                    style: style,
-                  ),
+        return Column(
+          children: [
+            Container(
+              color: context.knobs
+                  .boolean(label: 'wrapContainer', initialValue: false)
+                  ? Colors.red
+                  : null,
+              child: Text(
+                context.knobs.string(
+                  label: 'text',
+                  initialValue: 'Exemple Text',
                 ),
-                if (style != null)
-                  Column(
-                    children: [
-                      const Divider(),
-                      Text('fontSize: ${style.fontSize}'),
-                      // ${((style.height ?? 1) * (style.fontSize ?? 1)).toInt()} / ${style.fontSize?.toInt()}
-                      Text(
-                          'height: ${style.height?.toStringAsFixed(2)} (${(style.height! * style.fontSize!).toInt()})'),
-                      Text('fontWeight: ${style.fontWeight}'),
-                      Text('letterSpacing: ${style.letterSpacing}'),
-                      Text(
-                          'color: $txtColor ${txtColorMatch.isNotEmpty ? '($txtColorMatch)' : ''}'),
-                    ],
-                  ),
-              ],
-            );
-          },
+                style: style,
+              ),
+            ),
+            if (style != null)
+              Column(
+                children: [
+                  const Divider(),
+                  Text('fontSize: ${style.fontSize}'),
+                  // ${((style.height ?? 1) * (style.fontSize ?? 1)).toInt()} / ${style.fontSize?.toInt()}
+                  Text(
+                      'height: ${style.height?.toStringAsFixed(2)} (${(style.height! * style.fontSize!).toInt()})'),
+                  Text('fontWeight: ${style.fontWeight}'),
+                  Text('letterSpacing: ${style.letterSpacing}'),
+                  Text(
+                      'color: $txtColor ${txtColorMatch.isNotEmpty ? '($txtColorMatch)' : ''}'),
+                ],
+              ),
+          ],
         );
+
       },
     )
   ];
@@ -254,27 +250,23 @@ sealed class StoryBookStyles {
             ) ??
             0;
 
-        return UseCaseTest(
-          builder: (BuildContext context, dynamic Function(int) onTap) {
-            return ListView.separated(
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                final item = ref[index];
-                return showDetails
-                    ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [item, Text(getDetails(item.style!))],
-                      )
-                    : item;
-              },
-              itemCount: ref.length,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  height: spacing,
-                );
-              },
+        return ListView.separated(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            final item = ref[index];
+            return showDetails
+                ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [item, Text(getDetails(item.style!))],
+            )
+                : item;
+          },
+          itemCount: ref.length,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              height: spacing,
             );
           },
         );

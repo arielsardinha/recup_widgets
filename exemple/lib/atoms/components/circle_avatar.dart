@@ -1,4 +1,3 @@
-import 'package:exemple/support/use_case_testing.dart';
 import 'package:flutter/material.dart';
 import 'package:recup_storybook/recup_storybook.dart';
 import 'package:recup_storybook/themes/themes.dart';
@@ -13,7 +12,7 @@ sealed class AtomsAvatar {
         name: 'Base',
         builder: (context) {
           final backgroundColor =
-              context.knobs.listOrNull(
+          context.knobs.listOrNull(
             label: "backgroundColor",
             options: RecupTheme.colorSchemeList(context).entries.toList(),
             initialOption: null,
@@ -25,32 +24,28 @@ sealed class AtomsAvatar {
             initialValue: '',
           );
 
-          return UseCaseTest(
-            builder: (context, onTap) {
-              return RecupCircleAvatar(
-                loading: context.knobs.boolean(label: "loading"),
-                name: context.knobs.string(
-                  label: 'name',
-                  initialValue: 'Base',
-                ),
-                photo: photo,
-                radius: double.tryParse(
-                      context.knobs.string(
-                        label: 'radius',
-                        initialValue: "20",
-                        description: 'default = 20',
-                      ),
-                    ) ??
-                    20,
-                backgroundColor: backgroundColor?.value,
-                onTap: context.knobs.boolean(
-                  label: 'onTap',
-                  initialValue: true,
-                )
-                    ? () {}
-                    : null,
-              );
-            },
+          return RecupCircleAvatar(
+            loading: context.knobs.boolean(label: "loading"),
+            name: context.knobs.string(
+              label: 'name',
+              initialValue: 'Base',
+            ),
+            photo: photo,
+            radius: double.tryParse(
+              context.knobs.string(
+                label: 'radius',
+                initialValue: "20",
+                description: 'default = 20',
+              ),
+            ) ??
+                20,
+            backgroundColor: backgroundColor?.value,
+            onTap: context.knobs.boolean(
+              label: 'onTap',
+              initialValue: true,
+            )
+                ? () {}
+                : null,
           );
         },
       ),
