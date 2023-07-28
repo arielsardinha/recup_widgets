@@ -17,11 +17,25 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
     this.onPressed,
   });
 
+
+  static double height = 80;
+  static double width = double.infinity;
+
+  static Widget skeletonWidget() {
+    return SkeletonLine(
+      style: SkeletonLineStyle(
+        height: height,
+        width: width,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      height: 80,
+      height: height.toDouble(),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.fromBorderSide(

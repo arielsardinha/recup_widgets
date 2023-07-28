@@ -3,12 +3,13 @@
 part of 'package:recup_storybook/recup_storybook.dart';
 
 enum RecupCarouselSize {
-  NORMAL(150),
-  LARGE(240);
+  NORMAL(150, 480),
+  LARGE(240, 520);
 
-  final double size;
+  final double height;
+  final double heightCard;
 
-  const RecupCarouselSize(this.size);
+  const RecupCarouselSize(this.height, this.heightCard);
 }
 
 class RecupCarouselItem<T> {
@@ -21,7 +22,7 @@ class RecupCarouselItem<T> {
 
 class RecupCarousel<T> extends StatefulWidget {
   final List<RecupCarouselItem<T>> itens;
-  final RecupCarouselSize height;
+  final RecupCarouselSize recupCarouselSize;
   final void Function(T item)? onChange, onTap;
   final bool noSliderPoints;
   final BoxFit fit;
@@ -34,7 +35,7 @@ class RecupCarousel<T> extends StatefulWidget {
     required this.itens,
     this.onChange,
     this.onTap,
-    this.height = RecupCarouselSize.NORMAL,
+    this.recupCarouselSize = RecupCarouselSize.NORMAL,
     this.noSliderPoints = false,
     this.fit = BoxFit.cover,
     this.itemHorizontalPadding = 0,
@@ -69,7 +70,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>>
               scrollPhysics: widget.noSliderPoints
                   ? const NeverScrollableScrollPhysics()
                   : null,
-              height: widget.height.size,
+              height: widget.recupCarouselSize.height,
               autoPlay: autoPlay,
               autoPlayAnimationDuration: const Duration(milliseconds: 1000),
               viewportFraction:

@@ -67,12 +67,25 @@ class RecupCardVerticalFeed extends StatelessWidget {
     this.carouselPadding = const EdgeInsets.all(0),
   });
 
+
+
+  static Widget skeletonWidget(RecupCarouselSize carouselSize, {double? width}) {
+    return SkeletonLine(
+      style: SkeletonLineStyle(
+        height: carouselSize.heightCard,
+        width: width ?? double.infinity,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
       width: width,
-      height: carouselSize == RecupCarouselSize.NORMAL ? 480 : 520,
+      height: carouselSize.heightCard,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(20),
@@ -138,7 +151,7 @@ class RecupCardVerticalFeed extends StatelessWidget {
                 noSliderPoints: noSliderPoints,
                 itemHorizontalPadding: carouselItemHorizontalPadding,
                 itens: backgroundImages!.backgroundImages ?? [],
-                height: carouselSize,
+                recupCarouselSize: carouselSize,
                 fit: fit,
               ),
             ),

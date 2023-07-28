@@ -12,7 +12,7 @@ sealed class CarouselUseCases {
         builder: (context) {
           return Center(
             child: RecupCarousel(
-              height: context.knobs.list(
+              recupCarouselSize: context.knobs.list(
                 label: "height",
                 options: const [
                   RecupCarouselSize.NORMAL,

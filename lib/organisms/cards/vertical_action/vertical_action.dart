@@ -22,12 +22,26 @@ class RecupCardVerticalAction extends StatelessWidget {
     this.backgroundColorAvatar,
   });
 
+  static double height = 216;
+  static double width = 168;
+
+  static Widget skeletonWidget() {
+    return SkeletonLine(
+      style: SkeletonLineStyle(
+        height: height,
+        width: width,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      height: 216,
-      width: 168,
+      height: height,
+      width: width,
       padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),

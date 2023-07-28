@@ -10,11 +10,24 @@ class RecupCardHorizontalActionImage extends StatelessWidget with ImageValidatio
     this.photoBackground = '',
   });
 
+  static double height = 156;
+  static double width = double.infinity;
+
+  static Widget skeletonWidget() {
+    return SkeletonLine(
+      style: SkeletonLineStyle(
+        height: height,
+        width: width,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SizedBox(
-      height: 156,
+      height: height,
       child: Material(
         borderRadius: BorderRadius.circular(20),
         clipBehavior: Clip.antiAliasWithSaveLayer,

@@ -36,7 +36,7 @@ part 'organisms/builders/recup_horizontal_scroll_view.dart';
 part 'organisms/dialogs/recup_month_picker_dialog.dart';
 part 'organisms/dialogs/recup_year_picker_dialog.dart';
 //
-part 'organisms/cards/vertical_feed/index.dart';
+part 'organisms/cards/vertical_feed/vertical_feed.dart';
 part 'organisms/cards/horizontal_card_ads/horizontal_card_ads.dart';
 part 'organisms/cards/horizontal_card_ads/horizontal_card_image.dart';
 part 'organisms/cards/vertical_action/vertical_action.dart';

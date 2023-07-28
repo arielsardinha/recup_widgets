@@ -16,13 +16,26 @@ class RecupCardVerticalBignumber extends StatelessWidget {
     this.iconCircleBackground = true,
   });
 
+  static double height = 152;
+  static double width = 152;
+
+  static Widget skeletonWidget() {
+    return SkeletonLine(
+      style: SkeletonLineStyle(
+        height: height,
+        width: width,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final border = BorderRadius.circular(20);
     return SizedBox(
-      width: 152,
-      height: 152,
+      width: height,
+      height: width,
       child: Material(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         borderRadius: border,

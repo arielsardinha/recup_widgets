@@ -27,6 +27,19 @@ class RecupCardVerticalSuggestion extends StatelessWidget
     this.paddingBottom = const EdgeInsets.fromLTRB(16, 0, 0, 0),
   }) : super(key: key);
 
+  static double width = 200;
+  static double height = 280;
+
+  static Widget skeletonWidget() {
+    return SkeletonLine(
+      style: SkeletonLineStyle(
+        height: height,
+        width: width,
+        borderRadius: BorderRadius.circular(20),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -34,8 +47,8 @@ class RecupCardVerticalSuggestion extends StatelessWidget
     final int maxLines = title.isNotEmpty && subtitle.isNotEmpty ? 1 : 2;
 
     return Container(
-      width: 200,
-      height: 280,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.fromBorderSide(
