@@ -225,529 +225,594 @@ abstract class _StorybookOrganismis {
           final recoinsDisabled =
               context.knobs.boolean(label: "recoinsDisabled");
 
-          return Center(
-            child: RecupCardVerticalFeed(
-              width: double.tryParse(context.knobs.string(label: "width")),
-              noSliderPoints: context.knobs.boolean(label: "noSliderPoints"),
-              carouselSize: context.knobs.list(
-                label: "carouselSize",
-                options: const [
-                  RecupCarouselSize.NORMAL,
-                  RecupCarouselSize.LARGE,
-                ],
-              ),
-              backgroundImages: RecupCardVerticalFeedBackground(
-                backgroundImages: [
-                  'https://github.com/arielsardinha.png',
-                  'https://github.com/treinaweb.png',
-                  'https://github.com/recup.png',
-                ].map((e) => RecupCarouselItem(image: e, item: e)).toList(),
-              ),
-              nameAvatar: context.knobs.string(
-                label: 'nameAvatar',
-                initialValue: 'Ariel Sardinha',
-              ),
-              photoHeader: context.knobs.string(
-                label: 'photoHeader',
-                initialValue: 'https://github.com/boginni.png',
-              ),
-              titleHeader: context.knobs.string(
-                label: 'titleHeader',
-                initialValue: 'Title Header',
-              ),
-              subtitleHeader: context.knobs.string(
-                label: 'subtitleHeader',
-                initialValue: 'Subtitle Header',
-              ),
-              trailingHeader: context.knobs.boolean(label: "trailingHeader")
-                  ? const Icon(Icons.more_vert)
-                  : null,
-              titleContent: context.knobs.string(
-                label: 'titleContent',
-                initialValue: 'titleContent',
-              ),
-              subtitleContent: context.knobs.string(
-                label: 'subtitleContent',
-                initialValue: 'subtitleContent',
-              ),
-              childContent: RecupBadgeStandard(
-                text: context.knobs.string(
-                  label: 'childContent',
-                  initialValue: 'Text',
-                ),
-              ),
-              recoins: context.knobs.string(
-                label: 'recoins',
-                initialValue: 'recoins',
-              ),
-              recoinsIcon: context.knobs
-                      .boolean(label: "recoinsIcon", initialValue: true)
-                  ? Icon(
-                      Icons.clear,
-                      color: recoinsDisabled
-                          ? Theme.of(context).colorScheme.outlineVariant
-                          : null,
-                    )
-                  : null,
-              recoinsDisabled: recoinsDisabled,
-              childElevatedButton: Text(
-                context.knobs.string(
-                  label: 'childElevatedButton',
-                  initialValue: 'Enabled',
-                ),
-              ),
-              childOutlinedButton: Text(
-                context.knobs.string(
-                  label: 'childOutlinedButton',
-                  initialValue: 'Enabled',
-                ),
-              ),
-              onPressedElevatedButton: context.knobs.boolean(
-                      label: "onPressedElevatedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              onPressedOutlinedButton: context.knobs.boolean(
-                      label: "onPressedOutlinedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              isActive: context.knobs.boolean(label: "isActive"),
-              children: context.knobs
-                      .boolean(label: "children", initialValue: true)
-                  ? const Column(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.panorama_vertical_select_outlined),
-                            Text("Support text")
-                          ],
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          children: [Icon(Icons.timer), Text("Support text")],
-                        )
-                      ],
-                    )
-                  : null,
+          return RecupCardVerticalFeed(
+            width: double.tryParse(context.knobs.string(label: "width")),
+            noSliderPoints: context.knobs.boolean(label: "noSliderPoints"),
+            carouselPadding: EdgeInsets.symmetric(
+                horizontal: context.knobs.double.slider(
+              label: "carouselPadding",
+              initialValue: 0,
+              min: 0,
+              max: 32,
+              divisions: 8,
+            )),
+            carouselItemHorizontalPadding: context.knobs.double.slider(
+              label: "carouselItemHorizontalPadding",
+              initialValue: 0,
+              min: 0,
+              max: 32,
+              divisions: 8,
             ),
+            carouselSize: context.knobs.list(
+              label: "carouselSize",
+              options: const [
+                RecupCarouselSize.NORMAL,
+                RecupCarouselSize.LARGE,
+              ],
+            ),
+            backgroundImages: RecupCardVerticalFeedBackground(
+              backgroundImages: [
+                'https://github.com/arielsardinha.png',
+                'https://github.com/treinaweb.png',
+                'https://github.com/recup.png',
+              ].map((e) => RecupCarouselItem(image: e, item: e)).toList(),
+            ),
+            nameAvatar: context.knobs.string(
+              label: 'nameAvatar',
+              initialValue: 'Ariel Sardinha',
+            ),
+            photoHeader: context.knobs.string(
+              label: 'photoHeader',
+              initialValue: 'https://github.com/boginni.png',
+            ),
+            titleHeader: context.knobs.string(
+              label: 'titleHeader',
+              initialValue: 'Title Header',
+            ),
+            subtitleHeader: context.knobs.string(
+              label: 'subtitleHeader',
+              initialValue: 'Subtitle Header',
+            ),
+            trailingHeader: context.knobs.boolean(label: "trailingHeader")
+                ? const Icon(Icons.more_vert)
+                : null,
+            titleContent: context.knobs.string(
+              label: 'titleContent',
+              initialValue: 'titleContent',
+            ),
+            subtitleContent: context.knobs.string(
+              label: 'subtitleContent',
+              initialValue: 'subtitleContent',
+            ),
+            childContent: RecupBadgeStandard(
+              text: context.knobs.string(
+                label: 'childContent',
+                initialValue: 'Text',
+              ),
+            ),
+            recoins: context.knobs.string(
+              label: 'recoins',
+              initialValue: 'recoins',
+            ),
+            recoinsIcon: context.knobs
+                    .boolean(label: "recoinsIcon", initialValue: true)
+                ? Icon(
+                    Icons.clear,
+                    color: recoinsDisabled
+                        ? Theme.of(context).colorScheme.outlineVariant
+                        : null,
+                  )
+                : null,
+            recoinsDisabled: recoinsDisabled,
+            childElevatedButton: Text(
+              context.knobs.string(
+                label: 'childElevatedButton',
+                initialValue: 'Enabled',
+              ),
+            ),
+            childOutlinedButton: Text(
+              context.knobs.string(
+                label: 'childOutlinedButton',
+                initialValue: 'Enabled',
+              ),
+            ),
+            onPressedElevatedButton: context.knobs.boolean(
+                    label: "onPressedElevatedButton", initialValue: true)
+                ? () {}
+                : null,
+            onPressedOutlinedButton: context.knobs.boolean(
+                    label: "onPressedOutlinedButton", initialValue: true)
+                ? () {}
+                : null,
+            isActive: context.knobs.boolean(label: "isActive"),
+            children: context.knobs
+                    .boolean(label: "children", initialValue: true)
+                ? const Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.panorama_vertical_select_outlined),
+                          Text("Support text")
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        children: [Icon(Icons.timer), Text("Support text")],
+                      )
+                    ],
+                  )
+                : null,
           );
         },
       ),
       WidgetbookUseCase(
         name: 'product category enable',
         builder: (context) {
-          return Center(
-            child: RecupCardVerticalFeed(
-              backgroundImages: RecupCardVerticalFeedBackground(
-                  backgroundImages: [
-                'https://github.com/arielsardinha.png',
-                'https://github.com/treinaweb.png',
-                'https://github.com/recup.png',
-              ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
-              nameAvatar: context.knobs.string(
-                label: 'nameAvatar',
-                initialValue: 'Ariel Sardinha',
-              ),
-              photoHeader: context.knobs.string(
-                label: 'photoHeader',
-                initialValue: 'https://github.com/arielsardinha.png',
-              ),
-              titleHeader: context.knobs.string(
-                label: 'titleHeader',
-                initialValue: 'Title Header',
-              ),
-              subtitleHeader: context.knobs.string(
-                label: 'subtitleHeader',
-                initialValue: 'Subtitle Header',
-              ),
-              trailingHeader: context.knobs.boolean(label: "trailingHeader")
-                  ? Icon(
-                      Icons.favorite,
-                      color: Theme.of(context).colorScheme.primary,
-                    )
-                  : null,
-              titleContent: context.knobs.string(
-                label: 'titleContent',
-                initialValue: 'titleContent',
-              ),
-              subtitleContent: context.knobs.string(
-                label: 'subtitleContent',
-                initialValue: 'subtitleContent',
-              ),
-              childElevatedButton: Row(
-                children: [
-                  const Icon(
-                    Icons.control_camera_outlined,
-                    size: 16,
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    context.knobs.string(
-                      label: 'childOutlinedButton',
-                      initialValue: 'Enabled',
-                    ),
-                  ),
-                ],
-              ),
-              childOutlinedButton: Text(
-                context.knobs.string(
-                  label: 'childElevatedButton',
-                  initialValue: 'Enabled',
-                ),
-              ),
-              onPressedElevatedButton: context.knobs.boolean(
-                      label: "onPressedElevatedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              onPressedOutlinedButton: context.knobs.boolean(
-                      label: "onPressedOutlinedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              children:
-                  context.knobs.boolean(label: "children", initialValue: true)
-                      ? const Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            RecupAvatars(
-                              images: [
-                                'https://github.com/arielsardinha.png',
-                                'https://github.com/treinaweb.png',
-                                'https://github.com/recup.png',
-                              ],
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text("3 marcas contribuintes")
-                          ],
-                        )
-                      : null,
+          return RecupCardVerticalFeed(
+            backgroundImages: RecupCardVerticalFeedBackground(
+                backgroundImages: [
+              'https://github.com/arielsardinha.png',
+              'https://github.com/treinaweb.png',
+              'https://github.com/recup.png',
+            ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
+            nameAvatar: context.knobs.string(
+              label: 'nameAvatar',
+              initialValue: 'Ariel Sardinha',
             ),
+            carouselPadding: EdgeInsets.symmetric(
+                horizontal: context.knobs.double.slider(
+                  label: "carouselPadding",
+                  initialValue: 0,
+                  min: 0,
+                  max: 32,
+                  divisions: 8,
+                )),
+            carouselItemHorizontalPadding: context.knobs.double.slider(
+              label: "carouselItemHorizontalPadding",
+              initialValue: 0,
+              min: 0,
+              max: 32,
+              divisions: 8,
+            ),
+            photoHeader: context.knobs.string(
+              label: 'photoHeader',
+              initialValue: 'https://github.com/arielsardinha.png',
+            ),
+            titleHeader: context.knobs.string(
+              label: 'titleHeader',
+              initialValue: 'Title Header',
+            ),
+            subtitleHeader: context.knobs.string(
+              label: 'subtitleHeader',
+              initialValue: 'Subtitle Header',
+            ),
+            trailingHeader: context.knobs.boolean(label: "trailingHeader")
+                ? Icon(
+                    Icons.favorite,
+                    color: Theme.of(context).colorScheme.primary,
+                  )
+                : null,
+            titleContent: context.knobs.string(
+              label: 'titleContent',
+              initialValue: 'titleContent',
+            ),
+            subtitleContent: context.knobs.string(
+              label: 'subtitleContent',
+              initialValue: 'subtitleContent',
+            ),
+            childElevatedButton: Row(
+              children: [
+                const Icon(
+                  Icons.control_camera_outlined,
+                  size: 16,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  context.knobs.string(
+                    label: 'childOutlinedButton',
+                    initialValue: 'Enabled',
+                  ),
+                ),
+              ],
+            ),
+            childOutlinedButton: Text(
+              context.knobs.string(
+                label: 'childElevatedButton',
+                initialValue: 'Enabled',
+              ),
+            ),
+            onPressedElevatedButton: context.knobs.boolean(
+                    label: "onPressedElevatedButton", initialValue: true)
+                ? () {}
+                : null,
+            onPressedOutlinedButton: context.knobs.boolean(
+                    label: "onPressedOutlinedButton", initialValue: true)
+                ? () {}
+                : null,
+            children:
+                context.knobs.boolean(label: "children", initialValue: true)
+                    ? const Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          RecupAvatars(
+                            images: [
+                              'https://github.com/arielsardinha.png',
+                              'https://github.com/treinaweb.png',
+                              'https://github.com/recup.png',
+                            ],
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text("3 marcas contribuintes")
+                        ],
+                      )
+                    : null,
           );
         },
       ),
       WidgetbookUseCase(
         name: 'collection point, Enabled',
         builder: (context) {
-          return Center(
-            child: RecupCardVerticalFeed(
-              noSliderPoints: context.knobs
-                  .boolean(label: "noSliderPoints", initialValue: true),
-              backgroundImages: RecupCardVerticalFeedBackground(
-                  backgroundImages: [
-                'https://github.com/arielsardinha.png',
-                'https://github.com/treinaweb.png',
-                'https://github.com/recup.png',
-                'file:///',
-              ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
-              nameAvatar: context.knobs.string(
-                label: 'nameAvatar',
-                initialValue: 'Ariel Sardinha',
-              ),
-              photoHeader: context.knobs.string(
-                label: 'photoHeader',
-                initialValue: 'https://github.com/arielsardinha.png',
-              ),
-              titleHeader: context.knobs.string(
-                label: 'titleHeader',
-                initialValue: 'Title Header',
-              ),
-              subtitleHeader: context.knobs.string(
-                label: 'subtitleHeader',
-                initialValue: 'Subtitle Header',
-              ),
-              trailingHeader: context.knobs.boolean(label: "trailingHeader")
-                  ? const Icon(Icons.favorite_border_outlined)
-                  : null,
-              childContent: RecupBadgeStatus(
-                text: context.knobs.string(
-                  label: 'childContent',
-                  initialValue: 'Text',
-                ),
-              ),
-              childElevatedButton: Row(
-                children: [
-                  const Icon(
-                    Icons.next_plan_outlined,
-                    size: 16,
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    context.knobs.string(
-                      label: 'childOutlinedButton',
-                      initialValue: 'Enabled',
-                    ),
-                  ),
-                ],
-              ),
-              childOutlinedButton: Text(
-                context.knobs.string(
-                  label: 'childElevatedButton',
-                  initialValue: 'Enabled',
-                ),
-              ),
-              onPressedElevatedButton: context.knobs.boolean(
-                      label: "onPressedElevatedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              onPressedOutlinedButton: context.knobs.boolean(
-                      label: "onPressedOutlinedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              children:
-                  context.knobs.boolean(label: "children", initialValue: true)
-                      ? const Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                RecupCircleAvatar(
-                                  photo: 'https://github.com/arielsardinha.png',
-                                  radius: 16,
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text("Capsulas de café")
-                              ],
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(Icons.history_rounded),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text("Aberto, fecha ás 21h00")
-                              ],
-                            ),
-                          ],
-                        )
-                      : null,
+          return RecupCardVerticalFeed(
+            noSliderPoints: context.knobs
+                .boolean(label: "noSliderPoints", initialValue: true),
+            backgroundImages: RecupCardVerticalFeedBackground(
+                backgroundImages: [
+              'https://github.com/arielsardinha.png',
+              'https://github.com/treinaweb.png',
+              'https://github.com/recup.png',
+              'file:///',
+            ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
+            nameAvatar: context.knobs.string(
+              label: 'nameAvatar',
+              initialValue: 'Ariel Sardinha',
             ),
+            photoHeader: context.knobs.string(
+              label: 'photoHeader',
+              initialValue: 'https://github.com/arielsardinha.png',
+            ),
+            carouselPadding: EdgeInsets.symmetric(
+                horizontal: context.knobs.double.slider(
+                  label: "carouselPadding",
+                  initialValue: 0,
+                  min: 0,
+                  max: 32,
+                  divisions: 8,
+                )),
+            carouselItemHorizontalPadding: context.knobs.double.slider(
+              label: "carouselItemHorizontalPadding",
+              initialValue: 0,
+              min: 0,
+              max: 32,
+              divisions: 8,
+            ),
+            titleHeader: context.knobs.string(
+              label: 'titleHeader',
+              initialValue: 'Title Header',
+            ),
+            subtitleHeader: context.knobs.string(
+              label: 'subtitleHeader',
+              initialValue: 'Subtitle Header',
+            ),
+            trailingHeader: context.knobs.boolean(label: "trailingHeader")
+                ? const Icon(Icons.favorite_border_outlined)
+                : null,
+            childContent: RecupBadgeStatus(
+              text: context.knobs.string(
+                label: 'childContent',
+                initialValue: 'Text',
+              ),
+            ),
+            childElevatedButton: Row(
+              children: [
+                const Icon(
+                  Icons.next_plan_outlined,
+                  size: 16,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  context.knobs.string(
+                    label: 'childOutlinedButton',
+                    initialValue: 'Enabled',
+                  ),
+                ),
+              ],
+            ),
+            childOutlinedButton: Text(
+              context.knobs.string(
+                label: 'childElevatedButton',
+                initialValue: 'Enabled',
+              ),
+            ),
+            onPressedElevatedButton: context.knobs.boolean(
+                    label: "onPressedElevatedButton", initialValue: true)
+                ? () {}
+                : null,
+            onPressedOutlinedButton: context.knobs.boolean(
+                    label: "onPressedOutlinedButton", initialValue: true)
+                ? () {}
+                : null,
+            children:
+                context.knobs.boolean(label: "children", initialValue: true)
+                    ? const Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              RecupCircleAvatar(
+                                photo: 'https://github.com/arielsardinha.png',
+                                radius: 16,
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("Capsulas de café")
+                            ],
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.history_rounded),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("Aberto, fecha ás 21h00")
+                            ],
+                          ),
+                        ],
+                      )
+                    : null,
           );
         },
       ),
       WidgetbookUseCase(
         name: 'Donation Enabled',
         builder: (context) {
-          return Center(
-            child: RecupCardVerticalFeed(
-              noSliderPoints: context.knobs
-                  .boolean(label: "noSliderPoints", initialValue: true),
-              backgroundImages: RecupCardVerticalFeedBackground(
-                  backgroundImages: [
-                'https://github.com/arielsardinha.png',
-                'https://github.com/treinaweb.png',
-                'https://github.com/recup.png',
-              ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
-              nameAvatar: context.knobs.string(
-                label: 'nameAvatar',
-                initialValue: 'Ariel Sardinha',
-              ),
-              photoHeader: context.knobs.string(
-                label: 'photoHeader',
-                initialValue: 'https://github.com/arielsardinha.png',
-              ),
-              titleHeader: context.knobs.string(
-                label: 'titleHeader',
-                initialValue: 'Title Header',
-              ),
-              subtitleHeader: context.knobs.string(
-                label: 'subtitleHeader',
-                initialValue: 'Subtitle Header',
-              ),
-              trailingHeader: context.knobs.boolean(label: "trailingHeader")
-                  ? const Icon(Icons.favorite_border_outlined)
-                  : null,
-              subtitleContent: context.knobs.string(
-                label: 'subtitleContent',
-                initialValue: 'subtitleContent',
-              ),
-              childContent: RecupBadgeStatus(
-                text: context.knobs.string(
-                  label: 'childContent',
-                  initialValue: 'Text',
-                ),
-              ),
-              childElevatedButton: Row(
-                children: [
-                  const Icon(
-                    Icons.circle_outlined,
-                    size: 16,
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    context.knobs.string(
-                      label: 'childOutlinedButton',
-                      initialValue: 'Ativar',
-                    ),
-                  ),
-                ],
-              ),
-              childOutlinedButton: Text(
-                context.knobs.string(
-                  label: 'childElevatedButton',
-                  initialValue: 'Ver mais',
-                ),
-              ),
-              onPressedElevatedButton: context.knobs.boolean(
-                      label: "onPressedElevatedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              onPressedOutlinedButton: context.knobs.boolean(
-                      label: "onPressedOutlinedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              children:
-                  context.knobs.boolean(label: "children", initialValue: true)
-                      ? const Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(Icons.person),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text("486 doadores ativos")
-                              ],
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(Icons.volunteer_activism_outlined),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text("1 358€ doados")
-                              ],
-                            ),
-                          ],
-                        )
-                      : null,
+          return RecupCardVerticalFeed(
+            noSliderPoints: context.knobs
+                .boolean(label: "noSliderPoints", initialValue: true),
+            backgroundImages: RecupCardVerticalFeedBackground(
+                backgroundImages: [
+              'https://github.com/arielsardinha.png',
+              'https://github.com/treinaweb.png',
+              'https://github.com/recup.png',
+            ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
+            nameAvatar: context.knobs.string(
+              label: 'nameAvatar',
+              initialValue: 'Ariel Sardinha',
             ),
+            carouselPadding: EdgeInsets.symmetric(
+                horizontal: context.knobs.double.slider(
+                  label: "carouselPadding",
+                  initialValue: 0,
+                  min: 0,
+                  max: 32,
+                  divisions: 8,
+                )),
+            carouselItemHorizontalPadding: context.knobs.double.slider(
+              label: "carouselItemHorizontalPadding",
+              initialValue: 0,
+              min: 0,
+              max: 32,
+              divisions: 8,
+            ),
+            photoHeader: context.knobs.string(
+              label: 'photoHeader',
+              initialValue: 'https://github.com/arielsardinha.png',
+            ),
+            titleHeader: context.knobs.string(
+              label: 'titleHeader',
+              initialValue: 'Title Header',
+            ),
+            subtitleHeader: context.knobs.string(
+              label: 'subtitleHeader',
+              initialValue: 'Subtitle Header',
+            ),
+            trailingHeader: context.knobs.boolean(label: "trailingHeader")
+                ? const Icon(Icons.favorite_border_outlined)
+                : null,
+            subtitleContent: context.knobs.string(
+              label: 'subtitleContent',
+              initialValue: 'subtitleContent',
+            ),
+            childContent: RecupBadgeStatus(
+              text: context.knobs.string(
+                label: 'childContent',
+                initialValue: 'Text',
+              ),
+            ),
+            childElevatedButton: Row(
+              children: [
+                const Icon(
+                  Icons.circle_outlined,
+                  size: 16,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  context.knobs.string(
+                    label: 'childOutlinedButton',
+                    initialValue: 'Ativar',
+                  ),
+                ),
+              ],
+            ),
+            childOutlinedButton: Text(
+              context.knobs.string(
+                label: 'childElevatedButton',
+                initialValue: 'Ver mais',
+              ),
+            ),
+            onPressedElevatedButton: context.knobs.boolean(
+                    label: "onPressedElevatedButton", initialValue: true)
+                ? () {}
+                : null,
+            onPressedOutlinedButton: context.knobs.boolean(
+                    label: "onPressedOutlinedButton", initialValue: true)
+                ? () {}
+                : null,
+            children:
+                context.knobs.boolean(label: "children", initialValue: true)
+                    ? const Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.person),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("486 doadores ativos")
+                            ],
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.volunteer_activism_outlined),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("1 358€ doados")
+                            ],
+                          ),
+                        ],
+                      )
+                    : null,
           );
         },
       ),
       WidgetbookUseCase(
         name: 'Donation Actived',
         builder: (context) {
-          return Center(
-            child: RecupCardVerticalFeed(
-              noSliderPoints: context.knobs
-                  .boolean(label: "noSliderPoints", initialValue: true),
-              backgroundImages: RecupCardVerticalFeedBackground(
-                  backgroundImages: [
-                'https://github.com/arielsardinha.png',
-                'https://github.com/treinaweb.png',
-                'https://github.com/recup.png',
-              ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
-              nameAvatar: context.knobs.string(
-                label: 'nameAvatar',
-                initialValue: 'Ariel Sardinha',
-              ),
-              photoHeader: context.knobs.string(
-                label: 'photoHeader',
-                initialValue: 'https://github.com/arielsardinha.png',
-              ),
-              titleHeader: context.knobs.string(
-                label: 'titleHeader',
-                initialValue: 'Title Header',
-              ),
-              subtitleHeader: context.knobs.string(
-                label: 'subtitleHeader',
-                initialValue: 'Subtitle Header',
-              ),
-              trailingHeader: context.knobs.boolean(label: "trailingHeader")
-                  ? const Icon(Icons.favorite_border_outlined)
-                  : null,
-              subtitleContent: context.knobs.string(
-                label: 'subtitleContent',
-                initialValue: 'subtitleContent',
-              ),
-              childContent: RecupBadgeStatus(
-                text: context.knobs.string(
-                  label: 'childContent',
-                  initialValue: 'Text',
-                ),
-              ),
-              isActive: context.knobs.boolean(label: "isActive"),
-              childElevatedButton: Row(
-                children: [
-                  const Icon(
-                    Icons.check_circle_outlined,
-                    size: 16,
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    context.knobs.string(
-                      label: 'childOutlinedButton',
-                      initialValue: 'Ativo',
-                    ),
-                  ),
-                ],
-              ),
-              childOutlinedButton: Text(
-                context.knobs.string(
-                  label: 'childElevatedButton',
-                  initialValue: 'Ver mais',
-                ),
-              ),
-              onPressedElevatedButton: context.knobs.boolean(
-                      label: "onPressedElevatedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              onPressedOutlinedButton: context.knobs.boolean(
-                      label: "onPressedOutlinedButton", initialValue: true)
-                  ? () {}
-                  : null,
-              children:
-                  context.knobs.boolean(label: "children", initialValue: true)
-                      ? const Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(Icons.person),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text("486 doadores ativos")
-                              ],
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(Icons.volunteer_activism_outlined),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Text("1 358€ doados")
-                              ],
-                            ),
-                          ],
-                        )
-                      : null,
+          return RecupCardVerticalFeed(
+            noSliderPoints: context.knobs
+                .boolean(label: "noSliderPoints", initialValue: true),
+            backgroundImages: RecupCardVerticalFeedBackground(
+                backgroundImages: [
+              'https://github.com/arielsardinha.png',
+              'https://github.com/treinaweb.png',
+              'https://github.com/recup.png',
+            ].map((e) => RecupCarouselItem(image: e, item: e)).toList()),
+            nameAvatar: context.knobs.string(
+              label: 'nameAvatar',
+              initialValue: 'Ariel Sardinha',
             ),
+            carouselPadding: EdgeInsets.symmetric(
+                horizontal: context.knobs.double.slider(
+                  label: "carouselPadding",
+                  initialValue: 0,
+                  min: 0,
+                  max: 32,
+                  divisions: 8,
+                )),
+            carouselItemHorizontalPadding: context.knobs.double.slider(
+              label: "carouselItemHorizontalPadding",
+              initialValue: 0,
+              min: 0,
+              max: 32,
+              divisions: 8,
+            ),
+            photoHeader: context.knobs.string(
+              label: 'photoHeader',
+              initialValue: 'https://github.com/arielsardinha.png',
+            ),
+            titleHeader: context.knobs.string(
+              label: 'titleHeader',
+              initialValue: 'Title Header',
+            ),
+            subtitleHeader: context.knobs.string(
+              label: 'subtitleHeader',
+              initialValue: 'Subtitle Header',
+            ),
+            trailingHeader: context.knobs.boolean(label: "trailingHeader")
+                ? const Icon(Icons.favorite_border_outlined)
+                : null,
+            subtitleContent: context.knobs.string(
+              label: 'subtitleContent',
+              initialValue: 'subtitleContent',
+            ),
+            childContent: RecupBadgeStatus(
+              text: context.knobs.string(
+                label: 'childContent',
+                initialValue: 'Text',
+              ),
+            ),
+            isActive: context.knobs.boolean(label: "isActive"),
+            childElevatedButton: Row(
+              children: [
+                const Icon(
+                  Icons.check_circle_outlined,
+                  size: 16,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  context.knobs.string(
+                    label: 'childOutlinedButton',
+                    initialValue: 'Ativo',
+                  ),
+                ),
+              ],
+            ),
+            childOutlinedButton: Text(
+              context.knobs.string(
+                label: 'childElevatedButton',
+                initialValue: 'Ver mais',
+              ),
+            ),
+            onPressedElevatedButton: context.knobs.boolean(
+                    label: "onPressedElevatedButton", initialValue: true)
+                ? () {}
+                : null,
+            onPressedOutlinedButton: context.knobs.boolean(
+                    label: "onPressedOutlinedButton", initialValue: true)
+                ? () {}
+                : null,
+            children:
+                context.knobs.boolean(label: "children", initialValue: true)
+                    ? const Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.person),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("486 doadores ativos")
+                            ],
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.volunteer_activism_outlined),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Text("1 358€ doados")
+                            ],
+                          ),
+                        ],
+                      )
+                    : null,
           );
         },
       ),
