@@ -24,6 +24,8 @@ class RecupTextFormField extends StatefulWidget {
   final bool autofocus;
   final Widget? prefixIcon;
 
+  final bool readOnly;
+
   const RecupTextFormField({
     super.key,
     this.controller,
@@ -48,6 +50,7 @@ class RecupTextFormField extends StatefulWidget {
     this.focusNode,
     this.autofocus = false,
     this.prefixIcon,
+    this.readOnly = false,
   });
 
   @override
@@ -125,6 +128,7 @@ class _RecupTextFormFieldState extends State<RecupTextFormField> {
         initialValue: widget.initialValue,
         maxLength: widget.maxLength,
         focusNode: widget.focusNode,
+        readOnly: widget.readOnly,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
           color: Theme.of(context).colorScheme.onSurfaceVariant
         ),
