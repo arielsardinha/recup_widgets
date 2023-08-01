@@ -74,7 +74,7 @@ class RecupCardVerticalSuggestion extends StatelessWidget
                     image: isPhoto(photoBackground)
                         ? DecorationImage(
                             fit: fit ?? BoxFit.cover,
-                            image: NetworkImage(photoBackground),
+                            image: CachedNetworkImageProvider(photoBackground),
                           )
                         : null,
                   ),

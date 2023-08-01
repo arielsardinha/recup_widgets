@@ -56,7 +56,7 @@ class RecupCardHorizontalNotification extends StatelessWidget with ImageValidati
                   bottomLeft: Radius.circular(16),
                 ),
                 image: isPhoto(photo) ? DecorationImage(
-                  image: NetworkImage(photo),
+                  image: CachedNetworkImageProvider(photo),
                   fit: BoxFit.cover,
                 ) : null,
               ),

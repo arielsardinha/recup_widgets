@@ -94,7 +94,7 @@ class _RecupCarouselState<T> extends State<RecupCarousel<T>>
                       borderRadius: widget.itemBorderRadius,
                       image: isPhoto(item.image)
                           ? DecorationImage(
-                              image: NetworkImage(item.image),
+                              image: CachedNetworkImageProvider(item.image),
                               fit: widget.fit,
                             )
                           : null,

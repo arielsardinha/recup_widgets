@@ -66,7 +66,7 @@ class RecupCircleAvatar extends StatelessWidget with ImageValidationMixin {
             ),
         child: CircleAvatar(
           radius: (size - borderSize) * 0.5,
-          backgroundImage: isPhotoValidUri(photo) ? NetworkImage(photo) : null,
+          backgroundImage: isPhotoValidUri(photo) ? CachedNetworkImageProvider(photo) : null,
           backgroundColor:
               backgroundColor ?? theme.colorScheme.primaryContainer,
           foregroundColor: theme.colorScheme.primary,

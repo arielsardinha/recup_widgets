@@ -73,7 +73,7 @@ class RecupCardHorizontalActionAds extends StatelessWidget with ImageValidationM
                   ),
                   image: isPhoto(photoBackground)
                       ? DecorationImage(
-                          image: NetworkImage(photoBackground),
+                          image: CachedNetworkImageProvider(photoBackground),
                           fit: BoxFit.cover,
                         )
                       : null,
