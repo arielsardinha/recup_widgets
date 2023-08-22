@@ -26,6 +26,8 @@ class RecupTextFormField extends StatefulWidget {
 
   final bool readOnly;
 
+  final InputDecoration decoration;
+
   const RecupTextFormField({
     super.key,
     this.controller,
@@ -51,6 +53,7 @@ class RecupTextFormField extends StatefulWidget {
     this.autofocus = false,
     this.prefixIcon,
     this.readOnly = false,
+    this.decoration = const InputDecoration(),
   });
 
   @override
@@ -130,9 +133,9 @@ class _RecupTextFormFieldState extends State<RecupTextFormField> {
         focusNode: widget.focusNode,
         readOnly: widget.readOnly,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: Theme.of(context).colorScheme.onSurfaceVariant
+            color: Theme.of(context).colorScheme.onSurfaceVariant
         ),
-        decoration: InputDecoration(
+        decoration: widget.decoration.copyWith(
           contentPadding: padding,
           hintMaxLines: widget.hintMaxLines,
           isDense: true,
