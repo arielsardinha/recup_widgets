@@ -19,3 +19,12 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  fonts:
+    - family: RecupIcon
+      fonts:
+        - asset: /lib/assets/fonts/recup-icon-font.ttf
+
+topics:
+  - assets
+  - icons
+  - ui
