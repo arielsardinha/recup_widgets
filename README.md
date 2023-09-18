@@ -1,4 +1,4 @@
-## Features (ChatGPT)
+## Features
 Este é um pacote Flutter que fornece uma coleção de widgets personalizados, juntamente com um Storybook integrado e um conjunto de ícones. O objetivo deste pacote é facilitar o desenvolvimento de interfaces de usuário elegantes e intuitivas em aplicativos Flutter.
 
 #### Recursos

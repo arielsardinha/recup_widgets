@@ -20,9 +20,9 @@ dev_dependencies:
 
 flutter:
   fonts:
-    - family: RecupIcon
+    - family: RecupIcons
       fonts:
-        - asset: /lib/assets/fonts/recup-icon-font.ttf
+        - asset: assets/recup-icon-font.ttf
 
 topics:
   - assets
